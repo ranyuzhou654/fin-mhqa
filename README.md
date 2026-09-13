@@ -3,7 +3,7 @@
 按根目录《02_金融多跳问答系统_实现文档》逐阶段落地，设计依据见《01_金融多跳问答系统_设计方案》。当前已完成 10 份真实半年报、1,750 页的 **M1 Docling 全量候选处理**，得到 9,322 条 chunks。22 项测试、全量结构审计和 16 个事实锚点通过；300 条审核现已依据用户确认代录通过，评分为 `PASSED`；结论来源及当前状态见 [实施进度](docs/IMPLEMENTATION_STATUS.md)。详见 [全量结果](docs/DOCLING_CORPUS_RESULTS.md)。
 
 
-M2 最新状态：正式 9,322 条索引已完成；冻结 30 题验收中 hybrid 为 **23/30（76.67%），未通过 >85% 门槛**。见 [正式结果与失败分析](docs/M2_FORMAL_RESULTS.md)。
+M2 最新状态：正式 9,322 条索引已完成；经源页审核并提前冻结的 v2 标签验收为 **29/30（96.67%），通过 >85% 门槛**。90 次主结果排序与 v1 一致，变化来自标签覆盖修正；[v1 失败结果](docs/M2_FORMAL_RESULTS.md)保留。见 [v2 验收报告](docs/M2_V2_RESULTS.md)。M3 等待用户选择教师模型与 API 服务商。
 
 ## 本地环境
 
@@ -75,7 +75,7 @@ uv pip install --python .venv/bin/python --no-deps -e .
 
 ## M2 本地检索
 
-两套模型已获批并完成本地推理及 HTTP 联调。正式索引已完成，首次全量检索验收未通过；18 条实验索引保留作历史联调证据。结果、真实故障修复和限制见 [M2 结果](docs/M2_RESULTS.md)。
+两套模型已获批并完成本地推理及 HTTP 联调。正式索引已完成，v1 验收失败保留，v2 源页等价标签验收通过；18 条实验索引保留作历史联调证据。结果、真实故障修复和限制见 [M2 结果](docs/M2_RESULTS.md)。
 
 检索环境与 M1、Docling 分开；模型推理通过本地子进程运行，避免 macOS 上 Torch 与 FAISS 的 OpenMP 冲突。
 
@@ -121,7 +121,7 @@ FINMHQA_INDEX=data/experiments/retrieval_smoke/index FINMHQA_EXPERIMENTAL=1 FINM
   --factory --host 127.0.0.1 --port 8100
 # 服务启动后在另一终端评测：
 .venv-retrieval/bin/python scripts/evaluate_retrieval.py \
-  --queries data/eval/retrieval_dev30.bound.jsonl --out data/eval/retrieval_dev30.results.json
+  --queries data/eval/retrieval_dev30.v2.bound.jsonl --out data/eval/retrieval_dev30.v2.recheck.json
 ```
 
-正式构建会复算固定样本评分并核对数据、审核与索引哈希；服务默认拒绝实验索引。评测仅在正式数据、原始 30 题绑定和默认候选数均匹配时产生正式验收判定。若 M1 修订改变候选，须先重新审核并绑定 gold 证据。
+正式构建会复算固定样本评分并核对数据、审核与索引哈希；服务默认拒绝实验索引。评测仅在正式数据、原始 30 题及其冻结绑定和默认候选数均匹配时产生正式验收判定；v2 另核对注册版本与源页审核哈希。v1 原绑定保留在 `data/eval/retrieval_dev30.bound.jsonl`，可指定该文件复跑原标签。标签发现、源页审核和冻结流程见 [v2 标签说明](docs/RETRIEVAL_LABELS_V2.md)。若 M1 修订改变候选，须先重新审核并绑定 gold 证据。

@@ -1,0 +1,77 @@
+{
+  "label_freeze_commit": "1710c6c",
+  "implementation_commit": "1710c6c15ec1afb6b3a159dd6ecde25ea4270319",
+  "tests_passed": 15,
+  "http_queries": 90,
+  "evaluation_exit_code": 0,
+  "acceptance": "PASSED",
+  "label_version": "source_equivalence_v2",
+  "service_shutdown": "Application shutdown complete; stopped after final readiness check",
+  "source_render_tool": "pdftoppm 26.04.0 -scale-to 1500 -png -singlefile",
+  "v1_verification": {
+    "data/candidates/docling/chunks.jsonl": {
+      "current_raw_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+      "historical_hash_verified": true
+    },
+    "data/chunks.jsonl": {
+      "current_raw_sha256": "671ae8587763e1d4d3d58e1725807fd959ba43a4c45926b8cba7b8bc14450720",
+      "historical_hash_verified": true
+    },
+    "configs/retrieval_dev30.jsonl": {
+      "current_raw_sha256": "80064b16f2a0ad09f88757bb0d17be85e38757da0475506440daaaa47f16e705",
+      "historical_hash_verified": true
+    },
+    "data/eval/retrieval_dev30.bound.jsonl": {
+      "current_raw_sha256": "a1f696a319b32342a1cbad91d4a474bf970f20e8947f20fc7ad49f85851f54f3",
+      "historical_hash_verified": true
+    },
+    "data/eval/retrieval_dev30.bound.summary.json": {
+      "current_raw_sha256": "b985b5d2b4140e536556768d57c60eadd6d2d82ba9d5df20a1291c2a1d7041dc",
+      "historical_hash_verified": true
+    },
+    "data/eval/retrieval_dev30.results.json": {
+      "current_raw_sha256": "360a69f32e13cabcc7eec5271b9bfb4cc49dd2302652614b3b9e76bcdbcff333",
+      "historical_hash_verified": true
+    },
+    "data/eval/retrieval_dev30.results.requests.jsonl": {
+      "current_raw_sha256": "5b012dcc8aaff708ce113212ccf1d0019a9cb746063d49290275a1b25fe04822",
+      "historical_hash_verified": true
+    },
+    "index/manifest.json": {
+      "current_raw_sha256": "9adf4f8adb70c74454c2b6d34ffee77312c7cb8e80173a263cd810d25957ecf3",
+      "historical_hash_verified": true
+    },
+    "data/retrieval_formal_build.log": {
+      "current_raw_sha256": "2f2732f9041beeee0434befd402b1f790e27e43e4cab99d3d3f8a720bffc88cf",
+      "historical_hash_verified": true
+    },
+    "data/retrieval_formal_eval.log": {
+      "current_raw_sha256": "574715cf50505ccb29262d51e95517378dc9dc23f912415491c3527384d7e0ae",
+      "historical_hash_verified": true
+    },
+    "data/retrieval_formal_server.log": {
+      "current_raw_sha256": "ac2a30248e1f3e0455d2c73a2f5460fef054871ae83c7aabc3a7c4b45f7211ef",
+      "historical_hash_verified": true
+    }
+  },
+  "historical_hash_errata": [
+    {
+      "path": "data/retrieval_formal_server.log",
+      "historical_hash": "3dfa280674ec22ec5d9dc4a3e9d48926fe9330f746cff04a8a21792f751e56ac",
+      "historical_hash_method": "SHA256 of read_text().encode(), with universal newline normalization",
+      "raw_file_sha256": "ac2a30248e1f3e0455d2c73a2f5460fef054871ae83c7aabc3a7c4b45f7211ef",
+      "meaning": "Historical metadata used normalized text for this one server log. Data, labels, results and raw responses are unchanged. Original receipt retained."
+    }
+  ],
+  "artifacts": {
+    "data/eval/retrieval_dev30.v2.results.json": "4cd1867276c0684ab646a919b433176b19f427700dc3184a21fa0262ac6f71cd",
+    "data/eval/retrieval_dev30.v2.results.requests.jsonl": "b17f107b259c757abf70b385c5d9f45f214d515eb34b9b5016ef0475ace734fc",
+    "data/eval/retrieval_dev30.v2.bound.jsonl": "9bc87fe4de0ab7063effc599a6d4b577cfaca0ebd4134eaf0c206c62f7250e6c",
+    "data/eval/retrieval_dev30.v2.bound.summary.json": "2d2944d2e2bd1c50390d9bb4e6222b55a01aea02929b2c4fe412ec221c06f8df",
+    "configs/retrieval_equivalence_v2_review.json": "3a1a053810ce1a02c7634e1c90d2c313f24f030b0d7935c7e95678a9e7c31413",
+    "configs/retrieval_label_versions.json": "c847f4a2728bd2356aea557c0684dcc88984db4fce153cd4dff13671f538b139",
+    "data/retrieval_v2_eval.log": "62a01891b25ad0617cfbea4fb4a6d5a3047fa0ef7e666b60565e9e9273a0a925",
+    "data/retrieval_v2_server.log": "7c303c280de7b453ce21d955578e801fc7cd37ef4aa33c0d325acb46a76db3a0",
+    "index/manifest.json": "9adf4f8adb70c74454c2b6d34ffee77312c7cb8e80173a263cd810d25957ecf3"
+  }
+}
