@@ -13,3 +13,5 @@ index/
 ckpt/
 
 .venv-docling/
+
+.venv-retrieval/

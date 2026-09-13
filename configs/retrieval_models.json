@@ -1,0 +1,88 @@
+{
+  "models": [
+    {
+      "name": "bge-m3",
+      "repo_id": "BAAI/bge-m3",
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "files": [
+        {
+          "name": "README.md",
+          "bytes": 15822,
+          "sha256": null
+        },
+        {
+          "name": "config.json",
+          "bytes": 687,
+          "sha256": null
+        },
+        {
+          "name": "pytorch_model.bin",
+          "bytes": 2271145830,
+          "sha256": "b5e0ce3470abf5ef3831aa1bd5553b486803e83251590ab7ff35a117cf6aad38"
+        },
+        {
+          "name": "sentencepiece.bpe.model",
+          "bytes": 5069051,
+          "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865"
+        },
+        {
+          "name": "special_tokens_map.json",
+          "bytes": 964,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer.json",
+          "bytes": 17098108,
+          "sha256": "21106b6d7dab2952c1d496fb21d5dc9db75c28ed361a05f5020bbba27810dd08"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "bytes": 444,
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "name": "bge-reranker-v2-m3",
+      "repo_id": "BAAI/bge-reranker-v2-m3",
+      "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "files": [
+        {
+          "name": "README.md",
+          "bytes": 17229,
+          "sha256": null
+        },
+        {
+          "name": "config.json",
+          "bytes": 795,
+          "sha256": null
+        },
+        {
+          "name": "model.safetensors",
+          "bytes": 2271071852,
+          "sha256": "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286"
+        },
+        {
+          "name": "sentencepiece.bpe.model",
+          "bytes": 5069051,
+          "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865"
+        },
+        {
+          "name": "special_tokens_map.json",
+          "bytes": 964,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer.json",
+          "bytes": 17098273,
+          "sha256": "69564b696052886ed0ac63fa393e928384e0f8caada38c1f4864a9bfbf379c15"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "bytes": 1173,
+          "sha256": null
+        }
+      ]
+    }
+  ]
+}
