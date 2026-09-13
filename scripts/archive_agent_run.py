@@ -8,8 +8,14 @@ import shutil
 
 def archive(run,out):
     if out.exists():raise FileExistsError(out)
-    out.mkdir(parents=True)
     manifest=json.loads((run/'manifest.json').read_text())
+    sources=[]
+    for name,sha in manifest.get('code_sha256',{}).items():
+        p=Path(name).resolve()
+        relative=p.relative_to(Path.cwd().resolve())
+        if hashlib.sha256(p.read_bytes()).hexdigest()!=sha:raise ValueError('archive before changing execution code: '+name)
+        sources.append((p,relative))
+    out.mkdir(parents=True)
     shutil.copy2(run/'manifest.json',out/'manifest.json')
     if (run/'health_after.json').exists():shutil.copy2(run/'health_after.json',out/'health_after.json')
     for folder in sorted(run.glob('*/*')):
@@ -23,10 +29,8 @@ def archive(run,out):
         (target/f'{folder.name}.jsonl').write_text(''.join(json.dumps(e,ensure_ascii=False)+'\n' for e in events))
     files={str(p.relative_to(run)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(run.rglob('*')) if p.is_file()}
     (out/'runtime_hashes.json').write_text(json.dumps(files,indent=2))
-    for name,sha in manifest.get('code_sha256',{}).items():
-        p=Path(name)
-        if hashlib.sha256(p.read_bytes()).hexdigest()!=sha:raise ValueError('archive before changing execution code: '+name)
-        target=out/'execution_code'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,target)
+    for p,relative in sources:
+        target=out/'execution_code'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,target)
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--run',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args();archive(a.run,a.out)
