@@ -35,6 +35,10 @@ def main():
         table_structure_options=TableStructureOptions(mode=TableFormerMode.ACCURATE,do_cell_matching=True))
     converter=DocumentConverter(format_options={InputFormat.PDF:PdfFormatOption(pipeline_options=options)})
     records=json.loads(Path('data/source_manifest.json').read_text())
+    if args.company_code and not any(r['company_code']==args.company_code for r in records):
+        raise ValueError('Unknown company code')
+    progress_name = f'progress-{args.company_code}.json' if args.company_code else 'progress.json'
+    summary_name = f'summary-{args.company_code}.json' if args.company_code else 'summary.json'
     failures=[]; completed=0
     for record in records:
         if args.company_code and record['company_code']!=args.company_code:continue
@@ -73,9 +77,9 @@ def main():
                 failure=dict(company=record['company'],page_start=start,page_end=end,error=str(exc))
                 failures.append(failure)
                 print('FAILED',failure,flush=True)
-            (root/'progress.json').write_text(json.dumps(dict(completed_pages=completed,failures=failures),ensure_ascii=False,indent=2)+'\n')
+            (root/progress_name).write_text(json.dumps(dict(completed_pages=completed,failures=failures),ensure_ascii=False,indent=2)+'\n')
     summary=dict(cache_root=str(root),settings_sha256=signature,completed_pages=completed,failures=failures)
-    (root/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
+    (root/summary_name).write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(summary,ensure_ascii=False),flush=True)
     if failures:raise SystemExit(1)
 
