@@ -74,5 +74,8 @@ def main():
             'usage':[e['usage'] for e in logs if e['event']=='teacher_decision']}
         (folder/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps(result,ensure_ascii=False),flush=True)
     with ThreadPoolExecutor(max_workers=2) as pool:list(pool.map(run,SCENARIOS))
+    after=request_json(a.url+'/health')
+    if after!=health:raise ValueError('retrieval index changed during recovery experiment')
+    (a.out/'health_after.json').write_text(json.dumps(after,ensure_ascii=False,indent=2))
 
 if __name__=='__main__':main()
