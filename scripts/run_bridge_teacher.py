@@ -5,6 +5,8 @@ import json
 import os
 from pathlib import Path
 import time
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from finmhqa.agent.codex_teacher import CodexTeacher, SYSTEM, SCHEMA
 from finmhqa.agent.pilot_tools import calculate, request_json, search
 
@@ -15,6 +17,7 @@ def main():
     p.add_argument('--binary',default='/Applications/ChatGPT.app/Contents/Resources/codex')
     p.add_argument('--url',default='http://127.0.0.1:8100')
     p.add_argument('--only',default=None)
+    p.add_argument('--workers',type=int,choices=[1,2],default=1)
     a=p.parse_args()
     if a.out.exists():raise FileExistsError(a.out)
     a.out.mkdir(parents=True)
@@ -26,9 +29,10 @@ def main():
     health=request_json(a.url+'/health')
     if health['count']!=9322 or health['admission']['status']!='ACCEPTED':raise ValueError('wrong index')
     dataset=health['admission']['dataset_sha256']
-    metadata={'teacher':'gpt-5.6-sol','backend':'Codex CLI 0.153.4 ChatGPT login','questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),'system_prompt_sha256':hashlib.sha256(SYSTEM.encode()).hexdigest(),'health_before':health,'max_searches':6,'max_decisions':10,'schema':SCHEMA,'architecture':'bounded external action loop; not full LangGraph','native_tools':'disabled where supported; any emitted native tool item rejects the run'}
+    metadata={'teacher':'gpt-5.6-sol','backend':'Codex CLI 0.153.4 ChatGPT login','questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),'system_prompt_sha256':hashlib.sha256(SYSTEM.encode()).hexdigest(),'health_before':health,'max_searches':6,'max_decisions':10,'workers':a.workers,'schema':SCHEMA,'architecture':'bounded external action loop; not full LangGraph','native_tools':'disabled where supported; any emitted native tool item rejects the run'}
     (a.out/'manifest.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2))
-    for row in rows:
+    retrieval_lock=threading.Lock()
+    def run_case(row):
         case=a.out/row['id'];case.mkdir();history=[];seen=set();calls=0;calculated=False;final=None;error=None;usage=[]
         with (case/'trajectory.jsonl').open('x') as log:
             def record(event):
@@ -47,13 +51,17 @@ def main():
                         for args in requests:
                             calls+=1;start=time.monotonic()
                             record({'event':'tool_request','step':step,'tool':'search','args':args})
-                            response=search(a.url,args,dataset)
+                            with retrieval_lock:
+                                response=search(a.url,args,dataset)
                             record({'event':'tool_response','step':step,'tool':'search','response':response,'seconds':time.monotonic()-start})
                             for c in response['results']:seen.add(c['chunk_id'])
                             observations.append({'tool':'search','args':args,'response':response})
                     elif action['action']=='calculate':
                         record({'event':'tool_request','step':step,'tool':'calculate','args':action['calculation']})
-                        result=calculate(action['calculation']);calculated=True
+                        try:
+                            result=calculate(action['calculation']);calculated=True
+                        except (ValueError, KeyError, ArithmeticError, TypeError) as exc:
+                            result={'error':'INVALID_CALCULATION','detail':str(exc),'recoverable':True}
                         record({'event':'tool_response','step':step,'tool':'calculate','response':result})
                         observations.append({'tool':'calculate','response':result})
                     elif action['action']=='finish':
@@ -71,6 +79,8 @@ def main():
         result={'id':row['id'],'final':final,'error':error,'search_calls':calls,'decision_calls':len(usage),'usage':usage,'seen_chunk_ids':sorted(seen)}
         (case/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
         print(json.dumps({'id':row['id'],'status':'ERROR' if error else final['status'],'search_calls':calls,'error':error},ensure_ascii=False),flush=True)
+    with ThreadPoolExecutor(max_workers=a.workers) as pool:
+        list(pool.map(run_case,rows))
     after=request_json(a.url+'/health')
     if after!=health:raise ValueError('health changed during evaluation')
     (a.out/'health_after.json').write_text(json.dumps(after,ensure_ascii=False,indent=2))

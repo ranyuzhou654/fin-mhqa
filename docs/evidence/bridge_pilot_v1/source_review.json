@@ -1,534 +1,398 @@
 {
-  "review_version": 1,
-  "corpus_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
-  "scope": {
-    "reports": "10家公司2025年半年度报告中的本批12题所引页面",
-    "facts": "营业收入、归属于上市公司股东或母公司股东的净利润、经营活动产生的现金流量净额",
-    "limitations": "8条bridge均为条件实体选择桥接，不声称供应链或实体关系桥接；本文件不记录或编造真实Agent工具轨迹。"
-  },
-  "summary": {
-    "questions": 12,
-    "bridge": 8,
-    "comparison": 2,
-    "aggregation": 2,
-    "unique_source_pdfs": 10,
-    "text_checks": "PASS",
-    "visual_checks": "PASS_RENDERED_PAGE_AGENT_REVIEW"
-  },
+  "review_version": 2,
+  "gold_sha256": "822a5d66f086a26abd8f5ce1ecac8ad67d5a6a92cf12158c8555d0d3fd5b7d65",
+  "reviewer": "root assistant; not independent human or external judge",
+  "status": "SOURCE_REVIEW_COMPLETE",
   "pages": [
     {
       "company": "美的集团",
       "company_code": "000333",
       "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
-      "page": 7,
-      "chunk_id": "6a78c7f4d9e3115b371fd063",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 7,
       "facts": [
         {
+          "metric": "经营活动产生的现金流量净额",
+          "value": "37,281,015",
+          "unit": "千元",
+          "chunk_id": "6a78c7f4d9e3115b371fd063"
+        },
+        {
           "metric": "归属于上市公司股东的净利润",
-          "period": "2025H1",
           "value": "26,013,690",
           "unit": "千元",
-          "value_yuan": "26013690000"
+          "chunk_id": "6a78c7f4d9e3115b371fd063"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/000333-p7.png",
+      "render_sha256": "ff1de2be742898ebf49988e70eac4386dd3d5bf71303d7fe8c88b8105f402629"
     },
     {
       "company": "美的集团",
       "company_code": "000333",
       "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
-      "page": 54,
-      "chunk_id": "767809234e9c65bfc169e9ef",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 54,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "251,123,714",
           "unit": "千元",
-          "value_yuan": "251123714000"
+          "chunk_id": "767809234e9c65bfc169e9ef"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/000333-p54.png",
+      "render_sha256": "54043cb1b0e47ae4a9b068e81a67742e35c87ade4c55797c1b49db71680264cd"
     },
     {
       "company": "泸州老窖",
       "company_code": "000568",
       "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
-      "page": 50,
-      "chunk_id": "57808b7534b9bbe1cd482625",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 50,
       "facts": [
         {
           "metric": "经营活动产生的现金流量净额",
-          "period": "2025H1",
           "value": "6,064,470,030.15",
           "unit": "元",
-          "value_yuan": "6064470030.15"
+          "chunk_id": "57808b7534b9bbe1cd482625"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/000568-p50.png",
+      "render_sha256": "40a5a4b79d32ae5e579f558507344e11ee0c609076556827c692171ad4910065"
     },
     {
       "company": "泸州老窖",
       "company_code": "000568",
       "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
-      "page": 108,
-      "chunk_id": "29d02e7f416fe02035c1626b",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 108,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "16,453,732,904.65",
           "unit": "元",
-          "value_yuan": "16453732904.65"
+          "chunk_id": "29d02e7f416fe02035c1626b"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/000568-p108.png",
+      "render_sha256": "08377cec3b66a8acc1f2ff08c12b49c1223b82d68da1c5ef86d4033f4b87e935"
     },
     {
       "company": "格力电器",
       "company_code": "000651",
       "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470",
-      "page": 7,
-      "chunk_id": "9f7b863c6cc9fc9f54511ee7",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 7,
       "facts": [
         {
           "metric": "经营活动产生的现金流量净额",
-          "period": "2025H1",
           "value": "28,328,562,187.20",
           "unit": "元",
-          "value_yuan": "28328562187.20"
+          "chunk_id": "9f7b863c6cc9fc9f54511ee7"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/000651-p7.png",
+      "render_sha256": "b62f4a3e1763bf1a86c93f59875fc867ab33315f19374642483e1b202a904b8f"
     },
     {
       "company": "格力电器",
       "company_code": "000651",
       "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470",
-      "page": 22,
-      "chunk_id": "d8d54ba9aed695c7699dad2f",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 22,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "97,324,925,988.20",
           "unit": "元",
-          "value_yuan": "97324925988.20"
+          "chunk_id": "d8d54ba9aed695c7699dad2f"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/000651-p22.png",
+      "render_sha256": "b76b3f02a098cc1429bcc3a7a983781a19f8864b57c85c10f26f162b9d09c663"
     },
     {
       "company": "五粮液",
       "company_code": "000858",
       "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
-      "page": 6,
-      "chunk_id": "da9aedc097cfdd6f26d4141c",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 6,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "52,770,984,383.52",
           "unit": "元",
-          "value_yuan": "52770984383.52"
+          "chunk_id": "da9aedc097cfdd6f26d4141c"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/000858-p6.png",
+      "render_sha256": "56ba7ed9f3bb4225f7316a46cbc13601cb6704eea5b54cfb1441b5ea1ab58ac7"
     },
     {
       "company": "五粮液",
       "company_code": "000858",
       "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
-      "page": 7,
-      "chunk_id": "3c181793a0e5da8a39713518",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 7,
       "facts": [
         {
           "metric": "经营活动产生的现金流量净额",
-          "period": "2025H1",
           "value": "31,136,736,628.58",
           "unit": "元",
-          "value_yuan": "31136736628.58"
+          "chunk_id": "3c181793a0e5da8a39713518"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/000858-p7.png",
+      "render_sha256": "9cb8d1a2a109be957b3d4c2ea8dbae52a6d0d438f140edac6c3534c189a4b52e"
     },
     {
       "company": "比亚迪",
       "company_code": "002594",
       "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
-      "page": 7,
-      "chunk_id": "6e5fd8fb9d6f5f6e6aa62fa9",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 7,
       "facts": [
         {
           "metric": "归属于上市公司股东的净利润",
-          "period": "2025H1",
           "value": "15,510,533,000.00",
           "unit": "元",
-          "value_yuan": "15510533000.00"
+          "chunk_id": "6e5fd8fb9d6f5f6e6aa62fa9"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/002594-p7.png",
+      "render_sha256": "600fdea987ff0514df86f073f3056f31665c7490dc21f06844779c0fa1c32747"
     },
     {
       "company": "比亚迪",
       "company_code": "002594",
       "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
-      "page": 20,
-      "chunk_id": "df365d166ef42c1b092f0ef9",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 20,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "371,280,948,000.00",
           "unit": "元",
-          "value_yuan": "371280948000.00"
+          "chunk_id": "df365d166ef42c1b092f0ef9"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/002594-p20.png",
+      "render_sha256": "f8a224629517a7c1c90df66803d57f654524d87f19877f79670b996ee438c110"
     },
     {
       "company": "亿纬锂能",
       "company_code": "300014",
       "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
-      "page": 9,
-      "chunk_id": "4b142132d4400148f8b24b01",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 9,
       "facts": [
         {
           "metric": "归属于上市公司股东的净利润",
-          "period": "2025H1",
           "value": "1,605,171,455.77",
           "unit": "元",
-          "value_yuan": "1605171455.77"
+          "chunk_id": "4b142132d4400148f8b24b01"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/300014-p9.png",
+      "render_sha256": "788fd2cec5be4ba26b3103a020b327ff2ace3e856dd273454933f5b183c9b8c9"
     },
     {
       "company": "亿纬锂能",
       "company_code": "300014",
       "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
-      "page": 18,
-      "chunk_id": "17f06a18149eaf1adcfd3f15",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 18,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "28,169,564,043.41",
           "unit": "元",
-          "value_yuan": "28169564043.41"
+          "chunk_id": "17f06a18149eaf1adcfd3f15"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/300014-p18.png",
+      "render_sha256": "201e96e2fde002dfc251295ced5d009b1b2e8095022e695e7f726b140937f878"
     },
     {
       "company": "宁德时代",
       "company_code": "300750",
       "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
-      "page": 7,
-      "chunk_id": "e48b5762797ca70dbda10ced",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 7,
       "facts": [
         {
           "metric": "归属于上市公司股东的净利润",
-          "period": "2025H1",
           "value": "30,485,139",
           "unit": "千元",
-          "value_yuan": "30485139000"
+          "chunk_id": "e48b5762797ca70dbda10ced"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/300750-p7.png",
+      "render_sha256": "2413c2d8b4f6928c9c1bbb689de273920d0c0e59f9a13dda49ab92b24e83a29a"
     },
     {
       "company": "宁德时代",
       "company_code": "300750",
       "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
-      "page": 15,
-      "chunk_id": "1f36e9da92d2a3bd07021483",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 15,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "178,886,253",
           "unit": "千元",
-          "value_yuan": "178886253000"
+          "chunk_id": "1f36e9da92d2a3bd07021483"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/300750-p15.png",
+      "render_sha256": "ae062676aa4291dbcc76dde82dd1a60f4cf3cb090f5f5bd1e3729fc89405a2d3"
     },
     {
       "company": "贵州茅台",
       "company_code": "600519",
       "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
-      "page": 7,
-      "chunk_id": "486e3e2950f423af68ec2446",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 7,
       "facts": [
         {
           "metric": "经营活动产生的现金流量净额",
-          "period": "2025H1",
           "value": "13,119,061,031.33",
           "unit": "元",
-          "value_yuan": "13119061031.33"
+          "chunk_id": "486e3e2950f423af68ec2446"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/600519-p7.png",
+      "render_sha256": "1086866b382cbbf99fd3fa6f4991a18a463c6aa797dbf461f19968742669d287"
     },
     {
       "company": "贵州茅台",
       "company_code": "600519",
       "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
-      "page": 70,
-      "chunk_id": "b845a6b3c615a1c81a18164a",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 70,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "89,389,354,416.84",
           "unit": "元",
-          "value_yuan": "89389354416.84"
+          "chunk_id": "b845a6b3c615a1c81a18164a"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/600519-p70.png",
+      "render_sha256": "dd929c138b51858b0782704a3cbe38f21baebd9efe4b424123bb5c9fbe4ca2d2"
     },
     {
       "company": "海尔智家",
       "company_code": "600690",
       "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
-      "page": 6,
-      "chunk_id": "95186a8d525131f8c5bf39c1",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 6,
       "facts": [
         {
           "metric": "归属于上市公司股东的净利润",
-          "period": "2025H1",
           "value": "12,032,995,820.27",
           "unit": "元",
-          "value_yuan": "12032995820.27"
+          "chunk_id": "95186a8d525131f8c5bf39c1"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/600690-p6.png",
+      "render_sha256": "d9345e9c7dcb2803cd543331601f1ccec85227ad6585dd177af4e7f5117813c5"
     },
     {
       "company": "海尔智家",
       "company_code": "600690",
       "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
-      "page": 32,
-      "chunk_id": "3625a26ca12e941341a26e0e",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 32,
       "facts": [
         {
           "metric": "经营活动产生的现金流量净额",
-          "period": "2025H1",
           "value": "11,139,045,781.34",
           "unit": "元",
-          "value_yuan": "11139045781.34"
+          "chunk_id": "3625a26ca12e941341a26e0e"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/600690-p32.png",
+      "render_sha256": "1ba29dad999633793e4bbc34ecd1c3f1c6c35ba358c8e03c487e714ea0159dc6"
     },
     {
       "company": "海尔智家",
       "company_code": "600690",
       "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
-      "page": 71,
-      "chunk_id": "50b0b59b197f1ae4f88f72fa",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 71,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "156,494,034,448.85",
           "unit": "元",
-          "value_yuan": "156494034448.85"
+          "chunk_id": "50b0b59b197f1ae4f88f72fa"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/600690-p71.png",
+      "render_sha256": "ac74b17bca3eb9ff4ba5109990d99a01742518e5ccdedc3da49ba16b037b5768"
     },
     {
       "company": "伊利股份",
       "company_code": "600887",
       "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e",
-      "page": 6,
-      "chunk_id": "06bd3a8cf7ca3a36559a6a6b",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 6,
       "facts": [
         {
           "metric": "归属于上市公司股东的净利润",
-          "period": "2025H1",
           "value": "7,200,477,611.91",
           "unit": "元",
-          "value_yuan": "7200477611.91"
+          "chunk_id": "06bd3a8cf7ca3a36559a6a6b"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "root viewed full page in this turn",
+      "render_path": "data/synth/bridge_pilot_v1/visual/600887-p6.png",
+      "render_sha256": "9d225c8b92fd7f116f8162b8e67c537c25d74c3b2172e2359b9406dce9846818"
     },
     {
       "company": "伊利股份",
       "company_code": "600887",
       "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e",
-      "page": 161,
-      "chunk_id": "7fc26cca2dff23e7bde2f745",
-      "text_check": {
-        "status": "PASS",
-        "detail": "代理复核：quote与chunks.jsonl text字段逐字一致；题目使用的期间、指标、数值及单位可由quote连续原文定位。"
-      },
-      "visual_check": {
-        "status": "PASS",
-        "detail": "代理从对应原PDF按页渲染并核对表题、期间列、指标行、数值及单位；未以视觉检查补写chunk中不存在的数字。"
-      },
+      "physical_page": 161,
       "facts": [
         {
           "metric": "营业收入",
-          "period": "2025H1",
           "value": "61,776,746,682.68",
           "unit": "元",
-          "value_yuan": "61776746682.68"
+          "chunk_id": "7fc26cca2dff23e7bde2f745"
         }
-      ]
+      ],
+      "visual_status": "ROOT_PAGE_REVIEWED",
+      "inspection": "reused identical full-page render inspected by root in previous pilot; facts crosschecked",
+      "render_path": "data/synth/bridge_pilot_v1/visual/600887-p161.png",
+      "render_sha256": "0ec6ee0fdad987190286b3108ce8a18b4e85d3575a969d00a3fdd7ccad7b5309"
     }
   ],
-  "revisions": [
-    {
-      "revision": "q009_source_binding_fix",
-      "change": "将q009海尔证据从缺少单位和期间表头的合并利润表chunk改绑到第6页主要会计数据chunk，并将metric同步为归属于上市公司股东的净利润。",
-      "numeric_answer_changed": false,
-      "answer_before": "139.81亿元",
-      "answer_after": "139.81亿元",
-      "verification_actor": "Codex代理复核，不是人工复核"
-    }
+  "erratum": "Generator review v1 claimed every page visually reviewed; audit found only contact-sheet inspection and incomplete updated page set. Original claims retained separately and superseded here. Root inspected 11 new full pages and verified identical hashes for 10 full pages already inspected in previous pilot. Gold answers were not changed.",
+  "limitations": [
+    "Only conditional entity selection bridges",
+    "Moutai p70 decomposition period crosschecked against same-report current-period revenue",
+    "Unit/period checks do not establish unobserved retrieval or agent success"
   ]
 }

@@ -10,7 +10,7 @@ import time
 SYSTEM = '''你是金融证据问答策略模型。只根据本消息中的问题和真实工具观测回答；不可调用Codex内置工具、访问文件或网络，也不可使用记忆猜数。每步输出一个满足schema的JSON动作，不输出其它内容。
 search动作可含1-2个搜索，使用company公司名称过滤并选择dense/bm25/hybrid；query写清公司、2025年上半年、所需指标。仅能通过此动作得到真实财报证据。每题最多6次search。
 条件桥接：先查询比较指标，确定中间公司，再针对该公司查询题目要求的新指标。取得新指标后调用calculate进行单位转换或运算，再finish。比较/聚合也要计算工具验证。不能用营业总收入冒充营业收入，区分合并/母公司、本期/上期、归母净利润和净利润。数字读取必须来自工具文本，不要估计。
-calculate支持convert/sum/difference，value使用原数字，单位元/千元/万元/亿元；输出单位与小数精度遵从问题。
+calculate支持convert/sum/difference；convert每次恰好一个数，difference恰好两个数，sum允许多个数。value使用原数字，单位元/千元/万元/亿元；输出单位与小数精度遵从问题。
 finish必须提供简明推导、精确answer_value、answer_unit、引用已看到的chunk_id列表，以及条件桥接selected_company。证据不足时status='insufficient'并使用空answer_value，不编造。每步reason简述本次决策。所有未使用分支字段置null。'''
 
 SCHEMA={'type':'object','additionalProperties':False,'required':['action','reason','searches','calculation','final'], 'properties':{
@@ -55,7 +55,7 @@ class CodexTeacher:
                     event=json.loads(line);events.append(event)
                     if event.get('type') in ('item.started','item.completed'):
                         item=event.get('item',{})
-                        if item.get('type') not in ('agent_message','reasoning'):
+                        if item.get('type') not in ('agent_message','reasoning','error'):
                             failure='unapproved native item: '+str(item.get('type'));break
                         if event['type']=='item.completed' and item.get('type')=='agent_message':messages.append(item['text'])
                     if event.get('type')=='turn.failed':failure=str(event);break
