@@ -36,14 +36,17 @@ def expected(row):
     return str(result),selected
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--gold',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--gold',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--profile',choices=['bridge12','dev20'],default='bridge12');a=p.parse_args()
     if a.out.exists():raise FileExistsError(a.out)
     corpus=Path('data/candidates/docling/chunks.jsonl');chunks={r['chunk_id']:r for r in map(json.loads,corpus.read_text().splitlines())}
     manifest={m['sha256']:m for m in json.loads(Path('data/source_manifest.json').read_text())};pdfs={}
     rows=list(map(json.loads,a.gold.read_text().splitlines()));checked=[]
-    if len(rows)!=12 or len({r['id'] for r in rows})!=12:raise ValueError('pilot needs 12 unique cases')
+    count=12 if a.profile=='bridge12' else 20
+    if len(rows)!=count or len({r['id'] for r in rows})!=count:raise ValueError('wrong unique case count')
+    if a.profile=='dev20' and Counter(r['type'] for r in rows)!=Counter(bridge=8,comparison=8,aggregation=4):raise ValueError('dev20 type counts')
     for row in rows:
-        if row['split']!='dev_pilot_only' or row['generator_model']!='gpt-5.6-sol':raise ValueError('invalid provenance/split')
+        split,author=('dev_pilot_only','gpt-5.6-sol') if a.profile=='bridge12' else ('dev_only','root_assistant_authored')
+        if row['split']!=split or row['generator_model']!=author:raise ValueError('invalid provenance/split')
         if len({h['source_sha256'] for h in row['hops']})<2:raise ValueError('requires multiple reports')
         for h in row['hops']:
             c=chunks[h['chunk_id']]

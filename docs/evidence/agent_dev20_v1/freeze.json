@@ -1,0 +1,135 @@
+{
+  "status": "FROZEN",
+  "gold_sha256": "6d0dacb959e9f7e3d2ccfa4ac10ead00b4a881e69ca48a0461e75096dfd70ac3",
+  "questions_sha256": "63192165903e5bb41f664c9e8ddf8271d29b2a6817be5c40cc0c88599272e5d8",
+  "corpus_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "results": [
+    {
+      "id": "agent-dev-001",
+      "recomputed_answer": "260.14",
+      "selected_company": "美的集团",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-002",
+      "recomputed_answer": "111.39",
+      "selected_company": "海尔智家",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-003",
+      "recomputed_answer": "304.85",
+      "selected_company": "宁德时代",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-004",
+      "recomputed_answer": "283.29",
+      "selected_company": "格力电器",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-005",
+      "recomputed_answer": "16.05",
+      "selected_company": "亿纬锂能",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-006",
+      "recomputed_answer": "131.19",
+      "selected_company": "贵州茅台",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-007",
+      "recomputed_answer": "155.11",
+      "selected_company": "比亚迪",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-008",
+      "recomputed_answer": "311.37",
+      "selected_company": "五粮液",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-009",
+      "recomputed_answer": "44.71",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-010",
+      "recomputed_answer": "48.33",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-011",
+      "recomputed_answer": "139.05",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-012",
+      "recomputed_answer": "89.52",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-013",
+      "recomputed_answer": "-19.80",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-014",
+      "recomputed_answer": "250.72",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-015",
+      "recomputed_answer": "223.92",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-016",
+      "recomputed_answer": "336.07",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-017",
+      "recomputed_answer": "332.14",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-018",
+      "recomputed_answer": "136.38",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-019",
+      "recomputed_answer": "504.00",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "agent-dev-020",
+      "recomputed_answer": "422.76",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    }
+  ],
+  "types": {
+    "bridge": 8,
+    "comparison": 8,
+    "aggregation": 4
+  },
+  "gold_isolation": "execution script only reads questions.jsonl; gold remains offline",
+  "semantic_review": "generator source review; not independent human or judge"
+}

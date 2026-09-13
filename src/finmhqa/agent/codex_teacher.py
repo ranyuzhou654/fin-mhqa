@@ -25,10 +25,10 @@ class CodexTeacher:
         self.workdir.mkdir(parents=True,exist_ok=True)
         if any(self.workdir.iterdir()): raise ValueError('teacher cwd must be empty')
 
-    def decide(self,question,history,outdir,timeout=180):
+    def decide(self,question,history,outdir,timeout=180,*,system=SYSTEM,output_schema=SCHEMA):
         outdir=Path(outdir);outdir.mkdir(parents=True,exist_ok=False)
-        schema=outdir/'schema.json';schema.write_text(json.dumps(SCHEMA,ensure_ascii=False))
-        prompt=SYSTEM+'\n'+json.dumps({'question':question,'history':history},ensure_ascii=False)
+        schema=outdir/'schema.json';schema.write_text(json.dumps(output_schema,ensure_ascii=False))
+        prompt=system+'\n'+json.dumps({'question':question,'history':history},ensure_ascii=False)
         (outdir/'input.txt').write_text(prompt)
         cmd=[self.binary,'exec','--ignore-user-config','--ephemeral','--skip-git-repo-check','-C',str(self.workdir),'-m','gpt-5.6-sol',
              '--disable','shell_tool','--disable','apps','--disable','multi_agent','--disable','browser_use','--disable','computer_use','--disable','hooks',

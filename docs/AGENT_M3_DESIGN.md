@@ -1,0 +1,40 @@
+# M3 四角色 Agent：状态、反馈与验收契约
+
+本阶段使用已获批的内置gpt-5.6-sol及正式本地检索，不新增教师API、学生模型或GPU。实现从单动作循环扩展至LangGraph StateGraph；四个节点为Planner、Executor、Verifier、Synthesizer。官方接口依据：[StateGraph](https://reference.langchain.com/python/langgraph/graph/state/StateGraph)。实际安装版本记录于requirements-agent.lock.txt。
+
+## 为什么这样拆分
+
+Planner输出带依赖的子问题计划及下一动作，保留已解决结论和引用。Executor只执行真实HTTP检索和Decimal计算，记录每个请求、响应及失败。Verifier先执行可确定的引用可见性与最终数值计算检查，再由教师核对公司、期间、口径、单位、冲突和证据支持。Synthesizer只组织已核验答案，并受数值、单位、选中公司及引用不可改变的约束。
+
+状态在src/finmhqa/agent/graph.py中定义：计划、证据池、已尝试查询、成功计算、反馈、模型/工具预算、重规划次数和终止原因。图的路由是Planner→Executor→Verifier；未完成则返回Planner，验证充分或终止则到Synthesizer。纯检索/计算后先做程序检查；提交候选答案时才调用语义Verifier，避免每个检索动作都额外调用模型。
+
+结构化反馈包含已解决项、缺口类型、问题详情、相关引用、查询建议及已尝试列表。工具错误、空召回、重复查询与语义冲突分别记录。最多6次检索、8次总工具调用、10次所有角色模型调用、2次失败后的重规划；预算用尽时明确拒答。子问题依赖必须指向前序节点；不会通过重规划清空证据或计数。
+
+仍由每次独立Codex会话读取可见历史，未宣称原生同会话token轨迹。禁用原生工具并检查真实事件；本地空工作目录不构成操作系统级隔离。提示及输入、模型事件、完整HTTP响应、计算与状态转换均保存。
+
+## 冻结的20题
+
+由主代理基于此前已审核事实重新编写8桥接、8比较、4聚合；不是独立人类出题，不是新源页的盲测。gold保留每跳原文、物理页、公司、期间、单位与哈希，冻结程序重新核对PDF文本和精确引用，复算答案。源页视觉审核沿用bridge_pilot_v1/source_review.json，不声称本次重新视觉审核。全部只用于Dev；原12题保留回归，不进入Test。
+
+题目与gold分文件：执行只读取id/question，离线评分才打开gold。题目按明确的原财报口径作答；特殊故障通过独立测试注入，不伪造真实财报数据或混入正常正确率。
+
+## 三组对照
+
+- structured：完整四角色，结构化失败反馈。
+- generic：相同图、同一个Verifier，只把发给Planner的失败反馈改为通用“验证未通过”；完整反馈仍保存在审计日志，避免原样进入模型上下文。
+- flat：沿用原单动作策略，使用相同模型、语料、工具与预算上限；保留程序安全约束，不调用语义Verifier或回答润色模型。
+
+每题轮换组别执行顺序，所有失败保留。每组仅一次运行，不能估计随机波动或断言因果增益。若没有自然发生的Verifier失败，就不能由正确率对比证明反馈机制有效。错误恢复的注入测试另报；其中语义Verifier结果是明确的fixture，只证明反馈传递和路由，不证明LLM能识别所有错误。
+
+M3运行门槛沿用20题答对≥8、平均工具调用≤6、无顶层error；另列五条重规划/轨迹抽查证据。模型预算耗尽的insufficient按答错处理。语义Verifier不是独立Judge，不把其通过率称为Faithfulness。分跳引用仍用原锚点诊断，等价单位可能漏记。
+
+## 验证与操作
+
+新增恢复/防护测试覆盖单位缺失、期间错误、证据冲突反馈、超时恢复、空召回、重复查询、假引用、计算不一致、回答篡改、预算和依赖环，与此前小样测试共34项通过。真实Sol与HTTP的联调和三组验收结果随后独立记录。
+
+```bash
+uv pip install --python .venv/bin/python -r requirements-agent.lock.txt
+.venv/bin/python scripts/run_agent_dev.py --questions docs/evidence/agent_dev20_v1/questions.jsonl --out data/agent_dev20_v1/recheck --workers 2
+```
+
+运行前须启动本地8100正式检索服务；新输出目录不可覆盖。命令消耗Codex额度，不会回退到外部付费API。
