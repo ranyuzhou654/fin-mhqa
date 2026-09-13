@@ -125,3 +125,5 @@ FINMHQA_INDEX=data/experiments/retrieval_smoke/index FINMHQA_EXPERIMENTAL=1 FINM
 ```
 
 正式构建会复算固定样本评分并核对数据、审核与索引哈希；服务默认拒绝实验索引。评测仅在正式数据、原始 30 题及其冻结绑定和默认候选数均匹配时产生正式验收判定；v2 另核对注册版本与源页审核哈希。v1 原绑定保留在 `data/eval/retrieval_dev30.bound.jsonl`，可指定该文件复跑原标签。标签发现、源页审核和冻结流程见 [v2 标签说明](docs/RETRIEVAL_LABELS_V2.md)。若 M1 修订改变候选，须先重新审核并绑定 gold 证据。
+
+完整目标与当前实现差距、后续数据隔离及实验验收要求见 [项目差距与验收补充](docs/PROJECT_GAP_AND_ACCEPTANCE.md)。原方案中尚未运行的合成和训练数字不代表项目实测结果。
