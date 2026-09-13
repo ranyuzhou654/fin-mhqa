@@ -10,13 +10,14 @@ from audit_teacher_trajectory import audit_case
 def audit_agent_case(folder):
     base=audit_case(folder)
     events=[json.loads(l) for l in (folder/'trajectory.jsonl').read_text().splitlines()]
-    result=json.loads((folder/'result.json').read_text());policy=None;pending=None;remaining=[];models=0;tools=0;searches=0
+    result=json.loads((folder/'result.json').read_text());policy=None;pending=None;remaining=[];models=0;tools=0;searches=0;model_final=None
     for e in events:
         if e['event']=='teacher_decision':
             if e['step']!=models:raise ValueError('nonsequential model step')
             models+=1
             if e['role']=='planner':
                 policy=e['action'];remaining=list(policy['searches'] or []) if policy['action']=='search' else []
+            elif e['role']=='synthesizer':model_final=e['action']
         elif e['event']=='tool_request':
             tools+=1;pending=e
             if not policy or policy['action']!=e['tool']:raise ValueError('tool not requested by policy')
@@ -27,6 +28,9 @@ def audit_agent_case(folder):
         elif e['event']=='tool_response':
             if e['tool']=='calculate' and 'error' not in e['response'] and calculate(pending['args'])!=e['response']:raise ValueError('calculation replay mismatch')
             pending=None
+        elif e['event']=='final' and e['response']['status']=='answered':
+            expected=model_final if model_final is not None else policy.get('final') if policy else None
+            if e['response']!=expected:raise ValueError('published answer differs from actual teacher candidate/output')
     if models!=result['decision_calls'] or tools!=result['tool_calls'] or searches!=result['search_calls']:raise ValueError('result counts mismatch')
     if models>10 or tools>8 or searches>6:raise ValueError('budget exceeded')
     return {**base,'policy_tool_correspondence':'PASSED','calculation_replay':'PASSED'}

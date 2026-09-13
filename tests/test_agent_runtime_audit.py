@@ -36,3 +36,16 @@ def test_tampered_tool_arguments_detected(tmp_path):
     # Deep copy to avoid changing the original model action along with request.
     es[1]['args']=dict(es[1]['args'],round_digits=1);save(tmp_path,es)
     with pytest.raises(ValueError,match='args differ'):audit_agent_case(tmp_path)
+
+
+def test_published_explanation_tampering_detected(tmp_path):
+    es=fixture(tmp_path)
+    original={'status':'answered','answer_value':'2.00','answer_unit':'元','citations':[],'explanation':'original'}
+    action={'action':'finish','searches':None,'final':original};usage={'input_tokens':1}
+    step=tmp_path/'step_01';step.mkdir()
+    (step/'events.jsonl').write_text(json.dumps({'type':'item.completed','item':{'type':'agent_message','text':json.dumps(action)}})+'\n'+json.dumps({'type':'turn.completed','usage':usage})+'\n')
+    changed=dict(original,explanation='invented after review')
+    es=es[:-1]+[{'event':'teacher_decision','role':'planner','step':1,'action':action,'usage':usage},{'event':'final','response':changed}]
+    save(tmp_path,es)
+    (tmp_path/'result.json').write_text(json.dumps({'final':changed,'error':None,'decision_calls':2,'tool_calls':1,'search_calls':0}))
+    with pytest.raises(ValueError,match='published answer differs'):audit_agent_case(tmp_path)
