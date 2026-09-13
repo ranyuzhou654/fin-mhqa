@@ -25,6 +25,9 @@ def render(run,out):
                     elif e['tool']=='calculate':lines += [f"- 计算结果：{r['value']}{r['unit']}"]
                     else:lines += ['- 返回证据：'+'；'.join(f"{c['chunk_id']}（{c['company']} p{c['page_start']}）" for c in r['results'])]
                 elif e['event']=='planner_feedback':lines += ['- 实际发给Planner的反馈：`'+json.dumps(e['feedback'],ensure_ascii=False)+'`']
+                elif e['event']=='final':
+                    answer=e['response']
+                    lines += [f"- 最终输出（{answer['status']}）：{answer['answer_value']}{answer['answer_unit']}。{answer['explanation']}"]
                 elif e['event']=='error':lines += ['- 运行错误：'+e['message']]
             lines += ['',f"[完整轨迹](evidence/agent_dev20_v1/trajectories/{arm}/{case.name}.jsonl)",'']
     out.write_text('\n'.join(lines))
