@@ -1,0 +1,9 @@
+{
+  "implementation_commit": "1d5456e",
+  "gold_freeze_commit": "802338e",
+  "files": {
+    "scripts/run_bridge_teacher.py": "ed05f4841061bd0497db24bbbfbbdeb92a79544c1f5d46c52be4205bbb039cc3",
+    "src/finmhqa/agent/codex_teacher.py": "a27556b0ddcdac68fe4ff170c10a524140beb60af7b06c92409189cb52f6a978",
+    "src/finmhqa/agent/pilot_tools.py": "b11c984d22fc19360369124f074f47e3ac67215e63044a3dc05d8a20045323a7"
+  }
+}

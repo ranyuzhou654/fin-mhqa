@@ -1,0 +1,396 @@
+{
+  "scope": "12-question developmental integration pilot, not M3 dev20 acceptance or independent test",
+  "correct": 12,
+  "total": 12,
+  "results": [
+    {
+      "id": "bridge-pilot-001",
+      "type": "bridge",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 3,
+      "decision_calls": 6,
+      "hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": true,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "372.81",
+        "answer_unit": "亿元",
+        "selected_company": "美的集团",
+        "citations": [
+          "407d90148388cf7072a341ab",
+          "19ec2aedc83338def1a54732",
+          "3620a0b8c0af025658703b53"
+        ],
+        "explanation": "美的集团2025年上半年合并营业收入为251,123,714千元，即2511.237140亿元；海尔智家营业收入为156,494,034,448.85元，即1564.940344亿元，因此选择美的集团。其同期合并经营活动产生的现金流量净额为37,281,015千元，换算并四舍五入至两位小数为372.81亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-002",
+      "type": "bridge",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 3,
+      "decision_calls": 5,
+      "hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": true,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "304.85",
+        "answer_unit": "亿元",
+        "selected_company": "宁德时代",
+        "citations": [
+          "858fb75185f7e9db4dfc04ce",
+          "9fed1d6f14909619a834c5f3",
+          "d0c6da2b2488fd0eb4907946"
+        ],
+        "explanation": "宁德时代2025年上半年营业收入为178,886,253千元，格力电器为97,324,925,988.20元；作差为815.61亿元，故选择宁德时代。宁德时代同期归属于母公司股东的净利润为30,485,139千元，转换并四舍五入至两位小数为304.85亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-003",
+      "type": "bridge",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 3,
+      "decision_calls": 5,
+      "hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": true,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "311.37",
+        "answer_unit": "亿元",
+        "selected_company": "五粮液",
+        "citations": [
+          "a3a68746e69a13fec8546059",
+          "cad29d5ea24462e1a71bf255",
+          "db11b1b2be14e9de589fd37f"
+        ],
+        "explanation": "贵州茅台与五粮液2025年上半年合并营业收入分别为893.89亿元和527.71亿元，差额为366.18亿元，因此选择营业收入较低的五粮液。五粮液同期合并经营活动产生的现金流量净额为31,136,736,628.58元，换算并四舍五入至两位小数为311.37亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-004",
+      "type": "bridge",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 3,
+      "decision_calls": 5,
+      "hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": true,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "72.00",
+        "answer_unit": "亿元",
+        "selected_company": "伊利股份",
+        "citations": [
+          "b3a051f7ba17e3e9c1c543cd",
+          "cad29d5ea24462e1a71bf255",
+          "4ba282dedf43ab389167ba10"
+        ],
+        "explanation": "伊利股份2025年上半年营业收入为61,776,746,682.68元，五粮液为52,770,984,383.52元，前者高90.06亿元，因此选择伊利股份。伊利股份同期归属于母公司所有者的净利润为7,200,477,611.91元，转换并四舍五入为72.00亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-005",
+      "type": "bridge",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 3,
+      "decision_calls": 5,
+      "hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": true,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "283.29",
+        "answer_unit": "亿元",
+        "selected_company": "格力电器",
+        "citations": [
+          "19ec2aedc83338def1a54732",
+          "9fed1d6f14909619a834c5f3",
+          "161a8dfe589064c6a415a280"
+        ],
+        "explanation": "海尔智家2025年上半年营业收入为156,494,034,448.85元，格力电器为97,324,925,988.20元，两者相差591.69亿元，因此选择营业收入较低的格力电器。其合并现金流量表显示经营活动产生的现金流量净额为28,328,562,187.20元，换算并四舍五入至两位小数为283.29亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-006",
+      "type": "bridge",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 4,
+      "decision_calls": 6,
+      "hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": true,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "155.11",
+        "answer_unit": "亿元",
+        "selected_company": "比亚迪",
+        "citations": [
+          "52e388a1787b91755b534281",
+          "407d90148388cf7072a341ab",
+          "6e5fd8fb9d6f5f6e6aa62fa9"
+        ],
+        "explanation": "比亚迪2025年上半年营业收入为371,280,948,000.00元；美的集团同期合并营业收入为251,123,714千元，两者差额经计算为1201.57亿元，因此选择比亚迪。比亚迪同期归属于上市公司股东的净利润为15,510,533,000.00元，换算并四舍五入保留两位小数为155.11亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-007",
+      "type": "bridge",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 3,
+      "decision_calls": 5,
+      "hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": true,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "60.64",
+        "answer_unit": "亿元",
+        "selected_company": "泸州老窖",
+        "citations": [
+          "9892435cd283831e968fe064",
+          "67a9dfb808510d8794784180",
+          "59ac0482f3fe18a0f0c2537a"
+        ],
+        "explanation": "五粮液2025年上半年营业收入为52,770,984,383.52元，泸州老窖为16,453,732,904.65元，差额为36,317,251,478.87元，因此选择营业收入较低的泸州老窖。其合并口径经营活动产生的现金流量净额为6,064,470,030.15元，换算并四舍五入保留两位小数为60.64亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-008",
+      "type": "bridge",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 3,
+      "decision_calls": 5,
+      "hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": true,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "16.05",
+        "answer_unit": "亿元",
+        "selected_company": "亿纬锂能",
+        "citations": [
+          "85fe6d961927ba26380060b3",
+          "67a9dfb808510d8794784180",
+          "4b142132d4400148f8b24b01"
+        ],
+        "explanation": "亿纬锂能2025年上半年营业收入为28,169,564,043.41元，泸州老窖为16,453,732,904.65元；经作差验证，亿纬锂能高117.16亿元，因此选择亿纬锂能。其同期归属于上市公司股东的净利润为1,605,171,455.77元，换算并四舍五入至两位小数为16.05亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-009",
+      "type": "comparison",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 2,
+      "decision_calls": 3,
+      "hop_anchor_hits": [
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": null,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "139.81",
+        "answer_unit": "亿元",
+        "selected_company": null,
+        "citations": [
+          "6a78c7f4d9e3115b371fd063",
+          "19ec2aedc83338def1a54732"
+        ],
+        "explanation": "美的集团2025年上半年归属于上市公司股东的净利润为26,013,690千元，海尔智家为12,032,995,820.27元；按美的集团减海尔智家计算并换算为亿元，差额为139.81亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-010",
+      "type": "comparison",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 2,
+      "decision_calls": 3,
+      "hop_anchor_hits": [
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": null,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "180.18",
+        "answer_unit": "亿元",
+        "selected_company": "五粮液",
+        "citations": [
+          "03631f616e1aec43054b9a7d",
+          "7dd70ef4bbf8d728775ca835"
+        ],
+        "explanation": "五粮液2025年上半年经营活动产生的现金流量净额为31,136,736,628.58元，贵州茅台为13,119,061,031.33元；按前者减后者并换算为亿元，结果为180.18亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-011",
+      "type": "aggregation",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 5,
+      "decision_calls": 6,
+      "hop_anchor_hits": [
+        false,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        false,
+        true
+      ],
+      "target_search_after_selector_responses": null,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "459.96",
+        "answer_unit": "亿元",
+        "selected_company": null,
+        "citations": [
+          "dfcac71cb623204d6f6d239d",
+          "ed8a1463462cd90a3ffcf505",
+          "ceadff47d3a2bab869ffa86c"
+        ],
+        "explanation": "比亚迪归母净利润为15,510,533千元，宁德时代为30,485,139千元；合计45,995,672千元，换算并四舍五入保留两位小数为459.96亿元。"
+      }
+    },
+    {
+      "id": "bridge-pilot-012",
+      "type": "aggregation",
+      "status": "answered",
+      "correct": true,
+      "search_calls": 2,
+      "decision_calls": 3,
+      "hop_anchor_hits": [
+        true,
+        true
+      ],
+      "cited_hop_anchor_hits": [
+        true,
+        true
+      ],
+      "target_search_after_selector_responses": null,
+      "error": null,
+      "answer": {
+        "status": "answered",
+        "answer_value": "394.68",
+        "answer_unit": "亿元",
+        "selected_company": null,
+        "citations": [
+          "161a8dfe589064c6a415a280",
+          "d31b8452261147b1c7f92bec"
+        ],
+        "explanation": "格力电器为28,328,562,187.20元，海尔智家为11,139,045,781.34元；两者合计39,467,607,968.54元，换算并四舍五入保留两位小数为394.68亿元。"
+      }
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 1426018,
+    "cached_input_tokens": 436352,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 9455,
+    "reasoning_output_tokens": 1570
+  },
+  "limitations": [
+    "anchor matching is a diagnostic proxy, not semantic faithfulness",
+    "conditional bridges only; target_search ordering is observable behavior, not proof of internal reasoning",
+    "native Codex runtime plus external action loop, not trained student or LangGraph four-role graph"
+  ],
+  "artifacts": {
+    "gold_sha256": "822a5d66f086a26abd8f5ce1ecac8ad67d5a6a92cf12158c8555d0d3fd5b7d65",
+    "questions_sha256": "de27e23135051d467b873337333113fbd80b41e1c7e566979dd09cc34cc3e70b"
+  }
+}

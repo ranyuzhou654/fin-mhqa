@@ -1,0 +1,132 @@
+{
+  "smoke_run": {
+    "id": "bridge-pilot-001",
+    "final": null,
+    "error": "RuntimeError: unapproved native item: error",
+    "search_calls": 0,
+    "decision_calls": 0,
+    "usage": [],
+    "seen_chunk_ids": []
+  },
+  "smoke_run_v2": {
+    "id": "bridge-pilot-001",
+    "final": null,
+    "error": "ValueError: invalid operation/arity",
+    "search_calls": 2,
+    "decision_calls": 2,
+    "usage": [
+      {
+        "input_tokens": 13979,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 180,
+        "reasoning_output_tokens": 40
+      },
+      {
+        "input_tokens": 27247,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 187,
+        "reasoning_output_tokens": 66
+      }
+    ],
+    "seen_chunk_ids": [
+      "02d06c60f057cf82577528a7",
+      "25fef89f75f77950dc027db9",
+      "28b12d455f189467a52504e5",
+      "312228f2c06f020b2d6cd9d4",
+      "3c3972caf9f1db19a147dff7",
+      "407d90148388cf7072a341ab",
+      "4b28ba1999c0652b8e5498b3",
+      "60568e41cf41d0ef6c31c8fa",
+      "6192dfd8babf09e5151b8c60",
+      "d0cb6bd92b23112b89f62195",
+      "db9b42ac1bad96231a09b38e",
+      "dc15eff61924d934e111b7d3",
+      "f9754f2be3f7c0b12ed2652b",
+      "f9c99a08f35afd6d8d3d9ecb"
+    ]
+  },
+  "smoke_run_v3": {
+    "id": "bridge-pilot-001",
+    "final": {
+      "status": "answered",
+      "answer_value": "372.81",
+      "answer_unit": "亿元",
+      "selected_company": "美的集团",
+      "citations": [
+        "407d90148388cf7072a341ab",
+        "50b0b59b197f1ae4f88f72fa",
+        "541efa4968594bc1d06afe03"
+      ],
+      "explanation": "美的集团合并营业收入为251,123,714千元，即251,123,714,000元；海尔智家合并营业收入为156,494,034,448.85元。前者高出94,629,679,551.15元，因此选择美的集团。美的集团合并口径经营活动产生的现金流量净额为37,281,015千元，换算并四舍五入至两位小数为372.81亿元。"
+    },
+    "error": null,
+    "search_calls": 3,
+    "decision_calls": 6,
+    "usage": [
+      {
+        "input_tokens": 14000,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 150,
+        "reasoning_output_tokens": 24
+      },
+      {
+        "input_tokens": 24086,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 176,
+        "reasoning_output_tokens": 84
+      },
+      {
+        "input_tokens": 24220,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 128,
+        "reasoning_output_tokens": 26
+      },
+      {
+        "input_tokens": 24370,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 133,
+        "reasoning_output_tokens": 17
+      },
+      {
+        "input_tokens": 30527,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 137,
+        "reasoning_output_tokens": 34
+      },
+      {
+        "input_tokens": 30730,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 247,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "seen_chunk_ids": [
+      "19ec2aedc83338def1a54732",
+      "1fdd001d21b29145533eaa0e",
+      "2924f170435f2837f91f3c48",
+      "295bd3f848b930bbbd2b68f4",
+      "3620a0b8c0af025658703b53",
+      "3825f983db6f4a881e440086",
+      "3ca9bebf57d3e4c302ab2b8d",
+      "4017f89478067fdc69bf95d8",
+      "407d90148388cf7072a341ab",
+      "47ad286c33d22b7e8a5e5905",
+      "4b28ba1999c0652b8e5498b3",
+      "50b0b59b197f1ae4f88f72fa",
+      "541efa4968594bc1d06afe03",
+      "54ffbe3af0a6c5290075944b",
+      "95186a8d525131f8c5bf39c1",
+      "bb0cf1970b828ac26c9cacd7",
+      "bec76fd1f0d60808f306c40a",
+      "fe7f7b6d26f52577621813d8"
+    ]
+  }
+}

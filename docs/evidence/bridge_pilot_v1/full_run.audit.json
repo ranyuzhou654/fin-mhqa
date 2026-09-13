@@ -1,0 +1,225 @@
+{
+  "results": [
+    {
+      "id": "bridge-pilot-001",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 3,
+      "native_items": {
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 148799,
+        "cached_input_tokens": 12928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 964,
+        "reasoning_output_tokens": 200
+      },
+      "run_error": null,
+      "trajectory_sha256": "0e8daeafebde4be1dda25310697c18ee9ee2cf79124659009ac3556b28bbfc59"
+    },
+    {
+      "id": "bridge-pilot-002",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 142592,
+        "cached_input_tokens": 12928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 849,
+        "reasoning_output_tokens": 180
+      },
+      "run_error": null,
+      "trajectory_sha256": "10893471c8a2f249388a279029da1ea4b3faa8b54ddd894fddca5b5b21dffee5"
+    },
+    {
+      "id": "bridge-pilot-003",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 117809,
+        "cached_input_tokens": 32384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 785,
+        "reasoning_output_tokens": 133
+      },
+      "run_error": null,
+      "trajectory_sha256": "41b5b48d51ecc890678d122a5156ca9e430c27d55675bf32fc1c7d7460e1e056"
+    },
+    {
+      "id": "bridge-pilot-004",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 121094,
+        "cached_input_tokens": 25856,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 796,
+        "reasoning_output_tokens": 111
+      },
+      "run_error": null,
+      "trajectory_sha256": "e2d479615d9a621c15dedc0053f8d07cee989d8a446f29d9e35bc9157be1c255"
+    },
+    {
+      "id": "bridge-pilot-005",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 137225,
+        "cached_input_tokens": 38016,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 816,
+        "reasoning_output_tokens": 112
+      },
+      "run_error": null,
+      "trajectory_sha256": "6daaf4129404eac4f2de2f3be40362875a2e0e13e6fb27ed7487817cd725b065"
+    },
+    {
+      "id": "bridge-pilot-006",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 155805,
+        "cached_input_tokens": 75520,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1042,
+        "reasoning_output_tokens": 216
+      },
+      "run_error": null,
+      "trajectory_sha256": "3c6a8da3bc8e2ae3c0c14735ab500b8533a6e8111770c17b35ae737313fddceb"
+    },
+    {
+      "id": "bridge-pilot-007",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 130016,
+        "cached_input_tokens": 38784,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 830,
+        "reasoning_output_tokens": 137
+      },
+      "run_error": null,
+      "trajectory_sha256": "39aff4e727b86ac22909bd6e70a6629515ab72d578b6078559c2f55510626410"
+    },
+    {
+      "id": "bridge-pilot-008",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 124330,
+        "cached_input_tokens": 58240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 829,
+        "reasoning_output_tokens": 134
+      },
+      "run_error": null,
+      "trajectory_sha256": "fd898fc8469f463e1d8caec9667accc22a21f89cf56369d2edab19047603d0a2"
+    },
+    {
+      "id": "bridge-pilot-009",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 58971,
+        "cached_input_tokens": 12928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 524,
+        "reasoning_output_tokens": 84
+      },
+      "run_error": null,
+      "trajectory_sha256": "402bf40bbff92ceeae0190795f5e4b841b295afe0bd8c38014f18d6c1318a3c5"
+    },
+    {
+      "id": "bridge-pilot-010",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 60315,
+        "cached_input_tokens": 38528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 503,
+        "reasoning_output_tokens": 44
+      },
+      "run_error": null,
+      "trajectory_sha256": "6af37d8812991d338a9c590e2ccceb111b94f0de048ee10a5291b14b1b0c123a"
+    },
+    {
+      "id": "bridge-pilot-011",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 6,
+        "error": 1
+      },
+      "usage": {
+        "input_tokens": 165026,
+        "cached_input_tokens": 64384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 985,
+        "reasoning_output_tokens": 174
+      },
+      "run_error": null,
+      "trajectory_sha256": "f998430af47aca85b72b39bc3b2fc26107935713aef2034ad9ee5dc248e4685f"
+    },
+    {
+      "id": "bridge-pilot-012",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3,
+        "error": 1
+      },
+      "usage": {
+        "input_tokens": 64036,
+        "cached_input_tokens": 25856,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 532,
+        "reasoning_output_tokens": 45
+      },
+      "run_error": null,
+      "trajectory_sha256": "ec20082a8f2908ef1246352369cbf899f7d02c22d60f0a71494e262d44a210dd"
+    }
+  ],
+  "passed": 12,
+  "total": 12,
+  "scope": "consistency with stored actual teacher events and HTTP journal, not an independent semantic judge"
+}

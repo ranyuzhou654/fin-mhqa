@@ -1,0 +1,190 @@
+{
+  "teacher": "gpt-5.6-sol",
+  "backend": "Codex CLI 0.153.4 ChatGPT login",
+  "questions_sha256": "de27e23135051d467b873337333113fbd80b41e1c7e566979dd09cc34cc3e70b",
+  "system_prompt_sha256": "b8acb390176a1e1999894e8db41f6dc8331b148ee6e1faf7cae23ea9a7527137",
+  "health_before": {
+    "status": "ready",
+    "count": 9322,
+    "admission": {
+      "status": "ACCEPTED",
+      "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+      "review_sha256": "10654a4adfdce3f10d750a3de30e5ab9ad79d6fe16b3e7300ccacac8d432ed88",
+      "audit_sha256": "91815bb08ba094943b63739fd2b0012acd114646a6890f036403aab91136d5a8"
+    },
+    "model_bundle_sha256": "7c01c53fe2cfa65e4654de55e5a3c915d44cee7c7e8de2bd1131a7ccc9d85d48"
+  },
+  "max_searches": 6,
+  "max_decisions": 10,
+  "workers": 2,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "action",
+      "reason",
+      "searches",
+      "calculation",
+      "final"
+    ],
+    "properties": {
+      "action": {
+        "type": "string",
+        "enum": [
+          "search",
+          "calculate",
+          "finish"
+        ]
+      },
+      "reason": {
+        "type": "string"
+      },
+      "searches": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "query",
+            "company",
+            "mode"
+          ],
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "dense",
+                "bm25",
+                "hybrid"
+              ]
+            }
+          }
+        }
+      },
+      "calculation": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "operation",
+              "values",
+              "output_unit",
+              "round_digits"
+            ],
+            "properties": {
+              "operation": {
+                "type": "string",
+                "enum": [
+                  "convert",
+                  "sum",
+                  "difference"
+                ]
+              },
+              "values": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "value",
+                    "unit"
+                  ],
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "元",
+                        "千元",
+                        "万元",
+                        "亿元"
+                      ]
+                    }
+                  }
+                }
+              },
+              "output_unit": {
+                "type": "string",
+                "enum": [
+                  "元",
+                  "千元",
+                  "万元",
+                  "亿元"
+                ]
+              },
+              "round_digits": {
+                "type": "integer"
+              }
+            }
+          }
+        ]
+      },
+      "final": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "answer_value",
+              "answer_unit",
+              "selected_company",
+              "citations",
+              "explanation"
+            ],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "answered",
+                  "insufficient"
+                ]
+              },
+              "answer_value": {
+                "type": "string"
+              },
+              "answer_unit": {
+                "type": "string"
+              },
+              "selected_company": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "citations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "explanation": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "architecture": "bounded external action loop; not full LangGraph",
+  "native_tools": "disabled where supported; any emitted native tool item rejects the run"
+}
