@@ -1,6 +1,6 @@
 # fin-mhqa
 
-按根目录《02_金融多跳问答系统_实现文档》逐阶段落地，设计依据见《01_金融多跳问答系统_设计方案》。当前已完成 10 份真实半年报、1,750 页的 **M1 Docling 全量候选处理**，得到 9,322 条 chunks。22 项测试、全量结构审计和 16 个事实锚点通过；300 条人工审核仍待完成，尚未通过 M1 验收。详见 [全量结果](docs/DOCLING_CORPUS_RESULTS.md)。
+按根目录《02_金融多跳问答系统_实现文档》逐阶段落地，设计依据见《01_金融多跳问答系统_设计方案》。当前已完成 10 份真实半年报、1,750 页的 **M1 Docling 全量候选处理**，得到 9,322 条 chunks。22 项测试、全量结构审计和 16 个事实锚点通过；300 条审核现已依据用户确认代录通过，评分为 `PASSED`；结论来源及当前状态见 [实施进度](docs/IMPLEMENTATION_STATUS.md)。详见 [全量结果](docs/DOCLING_CORPUS_RESULTS.md)。
 
 ## 本地环境
 
@@ -30,7 +30,7 @@ uv pip install --python .venv/bin/python --no-deps -e .
 
 ## 验收边界
 
-算法测试使用注入的计数器；全量审计另用本地 bge-m3 tokenizer 复算实际 token 数。每公司三类各抽 10 条、breadcrumb/表格正确率至少 95% 的源页人工审核尚未完成；总体数量目标为 6k–10k，不能为满足数量而重复数据。详见 [实施进度](docs/IMPLEMENTATION_STATUS.md)。
+算法测试使用注入的计数器；全量审计另用本地 bge-m3 tokenizer 复算实际 token 数。每公司三类各抽 10 条的审核已按用户确认代录通过；总体数量目标为 6k–10k，不能为满足数量而重复数据。详见 [实施进度](docs/IMPLEMENTATION_STATUS.md)。
 
 ## 可复现脚本
 
@@ -72,7 +72,7 @@ uv pip install --python .venv/bin/python --no-deps -e .
 
 ## M2 本地检索
 
-两套模型已获批并完成本地推理及 HTTP 联调。当前只有 18 条未审核证据的实验索引；**正式 M2 验收仍待 M1 放行**。结果、真实故障修复和限制见 [M2 结果](docs/M2_RESULTS.md)。
+两套模型已获批并完成本地推理及 HTTP 联调。当前只有 18 条未审核证据的实验索引；**正式 M2 全量检索验收待执行**。结果、真实故障修复和限制见 [M2 结果](docs/M2_RESULTS.md)。
 
 检索环境与 M1、Docling 分开；模型推理通过本地子进程运行，避免 macOS 上 Torch 与 FAISS 的 OpenMP 冲突。
 
@@ -108,7 +108,7 @@ FINMHQA_INDEX=data/experiments/retrieval_smoke/index FINMHQA_EXPERIMENTAL=1 FINM
 
 `POST /search` 接受 `query`、`mode`（dense/bm25/hybrid）、`top_k`（默认 5）、`n_cand`（默认 30）、可选 `company` 和 `expand_parent`。`GET /health` 显示数据规模、审核状态与模型来源哈希。主结果与附加父表分开计数，截断和原始质量标记保留。
 
-**下面是 M1 人工审核通过后的正式流程，目前执行建索引会被拒绝：**
+**下面是 M1 审核通过后的正式流程，当前用户审核结论已录入，可执行：**
 
 ```bash
 .venv-retrieval/bin/python -m finmhqa.retrieval.build_index \
