@@ -47,7 +47,7 @@ def main():
         if any(c.get('breadcrumb_correct') is not None or c.get('table_correct') is not None or c.get('review_notes') for c in prior):
             raise ValueError('Refusing to overwrite annotated review samples; use a new QA directory')
     (qa/'review_samples.jsonl').write_text(''.join(json.dumps(c,ensure_ascii=False)+'\n' for c in samples),encoding='utf-8')
-    report=dict(dataset=str(path),dataset_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),chunks=len(chunks),companies=len(expected),pages=sum(r['pages'] for r in records),
+    report=dict(dataset=str(path),dataset_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),sample_sha256=hashlib.sha256(sample_path.read_bytes()).hexdigest(),chunks=len(chunks),companies=len(expected),pages=sum(r['pages'] for r in records),
                 structural_errors=errors,heuristic_warnings=dict(warnings),sample_count=len(samples),
                 manual_review_status='pending',acceptance='NOT_ACCEPTED_PENDING_REVIEW',
                 counts=[dict(company=k[0],chunk_type=k[1],count=len(v)) for k,v in sorted(groups.items())])

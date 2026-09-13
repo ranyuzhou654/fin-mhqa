@@ -56,3 +56,14 @@ uv pip install --python .venv/bin/python --no-deps -e .
 ```
 
 缓存目录随模型配置及依赖版本变化，应以转换脚本输出的 `cache_root` 为准；同一缓存使用固定的 25 页批次。构建器核对全部源文件哈希、配置一致性、页覆盖与重复页，排除单元格跨度异常的结构化表格并保留原页正文与错误标记。原生 JSON 保存完整单元格跨度和坐标，chunk 中的来源引用包含批次路径，坐标状态为未验证。未知表头不猜测，跨页表格仅在表头与版面条件均匹配时合并。候选集独立输出；结构审计不代替 300 条源页人工核验。
+
+全量候选的事实回归与人工审核评分：
+
+```bash
+.venv/bin/python scripts/check_docling_corpus_facts.py
+.venv/bin/python scripts/audit_docling_corpus_cells.py --native-root data/docling_native/59cdcef7571d
+# 复制 review_samples.jsonl 为 reviewed.jsonl，按原始 PDF 逐条填写布尔标签和说明。
+.venv/bin/python scripts/score_m1_review.py --qa-dir data/qa/docling_corpus --review data/qa/docling_corpus/reviewed.jsonl
+```
+
+固定样本保持不变，标签写入单独副本。评分同时检查每公司三类各 10 条、正文/表格 breadcrumb、表格内容与联合正确率均至少 95%、总数 6k–10k，以及结构审计零错误；未填标签会返回待审核，篡改证据或替换样本会报错。数值单元格坐标一致性是独立诊断，不充当事实正确率。
