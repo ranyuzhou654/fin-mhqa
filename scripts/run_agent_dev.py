@@ -18,6 +18,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--questions',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
     p.add_argument('--arms',nargs='+',choices=['structured','generic','flat'],default=['structured','generic','flat'])
     p.add_argument('--url',default='http://127.0.0.1:8100');p.add_argument('--workers',type=int,choices=[1,2,4],default=2)
+    p.add_argument('--synthesis',choices=['model','verified'],default='verified')
     p.add_argument('--only');a=p.parse_args()
     if a.out.exists():raise FileExistsError(a.out)
     rows=[json.loads(l) for l in a.questions.read_text().splitlines()]
@@ -31,7 +32,7 @@ def main():
     files=[Path('src/finmhqa/agent')/f for f in ['codex_teacher.py','graph.py','graph_contracts.py','pilot_tools.py']]+[Path(__file__)]
     metadata={'questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),'teacher':'gpt-5.6-sol',
         'langgraph':importlib.metadata.version('langgraph'),'health_before':health,'arms':a.arms,'workers':a.workers,
-        'max_models':10,'max_tools':8,'max_searches':6,'max_replans':2,'code_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
+        'synthesis':a.synthesis,'max_models':10,'max_tools':8,'max_searches':6,'max_replans':2,'code_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
         'scope':'development only; authored from previously reviewed facts; not independent Test',
         'flat':'existing action policy with shared safety guards and budgets; no semantic verifier or synthesis model call',
         'generic':'same graph and verifier; only failure feedback to planner replaced with generic failure message'}
@@ -48,7 +49,7 @@ def main():
                 return teacher.decide(question,history,folder/f'step_{step:02}',system=prompt,output_schema=schema)
             def retrieve(args):
                 with lock:return search(a.url,args,health['admission']['dataset_sha256'])
-            try:state=AgentGraph(model,retrieve,record,arm).run(row['question'])
+            try:state=AgentGraph(model,retrieve,record,arm,synthesis=a.synthesis).run(row['question'])
             except Exception as exc:error=f'{type(exc).__name__}: {exc}';record({'event':'error','message':error})
         result={'id':row['id'],'arm':arm,'final':state.get('final'),'error':error,'terminal_reason':state.get('terminal_reason','ERROR'),
             'seconds':time.monotonic()-start,'search_calls':sum(e['event']=='tool_request' and e['tool']=='search' for e in logs),

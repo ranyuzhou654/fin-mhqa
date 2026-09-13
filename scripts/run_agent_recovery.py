@@ -35,7 +35,7 @@ def transform(response,scenario):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--questions',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
-    p.add_argument('--url',default='http://127.0.0.1:8100');a=p.parse_args()
+    p.add_argument('--url',default='http://127.0.0.1:8100');p.add_argument('--synthesis',choices=['model','verified'],default='verified');a=p.parse_args()
     if a.out.exists():raise FileExistsError(a.out)
     rows=[json.loads(l) for l in a.questions.read_text().splitlines()]
     if any(set(r)!={'id','question'} for r in rows):raise ValueError('question-only input required')
@@ -43,7 +43,7 @@ def main():
     a.out.mkdir(parents=True);health=request_json(a.url+'/health');lock=threading.Lock()
     teacher=CodexTeacher('/Applications/ChatGPT.app/Contents/Resources/codex',a.out/'empty_teacher_cwd')
     manifest={'scope':'fault injection only; not natural retrieval or dev20 correctness','scenarios':SCENARIOS,
-        'question_id':'agent-dev-001','question':question,'health':health,'teacher':'gpt-5.6-sol',
+        'synthesis':a.synthesis,'question_id':'agent-dev-001','question':question,'health':health,'teacher':'gpt-5.6-sol',
         'code_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'conflict_caveat':'synthetic alternative explicitly signals a conflict; demonstrates prompted conflict handling, not blind detection'}
     (a.out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
@@ -64,7 +64,7 @@ def main():
                     response=transform(response,scenario)
                 return response
             def model(q,payload,step,prompt,schema):return teacher.decide(q,payload,folder/f'step_{step:02}',system=prompt,output_schema=schema)
-            try:state=AgentGraph(model,retrieve,record).run(question)
+            try:state=AgentGraph(model,retrieve,record,synthesis=a.synthesis).run(question)
             except Exception as exc:error=f'{type(exc).__name__}: {exc}';record({'event':'error','message':error})
         result={'id':scenario,'final':state.get('final'),'error':error,'terminal_reason':state.get('terminal_reason','ERROR'),
             'replan_count':state.get('replan_count'),'injection_applied':used,'seconds':time.monotonic()-start,

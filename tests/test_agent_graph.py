@@ -99,3 +99,21 @@ def test_tool_and_model_budgets():
 def test_dependency_cycle_rejected():
     a=query();a['plan'][0]['depends_on']=['q1']
     with pytest.raises(ValueError,match='dependencies'):run([a])
+
+
+def test_verified_publication_at_exact_model_budget():
+    state,events,_=run([query(),calc(),finish(),PASS],max_models=4,synthesis='verified')
+    assert state['final']==F and state['model_calls']==4
+    assert any(e['event']=='verified_publication' for e in events)
+    assert not any(e.get('role')=='synthesizer' for e in events)
+
+
+def test_verified_publication_preserves_reviewed_explanation():
+    final=deepcopy(F);final['explanation']='这一解释已经核验，不得再让模型添加事实。'
+    state,_,_=run([query(),calc(),finish(final),PASS],synthesis='verified')
+    assert state['final']==final
+
+
+def test_verified_publication_does_not_bypass_verifier():
+    state,_,_=run([query(),calc(),finish(),reject('CONFLICT')],max_models=4,synthesis='verified')
+    assert state['final']['status']=='insufficient'

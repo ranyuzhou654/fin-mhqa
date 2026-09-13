@@ -54,9 +54,11 @@ def final_checks(final,state):
 
 
 class AgentGraph:
-    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2):
+    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model'):
         if arm not in ('structured','generic','flat'):raise ValueError('invalid arm')
         self.model,self.search,self.record=model,search,record
+        if synthesis not in ('model','verified'):raise ValueError('invalid synthesis mode')
+        self.synthesis=synthesis
         self.arm=arm;self.max_models=max_models;self.max_tools=max_tools
         self.max_searches=max_searches;self.max_replans=max_replans
         g=StateGraph(AgentState)
@@ -169,7 +171,7 @@ class AgentGraph:
         self.record({'event':'node','name':'synthesizer'})
         if s['verified']:
             final=s['candidate']
-            if self.arm!='flat':
+            if self.arm!='flat' and self.synthesis=='model':
                 if s['model_calls']>=self.max_models:
                     s.update(halt=True,verified=False,terminal_reason='MODEL_BUDGET')
                 else:
@@ -177,7 +179,11 @@ class AgentGraph:
                     for k in ('status','answer_value','answer_unit','selected_company','citations'):
                         if final[k]!=s['candidate'][k]:raise ValueError('synthesizer changed verified field: '+k)
                     if final_checks(final,s):raise ValueError('final evidence/calculation guard')
-            if s['verified']:s['final']=final;s['terminal_reason']='ANSWERED'
+            if s['verified']:
+                if final_checks(final,s):raise ValueError('publication evidence/calculation guard')
+                if self.arm!='flat' and self.synthesis=='verified':
+                    self.record({'event':'verified_publication','model_called':False,'explanation_unchanged':True})
+                s['final']=final;s['terminal_reason']='ANSWERED'
         if not s['verified']:
             s['final']={'status':'insufficient','answer_value':'','answer_unit':'','selected_company':None,'citations':[],
                         'explanation':'证据或运行预算不足：'+s['terminal_reason']}
