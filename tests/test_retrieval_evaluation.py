@@ -16,8 +16,8 @@ def frozen(tmp_path,monkeypatch):
     Path('configs').mkdir()
     source=Path('configs/retrieval_dev30.jsonl')
     rows=[dict(query_id=f'q{i}',query=str(i),dataset_sha256='corpus',gold_chunk_ids=[f'gold{i}']) for i in range(30)]
-    source.write_text(''.join(json.dumps(r)+'\n' for r in rows))
-    bound=Path('bound.jsonl');bound.write_bytes(source.read_bytes())
+    source.write_text(''.join(json.dumps({k:r[k] for k in ('query_id','query')})+'\n' for r in rows))
+    bound=Path('bound.jsonl');bound.write_text(''.join(json.dumps(r)+'\n' for r in rows))
     bound.with_suffix('.summary.json').write_text(json.dumps(dict(bound_sha256=evaluation.sha256(bound),
         query_source_sha256=evaluation.sha256(source),dataset_sha256='corpus')))
     return bound
@@ -67,3 +67,28 @@ def test_changed_binding_cannot_pass(frozen,monkeypatch):
     report=evaluation.evaluate('http://test',frozen,'result.json')
     assert report['acceptance']=='DIAGNOSTIC_ONLY'
     assert not report['fixed_binding_verified']
+
+
+def test_changed_question_cannot_be_laundered_by_updated_sidecar(frozen,monkeypatch):
+    mock_api(monkeypatch)
+    rows=[json.loads(l) for l in frozen.read_text().splitlines()];rows[0]['query']='1'
+    frozen.write_text(''.join(json.dumps(r)+'\n' for r in rows))
+    sidecar=frozen.with_suffix('.summary.json');binding=json.loads(sidecar.read_text())
+    binding['bound_sha256']=evaluation.sha256(frozen);sidecar.write_text(json.dumps(binding))
+    report=evaluation.evaluate('http://test',frozen,'result.json')
+    assert report['acceptance']=='DIAGNOSTIC_ONLY'
+
+
+@pytest.mark.parametrize('tampered',[False,True])
+def test_v2_requires_registered_source_review(frozen,monkeypatch,tampered):
+    mock_api(monkeypatch)
+    rows=[dict(json.loads(l),label_version='source_equivalence_v2') for l in frozen.read_text().splitlines()]
+    frozen.write_text(''.join(json.dumps(r)+'\n' for r in rows))
+    review=Path('review.json');review.write_text('{"approved":"source-reviewed"}')
+    binding_path=frozen.with_suffix('.summary.json');binding=json.loads(binding_path.read_text())
+    binding.update(label_version='source_equivalence_v2',status='FROZEN',bound_sha256=evaluation.sha256(frozen),review_path=str(review),review_sha256=evaluation.sha256(review))
+    binding_path.write_text(json.dumps(binding))
+    Path('configs/retrieval_label_versions.json').write_text(json.dumps({'source_equivalence_v2':binding}))
+    if tampered:review.write_text('{"approved":"changed"}')
+    report=evaluation.evaluate('http://test',frozen,'result.json')
+    assert report['acceptance']==('DIAGNOSTIC_ONLY' if tampered else 'PASSED')

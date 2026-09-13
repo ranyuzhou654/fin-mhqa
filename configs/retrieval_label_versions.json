@@ -1,0 +1,9 @@
+{
+  "source_equivalence_v2": {
+    "bound_sha256": "9bc87fe4de0ab7063effc599a6d4b577cfaca0ebd4134eaf0c206c62f7250e6c",
+    "query_source_sha256": "80064b16f2a0ad09f88757bb0d17be85e38757da0475506440daaaa47f16e705",
+    "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+    "review_sha256": "3a1a053810ce1a02c7634e1c90d2c313f24f030b0d7935c7e95678a9e7c31413",
+    "review_path": "configs/retrieval_equivalence_v2_review.json"
+  }
+}

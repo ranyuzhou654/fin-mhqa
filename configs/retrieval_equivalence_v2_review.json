@@ -1,0 +1,1939 @@
+{
+  "label_version": "source_equivalence_v2",
+  "status": "SOURCE_REVIEW_COMPLETE",
+  "reviewer": "assistant_source_review",
+  "reviewed_at": "2026-09-13T13:49:27.154872+00:00",
+  "user_authorization": "同意：纳入经源PDF核验的跨页等价证据，保留原始分数",
+  "review_blinding": "Reviewer has seen v1 failures; candidate discovery scanned every question/source without reading retrieval responses. This is a development-label revision, not a blind test.",
+  "policy": "Keep v1 labels; add only reviewed equivalent views. Revenue additions must expose original expected unit and current group/consolidated revenue. Preserve question-specific statement, scope, period and rendering constraints; no approximate values or automatic numeric-only admission.",
+  "query_source_sha256": "80064b16f2a0ad09f88757bb0d17be85e38757da0475506440daaaa47f16e705",
+  "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "previous_bound_sha256": "a1f696a319b32342a1cbad91d4a474bf970f20e8947f20fc7ad49f85851f54f3",
+  "discovery_sha256": "73cb44f247368ed54bffe1f17a0034c535a00885447fab38b99f23034a7492fa",
+  "queries": [
+    {
+      "query_id": "retrieval-dev-01",
+      "source_pages": [
+        7,
+        54,
+        96,
+        169
+      ],
+      "decisions": [
+        {
+          "chunk_id": "6a78c7f4d9e3115b371fd063",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "d713ba2c7c1035b08a4a3717bb3920ccaab98143326351fcd99d8950290a45d0",
+          "source_page": 7,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "a83da6ed814a92f4a2a7ad60",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "218f7fa00fd9937ba2a51e326a115b5c4ff0fc997f7a0c3ac032427a1be8d389",
+          "source_page": 7,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "b1ee395f5e519c8cf469e7f8",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 251,123,714 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "b08dc691eb39c4a6615a2ae6cea9d8213b1eb4eace4f4c7003d1c46bb3469c54",
+          "source_page": 54,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
+          "source_visual": "data/eval/equivalence_v2/visual/000333-54.png",
+          "source_visual_sha256": "54043cb1b0e47ae4a9b068e81a67742e35c87ade4c55797c1b49db71680264cd",
+          "source_terms": [
+            "营业收入",
+            "251,123,714"
+          ]
+        },
+        {
+          "chunk_id": "ec24d47e31800a4e0a0b6781",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 251,123,714 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "989e9ab3f8f2a6267177f08a98622f54dce18b5a47b7d3a7d010427184da1b4b",
+          "source_page": 54,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
+          "source_visual": "data/eval/equivalence_v2/visual/000333-54.png",
+          "source_visual_sha256": "54043cb1b0e47ae4a9b068e81a67742e35c87ade4c55797c1b49db71680264cd",
+          "source_terms": [
+            "营业收入",
+            "251,123,714"
+          ]
+        },
+        {
+          "chunk_id": "767809234e9c65bfc169e9ef",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 251,123,714 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "bae9fa266d00b4cb94279bb372286ff49f9e6b1df7f772e83dd8cc3e12dfccbb",
+          "source_page": 54,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
+          "source_visual": "data/eval/equivalence_v2/visual/000333-54.png",
+          "source_visual_sha256": "54043cb1b0e47ae4a9b068e81a67742e35c87ade4c55797c1b49db71680264cd",
+          "source_terms": [
+            "营业收入",
+            "251,123,714"
+          ]
+        },
+        {
+          "chunk_id": "d7aa5a987d7cb6e9258af153",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 251,123,714 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "7b39358bd720afb2e6ba6dab895565ba97f5f7bbbc3fd1e4a4e4ee9d506d67f5",
+          "source_page": 54,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
+          "source_visual": "data/eval/equivalence_v2/visual/000333-54.png",
+          "source_visual_sha256": "54043cb1b0e47ae4a9b068e81a67742e35c87ade4c55797c1b49db71680264cd",
+          "source_terms": [
+            "营业收入",
+            "251,123,714"
+          ]
+        },
+        {
+          "chunk_id": "407d90148388cf7072a341ab",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 251,123,714 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "55da8dd9c720e18c88af9582d8679284d0c253f2df1363f7978b4df3ac44ec04",
+          "source_page": 96,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
+          "source_visual": "data/eval/equivalence_v2/visual/000333-96.png",
+          "source_visual_sha256": "0ba02bc4d894d417248b2c3cb49f367c58f7fb8a54a275bcf0327760aee6d8dd",
+          "source_terms": [
+            "营业收入",
+            "251,123,714"
+          ]
+        },
+        {
+          "chunk_id": "312228f2c06f020b2d6cd9d4",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 251,123,714 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "d6b7610a7e1a06f429aa6b7a4517fc51bb1c40a3fc4b4a658aef3aec64afe777",
+          "source_page": 96,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
+          "source_visual": "data/eval/equivalence_v2/visual/000333-96.png",
+          "source_visual_sha256": "0ba02bc4d894d417248b2c3cb49f367c58f7fb8a54a275bcf0327760aee6d8dd",
+          "source_terms": [
+            "营业收入",
+            "251,123,714"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-02",
+      "source_pages": [
+        7,
+        22,
+        57,
+        144
+      ],
+      "decisions": [
+        {
+          "chunk_id": "83d1e4f9ba9db3adfffd8b1a",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 97,324,925,988.20 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "048406dd52385ebe967b96020e3719c89bba49dac0fedfe79238f0b84db3e021",
+          "source_page": 57,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470",
+          "source_visual": "data/eval/equivalence_v2/visual/000651-57.png",
+          "source_visual_sha256": "c7e3caca549092fd4a8a2623d095fc55f437761c7bb3518f08196d492be2b029",
+          "source_terms": [
+            "营业收入",
+            "97,324,925,988.20"
+          ]
+        },
+        {
+          "chunk_id": "9fed1d6f14909619a834c5f3",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 97,324,925,988.20 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "e7a06fd2eb9e70c88151237ce41f29eb1b6b17984294fd797ca55bf350331d0b",
+          "source_page": 57,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470",
+          "source_visual": "data/eval/equivalence_v2/visual/000651-57.png",
+          "source_visual_sha256": "c7e3caca549092fd4a8a2623d095fc55f437761c7bb3518f08196d492be2b029",
+          "source_terms": [
+            "营业收入",
+            "97,324,925,988.20"
+          ]
+        },
+        {
+          "chunk_id": "d7515d06b5da9641ce470540",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "c9eb1722a32ad256ef316bba52c257e6913d129bbecd39d6ad1d40d1219829b7",
+          "source_page": 144,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        },
+        {
+          "chunk_id": "f8f2d6947e3858d87b913cc6",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "15adafec4277894808b95bc86cad67a4a19a62417cadcd8e1443a8baee07d301",
+          "source_page": 144,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        },
+        {
+          "chunk_id": "9f7b863c6cc9fc9f54511ee7",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "6de181c3a62314f4c751e3497eb8a68953c5e8c06bf615bfdeb0fb2e4c6dbc76",
+          "source_page": 7,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        },
+        {
+          "chunk_id": "107e5919da91b93058a505aa",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "1f24c71ce4db704eaec0904a4a81352259010e13e17838d902ef2e4fb2283954",
+          "source_page": 7,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        },
+        {
+          "chunk_id": "3e4d021470fce7b0ca1f6bee",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 97,324,925,988.20 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "81d647f274008b15c7541758c4790e486c3fc8a6a671778c8bf60c5e162e4f24",
+          "source_page": 22,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470",
+          "source_visual": "data/eval/equivalence_v2/visual/000651-22.png",
+          "source_visual_sha256": "b76b3f02a098cc1429bcc3a7a983781a19f8864b57c85c10f26f162b9d09c663",
+          "source_terms": [
+            "营业收入",
+            "97,324,925,988.20"
+          ]
+        },
+        {
+          "chunk_id": "66cd02eef571a7e1ebfa8109",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 97,324,925,988.20 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "085b6178309de4c1bc492392c72fb30abcd0c92c234a77b10b4fdd2b9717b485",
+          "source_page": 22,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470",
+          "source_visual": "data/eval/equivalence_v2/visual/000651-22.png",
+          "source_visual_sha256": "b76b3f02a098cc1429bcc3a7a983781a19f8864b57c85c10f26f162b9d09c663",
+          "source_terms": [
+            "营业收入",
+            "97,324,925,988.20"
+          ]
+        },
+        {
+          "chunk_id": "d8d54ba9aed695c7699dad2f",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 97,324,925,988.20 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "34f7f1d657e5c4b77b1040c159f2913d8166cfbae19906699dbd3a29c006db0f",
+          "source_page": 22,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470",
+          "source_visual": "data/eval/equivalence_v2/visual/000651-22.png",
+          "source_visual_sha256": "b76b3f02a098cc1429bcc3a7a983781a19f8864b57c85c10f26f162b9d09c663",
+          "source_terms": [
+            "营业收入",
+            "97,324,925,988.20"
+          ]
+        },
+        {
+          "chunk_id": "539295fea62c7a0e50545195",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 97,324,925,988.20 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "735a7bb394f00b48b6432f9010973686c5f39dcc5f167b18d31ddab883f24afa",
+          "source_page": 22,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470",
+          "source_visual": "data/eval/equivalence_v2/visual/000651-22.png",
+          "source_visual_sha256": "b76b3f02a098cc1429bcc3a7a983781a19f8864b57c85c10f26f162b9d09c663",
+          "source_terms": [
+            "营业收入",
+            "97,324,925,988.20"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-03",
+      "source_pages": [
+        6,
+        32,
+        71,
+        151
+      ],
+      "decisions": [
+        {
+          "chunk_id": "3625a26ca12e941341a26e0e",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 156,494,034,448.85 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "327c5b7a5c11b76e9a4d03c9dd65bd82f2dd9e481f28e6d83d3185ec9a162fce",
+          "source_page": 32,
+          "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+          "source_visual": "data/eval/equivalence_v2/visual/600690-32.png",
+          "source_visual_sha256": "1ba29dad999633793e4bbc34ecd1c3f1c6c35ba358c8e03c487e714ea0159dc6",
+          "source_terms": [
+            "营业收入",
+            "156,494,034,448.85"
+          ]
+        },
+        {
+          "chunk_id": "54ed32eab7163fe4e0d93e4c",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 156,494,034,448.85 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "d65a3e4dfe896e777c148974608cd5a9b5804273485aad68c713debacea535c8",
+          "source_page": 32,
+          "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+          "source_visual": "data/eval/equivalence_v2/visual/600690-32.png",
+          "source_visual_sha256": "1ba29dad999633793e4bbc34ecd1c3f1c6c35ba358c8e03c487e714ea0159dc6",
+          "source_terms": [
+            "营业收入",
+            "156,494,034,448.85"
+          ]
+        },
+        {
+          "chunk_id": "25fef89f75f77950dc027db9",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "351daa1acec2daf86cf9a34005b9497cc68e8c9efa8890662e1eb7b762f2b0ad",
+          "source_page": 151,
+          "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074"
+        },
+        {
+          "chunk_id": "dc15eff61924d934e111b7d3",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "852590fbfe91c6da049e2034716cf8e367eb6de2244247542079d96e2b13a0e1",
+          "source_page": 151,
+          "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074"
+        },
+        {
+          "chunk_id": "95186a8d525131f8c5bf39c1",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "bc399d858f5ef79a1a545eb39124dacec2d1860811d2432adaeb5646a7c6b8f4",
+          "source_page": 6,
+          "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074"
+        },
+        {
+          "chunk_id": "19ec2aedc83338def1a54732",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "c93fa25b3d46909857109f47cb8bcf8c844498c4bc97f6f717c398ff02686868",
+          "source_page": 6,
+          "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074"
+        },
+        {
+          "chunk_id": "fe7f7b6d26f52577621813d8",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 156,494,034,448.85 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "cb0cd5394bc58980c2e51dccba8c8f6689bb5c562626e9f49028d88711ec41d0",
+          "source_page": 71,
+          "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+          "source_visual": "data/eval/equivalence_v2/visual/600690-71.png",
+          "source_visual_sha256": "ac74b17bca3eb9ff4ba5109990d99a01742518e5ccdedc3da49ba16b037b5768",
+          "source_terms": [
+            "营业收入",
+            "156,494,034,448.85"
+          ]
+        },
+        {
+          "chunk_id": "50b0b59b197f1ae4f88f72fa",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 156,494,034,448.85 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "44558beb4f5a20d34e77471b95a0492c619c8ac2fb33df8c2b68ad472bbb64e1",
+          "source_page": 71,
+          "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+          "source_visual": "data/eval/equivalence_v2/visual/600690-71.png",
+          "source_visual_sha256": "ac74b17bca3eb9ff4ba5109990d99a01742518e5ccdedc3da49ba16b037b5768",
+          "source_terms": [
+            "营业收入",
+            "156,494,034,448.85"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-04",
+      "source_pages": [
+        7,
+        20,
+        65,
+        145,
+        188
+      ],
+      "decisions": [
+        {
+          "chunk_id": "a87071b0d5639630b3554bd5",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 371,280,948,000.00 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "0ff754a3f2fe148bb4f122abb58bf082843ae1a1cdd5ee1cf9958bb6d40d3ff9",
+          "source_page": 20,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+          "source_visual": "data/eval/equivalence_v2/visual/002594-20.png",
+          "source_visual_sha256": "f8a224629517a7c1c90df66803d57f654524d87f19877f79670b996ee438c110",
+          "source_terms": [
+            "营业收入",
+            "371,280,948,000.00"
+          ]
+        },
+        {
+          "chunk_id": "7d85da33b6fcb2f6d4fbdc99",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 371,280,948,000.00 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "ecf3cbf6306fa520432cdec197939497d3cb0e9a83e53faec832b7c9e1143b04",
+          "source_page": 20,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+          "source_visual": "data/eval/equivalence_v2/visual/002594-20.png",
+          "source_visual_sha256": "f8a224629517a7c1c90df66803d57f654524d87f19877f79670b996ee438c110",
+          "source_terms": [
+            "营业收入",
+            "371,280,948,000.00"
+          ]
+        },
+        {
+          "chunk_id": "df365d166ef42c1b092f0ef9",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 371,280,948,000.00 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "0bc5164a3695f2272a7f4f962d5768b4dac9132a47dadabf2709821ec17f61f8",
+          "source_page": 20,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+          "source_visual": "data/eval/equivalence_v2/visual/002594-20.png",
+          "source_visual_sha256": "f8a224629517a7c1c90df66803d57f654524d87f19877f79670b996ee438c110",
+          "source_terms": [
+            "营业收入",
+            "371,280,948,000.00"
+          ]
+        },
+        {
+          "chunk_id": "52e388a1787b91755b534281",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 371,280,948,000.00 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "341b675e0bd4baa6c4a470c3cbb7dcab562534605bbac6e2992033d7108c9946",
+          "source_page": 20,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+          "source_visual": "data/eval/equivalence_v2/visual/002594-20.png",
+          "source_visual_sha256": "f8a224629517a7c1c90df66803d57f654524d87f19877f79670b996ee438c110",
+          "source_terms": [
+            "营业收入",
+            "371,280,948,000.00"
+          ]
+        },
+        {
+          "chunk_id": "5763c0ce1bff9f5bfe81f3cd",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "783a13316f661406da83d07752734b145dd6e782d23a02a27b0edb00ba82b0ef",
+          "source_page": 65,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "3ee8f4c84b299767459ac5e4",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "4146fee251f5d4a841b2bb40d48a90c0c45155ef6efd79a4aea94a770f58d6f6",
+          "source_page": 65,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "8f627aa0817d135f91120221",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "da9570a4a14fdb6f61e5f070cb0af1bb126b766e7a0c71f2e086981c471ef00b",
+          "source_page": 145,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "a617a045b938675f95e1272f",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "8e05a6a052c5e860545e83c1d5dfe2fa0fa3ff985968458ed7796679c2c0f430",
+          "source_page": 145,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "9ca55cc14c76d684e98536a5",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "9a8182d798af1f41fbc7eb01c6282b5765ad79e209b3ff3ace84be7982715c74",
+          "source_page": 188,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "6e5fd8fb9d6f5f6e6aa62fa9",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "768a329524695325dbd00b8182563d35c029cf00d69e3b50950e1632ee395eb4",
+          "source_page": 7,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "569f861ec1a4e729e5803663",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "fe8fc7d6e37d424ca2ae950424d7a31a0bf04d86d47d20e270b88462e206e095",
+          "source_page": 7,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-05",
+      "source_pages": [
+        7,
+        15,
+        68,
+        141
+      ],
+      "decisions": [
+        {
+          "chunk_id": "1f36e9da92d2a3bd07021483",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 178,886,253 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "64867eb86d2f7f0be62a4d4eb266d525020f528c873d834fccb0f7e4aad78dda",
+          "source_page": 15,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
+          "source_visual": "data/eval/equivalence_v2/visual/300750-15.png",
+          "source_visual_sha256": "ae062676aa4291dbcc76dde82dd1a60f4cf3cb090f5f5bd1e3729fc89405a2d3",
+          "source_terms": [
+            "营业收入",
+            "178,886,253"
+          ]
+        },
+        {
+          "chunk_id": "c66b58b8029ab35430b40e71",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 178,886,253 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "b90d55982332d9d6b6fc3f20aac42d38aafc2ebc4810497f0a053f5491fa2923",
+          "source_page": 15,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
+          "source_visual": "data/eval/equivalence_v2/visual/300750-15.png",
+          "source_visual_sha256": "ae062676aa4291dbcc76dde82dd1a60f4cf3cb090f5f5bd1e3729fc89405a2d3",
+          "source_terms": [
+            "营业收入",
+            "178,886,253"
+          ]
+        },
+        {
+          "chunk_id": "e55d85df8f44a5ca90f9fa36",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 178,886,253 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "65975d39968585bce741bcb9fac797caf867c2ee2743192e791b42b221faf10f",
+          "source_page": 68,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
+          "source_visual": "data/eval/equivalence_v2/visual/300750-68.png",
+          "source_visual_sha256": "8525b1d0a2ce3532c61a7e82f0296665ac0f49ee6adce876f6cbe48cebee5f2f",
+          "source_terms": [
+            "营业收入",
+            "178,886,253"
+          ]
+        },
+        {
+          "chunk_id": "858fb75185f7e9db4dfc04ce",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 178,886,253 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "37a4bf6356d31bda80e8caa79416d0b2b37cbbbeb0d51c05f570034e974f8fc3",
+          "source_page": 68,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
+          "source_visual": "data/eval/equivalence_v2/visual/300750-68.png",
+          "source_visual_sha256": "8525b1d0a2ce3532c61a7e82f0296665ac0f49ee6adce876f6cbe48cebee5f2f",
+          "source_terms": [
+            "营业收入",
+            "178,886,253"
+          ]
+        },
+        {
+          "chunk_id": "7ce1d61bb01ad43d822e69cd",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 178,886,253 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "24231d3d8b74b666fa91d15cf90ac3071c19f67a45c24537fc95b9df3ae2baf5",
+          "source_page": 141,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
+          "source_visual": "data/eval/equivalence_v2/visual/300750-141.png",
+          "source_visual_sha256": "a65b949532136b6d2ff4b87153076649a02166decd12fd1c868b7fcc0d436b78",
+          "source_terms": [
+            "营业收入",
+            "178,886,253"
+          ]
+        },
+        {
+          "chunk_id": "4d38ec9f01a5d51e9631f66a",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 178,886,253 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "5f1e8ae083ad9c0ab7d4ac7e17f97ead9b175ccdbbe7ea2cea288c4af88dd694",
+          "source_page": 141,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
+          "source_visual": "data/eval/equivalence_v2/visual/300750-141.png",
+          "source_visual_sha256": "a65b949532136b6d2ff4b87153076649a02166decd12fd1c868b7fcc0d436b78",
+          "source_terms": [
+            "营业收入",
+            "178,886,253"
+          ]
+        },
+        {
+          "chunk_id": "c6bef592447c1a7dfb19acc7",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 178,886,253 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "789c87efb240b205b491f78e9702237bbebec41e1e31752ae4c4ae3d63b53eb5",
+          "source_page": 141,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
+          "source_visual": "data/eval/equivalence_v2/visual/300750-141.png",
+          "source_visual_sha256": "a65b949532136b6d2ff4b87153076649a02166decd12fd1c868b7fcc0d436b78",
+          "source_terms": [
+            "营业收入",
+            "178,886,253"
+          ]
+        },
+        {
+          "chunk_id": "7a306ff12c11c7fb95a91951",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 178,886,253 千元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "e977a0edb546b70a2bba55fb9997595c8edabd0c954a6b2e152e79ba60afce34",
+          "source_page": 141,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
+          "source_visual": "data/eval/equivalence_v2/visual/300750-141.png",
+          "source_visual_sha256": "a65b949532136b6d2ff4b87153076649a02166decd12fd1c868b7fcc0d436b78",
+          "source_terms": [
+            "营业收入",
+            "178,886,253"
+          ]
+        },
+        {
+          "chunk_id": "e48b5762797ca70dbda10ced",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "8c857794bf45e00e0aaac6e692cdef9b739431449540ece19e809feda2330da8",
+          "source_page": 7,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f"
+        },
+        {
+          "chunk_id": "5232cf29acf6803a764c154c",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "9162174c12348a6b43c6110c7108b1e7d1fabea7bf9c5d1dc6579f057b5c736a",
+          "source_page": 7,
+          "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-06",
+      "source_pages": [
+        9,
+        18,
+        19,
+        20,
+        59,
+        146,
+        147
+      ],
+      "decisions": [
+        {
+          "chunk_id": "34a674b579521b5b4aefe2de",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 28,169,564,043.41 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "1c572f717b8ce33a005dd8510b922acf0c3d1049e6b8634ce9265876c7e537e9",
+          "source_page": 59,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+          "source_visual": "data/eval/equivalence_v2/visual/300014-59.png",
+          "source_visual_sha256": "8e92ee3e06e074d433bdae5ca85e41ce1c322f4e7d3fe9fc24ef80a60e72987e",
+          "source_terms": [
+            "营业收入",
+            "28,169,564,043.41"
+          ]
+        },
+        {
+          "chunk_id": "85fe6d961927ba26380060b3",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 28,169,564,043.41 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "ddbbdd145ed2ffc8d395f6049302c351329467f6effc6747d9b7ae38ea33cdbe",
+          "source_page": 59,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+          "source_visual": "data/eval/equivalence_v2/visual/300014-59.png",
+          "source_visual_sha256": "8e92ee3e06e074d433bdae5ca85e41ce1c322f4e7d3fe9fc24ef80a60e72987e",
+          "source_terms": [
+            "营业收入",
+            "28,169,564,043.41"
+          ]
+        },
+        {
+          "chunk_id": "b2cef3b9b186e1f6ff114393",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 28,169,564,043.41 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "dada649e0e0009bfd123734bca8f3b6bfedbca51633eb517a7962824708b4ea2",
+          "source_page": 146,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+          "source_visual": "data/eval/equivalence_v2/visual/300014-146.png",
+          "source_visual_sha256": "be2ba6106cd20615f162ab4dc600037b0574c13e108228eebeab42a87c5114b6",
+          "source_terms": [
+            "营业收入",
+            "28,169,564,043.41"
+          ]
+        },
+        {
+          "chunk_id": "1f1c9da631d932e0a36a1b2e",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 28,169,564,043.41 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "6d56f76794e4f130474dc0962f31ef930a10a3a7d7479c998aa1e1a7a2772689",
+          "source_page": 146,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+          "source_visual": "data/eval/equivalence_v2/visual/300014-146.png",
+          "source_visual_sha256": "be2ba6106cd20615f162ab4dc600037b0574c13e108228eebeab42a87c5114b6",
+          "source_terms": [
+            "营业收入",
+            "28,169,564,043.41"
+          ]
+        },
+        {
+          "chunk_id": "d4c486ca58e59407b751ac5a",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "6d492cc678384b2d242ee47adb486b516174bde680b49edb9b470872e7620549",
+          "source_page": 147,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365"
+        },
+        {
+          "chunk_id": "fa24d5d3b78d659d32b1d20b",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "a841046b122ec1bdd8e26d5126864e423b7432f1af47fbc363795cc58703b9b5",
+          "source_page": 147,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365"
+        },
+        {
+          "chunk_id": "17f06a18149eaf1adcfd3f15",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 28,169,564,043.41 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "5351c1468e22fec03fccd2e5f74fffdb0968a74c5698915a90d49afbc2ad28c3",
+          "source_page": 18,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+          "source_visual": "data/eval/equivalence_v2/visual/300014-18.png",
+          "source_visual_sha256": "201e96e2fde002dfc251295ced5d009b1b2e8095022e695e7f726b140937f878",
+          "source_terms": [
+            "营业收入",
+            "28,169,564,043.41"
+          ]
+        },
+        {
+          "chunk_id": "0382568fff4a850578d3eb36",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 28,169,564,043.41 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "11fd5572d543bb4fbe013ce8e9e2ae76533857b25d6ae47dae36cfecdbc79cb0",
+          "source_page": 18,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+          "source_visual": "data/eval/equivalence_v2/visual/300014-18.png",
+          "source_visual_sha256": "201e96e2fde002dfc251295ced5d009b1b2e8095022e695e7f726b140937f878",
+          "source_terms": [
+            "营业收入",
+            "28,169,564,043.41"
+          ]
+        },
+        {
+          "chunk_id": "db0e2b28c869918816696d94",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 28,169,564,043.41 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "2581ba0cf5dd7844c64ee4c04289d7e07c02c51979855329190751c9113d08e5",
+          "source_page": 19,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+          "source_visual": "data/eval/equivalence_v2/visual/300014-19.png",
+          "source_visual_sha256": "0cb0008ded4f9c87199e6ca694b091313cc57fc203bbf2e7426122a39533c0b1",
+          "source_terms": [
+            "营业收入",
+            "28,169,564,043.41"
+          ]
+        },
+        {
+          "chunk_id": "731542073726c20f00d6615f",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 28,169,564,043.41 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "c278db2c0efa50ab832cc2bc928e56ebc58854eab501d568f4d30102ad10f2fe",
+          "source_page": 19,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+          "source_visual": "data/eval/equivalence_v2/visual/300014-19.png",
+          "source_visual_sha256": "0cb0008ded4f9c87199e6ca694b091313cc57fc203bbf2e7426122a39533c0b1",
+          "source_terms": [
+            "营业收入",
+            "28,169,564,043.41"
+          ]
+        },
+        {
+          "chunk_id": "5cceea7a96005bddae8ab6ae",
+          "decision": "reject",
+          "reason": "该行只标电子元器件制造业，不是明确的公司收入合计；不以数值巧合等同集团收入。",
+          "chunk_sha256": "73de9059831a787c0becfdbdfc7f23279c17e9f4f1299e81734605dae1bcd7ea",
+          "source_page": 20,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365"
+        },
+        {
+          "chunk_id": "2ac7593809ef34dc82daca60",
+          "decision": "reject",
+          "reason": "该行只标电子元器件制造业，不是明确的公司收入合计；不以数值巧合等同集团收入。",
+          "chunk_sha256": "4d6f7da7daa49351f43aadafda4958ac9036f60779983b9ee6a4abcb305bb148",
+          "source_page": 20,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365"
+        },
+        {
+          "chunk_id": "4b142132d4400148f8b24b01",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "d27f73f151d0da45e376053d949f05dd461d8062e1444e82236f7ecfcdffcbec",
+          "source_page": 9,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365"
+        },
+        {
+          "chunk_id": "e46cc43abd7ab8f03a9f44ac",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "417daacfe9279b361e7133d89f422a18461803404308d34f0ccdc1e6806e6491",
+          "source_page": 9,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-07",
+      "source_pages": [
+        5,
+        7,
+        28,
+        70
+      ],
+      "decisions": [
+        {
+          "chunk_id": "486e3e2950f423af68ec2446",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 89,389,354,416.84 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "3671d55e548679cf7400bc44ac42feed675bee4ca1939ede94d1f5db4afb6a4c",
+          "source_page": 7,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+          "source_visual": "data/eval/equivalence_v2/visual/600519-7.png",
+          "source_visual_sha256": "1086866b382cbbf99fd3fa6f4991a18a463c6aa797dbf461f19968742669d287",
+          "source_terms": [
+            "营业收入",
+            "89,389,354,416.84"
+          ]
+        },
+        {
+          "chunk_id": "8317e2f39c9971a11e3d4276",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 89,389,354,416.84 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "c682fd72ae675cf2bd2cdbea703ea1a545bc4c76d7c866bac4599d9116438535",
+          "source_page": 7,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+          "source_visual": "data/eval/equivalence_v2/visual/600519-7.png",
+          "source_visual_sha256": "1086866b382cbbf99fd3fa6f4991a18a463c6aa797dbf461f19968742669d287",
+          "source_terms": [
+            "营业收入",
+            "89,389,354,416.84"
+          ]
+        },
+        {
+          "chunk_id": "f9fb6ec78e485a75604415cf",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "0853f3a0070a76e6de09f8bd49a2ef6a27726a85ebe3e1572d271a8cfe9f7a87",
+          "source_page": 70,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        },
+        {
+          "chunk_id": "c7f32edb6602f1544b4bc1a1",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "81a4ef7ca0d1d5c2a281bbc27faf9d5e49a0521dd2e6ec5dba979b9af9e7153b",
+          "source_page": 70,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        },
+        {
+          "chunk_id": "e5d92215ef8f4b4e53511072",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 89,389,354,416.84 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "aff29973b4b35af2f86556c4d716711ae794d4bc12d56e2a00253dce6ab3ddb1",
+          "source_page": 70,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+          "source_visual": "data/eval/equivalence_v2/visual/600519-70.png",
+          "source_visual_sha256": "dd929c138b51858b0782704a3cbe38f21baebd9efe4b424123bb5c9fbe4ca2d2",
+          "source_terms": [
+            "营业收入",
+            "89,389,354,416.84"
+          ]
+        },
+        {
+          "chunk_id": "b845a6b3c615a1c81a18164a",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 89,389,354,416.84 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "73d18bb434e6cab777e6dffd801a314b51f56b2ddce33be02b56b283979a07a6",
+          "source_page": 70,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+          "source_visual": "data/eval/equivalence_v2/visual/600519-70.png",
+          "source_visual_sha256": "dd929c138b51858b0782704a3cbe38f21baebd9efe4b424123bb5c9fbe4ca2d2",
+          "source_terms": [
+            "营业收入",
+            "89,389,354,416.84"
+          ]
+        },
+        {
+          "chunk_id": "c1690dd0d44ad7bbf920ee06",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "0b257a0b44c1e67bb42068e4c0d95ebfbb82204dd91ad126d006f274ae4fa033",
+          "source_page": 5,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        },
+        {
+          "chunk_id": "b643e4654428b76ed87b57ea",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "bb86e448a32fa06467a43838e35981b71730c84f79652b615309c8db29378ed5",
+          "source_page": 5,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        },
+        {
+          "chunk_id": "2e1d407c863d696f303d4a84",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 89,389,354,416.84 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "ff6fc56e3232b3cac96c6b0f38498d1e059db050a1755edae0a50333d52a8a59",
+          "source_page": 28,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+          "source_visual": "data/eval/equivalence_v2/visual/600519-28.png",
+          "source_visual_sha256": "a40924e51bbb570a4875ec7aac31b82213eea418889f215bf43dfbe13dfc1fb7",
+          "source_terms": [
+            "营业收入",
+            "89,389,354,416.84"
+          ]
+        },
+        {
+          "chunk_id": "a3a68746e69a13fec8546059",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 89,389,354,416.84 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "d0791269afe28f4ca9f3e8be367fa6fd0c6a720d9041d27c45885ef34e664cd4",
+          "source_page": 28,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+          "source_visual": "data/eval/equivalence_v2/visual/600519-28.png",
+          "source_visual_sha256": "a40924e51bbb570a4875ec7aac31b82213eea418889f215bf43dfbe13dfc1fb7",
+          "source_terms": [
+            "营业收入",
+            "89,389,354,416.84"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-08",
+      "source_pages": [
+        6,
+        11,
+        12,
+        36,
+        94
+      ],
+      "decisions": [
+        {
+          "chunk_id": "2a2ed21537220caab8f1cf24",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 52,770,984,383.52 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "d2bba0700b743bed93cab98e08db7a19375078ca507c250d7a8a754edd360441",
+          "source_page": 11,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+          "source_visual": "data/eval/equivalence_v2/visual/000858-11.png",
+          "source_visual_sha256": "a49d666016c4d3625295d36d5ecb817d362f2930917a0941cbb630fdf1c51793",
+          "source_terms": [
+            "营业收入",
+            "52,770,984,383.52"
+          ]
+        },
+        {
+          "chunk_id": "2e860b95ead002b8d970d42a",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 52,770,984,383.52 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "197ab9c35f613afe10c151ccf99f15d7463834ecabf9994c3912a3040ddfaaaf",
+          "source_page": 11,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+          "source_visual": "data/eval/equivalence_v2/visual/000858-11.png",
+          "source_visual_sha256": "a49d666016c4d3625295d36d5ecb817d362f2930917a0941cbb630fdf1c51793",
+          "source_terms": [
+            "营业收入",
+            "52,770,984,383.52"
+          ]
+        },
+        {
+          "chunk_id": "31c3098f8501d0ae0773b741",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 52,770,984,383.52 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "a666bf6d19f73199ceb06b83ffc95fdf4efb815a1db3af77fbd1788c12200d9c",
+          "source_page": 12,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+          "source_visual": "data/eval/equivalence_v2/visual/000858-12.png",
+          "source_visual_sha256": "59dad90ad52fecc5bab1f237982077f713782c4fb6307df748cf2f6e91e34885",
+          "source_terms": [
+            "营业收入",
+            "52,770,984,383.52"
+          ]
+        },
+        {
+          "chunk_id": "9892435cd283831e968fe064",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 52,770,984,383.52 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "10a266204f1f76f30f90b1f5bda624646dd6e02e926001079ca5a82657d9cf6b",
+          "source_page": 12,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+          "source_visual": "data/eval/equivalence_v2/visual/000858-12.png",
+          "source_visual_sha256": "59dad90ad52fecc5bab1f237982077f713782c4fb6307df748cf2f6e91e34885",
+          "source_terms": [
+            "营业收入",
+            "52,770,984,383.52"
+          ]
+        },
+        {
+          "chunk_id": "ae7186bdf65beef61fa58c30",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 52,770,984,383.52 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "9a2a5bbbf46705ba825e637c193b821177b3dd652ab8b1c3fc3adea0bbb00701",
+          "source_page": 36,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+          "source_visual": "data/eval/equivalence_v2/visual/000858-36.png",
+          "source_visual_sha256": "08a48651fe73e52cc6e714ea03a37c8b6dfc54806a18a2fe0dd17f62367235ea",
+          "source_terms": [
+            "营业收入",
+            "52,770,984,383.52"
+          ]
+        },
+        {
+          "chunk_id": "cad29d5ea24462e1a71bf255",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 52,770,984,383.52 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "524785cdddb3a4bb9acdefb85ff011123816aa30de568232e135d49af160a90d",
+          "source_page": 36,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+          "source_visual": "data/eval/equivalence_v2/visual/000858-36.png",
+          "source_visual_sha256": "08a48651fe73e52cc6e714ea03a37c8b6dfc54806a18a2fe0dd17f62367235ea",
+          "source_terms": [
+            "营业收入",
+            "52,770,984,383.52"
+          ]
+        },
+        {
+          "chunk_id": "85a8544dea2c7b3e464165b2",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 52,770,984,383.52 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "4397bc0ed0bd1617dd391a4a02f8721ecfa39d6257b0e79f836453d18ffc118c",
+          "source_page": 94,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+          "source_visual": "data/eval/equivalence_v2/visual/000858-94.png",
+          "source_visual_sha256": "b499cdbc694c923b3ef508e8dfc9f6aea69d7c5f75eca1c64950e3e4bcd04ba8",
+          "source_terms": [
+            "营业收入",
+            "52,770,984,383.52"
+          ]
+        },
+        {
+          "chunk_id": "bb5d4a741e85617b104e53ba",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 52,770,984,383.52 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "b6bbafbe95bfed0da28837e5fe5327d1ad0c166a3e54f7a45b06412138746592",
+          "source_page": 94,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+          "source_visual": "data/eval/equivalence_v2/visual/000858-94.png",
+          "source_visual_sha256": "b499cdbc694c923b3ef508e8dfc9f6aea69d7c5f75eca1c64950e3e4bcd04ba8",
+          "source_terms": [
+            "营业收入",
+            "52,770,984,383.52"
+          ]
+        },
+        {
+          "chunk_id": "da9aedc097cfdd6f26d4141c",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "660fa71d1a4d64880d8d600baf2f5d36939c71f232ef0c1e996bd3696eac1880",
+          "source_page": 6,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a"
+        },
+        {
+          "chunk_id": "6ec3ca6ab07ccc73b6e7110c",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "bbfd7c4a05d8debdd0e76bd8587971d8058a7d5c63ed22f59b92d3fb7b8136e7",
+          "source_page": 6,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-09",
+      "source_pages": [
+        7,
+        13,
+        47,
+        108
+      ],
+      "decisions": [
+        {
+          "chunk_id": "8c864476752f30d60b23aab2",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "322c521d4d20f81032d3938a7c0f306f94d30aef345463a06b765faad9b3137f",
+          "source_page": 47,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc"
+        },
+        {
+          "chunk_id": "09b12fc55e98d52928b21225",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "b18508ae895267db1308df0f3b3b601063ab69c9d712ce7f61b9a8600da62fd0",
+          "source_page": 47,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc"
+        },
+        {
+          "chunk_id": "29d02e7f416fe02035c1626b",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 16,453,732,904.65 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "44ca7bd8eff22285aff369a243b058a2f6ec2f89ee4fdddeb4425eb1542123c2",
+          "source_page": 108,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+          "source_visual": "data/eval/equivalence_v2/visual/000568-108.png",
+          "source_visual_sha256": "08377cec3b66a8acc1f2ff08c12b49c1223b82d68da1c5ef86d4033f4b87e935",
+          "source_terms": [
+            "营业收入",
+            "16,453,732,904.65"
+          ]
+        },
+        {
+          "chunk_id": "c6ebf38dda94e04a1e7cc0ee",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 16,453,732,904.65 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "07825286aba36707a2b264350885179d99b7db8d07379a21fee0fad3e95201cf",
+          "source_page": 108,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+          "source_visual": "data/eval/equivalence_v2/visual/000568-108.png",
+          "source_visual_sha256": "08377cec3b66a8acc1f2ff08c12b49c1223b82d68da1c5ef86d4033f4b87e935",
+          "source_terms": [
+            "营业收入",
+            "16,453,732,904.65"
+          ]
+        },
+        {
+          "chunk_id": "e7c84af3df29766ac89e9fad",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "72d4491e7f9651a90c1006219d4a1649730d6f3b1fdbf98b5594bb48541456e8",
+          "source_page": 109,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc"
+        },
+        {
+          "chunk_id": "535eacb6f761fd05e8bf0ac8",
+          "decision": "reject",
+          "reason": "新增收入候选缺少可供下游直接读取的金额单位；部分也缺失期间/收入成本表头。即使源页数值可对照，本版不放宽到这些不完整视图。",
+          "chunk_sha256": "4e0b83140d22554ba1414257da1d3802c797ef8cdedbb549f141b1053583dc61",
+          "source_page": 109,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc"
+        },
+        {
+          "chunk_id": "eaa549e3d5c7a00015ef5ef7",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "5139bda6d15fc5b3fc8803545930707d43d70cdb8da1b5a6c0143c6ec72a0ab3",
+          "source_page": 7,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc"
+        },
+        {
+          "chunk_id": "b448199c805b6546a5a3ae56",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "40432be705497432152886ba2d3ebf23994f4854b3e0e4a277395f1244a5a969",
+          "source_page": 7,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc"
+        },
+        {
+          "chunk_id": "38a6b4556e5e85d8216424fa",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 16,453,732,904.65 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "fa5d3e9403e8d20c1fc473c0db202be47608083056929423af21324f4b26da97",
+          "source_page": 13,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+          "source_visual": "data/eval/equivalence_v2/visual/000568-13.png",
+          "source_visual_sha256": "2cf5a61e5dbbd0eeb5e6e7e665ab2234db709b36fc505569cfc156a03bf7a9f7",
+          "source_terms": [
+            "营业收入",
+            "16,453,732,904.65"
+          ]
+        },
+        {
+          "chunk_id": "22739485a74715bc6d584ddd",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 16,453,732,904.65 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "cbbbcfb6405fecb6cd42f699f832e59715ce18ada94308043009fbb4b5a16ccc",
+          "source_page": 13,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+          "source_visual": "data/eval/equivalence_v2/visual/000568-13.png",
+          "source_visual_sha256": "2cf5a61e5dbbd0eeb5e6e7e665ab2234db709b36fc505569cfc156a03bf7a9f7",
+          "source_terms": [
+            "营业收入",
+            "16,453,732,904.65"
+          ]
+        },
+        {
+          "chunk_id": "ff06344f287289af61e74a49",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 16,453,732,904.65 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "4d48d8380b2658406e0a8aa67ee803726a19090505738ea26f5b343ed8fbe081",
+          "source_page": 14,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+          "source_visual": "data/eval/equivalence_v2/visual/000568-14.png",
+          "source_visual_sha256": "8fb68daa5993282ad12a04bff39117d5b25fd695eec38256f7fbafb2c77e08c1",
+          "source_terms": [
+            "营业收入",
+            "16,453,732,904.65"
+          ]
+        },
+        {
+          "chunk_id": "67a9dfb808510d8794784180",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 16,453,732,904.65 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "1b7537becf5acc8b08ca091d517c3cd268cc0943f17939c75d7551416370b8f1",
+          "source_page": 14,
+          "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+          "source_visual": "data/eval/equivalence_v2/visual/000568-14.png",
+          "source_visual_sha256": "8fb68daa5993282ad12a04bff39117d5b25fd695eec38256f7fbafb2c77e08c1",
+          "source_terms": [
+            "营业收入",
+            "16,453,732,904.65"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-10",
+      "source_pages": [
+        6,
+        16,
+        51,
+        161
+      ],
+      "decisions": [
+        {
+          "chunk_id": "7a00dc8be8ad9a35eb043950",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 61,776,746,682.68 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "f4d25e893b16f1722b65f74744732caa8df085e1dca9ad1cfe96589fe5246bef",
+          "source_page": 16,
+          "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e",
+          "source_visual": "data/eval/equivalence_v2/visual/600887-16.png",
+          "source_visual_sha256": "17b12b962b4232a750b853a06f230f758dd2f4d8108281ea08886c3660773f92",
+          "source_terms": [
+            "营业收入",
+            "61,776,746,682.68"
+          ]
+        },
+        {
+          "chunk_id": "c38cfc0eb81a14ed784df6cd",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 61,776,746,682.68 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "522d7400789508fdf7a72be8ccddf462ee86c6c4dddcfd629b310cc7a13fccb3",
+          "source_page": 16,
+          "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e",
+          "source_visual": "data/eval/equivalence_v2/visual/600887-16.png",
+          "source_visual_sha256": "17b12b962b4232a750b853a06f230f758dd2f4d8108281ea08886c3660773f92",
+          "source_terms": [
+            "营业收入",
+            "61,776,746,682.68"
+          ]
+        },
+        {
+          "chunk_id": "7fc26cca2dff23e7bde2f745",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 61,776,746,682.68 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "d7f4d15ca9e65f6f046c69e193193d307ff0fc9b84fe7be1a19edb2ce2e2c2f7",
+          "source_page": 161,
+          "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e",
+          "source_visual": "data/eval/equivalence_v2/visual/600887-161.png",
+          "source_visual_sha256": "0ec6ee0fdad987190286b3108ce8a18b4e85d3575a969d00a3fdd7ccad7b5309",
+          "source_terms": [
+            "营业收入",
+            "61,776,746,682.68"
+          ]
+        },
+        {
+          "chunk_id": "27daaf7ad121bdc0810c63c3",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 61,776,746,682.68 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "7d4de08504d8f82f499a029c8a26f9250469217d3c9cfbcbd326c9c558ccf7af",
+          "source_page": 161,
+          "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e",
+          "source_visual": "data/eval/equivalence_v2/visual/600887-161.png",
+          "source_visual_sha256": "0ec6ee0fdad987190286b3108ce8a18b4e85d3575a969d00a3fdd7ccad7b5309",
+          "source_terms": [
+            "营业收入",
+            "61,776,746,682.68"
+          ]
+        },
+        {
+          "chunk_id": "06bd3a8cf7ca3a36559a6a6b",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "da150a30bb7bef8d42f90bab2ba6e825a74318bc8a1b48c8dd64f336835be4ec",
+          "source_page": 6,
+          "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e"
+        },
+        {
+          "chunk_id": "4f68ab191595eebc71095334",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "ab2593c7f20e7723a5e243170eff4ab298279b6d38b6324341798ccc977fc277",
+          "source_page": 6,
+          "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e"
+        },
+        {
+          "chunk_id": "e6c50ad291a07ed8cb804f11",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 61,776,746,682.68 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "d840a792de0f0485f7ebc3700475c833d8de49ce5989f740d942ca453f4576de",
+          "source_page": 51,
+          "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e",
+          "source_visual": "data/eval/equivalence_v2/visual/600887-51.png",
+          "source_visual_sha256": "1bf46b7e01331e41e1d1580ec266cb9e0a1c7901921ea1ce520d74c6f992322e",
+          "source_terms": [
+            "营业收入",
+            "61,776,746,682.68"
+          ]
+        },
+        {
+          "chunk_id": "b3a051f7ba17e3e9c1c543cd",
+          "decision": "accept",
+          "reason": "源 PDF 与当前 chunk 对照：本报告期集团/合并营业收入或收入合计为 61,776,746,682.68 元；列关系及单位明确，非母公司数值或营业总收入。",
+          "chunk_sha256": "efe44cb5f6cd455095d9ef988d6ba8fdc74e3a52157dcc2122c55b4536120efe",
+          "source_page": 51,
+          "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e",
+          "source_visual": "data/eval/equivalence_v2/visual/600887-51.png",
+          "source_visual_sha256": "1bf46b7e01331e41e1d1580ec266cb9e0a1c7901921ea1ce520d74c6f992322e",
+          "source_terms": [
+            "营业收入",
+            "61,776,746,682.68"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-11",
+      "source_pages": [
+        56
+      ],
+      "decisions": [
+        {
+          "chunk_id": "94de8cf0830eebc102136238",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "edeb315aef0868897ea9afcc6b23a8bab858d1a28af24a9b48afa65630d847ee",
+          "source_page": 56,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "eade9f5b5f1739563e5b61a9",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "bf552a6e07822d444c6df46f79b4a108a37c801c7011b519870b4c2b671d10a8",
+          "source_page": 56,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-12",
+      "source_pages": [
+        56
+      ],
+      "decisions": [
+        {
+          "chunk_id": "8013dbb1a87602bc21d08c5c",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "408a94de3387fca23957194dbf54b903b704d34d840cf3735ec607818ce9b112",
+          "source_page": 56,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "6b2620e7ced3f170f73ac1e8",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "09110e93c8c234a4b209765c325959e7c0055a489373be5079ceed94c75dcc15",
+          "source_page": 56,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-13",
+      "source_pages": [
+        96
+      ],
+      "decisions": [
+        {
+          "chunk_id": "407d90148388cf7072a341ab",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "55da8dd9c720e18c88af9582d8679284d0c253f2df1363f7978b4df3ac44ec04",
+          "source_page": 96,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "312228f2c06f020b2d6cd9d4",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "d6b7610a7e1a06f429aa6b7a4517fc51bb1c40a3fc4b4a658aef3aec64afe777",
+          "source_page": 96,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-14",
+      "source_pages": [
+        54,
+        96,
+        171
+      ],
+      "decisions": [
+        {
+          "chunk_id": "b1ee395f5e519c8cf469e7f8",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "b08dc691eb39c4a6615a2ae6cea9d8213b1eb4eace4f4c7003d1c46bb3469c54",
+          "source_page": 54,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "ec24d47e31800a4e0a0b6781",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "989e9ab3f8f2a6267177f08a98622f54dce18b5a47b7d3a7d010427184da1b4b",
+          "source_page": 54,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "407d90148388cf7072a341ab",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "55da8dd9c720e18c88af9582d8679284d0c253f2df1363f7978b4df3ac44ec04",
+          "source_page": 96,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "312228f2c06f020b2d6cd9d4",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "d6b7610a7e1a06f429aa6b7a4517fc51bb1c40a3fc4b4a658aef3aec64afe777",
+          "source_page": 96,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "b6b1b8ef79b1e2201b85ab9d",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "c93e73d78e35eb103245219f0be9ad3bca9daf49cfaa2e0b251b7448973e02f0",
+          "source_page": 171,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "b837f5037e10f386d6dd681a",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "b8cb833ee5da258c6d34cf760a3a34118f9949fbff4d046578e75d68210e6eb1",
+          "source_page": 171,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-15",
+      "source_pages": [
+        96
+      ],
+      "decisions": [
+        {
+          "chunk_id": "28b12d455f189467a52504e5",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "6d93b77cf18d3d3d6c1fdc1c9187cdb35c3495c82709a6cde86f5446f2827291",
+          "source_page": 96,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "6192dfd8babf09e5151b8c60",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "1ce2b06f59b9cdd076dd476f5ed4e06d145ecf09cb00c4b2be0aeb9ee1078eea",
+          "source_page": 96,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-16",
+      "source_pages": [
+        8
+      ],
+      "decisions": [
+        {
+          "chunk_id": "3e5dd4dfb00ba54bf701d141",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "337dd04189bf8eb51045ef5ceb75391b14e7855ee59ccd4bd402b5925bf5063b",
+          "source_page": 8,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        },
+        {
+          "chunk_id": "262b0b2e00eefbc3acefb139",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "30b0796556d802a197cd9dac1a0ee78af61dee35f7a1c2ae5f1ca4bda6d26575",
+          "source_page": 8,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-17",
+      "source_pages": [
+        8,
+        101
+      ],
+      "decisions": [
+        {
+          "chunk_id": "44030907edb671208d2f4c9d",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "2f5032c2b3d61413f1a221235e7f149455f8cea5f0fd96050bb37ad0933a06e9",
+          "source_page": 8,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        },
+        {
+          "chunk_id": "47bff40803c544665094626d",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "90db25c853b634ea19968f84e730761b5e9438dc0ad55d900bfbec0b5b24b518",
+          "source_page": 8,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        },
+        {
+          "chunk_id": "8a1a7ad46d550175aae1e755",
+          "decision": "reject",
+          "reason": "数字片段在母公司收入分解表中偶然出现，不是国外经销商数量、增加或减少数量。",
+          "chunk_sha256": "fba402fc54abb1e95299fcade501bd5b1f52ce17106177d8c74c8282363554e7",
+          "source_page": 101,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        },
+        {
+          "chunk_id": "28696bd8e6af2d6385c6b9ce",
+          "decision": "reject",
+          "reason": "数字片段在母公司收入分解表中偶然出现，不是国外经销商数量、增加或减少数量。",
+          "chunk_sha256": "26f541b98915cc3fd9f6b7f38c8352f7488050a7f8f54c58d181a5b3097d6c16",
+          "source_page": 101,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-18",
+      "source_pages": [
+        65,
+        149,
+        162
+      ],
+      "decisions": [
+        {
+          "chunk_id": "5763c0ce1bff9f5bfe81f3cd",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "783a13316f661406da83d07752734b145dd6e782d23a02a27b0edb00ba82b0ef",
+          "source_page": 65,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "3ee8f4c84b299767459ac5e4",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "4146fee251f5d4a841b2bb40d48a90c0c45155ef6efd79a4aea94a770f58d6f6",
+          "source_page": 65,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "e823185e396d6d29f156e558",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "5259fe38bf2d5c82c5ade70a24082147b9e0e10e1e745a058767b471ef5fdb35",
+          "source_page": 149,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "88428a7ec388690a4f9b23ef",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "471fe2056311421b3b4a102eb6a0326145f4b95b53498aeb75b9aaf3f618da17",
+          "source_page": 149,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "fa6dd86de623bf180e318681",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "15c43097ae24133646f0b9fdf2004adaf64b16dc1df66657fa1b03c5ce0c0a55",
+          "source_page": 162,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "59406478e163c3aa1f00c347",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "86c1b9507b55b80e0204d51b45605606e43a866fe0a7eb70be99305b85c7e3eb",
+          "source_page": 162,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-19",
+      "source_pages": [
+        20,
+        65,
+        149
+      ],
+      "decisions": [
+        {
+          "chunk_id": "a87071b0d5639630b3554bd5",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "0ff754a3f2fe148bb4f122abb58bf082843ae1a1cdd5ee1cf9958bb6d40d3ff9",
+          "source_page": 20,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "7d85da33b6fcb2f6d4fbdc99",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "ecf3cbf6306fa520432cdec197939497d3cb0e9a83e53faec832b7c9e1143b04",
+          "source_page": 20,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "5763c0ce1bff9f5bfe81f3cd",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "783a13316f661406da83d07752734b145dd6e782d23a02a27b0edb00ba82b0ef",
+          "source_page": 65,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "3ee8f4c84b299767459ac5e4",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "4146fee251f5d4a841b2bb40d48a90c0c45155ef6efd79a4aea94a770f58d6f6",
+          "source_page": 65,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "e823185e396d6d29f156e558",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "5259fe38bf2d5c82c5ade70a24082147b9e0e10e1e745a058767b471ef5fdb35",
+          "source_page": 149,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        },
+        {
+          "chunk_id": "88428a7ec388690a4f9b23ef",
+          "decision": "reject",
+          "reason": "题面指定利润表及其列示/重述口径；候选属于费用明细、研发支出或管理层变动分析，保留这一题意约束，不因数值相同扩展。",
+          "chunk_sha256": "471fe2056311421b3b4a102eb6a0326145f4b95b53498aeb75b9aaf3f618da17",
+          "source_page": 149,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-20",
+      "source_pages": [
+        156
+      ],
+      "decisions": [
+        {
+          "chunk_id": "67abda0eb9fe1a5390ef22a1",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "ceb07519d024849b2f4c4be3539390db35e63b5fb933d876ea58c76ad6f5b7ea",
+          "source_page": 156,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        },
+        {
+          "chunk_id": "5108c48f2252900a7c999ec1",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "646afdd0bbed2347f5aafd58b7b8c3482ef5da0160686c2ecd2f596ba007c1b1",
+          "source_page": 156,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-21",
+      "source_pages": [
+        156
+      ],
+      "decisions": [
+        {
+          "chunk_id": "67abda0eb9fe1a5390ef22a1",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "ceb07519d024849b2f4c4be3539390db35e63b5fb933d876ea58c76ad6f5b7ea",
+          "source_page": 156,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        },
+        {
+          "chunk_id": "5108c48f2252900a7c999ec1",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "646afdd0bbed2347f5aafd58b7b8c3482ef5da0160686c2ecd2f596ba007c1b1",
+          "source_page": 156,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-22",
+      "source_pages": [
+        146
+      ],
+      "decisions": [
+        {
+          "chunk_id": "73c682bf2be0c01ab51603cc",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "92840a8b4b7a87f8f873c386c306b474980054cc69e39e1e203a0155cce1eadd",
+          "source_page": 146,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "57c2a7ba01442935d61396f1",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "11d8a5fb7018d677e8fc4f481a5d4a16e2931c2320543177b3266d6b1f1225bc",
+          "source_page": 146,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-23",
+      "source_pages": [
+        146
+      ],
+      "decisions": [
+        {
+          "chunk_id": "289b4e11d187215342378b75",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "b98c2fa413719577c105db00ffac321585da1fb7d0a51eeb358417e94ac895dc",
+          "source_page": 146,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        },
+        {
+          "chunk_id": "fe01f54599703376955be548",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "6f59be484ed44ba603dffee745ff9f03d30f11233db7b6067013543a6899c738",
+          "source_page": 146,
+          "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-24",
+      "source_pages": [
+        107
+      ],
+      "decisions": [
+        {
+          "chunk_id": "b2e9d91bfe4224019f49e007",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "4bb4ab1c2351d5147f7fbe6d13e97bd4a20a8f08ea4bd373884249a4fe274c65",
+          "source_page": 107,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        },
+        {
+          "chunk_id": "310f005044a1b591104bc8af",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "7616b169bedb2226748c7f2e7c0a78bab201904f885dd16b01c875f65629c0cf",
+          "source_page": 107,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-25",
+      "source_pages": [
+        107
+      ],
+      "decisions": [
+        {
+          "chunk_id": "9cd68ac3feccca0c15d73202",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "4ad209940cb57fe69b7420ae5a8c1889da247e456dbf4c0d5c8ad4972ec0f921",
+          "source_page": 107,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        },
+        {
+          "chunk_id": "9b7af617b9c57a1e2b4a55c1",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "bf40a85417cc30f41635b848ee279b08b53b974504cbf4c1b65ce8633ae91c77",
+          "source_page": 107,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-26",
+      "source_pages": [
+        107
+      ],
+      "decisions": [
+        {
+          "chunk_id": "3bdd99cdfd53dbc3032b5786",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "c781c3f990ce1e51c1a15a1537f73897301d0d4014c8c3f1cf1bd40d82cb5f3e",
+          "source_page": 107,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        },
+        {
+          "chunk_id": "71d4f280e64e3f267a8f074c",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "e1738ef16457618152cd0025e8ac75b09386fdb7ef71c783a658b194fda23db4",
+          "source_page": 107,
+          "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-27",
+      "source_pages": [
+        5,
+        7
+      ],
+      "decisions": [
+        {
+          "chunk_id": "643bed29738b2053c08a470f",
+          "decision": "accept",
+          "reason": "源页经营现金流变动原因与原参考页一致，保留存款减少及准备金/同业存款增加的完整因果说明。",
+          "chunk_sha256": "ccc0b9446e5b156880da63088bdb3ff982ae3cc07f0cfa46065fdce80ae1e65d",
+          "source_page": 7,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+          "source_visual": "data/eval/equivalence_v2/visual/600519-7.png",
+          "source_visual_sha256": "1086866b382cbbf99fd3fa6f4991a18a463c6aa797dbf461f19968742669d287",
+          "source_terms": [
+            "吸收集团公司成员单位存款减少",
+            "存放中央银行法定准备金"
+          ]
+        },
+        {
+          "chunk_id": "d74512c36a5850938a89fefd",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "0df5938a0723e12c7a08aba2c8abaa6129563aaf5e2a9463e329c84970c2ab76",
+          "source_page": 5,
+          "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-28",
+      "source_pages": [
+        7,
+        12
+      ],
+      "decisions": [
+        {
+          "chunk_id": "0f5066683882dac879c5ee7a",
+          "decision": "accept",
+          "reason": "源页现金流净额行明确标注注2，注2全文与原参考页一致；仅承认这个解释段落，不将仅有数值和注2标号的表格当作解释。",
+          "chunk_sha256": "42dd0eec04b7e9d66a46c23674e3e7388f4d27f3f8a9c9ff0020fba103eae3f8",
+          "source_page": 12,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+          "source_visual": "data/eval/equivalence_v2/visual/000858-12.png",
+          "source_visual_sha256": "59dad90ad52fecc5bab1f237982077f713782c4fb6307df748cf2f6e91e34885",
+          "source_terms": [
+            "本报告期货款中现金收取比例较高",
+            "上年同期银行承兑汇票收取比例较高"
+          ]
+        },
+        {
+          "chunk_id": "970586269a1e88521a415409",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "fc691d05e15f1a10bb22063738ea22ab9a77836fc55bc784a3b7cbddeee8a9b6",
+          "source_page": 7,
+          "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-29",
+      "source_pages": [
+        7,
+        153
+      ],
+      "decisions": [
+        {
+          "chunk_id": "b8ebb9783b2f04cd074e4b78",
+          "decision": "accept",
+          "reason": "每股收益附注完整说明2025年7月红股及资本公积转增与调整股数计算各列报期间EPS的关系。",
+          "chunk_sha256": "2c1f3fc3e03884173f06317ea440afb23b028b70e02ac3a1671019fdab392c64",
+          "source_page": 153,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+          "source_visual": "data/eval/equivalence_v2/visual/002594-153.png",
+          "source_visual_sha256": "b87931f9f7ec6fef3e89b87e4987ea51233e1a133cfe5f95b1860ace0099fc02",
+          "source_terms": [
+            "派发红股",
+            "资本公积转增股本",
+            "以调整后的股数"
+          ]
+        },
+        {
+          "chunk_id": "d4db28e7ee2f189245050476",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "257232cb9184240fb0a2452a9eae55ec30e7f2650f5b52c42566f3d4ad9858eb",
+          "source_page": 7,
+          "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea"
+        }
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-30",
+      "source_pages": [
+        9,
+        17
+      ],
+      "decisions": [
+        {
+          "chunk_id": "2072eb88577e2776393dac3f",
+          "decision": "retain_v1",
+          "reason": "保留 v1 已冻结的源页/源行标签，不重新改写历史审核结论。",
+          "chunk_sha256": "497e4441164e1f29877144f700eb567a983e4bf7ac3f09fae39391df10115782",
+          "source_page": 9,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365"
+        },
+        {
+          "chunk_id": "3332fd8c6fb292e7f88a6542",
+          "decision": "accept",
+          "reason": "源页主营业务分析明确列出两项剔除影响、归母净利润221807.83万元及同比3.78%，与原参考页一致。",
+          "chunk_sha256": "9a98e3eba13f1fdeeb6232817ddb17a22c0bf430fb171db03dc69a12603c8810",
+          "source_page": 17,
+          "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+          "source_visual": "data/eval/equivalence_v2/visual/300014-17.png",
+          "source_visual_sha256": "3464c6f29b4ff1aa56f894bac0c0e4d99ee3a969632492ac836e9feed0742e98",
+          "source_terms": [
+            "股权激励费用",
+            "单项坏账计提影响",
+            "221,807.83"
+          ]
+        }
+      ]
+    }
+  ]
+}
