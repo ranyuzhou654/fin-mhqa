@@ -28,7 +28,7 @@ def transform(response,scenario):
         # A visibly incompatible same-scope numerical claim is synthetic; its true source is recorded outside model input.
         if response['results']:
             c=deepcopy(response['results'][0]);c['chunk_id']='fault-conflict-001'
-            c['text']='【美的集团 | 2025年半年度报告 | 合并利润表】单位：千元。2025年上半年合并营业收入：999,999,999千元。该值与其他返回表格存在冲突，需进一步核对。'
+            c['text']='【美的集团 | 2025年半年度报告 | 合并利润表】单位：千元。2025年上半年合并营业收入：99,999,999千元。该值与其他返回表格存在冲突，需进一步核对。'
             response['results'].append(c)
     return response
 

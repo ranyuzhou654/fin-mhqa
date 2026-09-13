@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 
-def render(run,out):
+def render(run,out,evidence_root='evidence/agent_dev20_v1/original_run'):
     lines=['# M3 逐题真实运行与反馈审核','', '这些是可见决策及实际工具记录，不是内部思维链。所有组与所有失败都保留。','']
     for arm in ('structured','generic','flat'):
         lines += [f'## {arm}','']
@@ -29,10 +29,10 @@ def render(run,out):
                     answer=e['response']
                     lines += [f"- 最终输出（{answer['status']}）：{answer['answer_value']}{answer['answer_unit']}。{answer['explanation']}"]
                 elif e['event']=='error':lines += ['- 运行错误：'+e['message']]
-            lines += ['',f"[完整轨迹](evidence/agent_dev20_v1/trajectories/{arm}/{case.name}.jsonl)",'']
+            lines += ['',f"[完整轨迹]({evidence_root}/trajectories/{arm}/{case.name}.jsonl)",'']
     out.write_text('\n'.join(lines))
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--run',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--run',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--evidence-root',default='evidence/agent_dev20_v1/original_run');a=p.parse_args()
     if a.out.exists():raise FileExistsError(a.out)
-    render(a.run,a.out)
+    render(a.run,a.out,a.evidence_root)
