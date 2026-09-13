@@ -1,5 +1,7 @@
 """Structural audit and deterministic review material; never substitutes for human QA."""
 from collections import Counter, defaultdict
+import argparse
+import hashlib
 import json
 from pathlib import Path
 import random
@@ -7,7 +9,11 @@ from transformers import AutoTokenizer
 
 
 def main():
-    path = Path('data/chunks.jsonl')
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--chunks',type=Path,default=Path('data/chunks.jsonl'))
+    parser.add_argument('--qa-dir',type=Path,default=Path('data/qa'))
+    args=parser.parse_args()
+    path = args.chunks
     chunks = [json.loads(l) for l in path.read_text().splitlines()]
     records = json.loads(Path('data/source_manifest.json').read_text())
     expected = {r['company']:r for r in records}
@@ -34,9 +40,14 @@ def main():
     for key, values in sorted(groups.items()):
         for c in rng.sample(values,min(10,len(values))):
             samples.append(dict(c,breadcrumb_correct=None,table_correct=None,review_notes=''))
-    qa=Path('data/qa');qa.mkdir(exist_ok=True)
+    qa=args.qa_dir;qa.mkdir(parents=True,exist_ok=True)
+    sample_path=qa/'review_samples.jsonl'
+    if sample_path.exists():
+        prior=[json.loads(line) for line in sample_path.read_text().splitlines()]
+        if any(c.get('breadcrumb_correct') is not None or c.get('table_correct') is not None or c.get('review_notes') for c in prior):
+            raise ValueError('Refusing to overwrite annotated review samples; use a new QA directory')
     (qa/'review_samples.jsonl').write_text(''.join(json.dumps(c,ensure_ascii=False)+'\n' for c in samples),encoding='utf-8')
-    report=dict(chunks=len(chunks),companies=len(expected),pages=sum(r['pages'] for r in records),
+    report=dict(dataset=str(path),dataset_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),chunks=len(chunks),companies=len(expected),pages=sum(r['pages'] for r in records),
                 structural_errors=errors,heuristic_warnings=dict(warnings),sample_count=len(samples),
                 manual_review_status='pending',acceptance='NOT_ACCEPTED_PENDING_REVIEW',
                 counts=[dict(company=k[0],chunk_type=k[1],count=len(v)) for k,v in sorted(groups.items())])

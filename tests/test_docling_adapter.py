@@ -34,3 +34,46 @@ def test_invalid_span_rejected():
         table_view({'data':{'num_rows':1,'num_cols':1,'table_cells':[cell('x',0,0,cs=2)]}})
     with pytest.raises(ValueError,match='Overlapping'):
         table_view({'data':{'num_rows':1,'num_cols':1,'table_cells':[cell('x',0,0),cell('y',0,0)]}})
+
+
+def test_native_corpus_provenance_coverage_and_rejected_table(tmp_path):
+    import hashlib
+    import json
+    import pymupdf
+    from finmhqa.ingest.docling_adapter import pages_from_native
+    source=tmp_path/'report.pdf'
+    with pymupdf.open() as pdf:
+        p=pdf.new_page(width=300,height=400)
+        p.insert_text((20,40),'Revenue 123')
+        pdf.save(source)
+    digest=hashlib.sha256(source.read_bytes()).hexdigest()
+    native=tmp_path/'0001-0001.json'
+    payload=dict(source_sha256=digest,settings_sha256='settings',document=dict(
+        pages={'1':{'size':{'width':300,'height':400}}},tables=[dict(self_ref='#/tables/0',
+        prov=[dict(page_no=1,bbox=dict(l=10,t=380,r=250,b=330,coord_origin='BOTTOMLEFT'))],
+        data=dict(num_rows=2,num_cols=2,table_cells=[cell('Item',0,0,header=True),cell('Value',0,1,header=True),cell('Revenue',1,0),cell('123',1,1)]))]))
+    native.write_text(json.dumps(payload))
+    pages=pages_from_native(source,'Example',[native],expected_sha256=digest)
+    assert pages[0].tables[0].bbox==(10,20,250,70)
+    assert pages[0].tables[0].source_refs==[f'{native}#/tables/0']
+    assert pages[0].lines==[]  # source text is represented in table, not duplicated
+    from finmhqa.ingest.structure import walk_sections
+    assert [event[2][0] for event in walk_sections(pages)]==['table']
+    with pytest.raises(ValueError,match='coverage'):
+        pages_from_native(source,'Example',[],expected_sha256=digest)
+    with pytest.raises(ValueError,match='Duplicate'):
+        pages_from_native(source,'Example',[native,native],expected_sha256=digest)
+    with pytest.raises(ValueError,match='Source hash'):
+        pages_from_native(source,'Example',[native],expected_sha256='wrong')
+    payload['document']['tables'][0]['data']['table_cells'].append(cell('999',1,1))
+    native.write_text(json.dumps(payload))
+    pages=pages_from_native(source,'Example',[native],expected_sha256=digest)
+    assert pages[0].tables==[]
+    assert pages[0].lines[0][1]=='Revenue 123'
+    assert 'Overlapping' in pages[0].extraction_issues[0]['error']
+
+
+def test_normalized_headers_do_not_reinterpret_data():
+    from finmhqa.ingest.chunk import split_table
+    rows=[['Item','本期','上年同期'],['','本期收入','上年收入'],['Profit','123','456']]
+    assert list(split_table(rows,normalized_headers=True))==[rows]

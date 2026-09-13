@@ -19,9 +19,15 @@ def merge_cross_page_tables(pages):
                             for k in ('title_hint', 'unit', 'currency')))
             header = candidate.rows[0] == active.rows[0]
             new_header = any(v in ' '.join(candidate.rows[0]) for v in ('项目', '本期', '上年同期', '金额'))
+            # Native normalized tables merge only with a nonempty exact header.
+            # Headerless continuation rows remain separate and explicitly unresolved.
+            if active.normalized_headers or candidate.normalized_headers:
+                same = same and active.normalized_headers and candidate.normalized_headers and header and any(candidate.rows[0])
             if same and (header or not new_header):
                 active.rows.extend(candidate.rows[1:] if header else candidate.rows)
                 active.page_end = page.page_no
+                active.source_refs.extend(candidate.source_refs)
+                active.quality_flags = list(dict.fromkeys(active.quality_flags + candidate.quality_flags))
                 active.bbox = (active.bbox[0], active.bbox[1], active.bbox[2], candidate.bbox[3])
                 page.tables.pop(0)
             else:
@@ -40,9 +46,9 @@ def walk_sections(pages):
     for page in pages:
         if is_toc_page(page.text):
             continue
-        if page.tables and not page.lines:
+        if page.tables and not page.lines and not page.spatial_extracted:
             raise ValueError('Table section attribution requires spatial text lines')
-        events = [(y, 'para', value) for y, value in page.lines] if page.lines else [(i, 'para', v) for i, v in enumerate(page.text.splitlines())]
+        events = [(y, 'para', value) for y, value in page.lines] if page.lines or page.spatial_extracted else [(i, 'para', v) for i, v in enumerate(page.text.splitlines())]
         events += [(table.bbox[1], 'table', table) for table in page.tables]
         ordered = sorted(events, key=lambda e: e[0])
         combined = []

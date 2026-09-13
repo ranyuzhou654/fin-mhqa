@@ -12,6 +12,9 @@ class RawTable:
     currency: str = ''
     page_end: int = 0
     extraction_method: str = 'lines'
+    normalized_headers: bool = False
+    source_refs: list[str] = field(default_factory=list)
+    quality_flags: list[str] = field(default_factory=list)
 
 @dataclass
 class Page:
@@ -22,6 +25,8 @@ class Page:
     # Text line coordinates permit assigning each table to its actual section.
     lines: list[tuple[float, str]] = field(default_factory=list)
     height: float = 0
+    spatial_extracted: bool = False
+    extraction_issues: list[dict] = field(default_factory=list)
 
 UNIT = re.compile(r'单位\s*[:：]\s*(?:人民币)?\s*(百万元|千元|万元|亿元|元|万股|股|万吨|吨|个|人)')
 CUR = re.compile(r'币种\s*[:：]\s*(人民币|美元|港币)')

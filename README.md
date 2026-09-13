@@ -44,3 +44,15 @@ uv pip install --python .venv/bin/python --no-deps -e .
 ## Docling 小样
 
 已批准并完成 5 页试验，模型隔离在 `.venv-docling/`，本地权重位于 `data/models/docling/`。结果、复现命令和坐标限制见 [小样报告](docs/DOCLING_PILOT_RESULTS.md)。本轮未替换 `data/chunks.jsonl`，不能将小样结果等同于 M1 全量验收。
+
+## Docling 全量候选流程
+
+使用已批准的小样模型离线处理，默认每 25 页缓存一次，可用同一命令断点续跑：
+
+```bash
+.venv-docling/bin/python scripts/run_docling_corpus.py
+.venv/bin/python scripts/build_docling_corpus.py --native-root data/docling_native/59cdcef7571d
+.venv/bin/python scripts/audit_m1.py --chunks data/candidates/docling/chunks.jsonl --qa-dir data/qa/docling_corpus
+```
+
+缓存目录随模型配置及依赖版本变化，应以转换脚本输出的 `cache_root` 为准；同一缓存使用固定的 25 页批次。构建器核对全部源文件哈希、配置一致性、页覆盖与重复页，排除单元格跨度异常的结构化表格并保留原页正文与错误标记。原生 JSON 保存完整单元格跨度和坐标，chunk 中的来源引用包含批次路径，坐标状态为未验证。未知表头不猜测，跨页表格仅在表头与版面条件均匹配时合并。候选集独立输出；结构审计不代替 300 条源页人工核验。

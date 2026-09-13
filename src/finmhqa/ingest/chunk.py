@@ -65,10 +65,10 @@ def normalize_table_sections(rows):
         yield [header, *body]
 
 
-def split_table(rows, max_rows=20, max_cols=12):
+def split_table(rows, max_rows=20, max_cols=12, *, normalized_headers=False):
     if max_rows < 1 or max_cols < 2:
         raise ValueError('invalid table split limits')
-    for section in normalize_table_sections(rows):
+    for section in ([rows] if normalized_headers else normalize_table_sections(rows)):
         width = len(section[0])
         for start in range(1, width, max_cols-1):
             cols = [0, *range(start, min(width, start+max_cols-1))]
@@ -99,6 +99,10 @@ def chunk_pages(company, pages, count, *, source_sha256, company_code='', report
         raise ValueError('M1 supports YYYYH1 reports only')
     chunks, buf, current_stack = [], [], None
     def make(stack, start, end, kind, body, **meta):
+        issues = [issue for p in pages if start <= p.page_no <= end for issue in p.extraction_issues]
+        if issues:
+            meta['extraction_issues'] = issues
+            meta['quality_flags'] = list(dict.fromkeys(meta.get('quality_flags', []) + ['native_table_rejected_on_page']))
         path = ' > '.join(t for _, t in stack) or '正文'
         c = dict(company=company, company_code=company_code, source_sha256=source_sha256,
                  report_period=report_period, section_path=path, section_level=stack[-1][0] if stack else 0,
@@ -127,9 +131,11 @@ def chunk_pages(company, pages, count, *, source_sha256, company_code='', report
         else:
             title = item.title_hint or (stack[-1][1] if stack else '表格')
             parent = stable_id([source_sha256, item.page_no, item.bbox, item.rows])
-            for part, rows in enumerate(split_table(item.rows)):
+            for part, rows in enumerate(split_table(item.rows, normalized_headers=item.normalized_headers)):
                 meta = dict(table_title=title, unit=item.unit, currency=item.currency, parent_table_id=parent, part=part, extraction_method=item.extraction_method, quality_status='unreviewed',
-                            quality_flags=['unresolved_headers'] if any(not v for v in rows[0][1:]) else [])
+                            quality_flags=list(dict.fromkeys(item.quality_flags + (['unresolved_headers'] if any(not v for v in rows[0][1:]) else []))))
+                if item.source_refs:
+                    meta['source_table_refs'] = item.source_refs
                 head = f'表：{title}　单位：{item.unit or "未标注"}　币种：{item.currency or "未标注"}'
                 make(stack, item.page_no, item.page_end or item.page_no, 'table_md', head+'\n'+to_md(rows), **meta)
                 kv = []
