@@ -1,0 +1,9 @@
+{
+  "status": "PARTIAL_MASK_ONLY",
+  "affected_scenarios": [
+    "unit_mask_first",
+    "period_mask_first"
+  ],
+  "finding": "v1 masked text and unit/report_period, but unit_source still disclosed人民币千元 and table_title disclosed2025年半年度. Success does not establish fully missing-information recovery.",
+  "action": "Preserve all v1 results; run exactly these two cases again with all relevant evidence metadata masked; no changes to corpus, gold, model or normal dev20 scoring."
+}

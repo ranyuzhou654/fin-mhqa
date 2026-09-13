@@ -1,0 +1,688 @@
+{
+  "scope": "five declared fault injections on one development question; not independent robustness benchmark or normal HTTP retrieval scores",
+  "correct": 4,
+  "total": 5,
+  "results": [
+    {
+      "id": "empty_first",
+      "final": {
+        "status": "answered",
+        "answer_value": "260.14",
+        "answer_unit": "亿元",
+        "selected_company": "美的集团",
+        "citations": [
+          "312228f2c06f020b2d6cd9d4",
+          "858fb75185f7e9db4dfc04ce",
+          "4b28ba1999c0652b8e5498b3"
+        ],
+        "explanation": "2025年上半年合并口径营业收入：美的集团251,123,714千元，宁德时代178,886,253千元；美的集团高722.37亿元，因此选择美的集团。其归属于母公司股东的净利润为26,013,690千元，换算并四舍五入为260.14亿元。"
+      },
+      "error": null,
+      "terminal_reason": "ANSWERED",
+      "replan_count": 1,
+      "injection_applied": true,
+      "seconds": 157.22203458299919,
+      "tool_calls": 6,
+      "decision_calls": 7,
+      "search_calls": 4,
+      "usage": [
+        {
+          "input_tokens": 14516,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 403,
+          "reasoning_output_tokens": 42
+        },
+        {
+          "input_tokens": 19812,
+          "cached_input_tokens": 6912,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 404,
+          "reasoning_output_tokens": 35
+        },
+        {
+          "input_tokens": 26453,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 458,
+          "reasoning_output_tokens": 45
+        },
+        {
+          "input_tokens": 27065,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 517,
+          "reasoning_output_tokens": 43
+        },
+        {
+          "input_tokens": 32808,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 529,
+          "reasoning_output_tokens": 20
+        },
+        {
+          "input_tokens": 33297,
+          "cached_input_tokens": 12800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 650,
+          "reasoning_output_tokens": 0
+        },
+        {
+          "input_tokens": 33849,
+          "cached_input_tokens": 12544,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 221,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "correct": true,
+      "audit": {
+        "id": "empty_first",
+        "status": "AUDIT_PASSED",
+        "search_responses": 4,
+        "calculation_responses": 2,
+        "native_items": {
+          "error": 1,
+          "agent_message": 7
+        },
+        "usage": {
+          "input_tokens": 187800,
+          "cached_input_tokens": 71040,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3182,
+          "reasoning_output_tokens": 185
+        },
+        "run_error": null,
+        "trajectory_sha256": "25cf5e3787b5ce2fb099da3d12c660fded66c33aae9f47aa59bc8dbd61b3eea1",
+        "policy_tool_correspondence": "PASSED",
+        "calculation_replay": "PASSED"
+      },
+      "successful_underlying_http_responses": 4,
+      "teacher_acknowledged_conflict": false,
+      "planner_feedback": [
+        {
+          "resolved": [],
+          "issues": [
+            {
+              "code": "EMPTY_RETRIEVAL",
+              "detail": "本次检索没有结果。",
+              "suggestion": "改变关键词或检索模式，保留已解决事实。"
+            }
+          ],
+          "tried": [
+            "{\"company\": \"美的集团\", \"mode\": \"hybrid\", \"query\": \"美的集团 2025年上半年 半年报 合并利润表 营业收入 本期金额\"}",
+            "{\"company\": \"宁德时代\", \"mode\": \"hybrid\", \"query\": \"宁德时代 2025年上半年 半年报 合并利润表 营业收入 本期金额\"}"
+          ]
+        }
+      ],
+      "queries": [
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 营业收入 本期金额",
+          "company": "美的集团",
+          "mode": "hybrid"
+        },
+        {
+          "query": "宁德时代 2025年上半年 半年报 合并利润表 营业收入 本期金额",
+          "company": "宁德时代",
+          "mode": "hybrid"
+        },
+        {
+          "query": "美的集团 2025年半年度报告 合并利润表 营业收入 2025年半年度",
+          "company": "美的集团",
+          "mode": "bm25"
+        },
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 归属于母公司股东的净利润 本期金额",
+          "company": "美的集团",
+          "mode": "dense"
+        }
+      ]
+    },
+    {
+      "id": "timeout_first",
+      "final": {
+        "status": "answered",
+        "answer_value": "260.14",
+        "answer_unit": "亿元",
+        "selected_company": "美的集团",
+        "citations": [
+          "312228f2c06f020b2d6cd9d4",
+          "858fb75185f7e9db4dfc04ce",
+          "4b28ba1999c0652b8e5498b3"
+        ],
+        "explanation": "2025年上半年合并口径营业收入：美的集团251,123,714千元，宁德时代178,886,253千元；美的集团高722.37亿元，因此选择美的集团。其归属于母公司股东的净利润为26,013,690千元，换算并四舍五入为260.14亿元。"
+      },
+      "error": null,
+      "terminal_reason": "ANSWERED",
+      "replan_count": 1,
+      "injection_applied": true,
+      "seconds": 149.8095498749899,
+      "tool_calls": 6,
+      "decision_calls": 7,
+      "search_calls": 4,
+      "usage": [
+        {
+          "input_tokens": 14516,
+          "cached_input_tokens": 13056,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 394,
+          "reasoning_output_tokens": 38
+        },
+        {
+          "input_tokens": 19974,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 390,
+          "reasoning_output_tokens": 21
+        },
+        {
+          "input_tokens": 27796,
+          "cached_input_tokens": 12800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 461,
+          "reasoning_output_tokens": 62
+        },
+        {
+          "input_tokens": 28602,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 549,
+          "reasoning_output_tokens": 68
+        },
+        {
+          "input_tokens": 34170,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 524,
+          "reasoning_output_tokens": 17
+        },
+        {
+          "input_tokens": 34657,
+          "cached_input_tokens": 12800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 653,
+          "reasoning_output_tokens": 0
+        },
+        {
+          "input_tokens": 35004,
+          "cached_input_tokens": 12544,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 238,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "correct": true,
+      "audit": {
+        "status": "AUDIT_FAILED",
+        "error": "'results'"
+      },
+      "successful_underlying_http_responses": 3,
+      "teacher_acknowledged_conflict": false,
+      "planner_feedback": [
+        {
+          "resolved": [],
+          "issues": [
+            {
+              "code": "TOOL_ERROR",
+              "detail": "injected transport timeout",
+              "suggestion": "根据错误修正参数，改变查询或mode后重试。"
+            }
+          ],
+          "tried": [
+            "{\"company\": \"美的集团\", \"mode\": \"hybrid\", \"query\": \"美的集团 2025年上半年 半年报 合并利润表 营业收入 本期金额\"}",
+            "{\"company\": \"宁德时代\", \"mode\": \"hybrid\", \"query\": \"宁德时代 2025年上半年 半年报 合并利润表 营业收入 本期金额\"}"
+          ]
+        }
+      ],
+      "queries": [
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 营业收入 本期金额",
+          "company": "美的集团",
+          "mode": "hybrid"
+        },
+        {
+          "query": "宁德时代 2025年上半年 半年报 合并利润表 营业收入 本期金额",
+          "company": "宁德时代",
+          "mode": "hybrid"
+        },
+        {
+          "query": "美的集团 2025年半年度报告 合并利润表 2025年半年度 营业收入 单位",
+          "company": "美的集团",
+          "mode": "dense"
+        },
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 归属于母公司股东的净利润 2025年半年度 单位",
+          "company": "美的集团",
+          "mode": "bm25"
+        }
+      ]
+    },
+    {
+      "id": "unit_mask_first",
+      "final": {
+        "status": "answered",
+        "answer_value": "260.14",
+        "answer_unit": "亿元",
+        "selected_company": "美的集团",
+        "citations": [
+          "407d90148388cf7072a341ab",
+          "858fb75185f7e9db4dfc04ce",
+          "4b28ba1999c0652b8e5498b3"
+        ],
+        "explanation": "2025年上半年合并口径营业收入：美的集团251,123,714千元，宁德时代178,886,253千元；美的集团高722.37亿元，故选择美的集团。其归属于母公司股东的净利润为26,013,690千元，换算并四舍五入为260.14亿元。"
+      },
+      "error": null,
+      "terminal_reason": "ANSWERED",
+      "replan_count": 0,
+      "injection_applied": true,
+      "seconds": 131.00153624999803,
+      "tool_calls": 5,
+      "decision_calls": 6,
+      "search_calls": 3,
+      "usage": [
+        {
+          "input_tokens": 14249,
+          "cached_input_tokens": 12800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 398,
+          "reasoning_output_tokens": 36
+        },
+        {
+          "input_tokens": 26167,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 459,
+          "reasoning_output_tokens": 79
+        },
+        {
+          "input_tokens": 26756,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 505,
+          "reasoning_output_tokens": 61
+        },
+        {
+          "input_tokens": 31481,
+          "cached_input_tokens": 12800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 494,
+          "reasoning_output_tokens": 29
+        },
+        {
+          "input_tokens": 32333,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 600,
+          "reasoning_output_tokens": 0
+        },
+        {
+          "input_tokens": 32415,
+          "cached_input_tokens": 6656,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 259,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "correct": true,
+      "audit": {
+        "id": "unit_mask_first",
+        "status": "AUDIT_PASSED",
+        "search_responses": 3,
+        "calculation_responses": 2,
+        "native_items": {
+          "agent_message": 6
+        },
+        "usage": {
+          "input_tokens": 163401,
+          "cached_input_tokens": 71040,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2715,
+          "reasoning_output_tokens": 205
+        },
+        "run_error": null,
+        "trajectory_sha256": "84c1c8d9c83a2d7b7615829730b038e2a447bc6c452b578632a9fa2b3c9734ef",
+        "policy_tool_correspondence": "PASSED",
+        "calculation_replay": "PASSED"
+      },
+      "successful_underlying_http_responses": 3,
+      "teacher_acknowledged_conflict": true,
+      "planner_feedback": [],
+      "queries": [
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 营业收入 本期发生额",
+          "company": "美的集团",
+          "mode": "hybrid"
+        },
+        {
+          "query": "宁德时代 2025年上半年 半年报 合并利润表 营业收入 本期发生额",
+          "company": "宁德时代",
+          "mode": "hybrid"
+        },
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 归属于母公司股东的净利润 2025年半年度",
+          "company": "美的集团",
+          "mode": "bm25"
+        }
+      ]
+    },
+    {
+      "id": "period_mask_first",
+      "final": {
+        "status": "answered",
+        "answer_value": "260.14",
+        "answer_unit": "亿元",
+        "selected_company": "美的集团",
+        "citations": [
+          "407d90148388cf7072a341ab",
+          "858fb75185f7e9db4dfc04ce",
+          "4b28ba1999c0652b8e5498b3"
+        ],
+        "explanation": "2025年上半年合并口径营业收入：美的集团251,123,714千元，宁德时代178,886,253千元；前者高72,237,461千元，因此选择美的集团。美的集团同期归属于母公司股东的净利润为26,013,690千元，换算并四舍五入为260.14亿元。"
+      },
+      "error": null,
+      "terminal_reason": "ANSWERED",
+      "replan_count": 0,
+      "injection_applied": true,
+      "seconds": 143.05537491699215,
+      "tool_calls": 5,
+      "decision_calls": 6,
+      "search_calls": 3,
+      "usage": [
+        {
+          "input_tokens": 14249,
+          "cached_input_tokens": 6912,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 372,
+          "reasoning_output_tokens": 21
+        },
+        {
+          "input_tokens": 26645,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 430,
+          "reasoning_output_tokens": 41
+        },
+        {
+          "input_tokens": 27269,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 511,
+          "reasoning_output_tokens": 46
+        },
+        {
+          "input_tokens": 31813,
+          "cached_input_tokens": 12800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 518,
+          "reasoning_output_tokens": 25
+        },
+        {
+          "input_tokens": 32553,
+          "cached_input_tokens": 6912,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 639,
+          "reasoning_output_tokens": 0
+        },
+        {
+          "input_tokens": 32827,
+          "cached_input_tokens": 12672,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 379,
+          "reasoning_output_tokens": 91
+        }
+      ],
+      "correct": true,
+      "audit": {
+        "id": "period_mask_first",
+        "status": "AUDIT_PASSED",
+        "search_responses": 3,
+        "calculation_responses": 2,
+        "native_items": {
+          "agent_message": 6,
+          "error": 1
+        },
+        "usage": {
+          "input_tokens": 165356,
+          "cached_input_tokens": 65152,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2849,
+          "reasoning_output_tokens": 224
+        },
+        "run_error": null,
+        "trajectory_sha256": "fffe0d0d9962c7bd07651bdce4d33acf48fe567596e523d9400f9998480c1746",
+        "policy_tool_correspondence": "PASSED",
+        "calculation_replay": "PASSED"
+      },
+      "successful_underlying_http_responses": 3,
+      "teacher_acknowledged_conflict": false,
+      "planner_feedback": [],
+      "queries": [
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 营业收入",
+          "company": "美的集团",
+          "mode": "hybrid"
+        },
+        {
+          "query": "宁德时代 2025年上半年 半年报 合并利润表 营业收入",
+          "company": "宁德时代",
+          "mode": "hybrid"
+        },
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 归属于母公司股东的净利润",
+          "company": "美的集团",
+          "mode": "bm25"
+        }
+      ]
+    },
+    {
+      "id": "conflict_first",
+      "final": {
+        "status": "insufficient",
+        "answer_value": "",
+        "answer_unit": "",
+        "selected_company": null,
+        "citations": [],
+        "explanation": "证据或运行预算不足：MODEL_BUDGET"
+      },
+      "error": null,
+      "terminal_reason": "MODEL_BUDGET",
+      "replan_count": 2,
+      "injection_applied": true,
+      "seconds": 229.5491052080033,
+      "tool_calls": 6,
+      "decision_calls": 10,
+      "search_calls": 4,
+      "usage": [
+        {
+          "input_tokens": 14457,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 397,
+          "reasoning_output_tokens": 45
+        },
+        {
+          "input_tokens": 27254,
+          "cached_input_tokens": 14080,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 475,
+          "reasoning_output_tokens": 57
+        },
+        {
+          "input_tokens": 28139,
+          "cached_input_tokens": 6912,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 532,
+          "reasoning_output_tokens": 48
+        },
+        {
+          "input_tokens": 33293,
+          "cached_input_tokens": 12800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 546,
+          "reasoning_output_tokens": 25
+        },
+        {
+          "input_tokens": 33796,
+          "cached_input_tokens": 6912,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 662,
+          "reasoning_output_tokens": 0
+        },
+        {
+          "input_tokens": 34154,
+          "cached_input_tokens": 12544,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 620,
+          "reasoning_output_tokens": 106
+        },
+        {
+          "input_tokens": 35235,
+          "cached_input_tokens": 12800,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 779,
+          "reasoning_output_tokens": 141
+        },
+        {
+          "input_tokens": 42165,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 835,
+          "reasoning_output_tokens": 63
+        },
+        {
+          "input_tokens": 42407,
+          "cached_input_tokens": 6656,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 814,
+          "reasoning_output_tokens": 370
+        },
+        {
+          "input_tokens": 43648,
+          "cached_input_tokens": 12928,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 790,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "correct": false,
+      "audit": {
+        "id": "conflict_first",
+        "status": "AUDIT_PASSED",
+        "search_responses": 4,
+        "calculation_responses": 2,
+        "native_items": {
+          "agent_message": 10
+        },
+        "usage": {
+          "input_tokens": 334548,
+          "cached_input_tokens": 111488,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 6450,
+          "reasoning_output_tokens": 855
+        },
+        "run_error": null,
+        "trajectory_sha256": "b88cc394ccdea72e9b7eade059677c52a3e71cadc446ebf03abda64aa7c53544",
+        "policy_tool_correspondence": "PASSED",
+        "calculation_replay": "PASSED"
+      },
+      "successful_underlying_http_responses": 4,
+      "teacher_acknowledged_conflict": true,
+      "planner_feedback": [
+        {
+          "sufficient": false,
+          "resolved": [
+            "宁德时代2025年上半年合并口径营业收入为178,886,253千元。",
+            "美的集团2025年上半年合并口径归属于母公司股东的净利润为26,013,690千元；计算工具已完成换算，结果为260.14亿元。"
+          ],
+          "issues": [
+            {
+              "subquestion": "美的集团2025年上半年合并口径营业收入是多少？",
+              "code": "CONFLICT",
+              "detail": "同一公司、同一报告期、同一合并利润表及同一单位出现明显冲突：证据312228f2c06f020b2d6cd9d4和407d90148388cf7072a341ab列示251,123,714千元，而证据fault-conflict-001列示99,999,999千元。现有信息不足以排除任一值，不能随意取值。",
+              "evidence_ids": [
+                "312228f2c06f020b2d6cd9d4",
+                "407d90148388cf7072a341ab",
+                "fault-conflict-001"
+              ],
+              "suggestion": "进一步查询或核验美的集团2025年半年度报告第96页合并及公司利润表原始页面，并取得经核验的营业收入单元格，以消除冲突。"
+            },
+            {
+              "subquestion": "比较两家公司营业收入并选择收入较高者",
+              "code": "UNSUPPORTED_CLAIM",
+              "detail": "由于美的集团营业收入存在未解决冲突，条件桥接实体无法确定：若为251,123,714千元则美的集团较高；若为99,999,999千元则宁德时代较高。因此“选择美的集团”及其后续答案并未被完整支持。",
+              "evidence_ids": [
+                "312228f2c06f020b2d6cd9d4",
+                "407d90148388cf7072a341ab",
+                "fault-conflict-001",
+                "858fb75185f7e9db4dfc04ce",
+                "e55d85df8f44a5ca90f9fa36"
+              ],
+              "suggestion": "先消除美的集团营业收入冲突，再重新比较并根据确定的较高收入公司查询其2025年上半年合并口径归母净利润。"
+            }
+          ],
+          "tried": [
+            "{\"company\": \"美的集团\", \"mode\": \"hybrid\", \"query\": \"美的集团 2025年上半年 半年报 合并利润表 营业收入 本期金额\"}",
+            "{\"company\": \"宁德时代\", \"mode\": \"hybrid\", \"query\": \"宁德时代 2025年上半年 半年报 合并利润表 营业收入 本期金额\"}",
+            "{\"company\": \"美的集团\", \"mode\": \"bm25\", \"query\": \"美的集团 2025年上半年 半年报 合并利润表 归属于母公司股东的净利润 本期金额\"}"
+          ]
+        },
+        {
+          "sufficient": false,
+          "resolved": [
+            "宁德时代2025年上半年合并口径营业收入为178,886,253千元。",
+            "美的集团2025年上半年合并口径归母净利润为26,013,690千元。",
+            "26,013,690千元已由计算工具换算并四舍五入为260.14亿元。"
+          ],
+          "issues": [
+            {
+              "subquestion": "美的集团2025年上半年合并口径营业收入及据此选择收入较高公司",
+              "code": "UNSUPPORTED_CLAIM",
+              "detail": "候选答案仅引用营业收入构成表d7aa5a987d7cb6e9258af153支持美的集团收入，但该表未直接标明合并口径；同时“与合并利润表一致”的陈述没有引用直接列示合并口径的证据。虽然观测中的合并利润表312228f2c06f020b2d6cd9d4和407d90148388cf7072a341ab可直接支持251,123,714千元，并与营业收入构成表及营业总收入内部勾稽关系共同排除单条异常冲突记录，但它们未列入候选答案引用。",
+              "evidence_ids": [
+                "d7aa5a987d7cb6e9258af153",
+                "312228f2c06f020b2d6cd9d4",
+                "407d90148388cf7072a341ab",
+                "fault-conflict-001"
+              ],
+              "suggestion": "在最终答案引用中加入312228f2c06f020b2d6cd9d4或407d90148388cf7072a341ab，直接证明美的集团2025年上半年合并营业收入为251,123,714千元，并说明该值与营业收入构成表及营业总收入勾稽一致，单条99,999,999千元记录属于未获交叉支持的异常冲突。"
+            }
+          ],
+          "tried": [
+            "{\"company\": \"美的集团\", \"mode\": \"hybrid\", \"query\": \"美的集团 2025年上半年 半年报 合并利润表 营业收入 本期金额\"}",
+            "{\"company\": \"宁德时代\", \"mode\": \"hybrid\", \"query\": \"宁德时代 2025年上半年 半年报 合并利润表 营业收入 本期金额\"}",
+            "{\"company\": \"美的集团\", \"mode\": \"bm25\", \"query\": \"美的集团 2025年上半年 半年报 合并利润表 归属于母公司股东的净利润 本期金额\"}",
+            "{\"company\": \"美的集团\", \"mode\": \"dense\", \"query\": \"美的集团 2025年上半年 半年报 营业收入构成 营业收入合计 本报告期金额 251123714 千元\"}"
+          ]
+        }
+      ],
+      "queries": [
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 营业收入 本期金额",
+          "company": "美的集团",
+          "mode": "hybrid"
+        },
+        {
+          "query": "宁德时代 2025年上半年 半年报 合并利润表 营业收入 本期金额",
+          "company": "宁德时代",
+          "mode": "hybrid"
+        },
+        {
+          "query": "美的集团 2025年上半年 半年报 合并利润表 归属于母公司股东的净利润 本期金额",
+          "company": "美的集团",
+          "mode": "bm25"
+        },
+        {
+          "query": "美的集团 2025年上半年 半年报 营业收入构成 营业收入合计 本报告期金额 251123714 千元",
+          "company": "美的集团",
+          "mode": "dense"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "conflict case explicitly signals synthetic conflict; not blind detection",
+    "unit/period masking only affects first query; later genuine evidence may recover without verifier rejection",
+    "numeric correctness does not itself prove the injected ambiguity was resolved"
+  ]
+}

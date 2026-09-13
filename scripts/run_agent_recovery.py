@@ -20,10 +20,13 @@ def transform(response,scenario):
     if scenario=='empty_first':response['results']=[]
     elif scenario in ('unit_mask_first','period_mask_first'):
         for c in response['results']:
-            if scenario=='unit_mask_first':
-                c['text']=re.sub(r'亿元|千元|万元|人民币元|元','[单位遮蔽]',c['text']);c['unit']=''
-            else:
-                c['text']=re.sub(r'2025|2024|本报告期|本期|上年同期|上期|半年度|上半年','[期间遮蔽]',c['text']);c['report_period']=''
+            fields=('text','unit','unit_source','currency','table_title','section_path','section','report_period')
+            pattern=r'亿元|千元|万元|人民币元|元' if scenario=='unit_mask_first' else r'2025|2024|本报告期|本期|上年同期|上期|半年度|上半年'
+            replacement='[单位遮蔽]' if scenario=='unit_mask_first' else '[期间遮蔽]'
+            for key in fields:
+                if isinstance(c.get(key),str):c[key]=re.sub(pattern,replacement,c[key])
+            if scenario=='unit_mask_first':c['unit']=''
+            else:c['report_period']=''
     elif scenario=='conflict_first':
         # A visibly incompatible same-scope numerical claim is synthetic; its true source is recorded outside model input.
         if response['results']:
@@ -35,14 +38,14 @@ def transform(response,scenario):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--questions',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
-    p.add_argument('--url',default='http://127.0.0.1:8100');p.add_argument('--synthesis',choices=['model','verified'],default='verified');a=p.parse_args()
+    p.add_argument('--url',default='http://127.0.0.1:8100');p.add_argument('--synthesis',choices=['model','verified'],default='verified');p.add_argument('--scenarios',nargs='+',choices=SCENARIOS,default=SCENARIOS);a=p.parse_args()
     if a.out.exists():raise FileExistsError(a.out)
     rows=[json.loads(l) for l in a.questions.read_text().splitlines()]
     if any(set(r)!={'id','question'} for r in rows):raise ValueError('question-only input required')
     question=next(r['question'] for r in rows if r['id']=='agent-dev-001')
     a.out.mkdir(parents=True);health=request_json(a.url+'/health');lock=threading.Lock()
     teacher=CodexTeacher('/Applications/ChatGPT.app/Contents/Resources/codex',a.out/'empty_teacher_cwd')
-    manifest={'scope':'fault injection only; not natural retrieval or dev20 correctness','scenarios':SCENARIOS,
+    manifest={'scope':'fault injection only; not natural retrieval or dev20 correctness','scenarios':a.scenarios,'fault_version':2,
         'synthesis':a.synthesis,'question_id':'agent-dev-001','question':question,'health':health,'teacher':'gpt-5.6-sol',
         'code_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'conflict_caveat':'synthetic alternative explicitly signals a conflict; demonstrates prompted conflict handling, not blind detection'}
@@ -73,7 +76,7 @@ def main():
             'search_calls':sum(e['event']=='tool_request' and e['tool']=='search' for e in logs),
             'usage':[e['usage'] for e in logs if e['event']=='teacher_decision']}
         (folder/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps(result,ensure_ascii=False),flush=True)
-    with ThreadPoolExecutor(max_workers=2) as pool:list(pool.map(run,SCENARIOS))
+    with ThreadPoolExecutor(max_workers=2) as pool:list(pool.map(run,a.scenarios))
     after=request_json(a.url+'/health')
     if after!=health:raise ValueError('retrieval index changed during recovery experiment')
     (a.out/'health_after.json').write_text(json.dumps(after,ensure_ascii=False,indent=2))
