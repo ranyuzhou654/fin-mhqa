@@ -17,7 +17,7 @@ from finmhqa.agent.pilot_tools import request_json,search
 def main():
     p=argparse.ArgumentParser();p.add_argument('--questions',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
     p.add_argument('--arms',nargs='+',choices=['structured','generic','flat'],default=['structured','generic','flat'])
-    p.add_argument('--url',default='http://127.0.0.1:8100');p.add_argument('--workers',type=int,choices=[1,2],default=2)
+    p.add_argument('--url',default='http://127.0.0.1:8100');p.add_argument('--workers',type=int,choices=[1,2,4],default=2)
     p.add_argument('--only');a=p.parse_args()
     if a.out.exists():raise FileExistsError(a.out)
     rows=[json.loads(l) for l in a.questions.read_text().splitlines()]

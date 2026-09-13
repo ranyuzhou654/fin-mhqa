@@ -1,0 +1,19 @@
+{
+  "id": "agent-dev-001",
+  "status": "AUDIT_PASSED",
+  "search_responses": 3,
+  "calculation_responses": 2,
+  "native_items": {
+    "error": 2,
+    "agent_message": 7
+  },
+  "usage": {
+    "input_tokens": 186890,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 2973,
+    "reasoning_output_tokens": 162
+  },
+  "run_error": null,
+  "trajectory_sha256": "248355a330aad8b524bdd8c0314f7ebde2aa7a4c09e3c305e6f060c47bddc9be"
+}
