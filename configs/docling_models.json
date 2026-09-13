@@ -1,0 +1,9 @@
+{
+  "docling_version": "2.126.0",
+  "models": [
+    {"repo_id": "docling-project/docling-layout-heron", "revision": "8f39ad3c0b4c58e9c2d2c84a38465abf757272d8"},
+    {"repo_id": "docling-project/docling-layout-heron-onnx", "revision": "40bde044036bb181c130ddf6c51792187268748f"},
+    {"repo_id": "docling-project/docling-models", "revision": "fc0f2d45e2218ea24bce5045f58a389aed16dc23"}
+  ],
+  "note": "Official downloader includes ONNX layout and fast TableFormer variants; pilot runs transformers layout plus accurate TableFormer on CPU."
+}

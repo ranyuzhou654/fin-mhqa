@@ -1,0 +1,37 @@
+{
+  "ocr": false,
+  "table_mode": "accurate",
+  "device": "cpu",
+  "samples": [
+    {
+      "id": "midea-p56",
+      "filename": "000333_美的集团_2025H1.pdf",
+      "page": 56,
+      "issue": "多行表头"
+    },
+    {
+      "id": "midea-p96",
+      "filename": "000333_美的集团_2025H1.pdf",
+      "page": 96,
+      "issue": "表线漏检的合并及公司利润表"
+    },
+    {
+      "id": "moutai-p8",
+      "filename": "600519_贵州茅台_2025H1.pdf",
+      "page": 8,
+      "issue": "分组表头对照"
+    },
+    {
+      "id": "byd-p65",
+      "filename": "002594_比亚迪_2025H1.pdf",
+      "page": 65,
+      "issue": "无框利润表"
+    },
+    {
+      "id": "gree-p156",
+      "filename": "000651_格力电器_2025H1.pdf",
+      "page": 156,
+      "issue": "页框与合并表头"
+    }
+  ]
+}
