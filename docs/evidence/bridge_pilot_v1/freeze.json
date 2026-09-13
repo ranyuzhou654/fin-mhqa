@@ -1,0 +1,87 @@
+{
+  "status": "FROZEN",
+  "gold_sha256": "822a5d66f086a26abd8f5ce1ecac8ad67d5a6a92cf12158c8555d0d3fd5b7d65",
+  "questions_sha256": "de27e23135051d467b873337333113fbd80b41e1c7e566979dd09cc34cc3e70b",
+  "corpus_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "results": [
+    {
+      "id": "bridge-pilot-001",
+      "recomputed_answer": "372.81",
+      "selected_company": "美的集团",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-002",
+      "recomputed_answer": "304.85",
+      "selected_company": "宁德时代",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-003",
+      "recomputed_answer": "311.37",
+      "selected_company": "五粮液",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-004",
+      "recomputed_answer": "72.00",
+      "selected_company": "伊利股份",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-005",
+      "recomputed_answer": "283.29",
+      "selected_company": "格力电器",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-006",
+      "recomputed_answer": "155.11",
+      "selected_company": "比亚迪",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-007",
+      "recomputed_answer": "60.64",
+      "selected_company": "泸州老窖",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-008",
+      "recomputed_answer": "16.05",
+      "selected_company": "亿纬锂能",
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-009",
+      "recomputed_answer": "139.81",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-010",
+      "recomputed_answer": "180.18",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-011",
+      "recomputed_answer": "459.96",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    },
+    {
+      "id": "bridge-pilot-012",
+      "recomputed_answer": "394.68",
+      "selected_company": null,
+      "status": "RULE_PASSED"
+    }
+  ],
+  "types": {
+    "bridge": 8,
+    "comparison": 2,
+    "aggregation": 2
+  },
+  "gold_isolation": "execution script only reads questions.jsonl; gold remains offline",
+  "semantic_review": "generator source review; not independent human or judge"
+}
