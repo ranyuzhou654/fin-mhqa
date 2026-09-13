@@ -109,3 +109,17 @@ def test_unit_requires_explicit_scoped_declaration():
     assert explicit_page_unit('（除特别注明外，金额单位为人民币千元）')[:2]==('千元','人民币')
     assert explicit_page_unit('某公司的金额单位为千元')==('','','')
     assert explicit_page_unit('单位：股')==('','','')
+
+
+def test_explicit_source_header_recovery_keeps_amount_rows():
+    from finmhqa.ingest.docling_adapter import explicit_header_row, table_views
+    assert explicit_header_row(['项 目','期末数','期初数'])
+    assert not explicit_header_row(['项目','123','456'])
+    assert not explicit_header_row(['股票简称','格力电器','股票代码','000651'])
+    table={'data':{'num_rows':2,'num_cols':3,'table_cells':[
+        cell('账龄',0,0),cell('期末数',0,1),cell('期初数',0,2),
+        cell('一年以内',1,0),cell('2,208,982',1,1),cell('1,612,045',1,2)]}}
+    view=table_views(table)[0]
+    assert view['recovered_header_rows']==[0]
+    assert view['headers']==['账龄','期末数','期初数']
+    assert view['rows']==[['一年以内','2,208,982','1,612,045']]

@@ -2,6 +2,23 @@
 import re
 
 
+def explicit_header_row(values):
+    """Recover plainly written labels; never classify a row containing amounts."""
+    values = [re.sub(r'\s', '', value) for value in values]
+    nonempty = [v for v in values if v]
+    if len(nonempty) < 2:
+        return False
+    numeric = r'[（(\-−]?\d[\d,，]*(?:\.\d+)?[）)]?%?'
+    if any(re.fullmatch(numeric, v) for v in nonempty):
+        return False
+    named = values[0] in ('项目', '类别', '名称', '账龄', '证券品种', '序号')
+    labels = r'金额|余额|期末|期初|本期|上年|比例|变动|成本|品种|代码|名称|数量|证券|持股'
+    if named and sum(bool(re.search(labels, v)) for v in values[1:] if v) >= 1:
+        return True
+    period = r'(?:本报告期|本期|上年同期|本报告期末|上年度末|期初|期末|20\d{2}年(?:\d{1,2}月\d{1,2}日)?)(?:[（(].*[）)])?'
+    return not values[0] and all(re.fullmatch(period, v) for v in nonempty)
+
+
 def table_views(table):
     data = table['data']
     nrows, ncols = data['num_rows'], data['num_cols']
@@ -19,6 +36,8 @@ def table_views(table):
     # header runs form a header; intervening numeric rows remain body evidence.
     header_rows = {r for r, row in enumerate(grid)
                    if any(i is not None and cells[i].get('column_header') for i in row)}
+    recovered = {r for r, row in enumerate(grid) if explicit_header_row([cells[i]['text'] if i is not None else '' for i in row])} - header_rows
+    header_rows |= recovered
     sections = []
     start = 0
     while start < nrows:
@@ -52,6 +71,7 @@ def table_views(table):
             headers.append(' / '.join(cells[i]['text'] for i in ids if cells[i]['text'].strip()))
         rows = [[cells[grid[r][col]]['text'] if grid[r][col] is not None else '' for col in columns] for r in range(header_end, end)]
         sections.append(dict(headers=headers, rows=rows, header_rows=header_end-start,
+            recovered_header_rows=sorted(recovered & set(range(start, header_end))),
             row_start=start, row_end=end, source_table_ref=table.get('self_ref'),
             provenance=table.get('prov', []), cell_grid=[[row[col] for col in columns] for row in grid[start:end]], cells=cells, source_column_indices=columns,
             quality_status='unreviewed'))
@@ -138,6 +158,8 @@ def pages_from_native(pdf_path, company, native_batches, *, expected_sha256):
                     flags.append('native_header_missing')
                 if len(views) > 1:
                     flags.append('native_table_split_header_sections')
+                if view['recovered_header_rows']:
+                    flags.append('explicit_source_header_recovered')
                 tables.append(RawTable(page_no, [view['headers'], *view['rows']], bbox,
                     page_end=page_no, extraction_method='docling_accurate', normalized_headers=True,
                     source_refs=[f'{path.as_posix()}{table["self_ref"]}'], quality_flags=flags))

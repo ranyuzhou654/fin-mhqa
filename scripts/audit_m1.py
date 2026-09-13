@@ -19,9 +19,13 @@ def main():
     expected = {r['company']:r for r in records}
     tokenizer = AutoTokenizer.from_pretrained('data/tokenizers/bge-m3',local_files_only=True,trust_remote_code=False)
     seen, errors, warnings = set(), [], Counter()
+    quality_flags = Counter()
+    rejected_refs = set()
     groups = defaultdict(list)
     parents = {c['parent_table_id'] for c in chunks if c['chunk_type']=='table_md'}
     for c in chunks:
+        quality_flags.update(c.get('quality_flags', []))
+        rejected_refs.update(i['source_ref'] for i in c.get('extraction_issues', []))
         if c['chunk_id'] in seen: errors.append(['duplicate_id',c['chunk_id']])
         seen.add(c['chunk_id'])
         r = expected[c['company']]
@@ -48,7 +52,7 @@ def main():
             raise ValueError('Refusing to overwrite annotated review samples; use a new QA directory')
     (qa/'review_samples.jsonl').write_text(''.join(json.dumps(c,ensure_ascii=False)+'\n' for c in samples),encoding='utf-8')
     report=dict(dataset=str(path),dataset_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),sample_sha256=hashlib.sha256(sample_path.read_bytes()).hexdigest(),chunks=len(chunks),companies=len(expected),pages=sum(r['pages'] for r in records),
-                structural_errors=errors,heuristic_warnings=dict(warnings),sample_count=len(samples),
+                structural_errors=errors,heuristic_warnings=dict(warnings),quality_flags=dict(quality_flags),rejected_source_tables=sorted(rejected_refs),sample_count=len(samples),
                 manual_review_status='pending',acceptance='NOT_ACCEPTED_PENDING_REVIEW',
                 counts=[dict(company=k[0],chunk_type=k[1],count=len(v)) for k,v in sorted(groups.items())])
     (qa/'audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
