@@ -3,7 +3,9 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-pytest.importorskip('faiss')
+import importlib.util
+if importlib.util.find_spec('faiss') is None:
+    pytest.skip('retrieval dependencies not installed',allow_module_level=True)
 pytest.importorskip('bm25s')
 from finmhqa.retrieval.build_index import build
 from finmhqa.retrieval.retriever import HybridRetriever
@@ -97,3 +99,20 @@ def test_http_validation_and_real_indexes(indexed):
         assert response.status_code==200
         assert response.json()['primary_count']==1
         assert response.json()['results'][1]['attached']
+
+
+def test_native_libraries_in_separate_processes():
+    import subprocess,sys
+    import faiss
+    code="""import torch,json
+torch.set_num_threads(4)
+x=torch.nn.functional.normalize(torch.randn(3,1024),dim=1)
+print(json.dumps(x.tolist()))
+"""
+    run=subprocess.run([sys.executable,'-X','faulthandler','-c',code],capture_output=True,text=True,timeout=30)
+    assert run.returncode==0,(run.returncode,run.stderr)
+    vectors=np.array(json.loads(run.stdout),dtype='float32')
+    index=faiss.IndexFlatIP(1024);index.add(vectors)
+    scores,ids=index.search(vectors[:1],1)
+    assert ids[0,0]==0 and scores[0,0]==pytest.approx(1,abs=1e-5)
+    assert 'torch' not in sys.modules

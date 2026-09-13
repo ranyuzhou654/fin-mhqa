@@ -25,30 +25,34 @@ class Query(BaseModel):
 def create_app(retriever=None):
     @asynccontextmanager
     async def lifespan(app):
-        if retriever is None:
-            from .models import LocalModels
-            from .retriever import HybridRetriever
-            index=os.environ.get('FINMHQA_INDEX','index')
-            models=LocalModels(os.environ.get('FINMHQA_MODELS','data/models/retrieval'),
-                               max_length=int(os.environ.get('FINMHQA_MAX_LENGTH','1024')),
-                               batch_size=int(os.environ.get('FINMHQA_BATCH_SIZE','4')))
-            app.state.retriever=HybridRetriever(index,models,allow_experimental=os.environ.get('FINMHQA_EXPERIMENTAL')=='1')
-        else:app.state.retriever=retriever
-        yield
-        app.state.retriever=None
+        models=None
+        try:
+            if retriever is None:
+                from .model_process import ModelProcess
+                from .retriever import HybridRetriever
+                index=os.environ.get('FINMHQA_INDEX','index')
+                models=ModelProcess(os.environ.get('FINMHQA_MODELS','data/models/retrieval'),
+                    max_length=int(os.environ.get('FINMHQA_MAX_LENGTH','1024')),
+                    batch_size=int(os.environ.get('FINMHQA_BATCH_SIZE','4')))
+                app.state.retriever=HybridRetriever(index,models,allow_experimental=os.environ.get('FINMHQA_EXPERIMENTAL')=='1')
+            else:app.state.retriever=retriever
+            yield
+        finally:
+            app.state.retriever=None
+            if models is not None:models.close()
     app=FastAPI(title='FinMHQA Retrieval',version='0.2.0',lifespan=lifespan)
     capacity=threading.BoundedSemaphore(1)
 
     @app.get('/health')
     def health():
         r=getattr(app.state,'retriever',None)
-        if r is None:raise HTTPException(503,'Index not ready')
+        if r is None or not getattr(r.models,'alive',True):raise HTTPException(503,'Index or inference worker not ready')
         return dict(status='ready',count=r.manifest['count'],admission=r.manifest['admission'],model_bundle_sha256=r.manifest['model_bundle_sha256'])
 
     @app.post('/search')
     def search(request:Query):
         r=getattr(app.state,'retriever',None)
-        if r is None:raise HTTPException(503,'Index not ready')
+        if r is None or not getattr(r.models,'alive',True):raise HTTPException(503,'Index or inference worker not ready')
         if not capacity.acquire(blocking=False):raise HTTPException(503,'Inference busy; retry later')
         try:
             results=r.search(**request.model_dump())

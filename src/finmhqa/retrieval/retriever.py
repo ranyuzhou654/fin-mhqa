@@ -1,4 +1,5 @@
 import json
+from importlib.metadata import version
 from pathlib import Path
 import threading
 import numpy as np
@@ -24,8 +25,12 @@ class HybridRetriever:
             path=root/relative
             if not path.resolve().is_relative_to(root.resolve()) or sha256(path)!=digest:
                 raise ValueError(f'Index artifact integrity failure: {relative}')
-        required={'chunk_meta.jsonl','faiss.index','fin_dict.txt'}
+        required={'chunk_meta.jsonl','faiss.index','fin_dict.txt',
+                  'bm25/data.csc.index.npy','bm25/indices.csc.index.npy','bm25/indptr.csc.index.npy','bm25/vocab.index.json','bm25/params.index.json'}
         if not required.issubset(self.manifest['files']):raise ValueError('Incomplete index manifest')
+        for library in ('bm25s','jieba','transformers','torch','faiss-cpu','numpy'):
+            if self.manifest['versions'].get(library)!=version(library):
+                raise ValueError(f'Index runtime version differs: {library}')
         if sha256(root/'chunk_meta.jsonl')!=self.manifest['admission']['dataset_sha256']:
             raise ValueError('Index evidence differs from admitted dataset')
         if self.manifest['model_bundle_sha256']!=models.bundle_hash or self.manifest['max_length']!=models.max_length:
@@ -80,7 +85,7 @@ class HybridRetriever:
 
     def _fmt(self,index,score,attached=False,reranker_truncated=False):
         c=self.chunks[index]
-        return dict(c,section=c['section_path'],score=float(score),score_kind='reranker_sigmoid',
+        return dict(c,section=c['section_path'],score=float(score),score_kind='inherited_from_kv' if attached else 'reranker_sigmoid',
                     attached=attached,embedding_truncated=c['chunk_id'] in self.truncated,
                     reranker_truncated=reranker_truncated,index_admission=self.manifest['admission']['status'])
 

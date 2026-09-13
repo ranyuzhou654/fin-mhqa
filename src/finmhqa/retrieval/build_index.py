@@ -63,9 +63,9 @@ def main():
     p.add_argument('--batch-size',type=int,default=4)
     a=p.parse_args()
     admission(a.chunks,a.out,a.qa_dir,experimental=a.experimental,reviewed_samples=a.reviewed_samples)
-    from .models import LocalModels
-    models=LocalModels(a.models,max_length=a.max_length,batch_size=a.batch_size)
-    result=build(a.chunks,a.out,models,qa_dir=a.qa_dir,reviewed_samples=a.reviewed_samples,experimental=a.experimental)
+    from .model_process import ModelProcess
+    with ModelProcess(a.models,max_length=a.max_length,batch_size=a.batch_size) as models:
+        result=build(a.chunks,a.out,models,qa_dir=a.qa_dir,reviewed_samples=a.reviewed_samples,experimental=a.experimental)
     print(json.dumps(dict(count=result['count'],admission=result['admission'],truncated=len(result['embedding_truncated_chunk_ids'])),ensure_ascii=False))
 
 if __name__=='__main__':main()

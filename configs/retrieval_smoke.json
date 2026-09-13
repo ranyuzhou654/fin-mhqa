@@ -1,0 +1,6 @@
+{
+  "query_ids": ["retrieval-dev-01", "retrieval-dev-11", "retrieval-dev-18", "retrieval-dev-26"],
+  "seed": 2026,
+  "distractor_texts_per_company": 1,
+  "purpose": "Preselected source evidence and distractors for integration smoke only; not unbiased retrieval evaluation"
+}
