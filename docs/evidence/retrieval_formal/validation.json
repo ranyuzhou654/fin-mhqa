@@ -1,0 +1,23 @@
+{
+  "implementation_commit": "202813d9b71dd67754e74a7b6838168abe0de919",
+  "build_exit_code": 0,
+  "evaluation_exit_code": 1,
+  "acceptance": "FAILED",
+  "new_evaluator_tests_passed": 5,
+  "http_queries": 90,
+  "query_and_gold_unchanged": true,
+  "artifacts": {
+    "data/candidates/docling/chunks.jsonl": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+    "data/chunks.jsonl": "671ae8587763e1d4d3d58e1725807fd959ba43a4c45926b8cba7b8bc14450720",
+    "configs/retrieval_dev30.jsonl": "80064b16f2a0ad09f88757bb0d17be85e38757da0475506440daaaa47f16e705",
+    "data/eval/retrieval_dev30.bound.jsonl": "a1f696a319b32342a1cbad91d4a474bf970f20e8947f20fc7ad49f85851f54f3",
+    "data/eval/retrieval_dev30.bound.summary.json": "b985b5d2b4140e536556768d57c60eadd6d2d82ba9d5df20a1291c2a1d7041dc",
+    "data/eval/retrieval_dev30.results.json": "360a69f32e13cabcc7eec5271b9bfb4cc49dd2302652614b3b9e76bcdbcff333",
+    "data/eval/retrieval_dev30.results.requests.jsonl": "5b012dcc8aaff708ce113212ccf1d0019a9cb746063d49290275a1b25fe04822",
+    "index/manifest.json": "9adf4f8adb70c74454c2b6d34ffee77312c7cb8e80173a263cd810d25957ecf3",
+    "data/retrieval_formal_build.log": "2f2732f9041beeee0434befd402b1f790e27e43e4cab99d3d3f8a720bffc88cf",
+    "data/retrieval_formal_eval.log": "574715cf50505ccb29262d51e95517378dc9dc23f912415491c3527384d7e0ae",
+    "data/retrieval_formal_server.log": "3dfa280674ec22ec5d9dc4a3e9d48926fe9330f746cff04a8a21792f751e56ac"
+  },
+  "service_shutdown": "Application shutdown complete; stopped after final health check"
+}

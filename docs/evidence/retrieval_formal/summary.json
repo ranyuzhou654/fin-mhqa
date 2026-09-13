@@ -1,0 +1,1857 @@
+{
+  "api": "http://127.0.0.1:8100",
+  "health": {
+    "status": "ready",
+    "count": 9322,
+    "admission": {
+      "status": "ACCEPTED",
+      "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+      "review_sha256": "10654a4adfdce3f10d750a3de30e5ab9ad79d6fe16b3e7300ccacac8d432ed88",
+      "audit_sha256": "91815bb08ba094943b63739fd2b0012acd114646a6890f036403aab91136d5a8"
+    },
+    "model_bundle_sha256": "7c01c53fe2cfa65e4654de55e5a3c915d44cee7c7e8de2bd1131a7ccc9d85d48"
+  },
+  "query_file_sha256": "a1f696a319b32342a1cbad91d4a474bf970f20e8947f20fc7ad49f85851f54f3",
+  "n_cand": 30,
+  "by_mode": {
+    "dense": {
+      "hits": 20,
+      "total": 30,
+      "hit_at_5": 0.6666666666666666
+    },
+    "bm25": {
+      "hits": 16,
+      "total": 30,
+      "hit_at_5": 0.5333333333333333
+    },
+    "hybrid": {
+      "hits": 23,
+      "total": 30,
+      "hit_at_5": 0.7666666666666667
+    }
+  },
+  "fixed_binding_verified": true,
+  "acceptance_eligible": true,
+  "acceptance": "FAILED",
+  "request_journal": "data/eval/retrieval_dev30.results.requests.jsonl",
+  "request_journal_sha256": "5b012dcc8aaff708ce113212ccf1d0019a9cb746063d49290275a1b25fe04822",
+  "results": [
+    {
+      "query_id": "retrieval-dev-01",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 16.001508959001512,
+      "primary_chunk_ids": [
+        "d2645f4589702da322f8c2b1",
+        "312228f2c06f020b2d6cd9d4",
+        "407d90148388cf7072a341ab",
+        "bd5514f76d8e0a2d17d364b4",
+        "064c5ec71f24afa21f844031"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ],
+      "reranker_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-02",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 13.207707333000144,
+      "primary_chunk_ids": [
+        "539295fea62c7a0e50545195",
+        "d8d54ba9aed695c7699dad2f",
+        "9fed1d6f14909619a834c5f3",
+        "398add2f7eafd2db772041bc",
+        "a46749931c8b22b49558d033"
+      ],
+      "attached_chunk_ids": [
+        "83d1e4f9ba9db3adfffd8b1a"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-03",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 11.46222487500927,
+      "primary_chunk_ids": [
+        "19ec2aedc83338def1a54732",
+        "50b0b59b197f1ae4f88f72fa",
+        "bec76fd1f0d60808f306c40a",
+        "95186a8d525131f8c5bf39c1",
+        "fe7f7b6d26f52577621813d8"
+      ],
+      "attached_chunk_ids": [
+        "54ffbe3af0a6c5290075944b"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-04",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 12.916988041994045,
+      "primary_chunk_ids": [
+        "52e388a1787b91755b534281",
+        "a617a045b938675f95e1272f",
+        "df365d166ef42c1b092f0ef9",
+        "cd66c4745accc95878250d93",
+        "afa0e3b03c335653e656678f"
+      ],
+      "attached_chunk_ids": [
+        "8f627aa0817d135f91120221",
+        "a35b6ada0957ff5ba93add5f",
+        "6fd76feace0f7b589a4027ad"
+      ],
+      "embedding_truncated_primary": [
+        "afa0e3b03c335653e656678f"
+      ],
+      "reranker_truncated_primary": [
+        "afa0e3b03c335653e656678f"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-05",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 8.42969708298915,
+      "primary_chunk_ids": [
+        "4bc785befc4cb61fe9e9bd3b",
+        "858fb75185f7e9db4dfc04ce",
+        "c66b58b8029ab35430b40e71",
+        "45d7c71b4b43b5a9b7fbe71c",
+        "e55d85df8f44a5ca90f9fa36"
+      ],
+      "attached_chunk_ids": [
+        "1f36e9da92d2a3bd07021483"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-06",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 9.413803457995527,
+      "primary_chunk_ids": [
+        "85fe6d961927ba26380060b3",
+        "ea2b30aedc9c607612d656ea",
+        "3332fd8c6fb292e7f88a6542",
+        "fa24d5d3b78d659d32b1d20b",
+        "e1160b9edf884f3a1a1a82ac"
+      ],
+      "attached_chunk_ids": [
+        "34a674b579521b5b4aefe2de",
+        "d4c486ca58e59407b751ac5a"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-07",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 12.692230792003102,
+      "primary_chunk_ids": [
+        "a3a68746e69a13fec8546059",
+        "b845a6b3c615a1c81a18164a",
+        "2e1d407c863d696f303d4a84",
+        "88064974a3ed1e4e6ba7f5ec",
+        "b643e4654428b76ed87b57ea"
+      ],
+      "attached_chunk_ids": [
+        "e5d92215ef8f4b4e53511072",
+        "ff4049d45fdf2cfedfe3ea40",
+        "c1690dd0d44ad7bbf920ee06"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-08",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 12.020234958996298,
+      "primary_chunk_ids": [
+        "9892435cd283831e968fe064",
+        "31c3098f8501d0ae0773b741",
+        "cad29d5ea24462e1a71bf255",
+        "ae7186bdf65beef61fa58c30",
+        "85a8544dea2c7b3e464165b2"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-09",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 11.00454316700052,
+      "primary_chunk_ids": [
+        "67a9dfb808510d8794784180",
+        "ff06344f287289af61e74a49",
+        "96295741ff6795558331994a",
+        "1acf68339f5b5cbc797395c3",
+        "839b2ab8910acbd7b37cff63"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-10",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 14.179971374993329,
+      "primary_chunk_ids": [
+        "5d055df6dcc54d92dc4c27aa",
+        "b3a051f7ba17e3e9c1c543cd",
+        "4f68ab191595eebc71095334",
+        "e6c50ad291a07ed8cb804f11",
+        "dcc322588b9d68df63f15a63"
+      ],
+      "attached_chunk_ids": [
+        "ef4faff77aea3d4e2671a26b",
+        "06bd3a8cf7ca3a36559a6a6b"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-11",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 16.569837458009715,
+      "primary_chunk_ids": [
+        "eade9f5b5f1739563e5b61a9",
+        "94de8cf0830eebc102136238",
+        "35397794bad781691f2e0769",
+        "5687f0e7f50c402ce9e204e9",
+        "eb5d916ca43a92c988ed1fdd"
+      ],
+      "attached_chunk_ids": [
+        "b01bf8f10b42f4b195636465",
+        "c76bc27a579314a4f60e7367",
+        "5057e28d71821fd6ef3e5f08"
+      ],
+      "embedding_truncated_primary": [
+        "eb5d916ca43a92c988ed1fdd"
+      ],
+      "reranker_truncated_primary": [
+        "eb5d916ca43a92c988ed1fdd"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-12",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 16.71486679201189,
+      "primary_chunk_ids": [
+        "6b2620e7ced3f170f73ac1e8",
+        "ce3594da3612806c02953b54",
+        "8013dbb1a87602bc21d08c5c",
+        "89d9755b07bbea835bcc0848",
+        "fbfb518af8fb099c0d7a6767"
+      ],
+      "attached_chunk_ids": [
+        "8977cc868cf54e4543c77510",
+        "d2f570d421621ae04fc7bfc7"
+      ],
+      "embedding_truncated_primary": [
+        "89d9755b07bbea835bcc0848"
+      ],
+      "reranker_truncated_primary": [
+        "89d9755b07bbea835bcc0848"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-13",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 17.84543533300166,
+      "primary_chunk_ids": [
+        "ebe5041661e5a50b49bf576a",
+        "407d90148388cf7072a341ab",
+        "064c5ec71f24afa21f844031",
+        "312228f2c06f020b2d6cd9d4",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "ebe5041661e5a50b49bf576a",
+        "312228f2c06f020b2d6cd9d4"
+      ],
+      "reranker_truncated_primary": [
+        "ebe5041661e5a50b49bf576a",
+        "312228f2c06f020b2d6cd9d4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-14",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 18.616001625006902,
+      "primary_chunk_ids": [
+        "b837f5037e10f386d6dd681a",
+        "312228f2c06f020b2d6cd9d4",
+        "407d90148388cf7072a341ab",
+        "8a0f69c8bd5c13a6e35d8285",
+        "b6b1b8ef79b1e2201b85ab9d"
+      ],
+      "attached_chunk_ids": [
+        "41b1b01d0a1a01d205964f0b"
+      ],
+      "embedding_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ],
+      "reranker_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-15",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 18.512356500010355,
+      "primary_chunk_ids": [
+        "6192dfd8babf09e5151b8c60",
+        "4b28ba1999c0652b8e5498b3",
+        "28b12d455f189467a52504e5",
+        "312228f2c06f020b2d6cd9d4",
+        "5909fddaa9e3cc22be635816"
+      ],
+      "attached_chunk_ids": [
+        "407d90148388cf7072a341ab"
+      ],
+      "embedding_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ],
+      "reranker_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-16",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 9.750789042009274,
+      "primary_chunk_ids": [
+        "262b0b2e00eefbc3acefb139",
+        "3e5dd4dfb00ba54bf701d141",
+        "8a1a7ad46d550175aae1e755",
+        "b643e4654428b76ed87b57ea",
+        "28696bd8e6af2d6385c6b9ce"
+      ],
+      "attached_chunk_ids": [
+        "c1690dd0d44ad7bbf920ee06"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-17",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 10.1694034159882,
+      "primary_chunk_ids": [
+        "47bff40803c544665094626d",
+        "44030907edb671208d2f4c9d",
+        "4a3394367beb1cfb06e69f0e",
+        "5362cb10a1949ab5ec10015e",
+        "262b0b2e00eefbc3acefb139"
+      ],
+      "attached_chunk_ids": [
+        "3e5dd4dfb00ba54bf701d141"
+      ],
+      "embedding_truncated_primary": [
+        "4a3394367beb1cfb06e69f0e"
+      ],
+      "reranker_truncated_primary": [
+        "4a3394367beb1cfb06e69f0e"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-18",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 13.605927707991214,
+      "primary_chunk_ids": [
+        "afa0e3b03c335653e656678f",
+        "3ee8f4c84b299767459ac5e4",
+        "88428a7ec388690a4f9b23ef",
+        "59406478e163c3aa1f00c347",
+        "5763c0ce1bff9f5bfe81f3cd"
+      ],
+      "attached_chunk_ids": [
+        "6fd76feace0f7b589a4027ad",
+        "e823185e396d6d29f156e558",
+        "fa6dd86de623bf180e318681"
+      ],
+      "embedding_truncated_primary": [
+        "afa0e3b03c335653e656678f",
+        "3ee8f4c84b299767459ac5e4"
+      ],
+      "reranker_truncated_primary": [
+        "afa0e3b03c335653e656678f",
+        "3ee8f4c84b299767459ac5e4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-19",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 13.234642125011305,
+      "primary_chunk_ids": [
+        "afa0e3b03c335653e656678f",
+        "3ee8f4c84b299767459ac5e4",
+        "6fd76feace0f7b589a4027ad",
+        "5763c0ce1bff9f5bfe81f3cd",
+        "2942b12ac4b12c87331028df"
+      ],
+      "attached_chunk_ids": [
+        "0306983eb3cc193239b02cd9"
+      ],
+      "embedding_truncated_primary": [
+        "afa0e3b03c335653e656678f",
+        "3ee8f4c84b299767459ac5e4"
+      ],
+      "reranker_truncated_primary": [
+        "afa0e3b03c335653e656678f",
+        "3ee8f4c84b299767459ac5e4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-20",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 17.25826474999485,
+      "primary_chunk_ids": [
+        "ddd8877bf9ee9a2d886c7480",
+        "310d8d4d5630e6ba2455c771",
+        "1877c5bf0bf379f720b06169",
+        "037b93406d67ca9b16b61f15",
+        "e5d134d25209c781af7c54bc"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "310d8d4d5630e6ba2455c771",
+        "1877c5bf0bf379f720b06169",
+        "037b93406d67ca9b16b61f15"
+      ],
+      "reranker_truncated_primary": [
+        "310d8d4d5630e6ba2455c771",
+        "1877c5bf0bf379f720b06169",
+        "037b93406d67ca9b16b61f15"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-21",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 19.353440709004644,
+      "primary_chunk_ids": [
+        "310d8d4d5630e6ba2455c771",
+        "86319a1385192b04ab5f042f",
+        "ddd8877bf9ee9a2d886c7480",
+        "00d543a3d4f75a9ffa026610",
+        "337624572b41d091f1ae98d6"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "310d8d4d5630e6ba2455c771"
+      ],
+      "reranker_truncated_primary": [
+        "310d8d4d5630e6ba2455c771"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-22",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 9.965468458001851,
+      "primary_chunk_ids": [
+        "57c2a7ba01442935d61396f1",
+        "7e2457d15c7c5e120253eb1c",
+        "7168586704adf6eb11e63faa",
+        "6c88d14bbde3108a6c879031",
+        "5caa9d1c6e504e70582d702f"
+      ],
+      "attached_chunk_ids": [
+        "73c682bf2be0c01ab51603cc",
+        "0f641ce1f0a3a90b029bf1b3",
+        "92fc45b51cf3edba7a62ff89"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-23",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 10.793827792003867,
+      "primary_chunk_ids": [
+        "fe01f54599703376955be548",
+        "fd221ed5e778ed28c1af4a81",
+        "fe05e380873fe9d7a6e457ea",
+        "289b4e11d187215342378b75",
+        "75f4ef30a7ea2a938c9076cf"
+      ],
+      "attached_chunk_ids": [
+        "c297833dfc98ca20f61dcdbb",
+        "3ae62ebba5e4b4e9775e7d18",
+        "d6b3cd87a42607ed01cd87f7"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-24",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 11.658500125005958,
+      "primary_chunk_ids": [
+        "310f005044a1b591104bc8af",
+        "d6a7523c335384ea32c44813",
+        "b6db832e21d433db2bef8fe4",
+        "16f894619286a2fa33b758dc",
+        "9b7af617b9c57a1e2b4a55c1"
+      ],
+      "attached_chunk_ids": [
+        "b2e9d91bfe4224019f49e007",
+        "5a628d6de50fe480d1529369",
+        "3c2cebd227016e2e434eef61",
+        "ec0c1b3c83db7e72b0709fbb",
+        "9cd68ac3feccca0c15d73202"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-25",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 9.946083707996877,
+      "primary_chunk_ids": [
+        "9b7af617b9c57a1e2b4a55c1",
+        "a5f2cccb043a9e4df216f83d",
+        "5f1db716c7a19b7f651ef554",
+        "4200a1069c854665562a5085",
+        "f018528497e7d912cc429899"
+      ],
+      "attached_chunk_ids": [
+        "9cd68ac3feccca0c15d73202",
+        "d3097cf859bca6b6d96ddd34",
+        "c05c89562f19df2c7837fb7b",
+        "c1ab4194934b462fa81cc2da",
+        "1149f27c7bbf307858b131e6"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-26",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 7.667650999996113,
+      "primary_chunk_ids": [
+        "71d4f280e64e3f267a8f074c",
+        "4cd3baeb0c49cd29449b026c",
+        "310f005044a1b591104bc8af",
+        "8334624354de366b85994664",
+        "b3083749173b9b6f68c55224"
+      ],
+      "attached_chunk_ids": [
+        "3bdd99cdfd53dbc3032b5786",
+        "4206cf0515251aa04b669935",
+        "b2e9d91bfe4224019f49e007",
+        "183550d972c5a79146b9d7df"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-27",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 10.423716667006374,
+      "primary_chunk_ids": [
+        "d74512c36a5850938a89fefd",
+        "643bed29738b2053c08a470f",
+        "7dd70ef4bbf8d728775ca835",
+        "e28ba9d7b7fb814c862de494",
+        "486e3e2950f423af68ec2446"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-28",
+      "mode": "dense",
+      "hit_at_5": false,
+      "seconds": 8.721119416994043,
+      "primary_chunk_ids": [
+        "8912e1e1f8dfeb2c07578d12",
+        "d3b134291c55071f738cd6c1",
+        "db11b1b2be14e9de589fd37f",
+        "477d75f36fc3ca133b47d8ec",
+        "feff6443e76b24e2ff91dd50"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-29",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 7.847471375003806,
+      "primary_chunk_ids": [
+        "b8ebb9783b2f04cd074e4b78",
+        "d4db28e7ee2f189245050476",
+        "5d624534b22be3bbbc6579f1",
+        "5273477208774a2eefbe207a",
+        "6daa53557f6f5bfd5d58c09d"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-30",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 11.629718292009784,
+      "primary_chunk_ids": [
+        "2072eb88577e2776393dac3f",
+        "3332fd8c6fb292e7f88a6542",
+        "61a8c0f4a2ae73f81030b7c6",
+        "dfa943d71a9545ae50865a5a",
+        "e1160b9edf884f3a1a1a82ac"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "61a8c0f4a2ae73f81030b7c6",
+        "dfa943d71a9545ae50865a5a"
+      ],
+      "reranker_truncated_primary": [
+        "61a8c0f4a2ae73f81030b7c6",
+        "dfa943d71a9545ae50865a5a"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-01",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 5.531976416998077,
+      "primary_chunk_ids": [
+        "d7aa5a987d7cb6e9258af153",
+        "bd5514f76d8e0a2d17d364b4",
+        "3ca9bebf57d3e4c302ab2b8d",
+        "efd844ea2ccb862a5b956f8a",
+        "b24186c5dbac8664d8e87467"
+      ],
+      "attached_chunk_ids": [
+        "767809234e9c65bfc169e9ef"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-02",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 8.616879915993195,
+      "primary_chunk_ids": [
+        "539295fea62c7a0e50545195",
+        "b0a40cbd250d6c4e441a4644",
+        "efd844ea2ccb862a5b956f8a",
+        "506a31c9e192117ef970f38e",
+        "3ca9bebf57d3e4c302ab2b8d"
+      ],
+      "attached_chunk_ids": [
+        "d8d54ba9aed695c7699dad2f"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-03",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 7.548967875001836,
+      "primary_chunk_ids": [
+        "e80c738ca32bf179a805cf5d",
+        "e22cbb1c5aa183e25dd6c75d",
+        "d160e27fc043270da3130547",
+        "027f504c15e73d9c8c9b28f9",
+        "e61fbc03aef6afff673c5fb9"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-04",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 8.566768874996342,
+      "primary_chunk_ids": [
+        "52e388a1787b91755b534281",
+        "521eecd021d3df26318f52b4",
+        "843b0ce968b5b842a20adb1b",
+        "e17253fbcc6f76465a2748d6",
+        "c672cd9750e07c5d9f34542e"
+      ],
+      "attached_chunk_ids": [
+        "df365d166ef42c1b092f0ef9"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-05",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 7.750868250004714,
+      "primary_chunk_ids": [
+        "e6fecea62d1ea85cb455259a",
+        "c750350490f2033e2644dc02",
+        "5ad45cc437ac02531745152c",
+        "083549925c196755b0da753b",
+        "0f44014fed367e5a94388bde"
+      ],
+      "attached_chunk_ids": [
+        "da667846c2f95d1444bebcb3"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-06",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 7.364410958005465,
+      "primary_chunk_ids": [
+        "2ad79a7edbb68da7d8198472",
+        "a63dc2c1f489411b979254f5",
+        "27c8cef01aee365811f041c0",
+        "031b5d731f60967125038bd7",
+        "e74ebf8d058f6be514502c77"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-07",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 7.728766957996413,
+      "primary_chunk_ids": [
+        "82cfb8c1722fd267bfb4f003",
+        "643bed29738b2053c08a470f",
+        "1b8dbfb1cd1fa64adbf78b42",
+        "6260501905435978963db9a1",
+        "414bb50b0494267e654fd1a7"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-08",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 9.20604762500443,
+      "primary_chunk_ids": [
+        "9892435cd283831e968fe064",
+        "874c02a50e81e76a7b8374ce",
+        "45fa4fbaf4ea1c0cb965058e",
+        "c0395944dd0eea6a16642df8",
+        "bf6f910592db6435cea2d8a9"
+      ],
+      "attached_chunk_ids": [
+        "31c3098f8501d0ae0773b741"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-09",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 8.525562582988641,
+      "primary_chunk_ids": [
+        "67a9dfb808510d8794784180",
+        "ea24657cfbd0fdd5453cd20e",
+        "9926472cdba32288dcab0b01",
+        "b140f9f8d55f800c1eeedaa1",
+        "11253a96d17302f59ddb0be6"
+      ],
+      "attached_chunk_ids": [
+        "ff06344f287289af61e74a49"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-10",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 7.5786778750043595,
+      "primary_chunk_ids": [
+        "855cdc2625bf6811844e8b71",
+        "ebd74976ef06df58590da13a",
+        "01c4bf84fde00ad2207d0daf",
+        "d66802d14716b5a7c75ec877",
+        "48e786cff259eea70ad32168"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-11",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 14.912780667000334,
+      "primary_chunk_ids": [
+        "eade9f5b5f1739563e5b61a9",
+        "94de8cf0830eebc102136238",
+        "8a83ce6c193c39ded76e7a45",
+        "1e036ba0b7f98a3d58915bc3",
+        "4393936f06a79f80ca461d51"
+      ],
+      "attached_chunk_ids": [
+        "61f1eb292b4fd39434be3e05"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": [
+        "4393936f06a79f80ca461d51"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-12",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 10.110230708000017,
+      "primary_chunk_ids": [
+        "6b2620e7ced3f170f73ac1e8",
+        "8013dbb1a87602bc21d08c5c",
+        "4f01471bcf6fb4fdb9e2c33d",
+        "908900e61934a2c0c6648521",
+        "aa27d8d9e2ab08beca2072b0"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-13",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 13.47453104100714,
+      "primary_chunk_ids": [
+        "d7aa5a987d7cb6e9258af153",
+        "ebe5041661e5a50b49bf576a",
+        "767809234e9c65bfc169e9ef",
+        "a83da6ed814a92f4a2a7ad60",
+        "1dc1b6573709eb99575c0fde"
+      ],
+      "attached_chunk_ids": [
+        "064c5ec71f24afa21f844031",
+        "6a78c7f4d9e3115b371fd063",
+        "bd435d379a3f3dd62b411dda"
+      ],
+      "embedding_truncated_primary": [
+        "ebe5041661e5a50b49bf576a",
+        "1dc1b6573709eb99575c0fde"
+      ],
+      "reranker_truncated_primary": [
+        "ebe5041661e5a50b49bf576a",
+        "1dc1b6573709eb99575c0fde"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-14",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 13.010740707992227,
+      "primary_chunk_ids": [
+        "b837f5037e10f386d6dd681a",
+        "8a0f69c8bd5c13a6e35d8285",
+        "b6b1b8ef79b1e2201b85ab9d",
+        "ebe5041661e5a50b49bf576a",
+        "ec24d47e31800a4e0a0b6781"
+      ],
+      "attached_chunk_ids": [
+        "41b1b01d0a1a01d205964f0b",
+        "064c5ec71f24afa21f844031",
+        "b1ee395f5e519c8cf469e7f8"
+      ],
+      "embedding_truncated_primary": [
+        "ebe5041661e5a50b49bf576a"
+      ],
+      "reranker_truncated_primary": [
+        "ebe5041661e5a50b49bf576a"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-15",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 13.936485000012908,
+      "primary_chunk_ids": [
+        "6192dfd8babf09e5151b8c60",
+        "28b12d455f189467a52504e5",
+        "8a37a5ef1de8f56c04318824",
+        "ebe5041661e5a50b49bf576a",
+        "67b3d78611adb33f7dca3c18"
+      ],
+      "attached_chunk_ids": [
+        "181e6e4582e29a9e28d3e5a4",
+        "064c5ec71f24afa21f844031"
+      ],
+      "embedding_truncated_primary": [
+        "ebe5041661e5a50b49bf576a"
+      ],
+      "reranker_truncated_primary": [
+        "ebe5041661e5a50b49bf576a"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-16",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 7.067183457998908,
+      "primary_chunk_ids": [
+        "262b0b2e00eefbc3acefb139",
+        "3e5dd4dfb00ba54bf701d141",
+        "6740b053467d88aa64d4ceec",
+        "a18fa11e5c8264440121a993",
+        "1b8dbfb1cd1fa64adbf78b42"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-17",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 12.706424667005194,
+      "primary_chunk_ids": [
+        "47bff40803c544665094626d",
+        "44030907edb671208d2f4c9d",
+        "a3e8e4d15c8db20da9dafa58",
+        "425e3ab097037c6e5b63fe33",
+        "64525df962f058dc606e86b2"
+      ],
+      "attached_chunk_ids": [
+        "c228f0376189099147bee9e3"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-18",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 8.883208832994569,
+      "primary_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4",
+        "5763c0ce1bff9f5bfe81f3cd",
+        "a617a045b938675f95e1272f",
+        "c9036b2b7a00f429f3adb4a9",
+        "2925f7714a71bad5c039bf5e"
+      ],
+      "attached_chunk_ids": [
+        "8f627aa0817d135f91120221",
+        "dfcac71cb623204d6f6d239d",
+        "02fad2153a1e0ae9a9044a9c"
+      ],
+      "embedding_truncated_primary": [
+        "3ee8f4c84b299767459ac5e4"
+      ],
+      "reranker_truncated_primary": [
+        "3ee8f4c84b299767459ac5e4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-19",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 11.799048083004891,
+      "primary_chunk_ids": [
+        "6fd76feace0f7b589a4027ad",
+        "d7e21ba8427808077a88709f",
+        "f9d5bf408a88c11b9c6afd76",
+        "5a87002d7603b7f5a8a45057",
+        "dfc71f88054bb8d7af89cf9b"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-20",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 18.524011041998165,
+      "primary_chunk_ids": [
+        "b7a88b4f8869f52b604087f8",
+        "3571f3953b989418d3a7db10",
+        "9d5d3d6174cb4ba95810082a",
+        "9deee6fa011650b46dbfa544",
+        "67abda0eb9fe1a5390ef22a1"
+      ],
+      "attached_chunk_ids": [
+        "310d8d4d5630e6ba2455c771"
+      ],
+      "embedding_truncated_primary": [
+        "b7a88b4f8869f52b604087f8",
+        "3571f3953b989418d3a7db10",
+        "9d5d3d6174cb4ba95810082a",
+        "9deee6fa011650b46dbfa544",
+        "67abda0eb9fe1a5390ef22a1"
+      ],
+      "reranker_truncated_primary": [
+        "b7a88b4f8869f52b604087f8",
+        "3571f3953b989418d3a7db10",
+        "9d5d3d6174cb4ba95810082a",
+        "9deee6fa011650b46dbfa544",
+        "67abda0eb9fe1a5390ef22a1"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-21",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 18.480547958009993,
+      "primary_chunk_ids": [
+        "67abda0eb9fe1a5390ef22a1",
+        "5108c48f2252900a7c999ec1",
+        "310d8d4d5630e6ba2455c771",
+        "b7a88b4f8869f52b604087f8",
+        "9d5d3d6174cb4ba95810082a"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "67abda0eb9fe1a5390ef22a1",
+        "5108c48f2252900a7c999ec1",
+        "310d8d4d5630e6ba2455c771",
+        "b7a88b4f8869f52b604087f8",
+        "9d5d3d6174cb4ba95810082a"
+      ],
+      "reranker_truncated_primary": [
+        "67abda0eb9fe1a5390ef22a1",
+        "5108c48f2252900a7c999ec1",
+        "310d8d4d5630e6ba2455c771",
+        "b7a88b4f8869f52b604087f8",
+        "9d5d3d6174cb4ba95810082a"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-22",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 13.073412457990344,
+      "primary_chunk_ids": [
+        "57c2a7ba01442935d61396f1",
+        "7e2457d15c7c5e120253eb1c",
+        "5caa9d1c6e504e70582d702f",
+        "73c682bf2be0c01ab51603cc",
+        "b7b81a8022b0f440927986de"
+      ],
+      "attached_chunk_ids": [
+        "0f641ce1f0a3a90b029bf1b3",
+        "92fc45b51cf3edba7a62ff89"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-23",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 10.976325416995678,
+      "primary_chunk_ids": [
+        "fe01f54599703376955be548",
+        "fd221ed5e778ed28c1af4a81",
+        "fe05e380873fe9d7a6e457ea",
+        "289b4e11d187215342378b75",
+        "75f4ef30a7ea2a938c9076cf"
+      ],
+      "attached_chunk_ids": [
+        "c297833dfc98ca20f61dcdbb",
+        "3ae62ebba5e4b4e9775e7d18",
+        "d6b3cd87a42607ed01cd87f7"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-24",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 12.299775874998886,
+      "primary_chunk_ids": [
+        "310f005044a1b591104bc8af",
+        "d6a7523c335384ea32c44813",
+        "9b7af617b9c57a1e2b4a55c1",
+        "a5f2cccb043a9e4df216f83d",
+        "5a628d6de50fe480d1529369"
+      ],
+      "attached_chunk_ids": [
+        "b2e9d91bfe4224019f49e007",
+        "9cd68ac3feccca0c15d73202",
+        "d3097cf859bca6b6d96ddd34"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-25",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 11.693507040996337,
+      "primary_chunk_ids": [
+        "9b7af617b9c57a1e2b4a55c1",
+        "a5f2cccb043a9e4df216f83d",
+        "10f5ec581f2518f4da2df1b6",
+        "9cd68ac3feccca0c15d73202",
+        "d3097cf859bca6b6d96ddd34"
+      ],
+      "attached_chunk_ids": [
+        "43faed79374ba29baeaa5caf"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-26",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 9.635611791993142,
+      "primary_chunk_ids": [
+        "71d4f280e64e3f267a8f074c",
+        "4cd3baeb0c49cd29449b026c",
+        "9b7af617b9c57a1e2b4a55c1",
+        "10f5ec581f2518f4da2df1b6",
+        "02b671f702e8494ba6c4ed5c"
+      ],
+      "attached_chunk_ids": [
+        "3bdd99cdfd53dbc3032b5786",
+        "4206cf0515251aa04b669935",
+        "9cd68ac3feccca0c15d73202",
+        "43faed79374ba29baeaa5caf",
+        "1f08ba8d42682c0609ad2c78"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-27",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 10.180301583008259,
+      "primary_chunk_ids": [
+        "d74512c36a5850938a89fefd",
+        "643bed29738b2053c08a470f",
+        "e28ba9d7b7fb814c862de494",
+        "486e3e2950f423af68ec2446",
+        "8317e2f39c9971a11e3d4276"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-28",
+      "mode": "bm25",
+      "hit_at_5": false,
+      "seconds": 7.98474654200254,
+      "primary_chunk_ids": [
+        "8912e1e1f8dfeb2c07578d12",
+        "d3b134291c55071f738cd6c1",
+        "db11b1b2be14e9de589fd37f",
+        "477d75f36fc3ca133b47d8ec",
+        "feff6443e76b24e2ff91dd50"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-29",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 5.109161957996548,
+      "primary_chunk_ids": [
+        "b8ebb9783b2f04cd074e4b78",
+        "d4db28e7ee2f189245050476",
+        "6daa53557f6f5bfd5d58c09d",
+        "6e143f36abf0232d00ab5b81",
+        "f0faf36f11f7c964f80d5e09"
+      ],
+      "attached_chunk_ids": [
+        "a3b9b892da0d74dca66fd599"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-30",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 7.44646995900257,
+      "primary_chunk_ids": [
+        "2072eb88577e2776393dac3f",
+        "3332fd8c6fb292e7f88a6542",
+        "0382568fff4a850578d3eb36",
+        "9e19d8a5cd9f1f87794d64d4",
+        "9c2ff5a768014f881901db37"
+      ],
+      "attached_chunk_ids": [
+        "17f06a18149eaf1adcfd3f15"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-01",
+      "mode": "hybrid",
+      "hit_at_5": false,
+      "seconds": 11.331762375004473,
+      "primary_chunk_ids": [
+        "d2645f4589702da322f8c2b1",
+        "312228f2c06f020b2d6cd9d4",
+        "407d90148388cf7072a341ab",
+        "bd5514f76d8e0a2d17d364b4",
+        "3ca9bebf57d3e4c302ab2b8d"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ],
+      "reranker_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-02",
+      "mode": "hybrid",
+      "hit_at_5": false,
+      "seconds": 12.450774582990562,
+      "primary_chunk_ids": [
+        "539295fea62c7a0e50545195",
+        "d8d54ba9aed695c7699dad2f",
+        "9fed1d6f14909619a834c5f3",
+        "398add2f7eafd2db772041bc",
+        "a46749931c8b22b49558d033"
+      ],
+      "attached_chunk_ids": [
+        "83d1e4f9ba9db3adfffd8b1a"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-03",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 10.634611125002266,
+      "primary_chunk_ids": [
+        "19ec2aedc83338def1a54732",
+        "50b0b59b197f1ae4f88f72fa",
+        "bec76fd1f0d60808f306c40a",
+        "95186a8d525131f8c5bf39c1",
+        "fe7f7b6d26f52577621813d8"
+      ],
+      "attached_chunk_ids": [
+        "54ffbe3af0a6c5290075944b"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-04",
+      "mode": "hybrid",
+      "hit_at_5": false,
+      "seconds": 12.251234249997651,
+      "primary_chunk_ids": [
+        "52e388a1787b91755b534281",
+        "a617a045b938675f95e1272f",
+        "df365d166ef42c1b092f0ef9",
+        "afa0e3b03c335653e656678f",
+        "8f627aa0817d135f91120221"
+      ],
+      "attached_chunk_ids": [
+        "6fd76feace0f7b589a4027ad"
+      ],
+      "embedding_truncated_primary": [
+        "afa0e3b03c335653e656678f"
+      ],
+      "reranker_truncated_primary": [
+        "afa0e3b03c335653e656678f"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-05",
+      "mode": "hybrid",
+      "hit_at_5": false,
+      "seconds": 8.008545083008357,
+      "primary_chunk_ids": [
+        "4bc785befc4cb61fe9e9bd3b",
+        "858fb75185f7e9db4dfc04ce",
+        "c66b58b8029ab35430b40e71",
+        "45d7c71b4b43b5a9b7fbe71c",
+        "e55d85df8f44a5ca90f9fa36"
+      ],
+      "attached_chunk_ids": [
+        "1f36e9da92d2a3bd07021483"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-06",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 8.675527209008578,
+      "primary_chunk_ids": [
+        "85fe6d961927ba26380060b3",
+        "3332fd8c6fb292e7f88a6542",
+        "34a674b579521b5b4aefe2de",
+        "b2cef3b9b186e1f6ff114393",
+        "4b142132d4400148f8b24b01"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-07",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 9.764685374990222,
+      "primary_chunk_ids": [
+        "a3a68746e69a13fec8546059",
+        "2e1d407c863d696f303d4a84",
+        "88064974a3ed1e4e6ba7f5ec",
+        "b643e4654428b76ed87b57ea",
+        "262b0b2e00eefbc3acefb139"
+      ],
+      "attached_chunk_ids": [
+        "ff4049d45fdf2cfedfe3ea40",
+        "c1690dd0d44ad7bbf920ee06",
+        "3e5dd4dfb00ba54bf701d141"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-08",
+      "mode": "hybrid",
+      "hit_at_5": false,
+      "seconds": 9.706388459002483,
+      "primary_chunk_ids": [
+        "9892435cd283831e968fe064",
+        "31c3098f8501d0ae0773b741",
+        "cad29d5ea24462e1a71bf255",
+        "ae7186bdf65beef61fa58c30",
+        "85a8544dea2c7b3e464165b2"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-09",
+      "mode": "hybrid",
+      "hit_at_5": false,
+      "seconds": 10.75180304099922,
+      "primary_chunk_ids": [
+        "67a9dfb808510d8794784180",
+        "ff06344f287289af61e74a49",
+        "96295741ff6795558331994a",
+        "1acf68339f5b5cbc797395c3",
+        "29d02e7f416fe02035c1626b"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-10",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 10.955115750010009,
+      "primary_chunk_ids": [
+        "5d055df6dcc54d92dc4c27aa",
+        "b3a051f7ba17e3e9c1c543cd",
+        "4f68ab191595eebc71095334",
+        "e6c50ad291a07ed8cb804f11",
+        "dcc322588b9d68df63f15a63"
+      ],
+      "attached_chunk_ids": [
+        "ef4faff77aea3d4e2671a26b",
+        "06bd3a8cf7ca3a36559a6a6b"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-11",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 20.597152749993256,
+      "primary_chunk_ids": [
+        "eade9f5b5f1739563e5b61a9",
+        "94de8cf0830eebc102136238",
+        "35397794bad781691f2e0769",
+        "eb5d916ca43a92c988ed1fdd",
+        "b01bf8f10b42f4b195636465"
+      ],
+      "attached_chunk_ids": [
+        "5057e28d71821fd6ef3e5f08"
+      ],
+      "embedding_truncated_primary": [
+        "eb5d916ca43a92c988ed1fdd"
+      ],
+      "reranker_truncated_primary": [
+        "eb5d916ca43a92c988ed1fdd"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-12",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 16.49982616600755,
+      "primary_chunk_ids": [
+        "6b2620e7ced3f170f73ac1e8",
+        "8013dbb1a87602bc21d08c5c",
+        "89d9755b07bbea835bcc0848",
+        "fbfb518af8fb099c0d7a6767",
+        "e4d377e1aba41fbc477772f6"
+      ],
+      "attached_chunk_ids": [
+        "d2f570d421621ae04fc7bfc7",
+        "d7ff94a3b29f16ab085f13db"
+      ],
+      "embedding_truncated_primary": [
+        "89d9755b07bbea835bcc0848"
+      ],
+      "reranker_truncated_primary": [
+        "89d9755b07bbea835bcc0848"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-13",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 20.096996708001825,
+      "primary_chunk_ids": [
+        "d7aa5a987d7cb6e9258af153",
+        "ebe5041661e5a50b49bf576a",
+        "407d90148388cf7072a341ab",
+        "064c5ec71f24afa21f844031",
+        "312228f2c06f020b2d6cd9d4"
+      ],
+      "attached_chunk_ids": [
+        "767809234e9c65bfc169e9ef"
+      ],
+      "embedding_truncated_primary": [
+        "ebe5041661e5a50b49bf576a",
+        "312228f2c06f020b2d6cd9d4"
+      ],
+      "reranker_truncated_primary": [
+        "ebe5041661e5a50b49bf576a",
+        "312228f2c06f020b2d6cd9d4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-14",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 18.087417375005316,
+      "primary_chunk_ids": [
+        "b837f5037e10f386d6dd681a",
+        "312228f2c06f020b2d6cd9d4",
+        "407d90148388cf7072a341ab",
+        "8a0f69c8bd5c13a6e35d8285",
+        "b6b1b8ef79b1e2201b85ab9d"
+      ],
+      "attached_chunk_ids": [
+        "41b1b01d0a1a01d205964f0b"
+      ],
+      "embedding_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ],
+      "reranker_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-15",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 18.078327042007004,
+      "primary_chunk_ids": [
+        "6192dfd8babf09e5151b8c60",
+        "4b28ba1999c0652b8e5498b3",
+        "28b12d455f189467a52504e5",
+        "312228f2c06f020b2d6cd9d4",
+        "8a37a5ef1de8f56c04318824"
+      ],
+      "attached_chunk_ids": [
+        "407d90148388cf7072a341ab",
+        "181e6e4582e29a9e28d3e5a4"
+      ],
+      "embedding_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ],
+      "reranker_truncated_primary": [
+        "312228f2c06f020b2d6cd9d4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-16",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 9.039234916999703,
+      "primary_chunk_ids": [
+        "262b0b2e00eefbc3acefb139",
+        "3e5dd4dfb00ba54bf701d141",
+        "8a1a7ad46d550175aae1e755",
+        "b643e4654428b76ed87b57ea",
+        "28696bd8e6af2d6385c6b9ce"
+      ],
+      "attached_chunk_ids": [
+        "c1690dd0d44ad7bbf920ee06"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-17",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 11.035762208004599,
+      "primary_chunk_ids": [
+        "47bff40803c544665094626d",
+        "44030907edb671208d2f4c9d",
+        "5362cb10a1949ab5ec10015e",
+        "262b0b2e00eefbc3acefb139",
+        "e5d92215ef8f4b4e53511072"
+      ],
+      "attached_chunk_ids": [
+        "3e5dd4dfb00ba54bf701d141"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-18",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 13.155182499991497,
+      "primary_chunk_ids": [
+        "afa0e3b03c335653e656678f",
+        "3ee8f4c84b299767459ac5e4",
+        "88428a7ec388690a4f9b23ef",
+        "59406478e163c3aa1f00c347",
+        "5763c0ce1bff9f5bfe81f3cd"
+      ],
+      "attached_chunk_ids": [
+        "6fd76feace0f7b589a4027ad",
+        "e823185e396d6d29f156e558",
+        "fa6dd86de623bf180e318681"
+      ],
+      "embedding_truncated_primary": [
+        "afa0e3b03c335653e656678f",
+        "3ee8f4c84b299767459ac5e4"
+      ],
+      "reranker_truncated_primary": [
+        "afa0e3b03c335653e656678f",
+        "3ee8f4c84b299767459ac5e4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-19",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 15.705337749997852,
+      "primary_chunk_ids": [
+        "afa0e3b03c335653e656678f",
+        "6fd76feace0f7b589a4027ad",
+        "5763c0ce1bff9f5bfe81f3cd",
+        "2942b12ac4b12c87331028df",
+        "d42954fb19a8c962442df7e4"
+      ],
+      "attached_chunk_ids": [
+        "0306983eb3cc193239b02cd9"
+      ],
+      "embedding_truncated_primary": [
+        "afa0e3b03c335653e656678f"
+      ],
+      "reranker_truncated_primary": [
+        "afa0e3b03c335653e656678f"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-20",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 17.53844258400204,
+      "primary_chunk_ids": [
+        "b7a88b4f8869f52b604087f8",
+        "3571f3953b989418d3a7db10",
+        "9deee6fa011650b46dbfa544",
+        "67abda0eb9fe1a5390ef22a1",
+        "5108c48f2252900a7c999ec1"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "b7a88b4f8869f52b604087f8",
+        "3571f3953b989418d3a7db10",
+        "9deee6fa011650b46dbfa544",
+        "67abda0eb9fe1a5390ef22a1",
+        "5108c48f2252900a7c999ec1"
+      ],
+      "reranker_truncated_primary": [
+        "b7a88b4f8869f52b604087f8",
+        "3571f3953b989418d3a7db10",
+        "9deee6fa011650b46dbfa544",
+        "67abda0eb9fe1a5390ef22a1",
+        "5108c48f2252900a7c999ec1"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-21",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 21.101521542004775,
+      "primary_chunk_ids": [
+        "67abda0eb9fe1a5390ef22a1",
+        "5108c48f2252900a7c999ec1",
+        "310d8d4d5630e6ba2455c771",
+        "b7a88b4f8869f52b604087f8",
+        "86319a1385192b04ab5f042f"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "67abda0eb9fe1a5390ef22a1",
+        "5108c48f2252900a7c999ec1",
+        "310d8d4d5630e6ba2455c771",
+        "b7a88b4f8869f52b604087f8"
+      ],
+      "reranker_truncated_primary": [
+        "67abda0eb9fe1a5390ef22a1",
+        "5108c48f2252900a7c999ec1",
+        "310d8d4d5630e6ba2455c771",
+        "b7a88b4f8869f52b604087f8"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-22",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 10.607143290995737,
+      "primary_chunk_ids": [
+        "57c2a7ba01442935d61396f1",
+        "7e2457d15c7c5e120253eb1c",
+        "7168586704adf6eb11e63faa",
+        "6c88d14bbde3108a6c879031",
+        "5caa9d1c6e504e70582d702f"
+      ],
+      "attached_chunk_ids": [
+        "73c682bf2be0c01ab51603cc",
+        "0f641ce1f0a3a90b029bf1b3",
+        "92fc45b51cf3edba7a62ff89"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-23",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 9.844440999993822,
+      "primary_chunk_ids": [
+        "fe01f54599703376955be548",
+        "fd221ed5e778ed28c1af4a81",
+        "fe05e380873fe9d7a6e457ea",
+        "289b4e11d187215342378b75",
+        "75f4ef30a7ea2a938c9076cf"
+      ],
+      "attached_chunk_ids": [
+        "c297833dfc98ca20f61dcdbb",
+        "3ae62ebba5e4b4e9775e7d18",
+        "d6b3cd87a42607ed01cd87f7"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-24",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 9.955401790997712,
+      "primary_chunk_ids": [
+        "310f005044a1b591104bc8af",
+        "d6a7523c335384ea32c44813",
+        "b6db832e21d433db2bef8fe4",
+        "16f894619286a2fa33b758dc",
+        "9b7af617b9c57a1e2b4a55c1"
+      ],
+      "attached_chunk_ids": [
+        "b2e9d91bfe4224019f49e007",
+        "5a628d6de50fe480d1529369",
+        "3c2cebd227016e2e434eef61",
+        "ec0c1b3c83db7e72b0709fbb",
+        "9cd68ac3feccca0c15d73202"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-25",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 11.285750041002757,
+      "primary_chunk_ids": [
+        "9b7af617b9c57a1e2b4a55c1",
+        "a5f2cccb043a9e4df216f83d",
+        "5f1db716c7a19b7f651ef554",
+        "f018528497e7d912cc429899",
+        "10f5ec581f2518f4da2df1b6"
+      ],
+      "attached_chunk_ids": [
+        "9cd68ac3feccca0c15d73202",
+        "d3097cf859bca6b6d96ddd34",
+        "c05c89562f19df2c7837fb7b",
+        "1149f27c7bbf307858b131e6",
+        "43faed79374ba29baeaa5caf"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-26",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 8.84150158301054,
+      "primary_chunk_ids": [
+        "71d4f280e64e3f267a8f074c",
+        "4cd3baeb0c49cd29449b026c",
+        "8334624354de366b85994664",
+        "9b7af617b9c57a1e2b4a55c1",
+        "b3083749173b9b6f68c55224"
+      ],
+      "attached_chunk_ids": [
+        "3bdd99cdfd53dbc3032b5786",
+        "4206cf0515251aa04b669935",
+        "183550d972c5a79146b9d7df",
+        "9cd68ac3feccca0c15d73202"
+      ],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-27",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 9.594529249996413,
+      "primary_chunk_ids": [
+        "d74512c36a5850938a89fefd",
+        "643bed29738b2053c08a470f",
+        "7dd70ef4bbf8d728775ca835",
+        "e28ba9d7b7fb814c862de494",
+        "486e3e2950f423af68ec2446"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-28",
+      "mode": "hybrid",
+      "hit_at_5": false,
+      "seconds": 8.913579791988013,
+      "primary_chunk_ids": [
+        "8912e1e1f8dfeb2c07578d12",
+        "d3b134291c55071f738cd6c1",
+        "db11b1b2be14e9de589fd37f",
+        "477d75f36fc3ca133b47d8ec",
+        "feff6443e76b24e2ff91dd50"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-29",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 7.822014792007394,
+      "primary_chunk_ids": [
+        "b8ebb9783b2f04cd074e4b78",
+        "d4db28e7ee2f189245050476",
+        "5d624534b22be3bbbc6579f1",
+        "5273477208774a2eefbe207a",
+        "6daa53557f6f5bfd5d58c09d"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [],
+      "reranker_truncated_primary": []
+    },
+    {
+      "query_id": "retrieval-dev-30",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 13.510022875008872,
+      "primary_chunk_ids": [
+        "2072eb88577e2776393dac3f",
+        "3332fd8c6fb292e7f88a6542",
+        "61a8c0f4a2ae73f81030b7c6",
+        "dfa943d71a9545ae50865a5a",
+        "e1160b9edf884f3a1a1a82ac"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_primary": [
+        "61a8c0f4a2ae73f81030b7c6",
+        "dfa943d71a9545ae50865a5a"
+      ],
+      "reranker_truncated_primary": [
+        "61a8c0f4a2ae73f81030b7c6",
+        "dfa943d71a9545ae50865a5a"
+      ]
+    }
+  ],
+  "latency_seconds": {
+    "dense": {
+      "median": 11.839367542001128,
+      "minimum": 7.667650999996113,
+      "maximum": 19.353440709004644
+    },
+    "bm25": {
+      "median": 9.420829708498786,
+      "minimum": 5.109161957996548,
+      "maximum": 18.524011041998165
+    },
+    "hybrid": {
+      "median": 10.995438979007304,
+      "minimum": 7.822014792007394,
+      "maximum": 21.101521542004775
+    }
+  }
+}

@@ -1,5 +1,8 @@
 # M2 本地检索实现与联调结果
 
+> 后续更新：正式全量索引已完成，首次冻结 30 题验收未通过；当前结果与待决策事项见 [M2 全量结果](M2_FORMAL_RESULTS.md)。以下保留早期联调阶段记录。
+
+
 更新：2026-09-13。验证代码：`e0c5ba79fbb0428a789d2ba953bf819a55a30700`。
 
 已完成授权模型下载、离线推理、FAISS/BM25/RRF/reranker、父表展开及 FastAPI 接口。真实模型与 HTTP 联调通过；**M2 正式验收尚未完成**。M1 的 300 条样本仍为 `PENDING_REVIEW`，正式 `index/` 未创建。实验数据和索引均位于 `data/experiments/retrieval_smoke/`。
