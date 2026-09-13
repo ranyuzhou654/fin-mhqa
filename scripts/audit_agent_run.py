@@ -10,7 +10,7 @@ from audit_teacher_trajectory import audit_case
 def audit_agent_case(folder):
     base=audit_case(folder)
     events=[json.loads(l) for l in (folder/'trajectory.jsonl').read_text().splitlines()]
-    result=json.loads((folder/'result.json').read_text());policy=None;pending=None;remaining=[];models=0;tools=0;searches=0;model_final=None
+    result=json.loads((folder/'result.json').read_text());policy=None;pending=None;remaining=[];models=0;tools=0;searches=0;model_final=None;tried=[]
     for e in events:
         if e['event']=='teacher_decision':
             if e['step']!=models:raise ValueError('nonsequential model step')
@@ -23,7 +23,9 @@ def audit_agent_case(folder):
             if not policy or policy['action']!=e['tool']:raise ValueError('tool not requested by policy')
             if e['tool']=='search':
                 searches+=1
+                while remaining and remaining[0] in tried:remaining.pop(0)
                 if not remaining or e['args']!=remaining.pop(0):raise ValueError('search args differ from model')
+                tried.append(e['args'])
             elif e['args']!=policy['calculation']:raise ValueError('calculation args differ from model')
         elif e['event']=='tool_response':
             if e['tool']=='calculate' and 'error' not in e['response'] and calculate(pending['args'])!=e['response']:raise ValueError('calculation replay mismatch')

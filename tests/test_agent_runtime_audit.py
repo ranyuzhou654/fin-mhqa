@@ -49,3 +49,21 @@ def test_published_explanation_tampering_detected(tmp_path):
     save(tmp_path,es)
     (tmp_path/'result.json').write_text(json.dumps({'final':changed,'error':None,'decision_calls':2,'tool_calls':1,'search_calls':0}))
     with pytest.raises(ValueError,match='published answer differs'):audit_agent_case(tmp_path)
+
+
+@pytest.mark.parametrize('previously_tried',[True,False])
+def test_search_skip_only_allowed_for_previously_tried_request(tmp_path,previously_tried):
+    a={'query':'a','company':'甲','mode':'hybrid'};b=dict(a,query='b');first=a if previously_tried else dict(a,query='c')
+    es=[]
+    for i,(requests,executed) in enumerate([([first],first),([a,b],b)]):
+        action={'action':'search','searches':requests};usage={'input_tokens':1}
+        step=tmp_path/f'step_{i:02}';step.mkdir()
+        (step/'events.jsonl').write_text(json.dumps({'type':'item.completed','item':{'type':'agent_message','text':json.dumps(action)}})+'\n'+json.dumps({'type':'turn.completed','usage':usage})+'\n')
+        es += [{'event':'teacher_decision','role':'planner','step':i,'action':action,'usage':usage},
+               {'event':'tool_request','step':i,'tool':'search','args':executed},
+               {'event':'tool_response','step':i,'tool':'search','response':{'results':[]}}]
+    final={'status':'insufficient','citations':[]};es.append({'event':'final','response':final});save(tmp_path,es)
+    (tmp_path/'result.json').write_text(json.dumps({'final':final,'error':None,'decision_calls':2,'tool_calls':2,'search_calls':2}))
+    if previously_tried:assert audit_agent_case(tmp_path)['status']=='AUDIT_PASSED'
+    else:
+        with pytest.raises(ValueError,match='search args differ'):audit_agent_case(tmp_path)

@@ -1,0 +1,1283 @@
+{
+  "results": [
+    {
+      "arm": "structured",
+      "id": "agent-dev-001",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 7,
+        "error": 2
+      },
+      "usage": {
+        "input_tokens": 174655,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2562,
+        "reasoning_output_tokens": 143
+      },
+      "run_error": null,
+      "trajectory_sha256": "e3b80e64253f84272cfe177c2963f73a5ff84d01ea5c1537164d99af8ebbc040",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-002",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 4,
+      "native_items": {
+        "agent_message": 10
+      },
+      "usage": {
+        "input_tokens": 292279,
+        "cached_input_tokens": 58496,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5966,
+        "reasoning_output_tokens": 772
+      },
+      "run_error": null,
+      "trajectory_sha256": "8d3dc13b9790b9919772125d34021fa537cb5c4d3a36dd8c25de32d0cee8890d",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-003",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 180908,
+        "cached_input_tokens": 38656,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3319,
+        "reasoning_output_tokens": 348
+      },
+      "run_error": null,
+      "trajectory_sha256": "b6b4891e39b7674f16c06777a38b447943e0db35572aad2523940c1de0bebf97",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-004",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 192124,
+        "cached_input_tokens": 52096,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3042,
+        "reasoning_output_tokens": 123
+      },
+      "run_error": null,
+      "trajectory_sha256": "58f9c98965af43cdc2a62a2025a1aa7df2089d8e15a896232375b818c7c09db7",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-005",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 173632,
+        "cached_input_tokens": 45440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3298,
+        "reasoning_output_tokens": 333
+      },
+      "run_error": null,
+      "trajectory_sha256": "99de69864fdc23cf4cb4b3d2056193bf5bef2d49b2dff0aeefc51b7b1e450d5a",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-006",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 10
+      },
+      "usage": {
+        "input_tokens": 280438,
+        "cached_input_tokens": 78080,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5890,
+        "reasoning_output_tokens": 874
+      },
+      "run_error": null,
+      "trajectory_sha256": "08579ddabb992940e9f81c848f427465359337708983c877b2c7d8cc22643f09",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-007",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 10,
+        "error": 1
+      },
+      "usage": {
+        "input_tokens": 297148,
+        "cached_input_tokens": 77184,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5515,
+        "reasoning_output_tokens": 763
+      },
+      "run_error": null,
+      "trajectory_sha256": "8e0cf2590e100ef579584de4859503aadf0c5a5f150453334042f5905f3da617",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-008",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 183383,
+        "cached_input_tokens": 52480,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2923,
+        "reasoning_output_tokens": 144
+      },
+      "run_error": null,
+      "trajectory_sha256": "1a00240301dd5c36252b42617e8942559274d676bb8c8ad77b59510bd04b6534",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-009",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 139765,
+        "cached_input_tokens": 64128,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2141,
+        "reasoning_output_tokens": 227
+      },
+      "run_error": null,
+      "trajectory_sha256": "d12e155216490cfb39486e7e1a6a9a3b0eb6b30eac3bc604b101e8ec7c8fbc44",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-010",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 10,
+        "error": 1
+      },
+      "usage": {
+        "input_tokens": 276398,
+        "cached_input_tokens": 109696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5369,
+        "reasoning_output_tokens": 721
+      },
+      "run_error": null,
+      "trajectory_sha256": "e26911ec662658504d0f3a245881a1a3a286815c8c327d1b8aa49dd7d7137bec",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-011",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 8,
+        "error": 1
+      },
+      "usage": {
+        "input_tokens": 233876,
+        "cached_input_tokens": 76800,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3373,
+        "reasoning_output_tokens": 309
+      },
+      "run_error": null,
+      "trajectory_sha256": "9e0c7ae8457e5aaaec3308ac06fc37791add6ce00a3ffa77ab712eb67408e211",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-012",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 108613,
+        "cached_input_tokens": 32384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1647,
+        "reasoning_output_tokens": 130
+      },
+      "run_error": null,
+      "trajectory_sha256": "6367f5202dfba8297d82e8df54c1f0792a8f03d7e1c02b72b3684ea09ce65a32",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-013",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 155494,
+        "cached_input_tokens": 64128,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3508,
+        "reasoning_output_tokens": 736
+      },
+      "run_error": null,
+      "trajectory_sha256": "990095cdf954f8e0fb578f7a22b80739bed7d1c08c93efc9b0ea710c7ba41e45",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-014",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 106116,
+        "cached_input_tokens": 38656,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1694,
+        "reasoning_output_tokens": 178
+      },
+      "run_error": null,
+      "trajectory_sha256": "ac9de95256a0de0aea527dd777794d0737c736c1cbce17330fe65e714241c9c6",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-015",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 146551,
+        "cached_input_tokens": 64256,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1957,
+        "reasoning_output_tokens": 269
+      },
+      "run_error": null,
+      "trajectory_sha256": "96a449dbf0d10d85e0f27343cb734c469bcc3bae8fa06a75344ec83a675431e4",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-016",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 104196,
+        "cached_input_tokens": 63872,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1495,
+        "reasoning_output_tokens": 69
+      },
+      "run_error": null,
+      "trajectory_sha256": "d941e9f712dea27a27d95761626b0e14f828d4aa5b80d5c5d1e513a8a224f68d",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-017",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 166541,
+        "cached_input_tokens": 76416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2899,
+        "reasoning_output_tokens": 472
+      },
+      "run_error": null,
+      "trajectory_sha256": "7b39e1426f33f41b87f44f984d206278c62a0fd05d33dbfc4d7aca2218b908d6",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-018",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 5,
+        "error": 1
+      },
+      "usage": {
+        "input_tokens": 98945,
+        "cached_input_tokens": 38400,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1779,
+        "reasoning_output_tokens": 309
+      },
+      "run_error": null,
+      "trajectory_sha256": "c279157719661e4b665b51165a8b8923f00434ee854ec7f521992b5e6a7f5f98",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-019",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 152270,
+        "cached_input_tokens": 45568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2087,
+        "reasoning_output_tokens": 229
+      },
+      "run_error": null,
+      "trajectory_sha256": "64ff2194af1a764783f46779d90f57fde36870f5d11306243bf123acddd14686",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "agent-dev-020",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 8,
+        "error": 1
+      },
+      "usage": {
+        "input_tokens": 196733,
+        "cached_input_tokens": 65152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3309,
+        "reasoning_output_tokens": 506
+      },
+      "run_error": null,
+      "trajectory_sha256": "3b47288f2e9eb36449173833244b5a9bd05898908d0dd140f101335cb1f9744b",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-001",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 7,
+        "error": 1
+      },
+      "usage": {
+        "input_tokens": 175848,
+        "cached_input_tokens": 12928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2982,
+        "reasoning_output_tokens": 149
+      },
+      "run_error": null,
+      "trajectory_sha256": "5104a900081e0c26337111fe3bfab190b1c37233d6e83d98d4d9f5105683f8d7",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-002",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 3,
+      "native_items": {
+        "agent_message": 10,
+        "error": 2
+      },
+      "usage": {
+        "input_tokens": 310489,
+        "cached_input_tokens": 25728,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5724,
+        "reasoning_output_tokens": 611
+      },
+      "run_error": null,
+      "trajectory_sha256": "9f563b4e0082897b0e49d147818f83856321049067052e7151f86f7d27a6067e",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-003",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 8
+      },
+      "usage": {
+        "input_tokens": 227716,
+        "cached_input_tokens": 77184,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4149,
+        "reasoning_output_tokens": 390
+      },
+      "run_error": null,
+      "trajectory_sha256": "f809a2a89e51acd5d378ff85b76bf8fe6dc7cff654c917b147a82ca2e63d9399",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-004",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 192940,
+        "cached_input_tokens": 38784,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3036,
+        "reasoning_output_tokens": 115
+      },
+      "run_error": null,
+      "trajectory_sha256": "c12787d503a87fad30aaa42de93c31354db15c27f42a9f4b66a7e47609a2c8df",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-005",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 170823,
+        "cached_input_tokens": 51328,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3330,
+        "reasoning_output_tokens": 349
+      },
+      "run_error": null,
+      "trajectory_sha256": "82fb9dd66d3663b56489d64ebe6be30daf5550d75f335d3be727ffd8911baad7",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-006",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 10
+      },
+      "usage": {
+        "input_tokens": 292000,
+        "cached_input_tokens": 78208,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7592,
+        "reasoning_output_tokens": 1925
+      },
+      "run_error": null,
+      "trajectory_sha256": "d2dbd0fe42964f65eaa1e4a8d8ad525139702c9df6e3ca559b2ddae5c25d69b5",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-007",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 8
+      },
+      "usage": {
+        "input_tokens": 233079,
+        "cached_input_tokens": 58624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4101,
+        "reasoning_output_tokens": 573
+      },
+      "run_error": null,
+      "trajectory_sha256": "240aee3942d8168bc753f2a1c12ba30a054c0be4e376e3843a18d18fb225ac86",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-008",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 165966,
+        "cached_input_tokens": 71168,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3099,
+        "reasoning_output_tokens": 451
+      },
+      "run_error": null,
+      "trajectory_sha256": "38a659cad56039741a7907c80d80bfe4b212711e283dcced3987d25e58f9d846",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-009",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 104923,
+        "cached_input_tokens": 38784,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1635,
+        "reasoning_output_tokens": 184
+      },
+      "run_error": null,
+      "trajectory_sha256": "627c50b564b1cd23e3979fe8657e13fb41f5c895207e885bd0e3ee88371c2261",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-010",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 186432,
+        "cached_input_tokens": 52224,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2808,
+        "reasoning_output_tokens": 187
+      },
+      "run_error": null,
+      "trajectory_sha256": "e71c73145d413217173aad591542bebcc69958a9b5d22a52edc087cd11587ba1",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-011",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 9
+      },
+      "usage": {
+        "input_tokens": 276133,
+        "cached_input_tokens": 71552,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3490,
+        "reasoning_output_tokens": 284
+      },
+      "run_error": null,
+      "trajectory_sha256": "466fafc23e75da8d37e9986e3c48e488531b92fec942e77cc96fc0fb43232305",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-012",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 108908,
+        "cached_input_tokens": 58112,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1578,
+        "reasoning_output_tokens": 106
+      },
+      "run_error": null,
+      "trajectory_sha256": "bf51351e0c06a846b98829094e4fb24d85ede77e0f96cbd2804750a71fd49028",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-013",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 8
+      },
+      "usage": {
+        "input_tokens": 199638,
+        "cached_input_tokens": 83584,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3678,
+        "reasoning_output_tokens": 855
+      },
+      "run_error": null,
+      "trajectory_sha256": "7a05c2fc724212d84d75791e2c7dca0ae2ed4ee7731ca10cbb8e9bcf3779cad2",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-014",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 153612,
+        "cached_input_tokens": 76800,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2537,
+        "reasoning_output_tokens": 293
+      },
+      "run_error": null,
+      "trajectory_sha256": "358243df9b2eaeb49c492686767d7ef67b96927104ce8bbb0a6efd414d667f11",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-015",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 146912,
+        "cached_input_tokens": 89344,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2458,
+        "reasoning_output_tokens": 398
+      },
+      "run_error": null,
+      "trajectory_sha256": "91e071442f1acc78fc2db773db75302638352dcf56f35fd2ab4e8a192f29fc3e",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-016",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 108816,
+        "cached_input_tokens": 32768,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1486,
+        "reasoning_output_tokens": 47
+      },
+      "run_error": null,
+      "trajectory_sha256": "cacff4f9e0d03427f4d8b33d48886d5021e76811f37ed4051bb3736dc8af9be9",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-017",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 9
+      },
+      "usage": {
+        "input_tokens": 250618,
+        "cached_input_tokens": 102400,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3850,
+        "reasoning_output_tokens": 671
+      },
+      "run_error": null,
+      "trajectory_sha256": "bdc3afe9dda6f4c75a14ca3c3f8e5859bd307c28cd19bdf88c6a39e9dbef6e2e",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-018",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 7,
+        "error": 1
+      },
+      "usage": {
+        "input_tokens": 182557,
+        "cached_input_tokens": 71168,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2417,
+        "reasoning_output_tokens": 149
+      },
+      "run_error": null,
+      "trajectory_sha256": "af4f0243c97072fd7e2439f19e90574e38b9d9141f7c6185881a21264841914a",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-019",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 8
+      },
+      "usage": {
+        "input_tokens": 196924,
+        "cached_input_tokens": 89472,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3506,
+        "reasoning_output_tokens": 638
+      },
+      "run_error": null,
+      "trajectory_sha256": "9a5101e13bdb8f7793b68561831674e6734290e93524b52beb96dfbe2aba0bf4",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "generic",
+      "id": "agent-dev-020",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 106103,
+        "cached_input_tokens": 57472,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1803,
+        "reasoning_output_tokens": 227
+      },
+      "run_error": null,
+      "trajectory_sha256": "d16acc53a1b263717d1b73746e2310827a2c06f125b7ed263fd22a4a6a395633",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-001",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 123228,
+        "cached_input_tokens": 51456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 774,
+        "reasoning_output_tokens": 120
+      },
+      "run_error": null,
+      "trajectory_sha256": "135330f7c6c9a9b2ab7b5063fc2f54546aa166a507bec5cf37f74edc7f010f0b",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-002",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "error": 1,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 119751,
+        "cached_input_tokens": 39424,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 809,
+        "reasoning_output_tokens": 128
+      },
+      "run_error": null,
+      "trajectory_sha256": "2da44f14244ab1c2f970d614db139320612f1a5d292333ad37275888e19c8f74",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-003",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 119429,
+        "cached_input_tokens": 64384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 887,
+        "reasoning_output_tokens": 224
+      },
+      "run_error": null,
+      "trajectory_sha256": "ae0e5d7ecb2d6ac062a1b42c34174ff8660ce3fd01d06c627934ebc1d625ec50",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-004",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 120046,
+        "cached_input_tokens": 58240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 765,
+        "reasoning_output_tokens": 78
+      },
+      "run_error": null,
+      "trajectory_sha256": "6a29426462b4d97ca1f3e640aec377779597f8c99d1647c98989b7f00bea6ba1",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-005",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 127738,
+        "cached_input_tokens": 63872,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 775,
+        "reasoning_output_tokens": 110
+      },
+      "run_error": null,
+      "trajectory_sha256": "f109ac7bc388472d97376ff3c06ec8d072b1b49b5561c1b9065b5f7118c09ab2",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-006",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 116436,
+        "cached_input_tokens": 52352,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 793,
+        "reasoning_output_tokens": 98
+      },
+      "run_error": null,
+      "trajectory_sha256": "3b9bc5a1071b7c46031ca7073ec336764d7f002d5154d150408d6923fbca73e0",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-007",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 121000,
+        "cached_input_tokens": 75904,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 848,
+        "reasoning_output_tokens": 166
+      },
+      "run_error": null,
+      "trajectory_sha256": "d8cd94f7715324ba0e4d28dd080e8afbf3ebe32eac74796804b3453a9664e702",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-008",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 113643,
+        "cached_input_tokens": 64128,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 807,
+        "reasoning_output_tokens": 118
+      },
+      "run_error": null,
+      "trajectory_sha256": "23419e35540c61d9e1e864d145e6207c76068fe450482bd404dab1f0ee9a9ec3",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-009",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 62227,
+        "cached_input_tokens": 39808,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 517,
+        "reasoning_output_tokens": 97
+      },
+      "run_error": null,
+      "trajectory_sha256": "0114e1de8a6548555d36e41559d0948bdb3ae9567b930b55901204afe19fdeec",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-010",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 63534,
+        "cached_input_tokens": 38528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 524,
+        "reasoning_output_tokens": 68
+      },
+      "run_error": null,
+      "trajectory_sha256": "72614004fb63ec9f73b893fc4010f66f6559d8c0ccad0a1963831a9a716111db",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-011",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 126453,
+        "cached_input_tokens": 45568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 941,
+        "reasoning_output_tokens": 159
+      },
+      "run_error": null,
+      "trajectory_sha256": "9a108bac29ac5e1e62100bdc6935e3289369ec6e84cbbeb31333297c2d8a26ff",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-012",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 64429,
+        "cached_input_tokens": 38272,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 541,
+        "reasoning_output_tokens": 121
+      },
+      "run_error": null,
+      "trajectory_sha256": "40271c45abe511cc33915dae825091344c55c7cd3175eca9dd56a4a4dc31d1af",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-013",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 59663,
+        "cached_input_tokens": 12928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 538,
+        "reasoning_output_tokens": 48
+      },
+      "run_error": null,
+      "trajectory_sha256": "5cfe7a5a8e76ba2f611536aa71cd86d9676873241a9fed5a44dc0bd72591f577",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-014",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 60901,
+        "cached_input_tokens": 25856,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 531,
+        "reasoning_output_tokens": 45
+      },
+      "run_error": null,
+      "trajectory_sha256": "87a7ffe0cd9c907bbdacada89e69360f809e158ba8ffc054e7358dfe6447fbfa",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-015",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 58987,
+        "cached_input_tokens": 38784,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 516,
+        "reasoning_output_tokens": 89
+      },
+      "run_error": null,
+      "trajectory_sha256": "22996887cfcabea82df1e5ef06062f940023d3cb32fb3cf8bb5762582e64550b",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-016",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 67627,
+        "cached_input_tokens": 12672,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 471,
+        "reasoning_output_tokens": 57
+      },
+      "run_error": null,
+      "trajectory_sha256": "2d62f980984aeff1e2badc3240decf73a97a2a89288a6f49635b18dd8512bd97",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-017",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 65445,
+        "cached_input_tokens": 38528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 546,
+        "reasoning_output_tokens": 82
+      },
+      "run_error": null,
+      "trajectory_sha256": "192bf3837a27c6f15c3f4095d2c8704f2b801f4da47dd9b984a97c0fe00008c3",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-018",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 90531,
+        "cached_input_tokens": 53504,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 797,
+        "reasoning_output_tokens": 197
+      },
+      "run_error": null,
+      "trajectory_sha256": "18d971476f2348fffa5af9053a89b740b444ad6e8b6c02d4b92094d96ebaf482",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-019",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 62590,
+        "cached_input_tokens": 40576,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 525,
+        "reasoning_output_tokens": 58
+      },
+      "run_error": null,
+      "trajectory_sha256": "e9e21eb722652ed082dfe6bb0ec16516528dc0db0a35f4cd8b3e846a45f098b4",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "agent-dev-020",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 61607,
+        "cached_input_tokens": 49280,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 568,
+        "reasoning_output_tokens": 80
+      },
+      "run_error": null,
+      "trajectory_sha256": "5377beefdf0fc1b502ee539d77828edd4bee2ffecf3ca86d4fbefc5414644b90",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED"
+    }
+  ],
+  "passed": 60,
+  "total": 60,
+  "current_execution_code_matches_run": {
+    "src/finmhqa/agent/codex_teacher.py": true,
+    "src/finmhqa/agent/graph.py": false,
+    "src/finmhqa/agent/graph_contracts.py": true,
+    "src/finmhqa/agent/pilot_tools.py": true,
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/run_agent_dev.py": false
+  }
+}
