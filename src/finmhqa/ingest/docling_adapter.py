@@ -38,14 +38,22 @@ def table_views(table):
         end = header_end
         while end < nrows and end not in header_rows:
             end += 1
-        headers = []
+        # A later section can have fewer physical columns than the overall
+        # native grid. Collapse only identical cell identities, never equal text.
+        columns = []
         for col in range(ncols):
+            signature = [grid[r][col] for r in range(start, end)]
+            if columns and any(i is not None for i in signature) and signature == [grid[r][columns[-1]] for r in range(start, end)]:
+                continue
+            columns.append(col)
+        headers = []
+        for col in columns:
             ids = list(dict.fromkeys(grid[r][col] for r in range(start, header_end) if grid[r][col] is not None))
             headers.append(' / '.join(cells[i]['text'] for i in ids if cells[i]['text'].strip()))
-        rows = [[cells[i]['text'] if i is not None else '' for i in grid[r]] for r in range(header_end, end)]
+        rows = [[cells[grid[r][col]]['text'] if grid[r][col] is not None else '' for col in columns] for r in range(header_end, end)]
         sections.append(dict(headers=headers, rows=rows, header_rows=header_end-start,
             row_start=start, row_end=end, source_table_ref=table.get('self_ref'),
-            provenance=table.get('prov', []), cell_grid=grid[start:end], cells=cells,
+            provenance=table.get('prov', []), cell_grid=[[row[col] for col in columns] for row in grid[start:end]], cells=cells, source_column_indices=columns,
             quality_status='unreviewed'))
         start = end
     return sections
@@ -65,6 +73,13 @@ def top_left_bbox(box, height):
     if box['coord_origin'] == 'TOPLEFT':
         return box['l'], box['t'], box['r'], box['b']
     raise ValueError('Unknown coordinate origin')
+
+
+def explicit_page_unit(text):
+    """Recognize a scoped report declaration, not arbitrary mention of a unit."""
+    header = re.sub(r'\s', '', text[:1000])
+    match = re.search(r'除特别注明外[，,、]?金额单位为(人民币)?(百万元|千元|万元|亿元|元)', header)
+    return (match[2], match[1] or '', match[0]) if match else ('', '', '')
 
 
 def pages_from_native(pdf_path, company, native_batches, *, expected_sha256):
@@ -137,6 +152,7 @@ def pages_from_native(pdf_path, company, native_batches, *, expected_sha256):
             text = page.get_text('text', sort=True)
             if not text.strip():
                 raise ValueError(f'Page {number} requires OCR decision')
+            page_unit, page_currency, declaration = explicit_page_unit(text)
             all_lines = []
             for block in page.get_text('dict', sort=True)['blocks']:
                 for line in block.get('lines', []):
@@ -153,6 +169,13 @@ def pages_from_native(pdf_path, company, native_batches, *, expected_sha256):
                 _, unit, currency = parse_table_header(inside)
                 table.unit = table.unit or unit
                 table.currency = table.currency or currency
+                if table.unit:
+                    table.unit_source = 'table_local_explicit'
+                elif page_unit:
+                    table.unit = page_unit
+                    table.unit_source = f'page {number}: {declaration}'
+                if not table.currency and page_currency and table.unit in ('百万元', '千元', '万元', '亿元', '元'):
+                    table.currency = page_currency
             lines = []
             for box, value in all_lines:
                 x, y = (box[0]+box[2])/2, (box[1]+box[3])/2

@@ -15,6 +15,7 @@ class RawTable:
     normalized_headers: bool = False
     source_refs: list[str] = field(default_factory=list)
     quality_flags: list[str] = field(default_factory=list)
+    unit_source: str = ''
 
 @dataclass
 class Page:

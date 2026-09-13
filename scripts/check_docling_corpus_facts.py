@@ -17,6 +17,9 @@ def main():
     chunks=[json.loads(l) for l in a.chunks.read_text().splitlines()]
     samples={s['id']:s for s in json.loads(Path('configs/docling_pilot.json').read_text())['samples']}
     checks=json.loads(Path('configs/docling_pilot_checks.json').read_text())
+    extra=json.loads(Path('configs/docling_corpus_checks.json').read_text())
+    samples.update({s['id']:s for s in extra})
+    checks.extend(extra)
     rows=[]
     for check in checks:
         sample=samples[check['id']]

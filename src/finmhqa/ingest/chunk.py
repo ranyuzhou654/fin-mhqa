@@ -136,6 +136,8 @@ def chunk_pages(company, pages, count, *, source_sha256, company_code='', report
                             quality_flags=list(dict.fromkeys(item.quality_flags + (['unresolved_headers'] if any(not v for v in rows[0][1:]) else []))))
                 if item.source_refs:
                     meta['source_table_refs'] = item.source_refs
+                if item.unit_source:
+                    meta['unit_source'] = item.unit_source
                 head = f'表：{title}　单位：{item.unit or "未标注"}　币种：{item.currency or "未标注"}'
                 make(stack, item.page_no, item.page_end or item.page_no, 'table_md', head+'\n'+to_md(rows), **meta)
                 kv = []

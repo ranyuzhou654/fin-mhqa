@@ -91,3 +91,21 @@ def test_midtable_period_headers_do_not_consume_preceding_numbers():
     assert [v['rows'] for v in views]==[[['收入','123']],[['收入','99']]]
     with pytest.raises(ValueError,match='Multiple'):
         table_view(table)
+
+
+def test_physical_colspan_is_not_duplicate_financial_evidence():
+    from finmhqa.ingest.docling_adapter import table_views
+    table={'data':{'num_rows':2,'num_cols':3,'table_cells':[
+        cell('Amount',0,0,cs=2,header=True),cell('Other',0,2,header=True),
+        cell('123',1,0,cs=2),cell('123',1,2)]}}
+    view=table_views(table)[0]
+    assert view['headers']==['Amount','Other']
+    assert view['rows']==[['123','123']]  # equal text from distinct cells is retained
+    assert view['source_column_indices']==[0,2]
+
+
+def test_unit_requires_explicit_scoped_declaration():
+    from finmhqa.ingest.docling_adapter import explicit_page_unit
+    assert explicit_page_unit('（除特别注明外，金额单位为人民币千元）')[:2]==('千元','人民币')
+    assert explicit_page_unit('某公司的金额单位为千元')==('','','')
+    assert explicit_page_unit('单位：股')==('','','')
