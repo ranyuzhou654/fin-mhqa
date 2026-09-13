@@ -30,11 +30,11 @@ M3运行门槛沿用20题答对≥8、平均工具调用≤6、无顶层error；
 
 ## 验证与操作
 
-新增恢复/防护测试覆盖单位缺失、期间错误、证据冲突反馈、超时恢复、空召回、重复查询、假引用、计算不一致、回答篡改、预算和依赖环，与此前小样及离线分母测试共37项通过。真实Sol与HTTP单题联调已通过：3次检索、2次计算、7次模型调用，正确回答美的归母净利润260.14亿元，轨迹事件审计通过。三组主批次使用4个独立case并发、HTTP检索串行，结果随后独立记录。
+新增恢复/防护测试覆盖单位缺失、期间错误、证据冲突反馈、超时恢复、空召回、重复查询、假引用、计算不一致、回答篡改、预算和依赖环，与此前小样及离线分母测试共37项通过。真实Sol与HTTP单题联调已通过：3次检索、2次计算、7次模型调用，正确回答美的归母净利润260.14亿元，轨迹事件审计通过。三组主批次使用4个独立case并发、HTTP检索串行，结果已独立记录。
 
 ```bash
 uv pip install --python .venv/bin/python -r requirements-agent.lock.txt
-.venv/bin/python scripts/run_agent_dev.py --questions docs/evidence/agent_dev20_v1/questions.jsonl --out data/agent_dev20_v1/recheck --workers 2
+.venv/bin/python scripts/run_agent_dev.py --questions docs/evidence/agent_dev20_v1/questions.jsonl --out data/agent_dev20_v1/recheck --arms structured --synthesis verified --workers 4
 ```
 
 运行前须启动本地8100正式检索服务；新输出目录不可覆盖。命令消耗Codex额度，不会回退到外部付费API。
@@ -52,3 +52,5 @@ uv pip install --python .venv/bin/python -r requirements-agent.lock.txt
 原structured第2题在第10次模型调用已通过Verifier，却因没有第11次Synthesizer润色预算而拒答；独立润色也会使explanation处于前一次语义核验之后。新模式synthesis=verified保留Synthesizer节点，重新检查数值/引用约束后原样发布已核验候选，禁止再次改写解释或调用模型。旧模式可用--synthesis model复现。Planner和Verifier提示词、工具、预算上限、20题及评分器不变。
 
 该修复用完整20题重新实跑一次，仅structured组；这是Dev上的后续优化，不是新盲测。默认运行命令现使用verified；原始三组对照须显式添加--synthesis model。新增预算边界、解释不变和不能绕过Verifier测试，全仓库83项通过、1项跳过。
+
+最终结果、89项测试及故障遮蔽修正见[验收与优化报告](AGENT_M3_RESULTS.md)和[故障审核](AGENT_RECOVERY_REVIEW.md)。独立运行前需按README安装项目本身；原对照、修复版和故障数据分别保留。

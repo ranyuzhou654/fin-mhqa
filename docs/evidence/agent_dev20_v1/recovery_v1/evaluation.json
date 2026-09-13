@@ -214,8 +214,25 @@
       ],
       "correct": true,
       "audit": {
-        "status": "AUDIT_FAILED",
-        "error": "'results'"
+        "id": "timeout_first",
+        "status": "AUDIT_PASSED",
+        "search_responses": 4,
+        "calculation_responses": 2,
+        "native_items": {
+          "error": 1,
+          "agent_message": 7
+        },
+        "usage": {
+          "input_tokens": 194719,
+          "cached_input_tokens": 89984,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3209,
+          "reasoning_output_tokens": 206
+        },
+        "run_error": null,
+        "trajectory_sha256": "d9398860401ad722d4addf3aa8ed10093e1f410f35484e110fe6110018c4df79",
+        "policy_tool_correspondence": "PASSED",
+        "calculation_replay": "PASSED"
       },
       "successful_underlying_http_responses": 3,
       "teacher_acknowledged_conflict": false,

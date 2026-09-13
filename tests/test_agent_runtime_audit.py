@@ -67,3 +67,21 @@ def test_search_skip_only_allowed_for_previously_tried_request(tmp_path,previous
     if previously_tried:assert audit_agent_case(tmp_path)['status']=='AUDIT_PASSED'
     else:
         with pytest.raises(ValueError,match='search args differ'):audit_agent_case(tmp_path)
+
+
+@pytest.mark.parametrize('valid_error',[True,False])
+def test_recoverable_search_error_is_a_paired_response(tmp_path,valid_error):
+    action={'action':'search','searches':[{'query':'x','company':'甲','mode':'hybrid'}]};usage={'input_tokens':1}
+    step=tmp_path/'step_00';step.mkdir()
+    (step/'events.jsonl').write_text(json.dumps({'type':'item.completed','item':{'type':'agent_message','text':json.dumps(action)}})+'\n'+json.dumps({'type':'turn.completed','usage':usage})+'\n')
+    final={'status':'insufficient','citations':[]}
+    es=[{'event':'teacher_decision','role':'planner','step':0,'action':action,'usage':usage},
+        {'event':'tool_request','step':0,'tool':'search','args':action['searches'][0]},
+        {'event':'tool_response','step':0,'tool':'search','response':{'error':'TimeoutError','detail':'injected','recoverable':True}},
+        {'event':'final','response':final}]
+    save(tmp_path,es)
+    (tmp_path/'result.json').write_text(json.dumps({'final':final,'error':None,'decision_calls':1,'tool_calls':1,'search_calls':1}))
+    if valid_error:assert audit_agent_case(tmp_path)['status']=='AUDIT_PASSED'
+    else:
+        es[2]['response']={};save(tmp_path,es)
+        with pytest.raises(ValueError,match='neither results nor error'):audit_agent_case(tmp_path)

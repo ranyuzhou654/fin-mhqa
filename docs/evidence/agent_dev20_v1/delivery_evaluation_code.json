@@ -1,0 +1,6 @@
+{
+  "scripts/evaluate_agent_dev.py": "dee47e92d733a7a4689d4c3a886db9cf13e6d81ad6b24809e6b4a2b477758c50",
+  "scripts/evaluate_agent_recovery.py": "89a47e0d327bb9fedb31f21b8de62021c45624e40677deaabd0e163eefda93ff",
+  "scripts/audit_agent_run.py": "f1b2cd6c2061423812ae648e9812fa1c7c8591aa61dc5ec6b08ef38ffb96f363",
+  "scripts/audit_teacher_trajectory.py": "9eb54f9115ec9843a53e824e23ca8f3ef51f9c03324d6c9a4a9b430ffafff77b"
+}

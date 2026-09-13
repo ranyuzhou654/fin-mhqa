@@ -1,0 +1,11 @@
+{
+  "reviewer": "root assistant, actual action/feedback text review; not independent Judge",
+  "v1_issues": [
+    "unit_source retained unit and table_title retained period; two partial-mask successes do not establish missing-information recovery",
+    "initial audit assumed all search responses have results; timeout error responses are valid paired events; original audit report retained"
+  ],
+  "v2_unit": "Planner explicitly noted unit was masked, searched for clear units before comparison, then added consolidated-statement citation after SCOPE_MISMATCH feedback; answered260.14亿元.",
+  "v2_period": "Answered260.14亿元; no explicit missing-period detection or dedicated replan observed; later unmasked normal retrieval supplied evidence. Do not claim proactive period-gap handling.",
+  "conflict": "Verifier flagged99,999,999 vs251,123,714千元 and recognized the different possible winning company. Follow-up queries occurred; unresolved within budget, finalinsufficient. This is abstention, not successful conflict resolution.",
+  "normal_dev_scores_unchanged": true
+}

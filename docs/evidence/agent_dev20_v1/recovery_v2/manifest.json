@@ -1,0 +1,25 @@
+{
+  "scope": "fault injection only; not natural retrieval or dev20 correctness",
+  "scenarios": [
+    "unit_mask_first",
+    "period_mask_first"
+  ],
+  "fault_version": 2,
+  "synthesis": "verified",
+  "question_id": "agent-dev-001",
+  "question": "根据半年报，比较美的集团与宁德时代营业收入，选择收入较高的一家公司，再查询这家公司的归母净利润是多少？均采用2025年上半年合并口径，金额以亿元表示，四舍五入保留两位小数。",
+  "health": {
+    "status": "ready",
+    "count": 9322,
+    "admission": {
+      "status": "ACCEPTED",
+      "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+      "review_sha256": "10654a4adfdce3f10d750a3de30e5ab9ad79d6fe16b3e7300ccacac8d432ed88",
+      "audit_sha256": "91815bb08ba094943b63739fd2b0012acd114646a6890f036403aab91136d5a8"
+    },
+    "model_bundle_sha256": "7c01c53fe2cfa65e4654de55e5a3c915d44cee7c7e8de2bd1131a7ccc9d85d48"
+  },
+  "teacher": "gpt-5.6-sol",
+  "code_sha256": "04373d7888658ce95ab060b09ec00f04014bb0a4d7705e8873ff7aa8527a15e5",
+  "conflict_caveat": "synthetic alternative explicitly signals a conflict; demonstrates prompted conflict handling, not blind detection"
+}
