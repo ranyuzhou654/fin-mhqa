@@ -1,0 +1,30 @@
+{
+  "code_commit": "43aa2ea34d0d21277b36bad74c89961f333c2046",
+  "commands": [
+    ".venv-docling/bin/python scripts/run_docling_corpus.py",
+    ".venv-docling/bin/python scripts/run_docling_corpus.py --company-code 600887",
+    ".venv-docling/bin/python scripts/run_docling_corpus.py --company-code 000568",
+    ".venv/bin/python scripts/build_docling_corpus.py --native-root data/docling_native/59cdcef7571d",
+    ".venv/bin/python scripts/audit_m1.py --chunks data/candidates/docling/chunks.jsonl --qa-dir data/qa/docling_corpus",
+    ".venv/bin/python scripts/check_docling_corpus_facts.py",
+    ".venv/bin/python scripts/audit_docling_corpus_cells.py --native-root data/docling_native/59cdcef7571d",
+    ".venv/bin/python scripts/bind_retrieval_dev.py",
+    ".venv/bin/python scripts/score_m1_review.py --qa-dir data/qa/docling_corpus --review data/qa/docling_corpus/review_samples.jsonl",
+    ".venv/bin/python -m pytest -q"
+  ],
+  "candidate_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "baseline_sha256": "671ae8587763e1d4d3d58e1725807fd959ba43a4c45926b8cba7b8bc14450720",
+  "tests_passed": 22,
+  "expected_nonzero_commands": {
+    "score_m1_review.py": "exit 1: PENDING_REVIEW, 300 unreviewed samples"
+  },
+  "evidence_sha256": {
+    "docling_conversion_summary.json": "f863211ea2502a7034cced353644f705f859ee5fa6f11473081ed3f8a4029a82",
+    "docling_candidate_manifest.json": "7e38adf874cec8e6b2e4a8975c189f2ddd9ece61f5727839081e7e138ca778d4",
+    "docling_audit.json": "91815bb08ba094943b63739fd2b0012acd114646a6890f036403aab91136d5a8",
+    "docling_fact_checks.json": "8ef435a81ed048cf77a56425a831fea44090761a54006b7fa4e25496a1ef0597",
+    "docling_cell_coordinates.json": "e685f3c72bc13c476591503fed00126087b053ccb814a5b8b734ff71ae4f5531",
+    "docling_review_status.json": "5a9586247f18b535d88206995a320ff727b8d15917c4214ca1429efdca998e9f",
+    "retrieval_dev30_binding.json": "b985b5d2b4140e536556768d57c60eadd6d2d82ba9d5df20a1291c2a1d7041dc"
+  }
+}

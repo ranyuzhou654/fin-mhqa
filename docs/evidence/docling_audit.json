@@ -1,0 +1,211 @@
+{
+  "dataset": "data/candidates/docling/chunks.jsonl",
+  "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "sample_sha256": "f02fad9057be105cc03c7be7353962a80c574f4a6d03505542dbeed70722c65a",
+  "chunks": 9322,
+  "companies": 10,
+  "pages": 1750,
+  "structural_errors": [],
+  "heuristic_warnings": {
+    "unit_unspecified_chunks": 2749,
+    "unresolved_column_chunks": 554,
+    "root_section_chunks": 10
+  },
+  "quality_flags": {
+    "cell_bbox_unverified": 5603,
+    "native_header_missing": 898,
+    "unresolved_headers": 1134,
+    "native_table_split_header_sections": 200,
+    "native_table_rejected_on_page": 159,
+    "explicit_source_header_recovered": 142
+  },
+  "rejected_source_tables": [
+    "data/docling_native/59cdcef7571d/000333/0076-0100.json#/tables/6",
+    "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/9",
+    "data/docling_native/59cdcef7571d/000568/0051-0075.json#/tables/11",
+    "data/docling_native/59cdcef7571d/000568/0051-0075.json#/tables/3",
+    "data/docling_native/59cdcef7571d/000568/0051-0075.json#/tables/9",
+    "data/docling_native/59cdcef7571d/000568/0101-0125.json#/tables/78",
+    "data/docling_native/59cdcef7571d/000568/0126-0147.json#/tables/39",
+    "data/docling_native/59cdcef7571d/000651/0026-0050.json#/tables/17",
+    "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/2",
+    "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/21",
+    "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/24",
+    "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/27",
+    "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/30",
+    "data/docling_native/59cdcef7571d/002594/0126-0150.json#/tables/1",
+    "data/docling_native/59cdcef7571d/300014/0026-0050.json#/tables/15",
+    "data/docling_native/59cdcef7571d/300014/0051-0075.json#/tables/24",
+    "data/docling_native/59cdcef7571d/300014/0051-0075.json#/tables/26",
+    "data/docling_native/59cdcef7571d/300014/0051-0075.json#/tables/28",
+    "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/11",
+    "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/14",
+    "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/16",
+    "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/21",
+    "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/22",
+    "data/docling_native/59cdcef7571d/300750/0051-0075.json#/tables/29",
+    "data/docling_native/59cdcef7571d/300750/0076-0100.json#/tables/1",
+    "data/docling_native/59cdcef7571d/300750/0076-0100.json#/tables/6",
+    "data/docling_native/59cdcef7571d/600519/0001-0025.json#/tables/33",
+    "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/16",
+    "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/17",
+    "data/docling_native/59cdcef7571d/600690/0076-0100.json#/tables/3",
+    "data/docling_native/59cdcef7571d/600690/0076-0100.json#/tables/6",
+    "data/docling_native/59cdcef7571d/600887/0051-0075.json#/tables/10"
+  ],
+  "sample_count": 300,
+  "manual_review_status": "pending",
+  "acceptance": "NOT_ACCEPTED_PENDING_REVIEW",
+  "counts": [
+    {
+      "company": "五粮液",
+      "chunk_type": "table_kv",
+      "count": 247
+    },
+    {
+      "company": "五粮液",
+      "chunk_type": "table_md",
+      "count": 254
+    },
+    {
+      "company": "五粮液",
+      "chunk_type": "text",
+      "count": 322
+    },
+    {
+      "company": "亿纬锂能",
+      "chunk_type": "table_kv",
+      "count": 362
+    },
+    {
+      "company": "亿纬锂能",
+      "chunk_type": "table_md",
+      "count": 383
+    },
+    {
+      "company": "亿纬锂能",
+      "chunk_type": "text",
+      "count": 474
+    },
+    {
+      "company": "伊利股份",
+      "chunk_type": "table_kv",
+      "count": 298
+    },
+    {
+      "company": "伊利股份",
+      "chunk_type": "table_md",
+      "count": 300
+    },
+    {
+      "company": "伊利股份",
+      "chunk_type": "text",
+      "count": 423
+    },
+    {
+      "company": "宁德时代",
+      "chunk_type": "table_kv",
+      "count": 300
+    },
+    {
+      "company": "宁德时代",
+      "chunk_type": "table_md",
+      "count": 300
+    },
+    {
+      "company": "宁德时代",
+      "chunk_type": "text",
+      "count": 356
+    },
+    {
+      "company": "格力电器",
+      "chunk_type": "table_kv",
+      "count": 273
+    },
+    {
+      "company": "格力电器",
+      "chunk_type": "table_md",
+      "count": 276
+    },
+    {
+      "company": "格力电器",
+      "chunk_type": "text",
+      "count": 390
+    },
+    {
+      "company": "比亚迪",
+      "chunk_type": "table_kv",
+      "count": 240
+    },
+    {
+      "company": "比亚迪",
+      "chunk_type": "table_md",
+      "count": 242
+    },
+    {
+      "company": "比亚迪",
+      "chunk_type": "text",
+      "count": 371
+    },
+    {
+      "company": "泸州老窖",
+      "chunk_type": "table_kv",
+      "count": 294
+    },
+    {
+      "company": "泸州老窖",
+      "chunk_type": "table_md",
+      "count": 299
+    },
+    {
+      "company": "泸州老窖",
+      "chunk_type": "text",
+      "count": 370
+    },
+    {
+      "company": "海尔智家",
+      "chunk_type": "table_kv",
+      "count": 304
+    },
+    {
+      "company": "海尔智家",
+      "chunk_type": "table_md",
+      "count": 306
+    },
+    {
+      "company": "海尔智家",
+      "chunk_type": "text",
+      "count": 361
+    },
+    {
+      "company": "美的集团",
+      "chunk_type": "table_kv",
+      "count": 225
+    },
+    {
+      "company": "美的集团",
+      "chunk_type": "table_md",
+      "count": 225
+    },
+    {
+      "company": "美的集团",
+      "chunk_type": "text",
+      "count": 411
+    },
+    {
+      "company": "贵州茅台",
+      "chunk_type": "table_kv",
+      "count": 237
+    },
+    {
+      "company": "贵州茅台",
+      "chunk_type": "table_md",
+      "count": 238
+    },
+    {
+      "company": "贵州茅台",
+      "chunk_type": "text",
+      "count": 241
+    }
+  ]
+}

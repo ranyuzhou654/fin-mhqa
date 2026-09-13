@@ -1,0 +1,111 @@
+{
+  "status": "PENDING_REVIEW",
+  "complete_sample": true,
+  "chunk_count": 9322,
+  "chunk_count_target_met": true,
+  "companies": [
+    {
+      "company": "五粮液",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    },
+    {
+      "company": "亿纬锂能",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    },
+    {
+      "company": "伊利股份",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    },
+    {
+      "company": "宁德时代",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    },
+    {
+      "company": "格力电器",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    },
+    {
+      "company": "比亚迪",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    },
+    {
+      "company": "泸州老窖",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    },
+    {
+      "company": "海尔智家",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    },
+    {
+      "company": "美的集团",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    },
+    {
+      "company": "贵州茅台",
+      "sample_count": 30,
+      "pending": 30,
+      "table_count": 20,
+      "table_pass": 0,
+      "breadcrumb_rate": 0.0,
+      "table_rate": 0.0,
+      "joint_rate": 0.0
+    }
+  ],
+  "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "review_sha256": "f02fad9057be105cc03c7be7353962a80c574f4a6d03505542dbeed70722c65a",
+  "structural_errors": []
+}

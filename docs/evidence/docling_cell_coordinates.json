@@ -1,0 +1,103 @@
+{
+  "tolerance": {
+    "x": 0.6,
+    "y": 1
+  },
+  "metric": "coordinate_text_agreement_only",
+  "companies": [
+    {
+      "company": "美的集团",
+      "numeric_cells": 4063,
+      "statuses": {
+        "match": 4029,
+        "mismatch": 34
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/000333.jsonl",
+      "sha256": "65c8c1157e894af38a4855c8382be110b2cccdf9298f58ec0acc5e49d6cdf904"
+    },
+    {
+      "company": "格力电器",
+      "numeric_cells": 4572,
+      "statuses": {
+        "match": 4572
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/000651.jsonl",
+      "sha256": "1a02309f2fcb1556aafc6becddccd028c8f8221d8072e561cb06c6501de9a7fb"
+    },
+    {
+      "company": "海尔智家",
+      "numeric_cells": 4128,
+      "statuses": {
+        "match": 4128
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/600690.jsonl",
+      "sha256": "76cdb128532faa111057bf81c32fc444b14a7ca377756e9c698673207d6577ee"
+    },
+    {
+      "company": "比亚迪",
+      "numeric_cells": 4113,
+      "statuses": {
+        "match": 4109,
+        "mismatch": 4
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/002594.jsonl",
+      "sha256": "2b4569317220da048be5ac3e82b8726794b0ed91193bd05b20d1dbbdbd794e60"
+    },
+    {
+      "company": "宁德时代",
+      "numeric_cells": 3946,
+      "statuses": {
+        "match": 3945,
+        "mismatch": 1
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/300750.jsonl",
+      "sha256": "f31fa0d4a9e67655c461494ff527e408d1ef7452e29eeb9eca28e682db5bf5bf"
+    },
+    {
+      "company": "亿纬锂能",
+      "numeric_cells": 4158,
+      "statuses": {
+        "match": 4125,
+        "mismatch": 33
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/300014.jsonl",
+      "sha256": "55f06f63e111952d5d9b4fc5daeffae11df313137541c2ae4f5e20aa5e0ef712"
+    },
+    {
+      "company": "贵州茅台",
+      "numeric_cells": 2945,
+      "statuses": {
+        "match": 2945
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/600519.jsonl",
+      "sha256": "e4273dc02fd5934be8e9634d7db028aaeee96cf0d55ee4270651e061331c806c"
+    },
+    {
+      "company": "五粮液",
+      "numeric_cells": 3136,
+      "statuses": {
+        "match": 3136
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/000858.jsonl",
+      "sha256": "18efa53a277b17c3faee8d97a036718e2e8e4f453a8befc2aac646fd1939865d"
+    },
+    {
+      "company": "泸州老窖",
+      "numeric_cells": 3335,
+      "statuses": {
+        "match": 3335
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/000568.jsonl",
+      "sha256": "59883f24eb386a073dd907040987f396cca623e004df32b7c2898304a7a5d60b"
+    },
+    {
+      "company": "伊利股份",
+      "numeric_cells": 4236,
+      "statuses": {
+        "match": 4236
+      },
+      "details": "data/qa/docling_corpus/cell_coordinates/600887.jsonl",
+      "sha256": "b2f61188d8862226a36d00670390fb369b1ae7207a6349a6c5253310c2dba683"
+    }
+  ]
+}

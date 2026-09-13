@@ -1,0 +1,248 @@
+{
+  "native_root": "data/docling_native/59cdcef7571d",
+  "output": "data/candidates/docling/chunks.jsonl",
+  "sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "counts": [
+    {
+      "company": "美的集团",
+      "pages": 205,
+      "tables": 206,
+      "chunks": 861,
+      "rejected_tables": [
+        {
+          "page": 82,
+          "source_ref": "data/docling_native/59cdcef7571d/000333/0076-0100.json#/tables/6",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    },
+    {
+      "company": "格力电器",
+      "pages": 189,
+      "tables": 278,
+      "chunks": 939,
+      "rejected_tables": [
+        {
+          "page": 46,
+          "source_ref": "data/docling_native/59cdcef7571d/000651/0026-0050.json#/tables/17",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    },
+    {
+      "company": "海尔智家",
+      "pages": 197,
+      "tables": 298,
+      "chunks": 971,
+      "rejected_tables": [
+        {
+          "page": 78,
+          "source_ref": "data/docling_native/59cdcef7571d/600690/0076-0100.json#/tables/3",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 80,
+          "source_ref": "data/docling_native/59cdcef7571d/600690/0076-0100.json#/tables/6",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    },
+    {
+      "company": "比亚迪",
+      "pages": 200,
+      "tables": 215,
+      "chunks": 853,
+      "rejected_tables": [
+        {
+          "page": 127,
+          "source_ref": "data/docling_native/59cdcef7571d/002594/0126-0150.json#/tables/1",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    },
+    {
+      "company": "宁德时代",
+      "pages": 173,
+      "tables": 273,
+      "chunks": 956,
+      "rejected_tables": [
+        {
+          "page": 39,
+          "source_ref": "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/11",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 42,
+          "source_ref": "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/14",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 44,
+          "source_ref": "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/16",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 49,
+          "source_ref": "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/21",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 50,
+          "source_ref": "data/docling_native/59cdcef7571d/300750/0026-0050.json#/tables/22",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 75,
+          "source_ref": "data/docling_native/59cdcef7571d/300750/0051-0075.json#/tables/29",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 77,
+          "source_ref": "data/docling_native/59cdcef7571d/300750/0076-0100.json#/tables/1",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 81,
+          "source_ref": "data/docling_native/59cdcef7571d/300750/0076-0100.json#/tables/6",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    },
+    {
+      "company": "亿纬锂能",
+      "pages": 195,
+      "tables": 354,
+      "chunks": 1219,
+      "rejected_tables": [
+        {
+          "page": 41,
+          "source_ref": "data/docling_native/59cdcef7571d/300014/0026-0050.json#/tables/15",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 67,
+          "source_ref": "data/docling_native/59cdcef7571d/300014/0051-0075.json#/tables/24",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 68,
+          "source_ref": "data/docling_native/59cdcef7571d/300014/0051-0075.json#/tables/26",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 69,
+          "source_ref": "data/docling_native/59cdcef7571d/300014/0051-0075.json#/tables/28",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    },
+    {
+      "company": "贵州茅台",
+      "pages": 103,
+      "tables": 217,
+      "chunks": 716,
+      "rejected_tables": [
+        {
+          "page": 21,
+          "source_ref": "data/docling_native/59cdcef7571d/600519/0001-0025.json#/tables/33",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 37,
+          "source_ref": "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/16",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 38,
+          "source_ref": "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/17",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    },
+    {
+      "company": "五粮液",
+      "pages": 126,
+      "tables": 233,
+      "chunks": 823,
+      "rejected_tables": [
+        {
+          "page": 27,
+          "source_ref": "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/2",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 43,
+          "source_ref": "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/21",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 45,
+          "source_ref": "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/24",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 47,
+          "source_ref": "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/27",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 49,
+          "source_ref": "data/docling_native/59cdcef7571d/000858/0026-0050.json#/tables/30",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    },
+    {
+      "company": "泸州老窖",
+      "pages": 147,
+      "tables": 271,
+      "chunks": 963,
+      "rejected_tables": [
+        {
+          "page": 36,
+          "source_ref": "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/9",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 52,
+          "source_ref": "data/docling_native/59cdcef7571d/000568/0051-0075.json#/tables/3",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 57,
+          "source_ref": "data/docling_native/59cdcef7571d/000568/0051-0075.json#/tables/9",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 58,
+          "source_ref": "data/docling_native/59cdcef7571d/000568/0051-0075.json#/tables/11",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 121,
+          "source_ref": "data/docling_native/59cdcef7571d/000568/0101-0125.json#/tables/78",
+          "error": "Overlapping Docling cell spans"
+        },
+        {
+          "page": 141,
+          "source_ref": "data/docling_native/59cdcef7571d/000568/0126-0147.json#/tables/39",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    },
+    {
+      "company": "伊利股份",
+      "pages": 215,
+      "tables": 263,
+      "chunks": 1021,
+      "rejected_tables": [
+        {
+          "page": 61,
+          "source_ref": "data/docling_native/59cdcef7571d/600887/0051-0075.json#/tables/10",
+          "error": "Overlapping Docling cell spans"
+        }
+      ]
+    }
+  ],
+  "acceptance": "NOT_ACCEPTED_PENDING_REVIEW"
+}

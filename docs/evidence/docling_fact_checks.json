@@ -1,0 +1,135 @@
+{
+  "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "passed": 16,
+  "total": 16,
+  "checks": [
+    {
+      "id": "midea-p56",
+      "row": "货币资金",
+      "passed": true,
+      "chunk_ids": [
+        "94de8cf0830eebc102136238"
+      ]
+    },
+    {
+      "id": "midea-p56",
+      "row": "2.衍生金融资产",
+      "passed": true,
+      "chunk_ids": [
+        "8013dbb1a87602bc21d08c5c"
+      ]
+    },
+    {
+      "id": "midea-p96",
+      "row": "其中：营业收入",
+      "passed": true,
+      "chunk_ids": [
+        "407d90148388cf7072a341ab"
+      ]
+    },
+    {
+      "id": "midea-p96",
+      "row": "研发费用",
+      "passed": true,
+      "chunk_ids": [
+        "407d90148388cf7072a341ab"
+      ]
+    },
+    {
+      "id": "midea-p96",
+      "row": "七、综合收益总额",
+      "passed": true,
+      "chunk_ids": [
+        "28b12d455f189467a52504e5"
+      ]
+    },
+    {
+      "id": "moutai-p8",
+      "row": "报告期主要业务收入",
+      "passed": true,
+      "chunk_ids": [
+        "3e5dd4dfb00ba54bf701d141"
+      ]
+    },
+    {
+      "id": "moutai-p8",
+      "row": "国外",
+      "passed": true,
+      "chunk_ids": [
+        "44030907edb671208d2f4c9d"
+      ]
+    },
+    {
+      "id": "byd-p65",
+      "row": "研发费用",
+      "passed": true,
+      "chunk_ids": [
+        "5763c0ce1bff9f5bfe81f3cd"
+      ]
+    },
+    {
+      "id": "byd-p65",
+      "row": "财务费用",
+      "passed": true,
+      "chunk_ids": [
+        "5763c0ce1bff9f5bfe81f3cd"
+      ]
+    },
+    {
+      "id": "gree-p156",
+      "row": "8",
+      "passed": true,
+      "chunk_ids": [
+        "67abda0eb9fe1a5390ef22a1"
+      ]
+    },
+    {
+      "id": "gree-p156",
+      "row": "11",
+      "passed": true,
+      "chunk_ids": [
+        "67abda0eb9fe1a5390ef22a1"
+      ]
+    },
+    {
+      "id": "midea-p146-current",
+      "row": "单项计提坏账准备(i)",
+      "passed": true,
+      "chunk_ids": [
+        "73c682bf2be0c01ab51603cc"
+      ]
+    },
+    {
+      "id": "midea-p146-prior",
+      "row": "单项计提坏账准备(i)",
+      "passed": true,
+      "chunk_ids": [
+        "289b4e11d187215342378b75"
+      ]
+    },
+    {
+      "id": "gree-p107-current",
+      "row": "按组合计提坏账准备的应收账款",
+      "passed": true,
+      "chunk_ids": [
+        "b2e9d91bfe4224019f49e007"
+      ]
+    },
+    {
+      "id": "gree-p107-prior",
+      "row": "按组合计提坏账准备的应收账款",
+      "passed": true,
+      "chunk_ids": [
+        "9cd68ac3feccca0c15d73202"
+      ]
+    },
+    {
+      "id": "gree-p107-merged-column",
+      "row": "共62家单位",
+      "passed": true,
+      "chunk_ids": [
+        "3bdd99cdfd53dbc3032b5786"
+      ]
+    }
+  ]
+}

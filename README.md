@@ -1,6 +1,6 @@
 # fin-mhqa
 
-按根目录《02_金融多跳问答系统_实现文档》逐阶段落地，设计依据见《01_金融多跳问答系统_设计方案》。当前已收集 10 份真实半年报并完成 **M1 首轮全量处理**；质量验收未通过，M2–M8 尚未启动。
+按根目录《02_金融多跳问答系统_实现文档》逐阶段落地，设计依据见《01_金融多跳问答系统_设计方案》。当前已完成 10 份真实半年报、1,750 页的 **M1 Docling 全量候选处理**，得到 9,322 条 chunks。22 项测试、全量结构审计和 16 个事实锚点通过；300 条人工审核仍待完成，尚未通过 M1 验收。详见 [全量结果](docs/DOCLING_CORPUS_RESULTS.md)。
 
 ## 本地环境
 
@@ -30,7 +30,7 @@ uv pip install --python .venv/bin/python --no-deps -e .
 
 ## 验收边界
 
-离线测试使用注入的字符计数器检查算法，不代表 bge-m3 token 长度已验收。真实数据需确认每公司三类各抽 10 条、breadcrumb/表格正确率至少 95%，并核对总体数量目标 6k–10k；不能为满足数量而重复数据。详见 [实施进度](docs/IMPLEMENTATION_STATUS.md)。
+算法测试使用注入的计数器；全量审计另用本地 bge-m3 tokenizer 复算实际 token 数。每公司三类各抽 10 条、breadcrumb/表格正确率至少 95% 的源页人工审核尚未完成；总体数量目标为 6k–10k，不能为满足数量而重复数据。详见 [实施进度](docs/IMPLEMENTATION_STATUS.md)。
 
 ## 可复现脚本
 
@@ -39,7 +39,7 @@ uv pip install --python .venv/bin/python --no-deps -e .
 - `scripts/run_m1.py`：两个本地工作进程，按报告缓存抽取结果；原 PDF 哈希不匹配则报错。
 - `scripts/audit_m1.py`：全量结构检查、真实 tokenizer 复算、固定 300 条审核样本。
 
-最新结果在 `data/chunks.jsonl`，质量报告在 `data/qa/audit.json`，历史迭代在 `data/runs/`。数据文件默认被 Git 忽略，原始文档和生成物均未提交。下一决策见 [复杂表格小样试验](docs/M1_PARSER_DECISION.md)。
+基础解析对照保存在 `data/chunks.jsonl`，其质量报告在 `data/qa/audit.json`，历史迭代在 `data/runs/`。最新 Docling 候选在 `data/candidates/docling/chunks.jsonl`，质量报告在 `data/qa/docling_corpus/`。大体积数据默认被 Git 忽略，小型来源与验证摘要提交在 `docs/evidence/`。模型运行前的下一决策见 [M2 决策说明](docs/M2_DECISION.md)。
 
 ## Docling 小样
 
@@ -67,3 +67,5 @@ uv pip install --python .venv/bin/python --no-deps -e .
 ```
 
 固定样本保持不变，标签写入单独副本。评分同时检查每公司三类各 10 条、正文/表格 breadcrumb、表格内容与联合正确率均至少 95%、总数 6k–10k，以及结构审计零错误；未填标签会返回待审核，篡改证据或替换样本会报错。数值单元格坐标一致性是独立诊断，不充当事实正确率。
+
+30 条源页检索开发问题在 `configs/retrieval_dev30.jsonl`。运行 `.venv/bin/python scripts/bind_retrieval_dev.py` 可在检索开始前固定候选证据；当前 30/30 已绑定，未运行检索，不代表检索命中率。
