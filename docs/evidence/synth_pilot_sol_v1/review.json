@@ -1,0 +1,366 @@
+{
+  "reviewer": "root assistant; separate from generating sol agent, not independent human or blinded judge",
+  "candidate_sha256": "4f56387ad3243958d91e2cd04bc26fa1cd00f44cb9d9c9a7e0514ad5037979c5",
+  "status": "ACCEPTED_AS_NARROW_DEV_PILOT",
+  "source_review": [
+    {
+      "chunk_id": "767809234e9c65bfc169e9ef",
+      "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
+      "physical_page": 54,
+      "status": "SOURCE_REVIEWED",
+      "note": "p54 本报告期营业收入合计，千元；不是含利息等的营业总收入。",
+      "render_path": "data/synth/pilot_sol_v1/visual/000333.png",
+      "render_sha256": "54043cb1b0e47ae4a9b068e81a67742e35c87ade4c55797c1b49db71680264cd"
+    },
+    {
+      "chunk_id": "50b0b59b197f1ae4f88f72fa",
+      "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+      "physical_page": 71,
+      "status": "SOURCE_REVIEWED",
+      "note": "p71 合并利润表2025年半年度、其中营业收入，元。",
+      "render_path": "data/synth/pilot_sol_v1/visual/600690.png",
+      "render_sha256": "ac74b17bca3eb9ff4ba5109990d99a01742518e5ccdedc3da49ba16b037b5768"
+    },
+    {
+      "chunk_id": "c66b58b8029ab35430b40e71",
+      "source_sha256": "94da19aaaf50205fa69d8afa9598262e1c785159c34c42f459bd1104fa14c46f",
+      "physical_page": 15,
+      "status": "SOURCE_REVIEWED",
+      "note": "p15 主要财务数据本报告期营业收入，千元。",
+      "render_path": "data/synth/pilot_sol_v1/visual/300750.png",
+      "render_sha256": "ae062676aa4291dbcc76dde82dd1a60f4cf3cb090f5f5bd1e3729fc89405a2d3"
+    },
+    {
+      "chunk_id": "9f7b863c6cc9fc9f54511ee7",
+      "source_sha256": "c4f6b076cdf9cdaa73057d9cba1a6c3a1dd444eda5c62be40371fd92e53d6470",
+      "physical_page": 7,
+      "status": "SOURCE_REVIEWED",
+      "note": "p7 主要会计数据本报告期营业收入（元），不是上年同期。",
+      "render_path": "data/synth/pilot_sol_v1/visual/000651.png",
+      "render_sha256": "b62f4a3e1763bf1a86c93f59875fc867ab33315f19374642483e1b202a904b8f"
+    },
+    {
+      "chunk_id": "b845a6b3c615a1c81a18164a",
+      "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+      "physical_page": 70,
+      "status": "SOURCE_REVIEWED",
+      "note": "p70 营业收入分解合计，元；与已核验v2营业收入事实一致，不含利息收入；页面该分解表未重复列本期/上期，期间依据报告与同项源页事实交叉确认。",
+      "render_path": "data/synth/pilot_sol_v1/visual/600519.png",
+      "render_sha256": "dd929c138b51858b0782704a3cbe38f21baebd9efe4b424123bb5c9fbe4ca2d2"
+    },
+    {
+      "chunk_id": "6ec3ca6ab07ccc73b6e7110c",
+      "source_sha256": "e460cfeaac9388f493dcafc14f4f5a6f83521f24a5ad3d3dd8a447cb437d755a",
+      "physical_page": 6,
+      "status": "SOURCE_REVIEWED",
+      "note": "p6 主要会计数据本报告期营业收入（元）。",
+      "render_path": "data/synth/pilot_sol_v1/visual/000858.png",
+      "render_sha256": "56ba7ed9f3bb4225f7316a46cbc13601cb6704eea5b54cfb1441b5ea1ab58ac7"
+    },
+    {
+      "chunk_id": "7fc26cca2dff23e7bde2f745",
+      "source_sha256": "0759da4d0bfc4ebc8eeefb84ac3fbcda2b7aaec40983488f7eef6b0f132e377e",
+      "physical_page": 161,
+      "status": "SOURCE_REVIEWED",
+      "note": "物理p161（页脚158）本期发生额/收入/合计，元；不能取下方主营业务渠道合计。",
+      "render_path": "data/synth/pilot_sol_v1/visual/600887.png",
+      "render_sha256": "0ec6ee0fdad987190286b3108ce8a18b4e85d3575a969d00a3fdd7ccad7b5309"
+    },
+    {
+      "chunk_id": "6e5fd8fb9d6f5f6e6aa62fa9",
+      "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+      "physical_page": 7,
+      "status": "SOURCE_REVIEWED",
+      "note": "p7 主要会计数据本报告期营业收入（元）；EPS脚注不影响此收入取数。",
+      "render_path": "data/synth/pilot_sol_v1/visual/002594.png",
+      "render_sha256": "600fdea987ff0514df86f073f3056f31665c7490dc21f06844779c0fa1c32747"
+    },
+    {
+      "chunk_id": "29d02e7f416fe02035c1626b",
+      "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+      "physical_page": 108,
+      "status": "SOURCE_REVIEWED",
+      "note": "p108 本期发生额/收入/合计，元，包含主营及其他业务。",
+      "render_path": "data/synth/pilot_sol_v1/visual/000568.png",
+      "render_sha256": "08377cec3b66a8acc1f2ff08c12b49c1223b82d68da1c5ef86d4033f4b87e935"
+    },
+    {
+      "chunk_id": "0382568fff4a850578d3eb36",
+      "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+      "physical_page": 18,
+      "status": "SOURCE_REVIEWED",
+      "note": "物理p18（页脚17）主要财务数据本报告期营业收入，元。",
+      "render_path": "data/synth/pilot_sol_v1/visual/300014.png",
+      "render_sha256": "201e96e2fde002dfc251295ced5d009b1b2e8095022e695e7f726b140937f878"
+    }
+  ],
+  "items": [
+    {
+      "id": "sol-pilot-001",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-002",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-003",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-004",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-005",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-006",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-007",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-008",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-009",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-010",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-011",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-012",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-013",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-014",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-015",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-016",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-017",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-018",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-019",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-020",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-021",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-022",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-023",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-024",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-025",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-026",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-027",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取3家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-028",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-029",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取2家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    },
+    {
+      "id": "sol-pilot-030",
+      "decision": "ACCEPT_DEV_PILOT",
+      "reason": "需读取10家公司证据；问题的公司范围、运算方向与精度和结构化字段一致；答案经Decimal复算。",
+      "true_sequential_bridge": false
+    }
+  ],
+  "grouping": {
+    "000333:营业收入|600690:营业收入": [
+      "sol-pilot-001"
+    ],
+    "000651:营业收入|300750:营业收入": [
+      "sol-pilot-002"
+    ],
+    "000858:营业收入|600519:营业收入": [
+      "sol-pilot-003",
+      "sol-pilot-028"
+    ],
+    "000858:营业收入|600887:营业收入": [
+      "sol-pilot-004"
+    ],
+    "000651:营业收入|600690:营业收入": [
+      "sol-pilot-005"
+    ],
+    "000333:营业收入|002594:营业收入": [
+      "sol-pilot-006"
+    ],
+    "000568:营业收入|000858:营业收入": [
+      "sol-pilot-007"
+    ],
+    "000651:营业收入|600519:营业收入": [
+      "sol-pilot-008"
+    ],
+    "300750:营业收入|600690:营业收入": [
+      "sol-pilot-009",
+      "sol-pilot-029"
+    ],
+    "000568:营业收入|300014:营业收入": [
+      "sol-pilot-010"
+    ],
+    "000333:营业收入|000651:营业收入|600690:营业收入": [
+      "sol-pilot-011",
+      "sol-pilot-017",
+      "sol-pilot-025"
+    ],
+    "002594:营业收入|300750:营业收入": [
+      "sol-pilot-012"
+    ],
+    "000568:营业收入|000858:营业收入|600519:营业收入": [
+      "sol-pilot-013",
+      "sol-pilot-018",
+      "sol-pilot-026"
+    ],
+    "300014:营业收入|600887:营业收入": [
+      "sol-pilot-014"
+    ],
+    "000651:营业收入|000858:营业收入|600887:营业收入": [
+      "sol-pilot-015"
+    ],
+    "000333:营业收入|002594:营业收入|300750:营业收入": [
+      "sol-pilot-016",
+      "sol-pilot-022"
+    ],
+    "300014:营业收入|300750:营业收入|600887:营业收入": [
+      "sol-pilot-019"
+    ],
+    "000651:营业收入|600519:营业收入|600887:营业收入": [
+      "sol-pilot-020"
+    ],
+    "000333:营业收入|300750:营业收入|600690:营业收入": [
+      "sol-pilot-021"
+    ],
+    "000568:营业收入|000858:营业收入|300014:营业收入": [
+      "sol-pilot-023"
+    ],
+    "000651:营业收入|600690:营业收入|600887:营业收入": [
+      "sol-pilot-024"
+    ],
+    "002594:营业收入|300014:营业收入|300750:营业收入": [
+      "sol-pilot-027"
+    ],
+    "000333:营业收入|000568:营业收入|000651:营业收入|000858:营业收入|002594:营业收入|300014:营业收入|300750:营业收入|600519:营业收入|600690:营业收入|600887:营业收入": [
+      "sol-pilot-030"
+    ]
+  },
+  "limitations": [
+    "All questions use reported revenue only",
+    "No sequential bridge questions",
+    "Overlaps prior retrieval development evidence; never Test",
+    "Several company/metric groups have different operation variants; keep groups together",
+    "Gold-visible evidence-first generation, not a blind answering run",
+    "No reachability run, tool trajectory, independent judge or training"
+  ],
+  "initial_failure": "30/30 rejected because period used Chinese display text; generator repaired schema enum only"
+}

@@ -1,0 +1,9 @@
+{
+  "before_used_percent": 59,
+  "after_used_percent": 61,
+  "window_minutes": 10080,
+  "resets_at": 1789868827,
+  "scope": "account-wide rounded snapshots, includes root and generator and possibly other tasks; not attributable per task/model; no exact token/currency cost available",
+  "external_teacher_api_calls": 0,
+  "reset_credits_redeemed": 0
+}

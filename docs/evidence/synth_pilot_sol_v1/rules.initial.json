@@ -1,0 +1,166 @@
+{
+  "input_sha256": "c5807f94ed7978b2511a4f929fbc26a540f8c4331d398d0aa37bcc18789828b4",
+  "corpus_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "total": 30,
+  "passed": 0,
+  "type_counts": {
+    "comparison": 23,
+    "aggregation": 7
+  },
+  "results": [
+    {
+      "id": "sol-pilot-001",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-002",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-003",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-004",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-005",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-006",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-007",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-008",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-009",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-010",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-011",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-012",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-013",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-014",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-015",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-016",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-017",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-018",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-019",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-020",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-021",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-022",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-023",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-024",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-025",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-026",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-027",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-028",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-029",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    },
+    {
+      "id": "sol-pilot-030",
+      "status": "REJECTED",
+      "reason": "unexpected period"
+    }
+  ],
+  "scope": "source hash, exact quote, source-page numeric presence, units and arithmetic; semantic/source-layout review required separately",
+  "reachability": "NOT_RUN",
+  "independent_judge": "NOT_RUN",
+  "trajectory": "NOT_COLLECTED"
+}

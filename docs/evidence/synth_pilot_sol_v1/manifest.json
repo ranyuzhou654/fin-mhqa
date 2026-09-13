@@ -1,0 +1,33 @@
+{
+  "generator_dispatch": {
+    "model": "gpt-5.6-sol",
+    "task": "/root/sol_pilot_generation",
+    "method": "built-in Codex delegated generation, explicitly user-selected model"
+  },
+  "candidate_count": 30,
+  "unique_evidence_chunks": 10,
+  "company_metric_groups": 23,
+  "question_type_counts": {
+    "comparison": 23,
+    "aggregation": 7
+  },
+  "operation_counts": {
+    "difference": 10,
+    "sum": 6,
+    "argmax": 5,
+    "argmin": 3,
+    "spread": 3,
+    "ratio_percent": 2,
+    "count_gt": 1
+  },
+  "tests_passed": 12,
+  "artifacts": {
+    "docs/evidence/synth_pilot_sol_v1/candidates.jsonl": "4f56387ad3243958d91e2cd04bc26fa1cd00f44cb9d9c9a7e0514ad5037979c5",
+    "docs/evidence/synth_pilot_sol_v1/candidates.initial.jsonl": "c5807f94ed7978b2511a4f929fbc26a540f8c4331d398d0aa37bcc18789828b4",
+    "docs/evidence/synth_pilot_sol_v1/rules.initial.json": "d7f59d9f78b5f2c02d9bd779e7c6fe605fb832e57f97a99155676cd804348d18",
+    "docs/evidence/synth_pilot_sol_v1/rules.final.json": "7d46bdfc42a67a3859a84eb958a0a237d9da863c40eacbdbf44d86101d06a479",
+    "docs/evidence/synth_pilot_sol_v1/review.json": "a8337a8e801b7388f60e8f6db7d1af2be4b5d2c3a7d9830c5873eade4c8a145f",
+    "docs/evidence/synth_pilot_sol_v1/usage.json": "3222df421452793003736b625236a76021a5366670747a1b4d629d4668bc3a84"
+  },
+  "validator_sha256": "71365c4658c4888045867daeb13d9a0d3c60ae4459f13060af41d5f32cb78afd"
+}
