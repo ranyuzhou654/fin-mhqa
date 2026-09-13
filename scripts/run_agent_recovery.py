@@ -68,6 +68,8 @@ def main():
             except Exception as exc:error=f'{type(exc).__name__}: {exc}';record({'event':'error','message':error})
         result={'id':scenario,'final':state.get('final'),'error':error,'terminal_reason':state.get('terminal_reason','ERROR'),
             'replan_count':state.get('replan_count'),'injection_applied':used,'seconds':time.monotonic()-start,
+            'tool_calls':sum(e['event']=='tool_request' for e in logs),
+            'decision_calls':sum(e['event']=='teacher_decision' for e in logs),
             'search_calls':sum(e['event']=='tool_request' and e['tool']=='search' for e in logs),
             'usage':[e['usage'] for e in logs if e['event']=='teacher_decision']}
         (folder/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps(result,ensure_ascii=False),flush=True)
