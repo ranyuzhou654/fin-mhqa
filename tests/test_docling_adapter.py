@@ -77,3 +77,17 @@ def test_normalized_headers_do_not_reinterpret_data():
     from finmhqa.ingest.chunk import split_table
     rows=[['Item','本期','上年同期'],['','本期收入','上年收入'],['Profit','123','456']]
     assert list(split_table(rows,normalized_headers=True))==[rows]
+
+
+def test_midtable_period_headers_do_not_consume_preceding_numbers():
+    from finmhqa.ingest.docling_adapter import table_views
+    table={'data':{'num_rows':4,'num_cols':2,'table_cells':[
+        cell('项目',0,0,header=True),cell('2025年',0,1,header=True),
+        cell('收入',1,0),cell('123',1,1),
+        cell('项目',2,0,header=True),cell('2024年',2,1,header=True),
+        cell('收入',3,0),cell('99',3,1)]}}
+    views=table_views(table)
+    assert [v['headers'] for v in views]==[['项目','2025年'],['项目','2024年']]
+    assert [v['rows'] for v in views]==[[['收入','123']],[['收入','99']]]
+    with pytest.raises(ValueError,match='Multiple'):
+        table_view(table)
