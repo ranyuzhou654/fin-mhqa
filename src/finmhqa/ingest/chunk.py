@@ -76,15 +76,25 @@ def split_table(rows, max_rows=20, max_cols=12, *, normalized_headers=False):
                 yield [[r[c] for c in cols] for r in [section[0], *section[row:row+max_rows]]]
 
 
-def dedup(chunks, dist=3):
+def text_simhash(body):
+    """Use unweighted shingles to avoid simhash's uint8 weight overflow on NumPy 2.
+
+    This preserves simhash 2.1's default lowercase/4-character feature semantics.
+    Repeated features are passed individually instead of multiplying uint8 arrays.
+    """
     from simhash import Simhash
+    filtered = ''.join(re.findall(r'[\w\u4e00-\u9fcc]+', body.lower()))
+    return Simhash([filtered[i:i+4] for i in range(max(len(filtered)-3, 1))]).value
+
+
+def dedup(chunks, dist=3):
     seen, out = {}, []
     for c in sorted(chunks, key=lambda c: -c['section_level']):
         # Numeric table changes must never be collapsed by fuzzy hashing.
         key = (c['company'], c['source_sha256'], c['chunk_type'], c.get('parent_table_id', ''))
         body = c['text'].split('\n', 1)[1]
         previous = seen.setdefault(key, [])
-        h = Simhash(body).value
+        h = text_simhash(body) if c['chunk_type'] == 'text' else 0
         numbers = re.findall(r'[-+]?\d[\d,.]*%?', body)
         duplicate = any(body == old or (c['chunk_type'] == 'text' and numbers == nums
                         and (h ^ other).bit_count() <= dist) for old, other, nums in previous)

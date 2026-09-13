@@ -96,3 +96,15 @@ def test_borderless_statement_preserves_period_and_note_columns():
     assert result[0] == ['项目','附注七','截至2025年 6月30日止 6个月期间','截至2024年 6月30日止 6个月期间']
     assert result[2] == ['研发费用','47','29,596,366','19,620,756']
     assert normalize_statement([['收入','金额'],['其他','12']]) is None
+
+
+def test_simhash_repetition_overflow_and_unchanged_normal_hashes():
+    from simhash import Simhash
+    from finmhqa.ingest.chunk import text_simhash, dedup
+    for text in ('', '营业收入100万元，增长。', 'Capital Expenditure 2025', '-----'):
+        assert text_simhash(text)==Simhash(text).value
+    assert isinstance(text_simhash('重复' * 1000), int)
+    base=dict(company='A',source_sha256='abc',chunk_type='table_md',section_level=1,parent_table_id='one')
+    first=dict(base,text='breadcrumb\n'+('0 | ' * 1000))
+    second=dict(first,text=first['text']+'1')
+    assert dedup([first,first,second])==[first,second]
