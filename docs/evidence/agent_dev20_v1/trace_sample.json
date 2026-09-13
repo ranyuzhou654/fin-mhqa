@@ -1,0 +1,12 @@
+{
+  "method": "sort SHA256(frozen questions SHA256 + question id); first five; no answer used",
+  "seed": "63192165903e5bb41f664c9e8ddf8271d29b2a6817be5c40cc0c88599272e5d8",
+  "question_ids": [
+    "agent-dev-005",
+    "agent-dev-002",
+    "agent-dev-018",
+    "agent-dev-008",
+    "agent-dev-019"
+  ],
+  "scope": "inspect all three arms for these questions; report missing natural replans explicitly"
+}
