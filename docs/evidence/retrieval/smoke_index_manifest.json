@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "admission": {
+    "status": "EXPERIMENTAL_UNREVIEWED",
+    "dataset_sha256": "4550f77c1705da1062fbfd765eab1d88bf82b64cf87494091f113bf05c5b20bd"
+  },
+  "count": 18,
+  "dimension": 1024,
+  "model_bundle_sha256": "7c01c53fe2cfa65e4654de55e5a3c915d44cee7c7e8de2bd1131a7ccc9d85d48",
+  "max_length": 1024,
+  "embedding_truncated_chunk_ids": [
+    "3ee8f4c84b299767459ac5e4"
+  ],
+  "tokenization": "jieba-HMM-false-lower-alphanumeric",
+  "rrf_k": 60,
+  "versions": {
+    "faiss-cpu": "1.15.0",
+    "bm25s": "0.2.14",
+    "jieba": "0.42.1",
+    "numpy": "2.4.6",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "files": {
+    "bm25/data.csc.index.npy": "19e7a5a5ea824572703f18e4838eaeff4e19d121e5545377cb6094204cf30786",
+    "bm25/indices.csc.index.npy": "393ec89a36a36f5d68148e78f506a78e99b439b18f8bcf4cf2b8cf8902caf158",
+    "bm25/indptr.csc.index.npy": "e0d035c4346ccbc7511c3b9821a41b88d0794ca8fce98b2b05deb1570052459b",
+    "bm25/params.index.json": "2a3336c2986de137b155d53815eaf8f2dd0328eab0097079e86e3ecbe254d64d",
+    "bm25/vocab.index.json": "6a1a372a72fc297d35c82f088af64d3dda02ba93ea4c489b2dc71963546310de",
+    "chunk_meta.jsonl": "4550f77c1705da1062fbfd765eab1d88bf82b64cf87494091f113bf05c5b20bd",
+    "faiss.index": "cae1fc51cc55e87ba811528137a74806d7258a7b0022ff50692d9d71c8338b4e",
+    "fin_dict.txt": "46e6a7619411bda73c0c7c70ddc1b1e31e76b07a9c38465b94a53818644a6897"
+  }
+}

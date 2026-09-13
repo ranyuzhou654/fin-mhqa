@@ -1,0 +1,12 @@
+{
+  "count": 18,
+  "source_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "smoke_sha256": "4550f77c1705da1062fbfd765eab1d88bf82b64cf87494091f113bf05c5b20bd",
+  "query_ids": [
+    "retrieval-dev-01",
+    "retrieval-dev-11",
+    "retrieval-dev-18",
+    "retrieval-dev-26"
+  ],
+  "purpose": "Preselected source evidence and distractors for integration smoke only; not unbiased retrieval evaluation"
+}

@@ -1,0 +1,49 @@
+{
+  "invalid_mode": {
+    "status": 422,
+    "body": {
+      "detail": [
+        {
+          "type": "literal_error",
+          "loc": [
+            "body",
+            "mode"
+          ],
+          "msg": "Input should be 'dense', 'bm25' or 'hybrid'",
+          "input": "bad",
+          "ctx": {
+            "expected": "'dense', 'bm25' or 'hybrid'"
+          }
+        }
+      ]
+    }
+  },
+  "empty_query": {
+    "status": 422,
+    "body": {
+      "detail": [
+        {
+          "type": "string_too_short",
+          "loc": [
+            "body",
+            "query"
+          ],
+          "msg": "String should have at least 1 character",
+          "input": "",
+          "ctx": {
+            "min_length": 1
+          }
+        }
+      ]
+    }
+  },
+  "unknown_company": {
+    "status": 200,
+    "body": {
+      "results": [],
+      "index_admission": "EXPERIMENTAL_UNREVIEWED",
+      "dataset_sha256": "4550f77c1705da1062fbfd765eab1d88bf82b64cf87494091f113bf05c5b20bd",
+      "primary_count": 0
+    }
+  }
+}

@@ -1,10 +1,8 @@
-# M2 模型决策（尚未执行）
+# M2 模型决策（已批准并完成本地联调）
 
-实现文档第 4 节规定：`BAAI/bge-m3` 做 dense embedding，`BAAI/bge-reranker-v2-m3` 做 rerank；BM25 + dense 经过 RRF 合并候选。现有本地 bge-m3 只有 tokenizer，不能生成向量。
+用户已批准下载并在本机运行 `BAAI/bge-m3` embedding 与 `BAAI/bge-reranker-v2-m3` reranker。两套权重已固定 revision、校验文件，并完成 CPU 离线推理与真实检索 HTTP 联调。无云实例或收费模型 API 调用；教师 LLM API、学生模型与训练算力仍须单独决策。
 
-进入模型运行前，需要用户确认是否下载并在当前本机运行以上两套权重。当前未创建云实例、未调用收费模型 API，未验证本机 embedding/rerank 的速度或完整依赖兼容性。后续教师 LLM API、学生模型及训练算力单独决策。
-
-前置条件仍为 M1 质量验收；模型获批也不等同于允许把未验收数据当成正式底座。M2 代码和真实检索验收尚未开始。
+模型授权不替代 M1 质量验收。当前仅建立明确标为未审核的 18 条实验索引，正式索引被 M1 门禁拒绝。实现、兼容性修复和证据边界见 [M2 结果](M2_RESULTS.md)。
 
 已提前准备 `configs/retrieval_dev30.jsonl` 的 30 条源页问题：10 条各公司营业收入、16 条复杂表头/期间/括号负数/空值/持股比例、4 条财报原因说明。数据快照和物理页码固定，每条术语与数值先核对源 PDF 文本。`scripts/bind_retrieval_dev.py` 在候选集完成后绑定 gold chunk；结构化问题须通过独立源行与表头核对，KV 只能从已通过的同一 Markdown 分片配对。没有找到证据时记录缺失，不修改问题或标签以迎合检索结果。
 

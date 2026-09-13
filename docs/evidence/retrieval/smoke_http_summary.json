@@ -1,0 +1,240 @@
+{
+  "api": "http://127.0.0.1:8101",
+  "health": {
+    "status": "ready",
+    "count": 18,
+    "admission": {
+      "status": "EXPERIMENTAL_UNREVIEWED",
+      "dataset_sha256": "4550f77c1705da1062fbfd765eab1d88bf82b64cf87494091f113bf05c5b20bd"
+    },
+    "model_bundle_sha256": "7c01c53fe2cfa65e4654de55e5a3c915d44cee7c7e8de2bd1131a7ccc9d85d48"
+  },
+  "query_file_sha256": "f50f18d47c898fcabd0c63084a5fe699ad60870e0ef56a271c97f378e9e46ff2",
+  "n_cand": 8,
+  "by_mode": {
+    "dense": {
+      "hits": 4,
+      "total": 4,
+      "hit_at_5": 1.0
+    },
+    "bm25": {
+      "hits": 4,
+      "total": 4,
+      "hit_at_5": 1.0
+    },
+    "hybrid": {
+      "hits": 4,
+      "total": 4,
+      "hit_at_5": 1.0
+    }
+  },
+  "fixed_binding_verified": false,
+  "acceptance_eligible": false,
+  "acceptance": "DIAGNOSTIC_ONLY",
+  "results": [
+    {
+      "query_id": "retrieval-dev-01",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 3.635418165998999,
+      "primary_chunk_ids": [
+        "6a78c7f4d9e3115b371fd063",
+        "a83da6ed814a92f4a2a7ad60",
+        "eade9f5b5f1739563e5b61a9",
+        "94de8cf0830eebc102136238",
+        "3bdd99cdfd53dbc3032b5786"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [],
+      "reranker_truncated_chunk_ids": []
+    },
+    {
+      "query_id": "retrieval-dev-11",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 2.5317362920031883,
+      "primary_chunk_ids": [
+        "eade9f5b5f1739563e5b61a9",
+        "94de8cf0830eebc102136238",
+        "6a78c7f4d9e3115b371fd063",
+        "a83da6ed814a92f4a2a7ad60",
+        "87e366c89b1c9f869f18f85c"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [],
+      "reranker_truncated_chunk_ids": []
+    },
+    {
+      "query_id": "retrieval-dev-18",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 3.037915041000815,
+      "primary_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4",
+        "5763c0ce1bff9f5bfe81f3cd",
+        "27219f76c4fdd26b62209dd8",
+        "a83da6ed814a92f4a2a7ad60",
+        "6a78c7f4d9e3115b371fd063"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4"
+      ],
+      "reranker_truncated_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-26",
+      "mode": "dense",
+      "hit_at_5": true,
+      "seconds": 2.633904500005883,
+      "primary_chunk_ids": [
+        "71d4f280e64e3f267a8f074c",
+        "3bdd99cdfd53dbc3032b5786",
+        "315dbac433ed4f73f569a564",
+        "94de8cf0830eebc102136238",
+        "eade9f5b5f1739563e5b61a9"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [],
+      "reranker_truncated_chunk_ids": []
+    },
+    {
+      "query_id": "retrieval-dev-01",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 2.8545546249952167,
+      "primary_chunk_ids": [
+        "6a78c7f4d9e3115b371fd063",
+        "a83da6ed814a92f4a2a7ad60",
+        "eade9f5b5f1739563e5b61a9",
+        "94de8cf0830eebc102136238",
+        "5763c0ce1bff9f5bfe81f3cd"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [],
+      "reranker_truncated_chunk_ids": []
+    },
+    {
+      "query_id": "retrieval-dev-11",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 2.5883825829951093,
+      "primary_chunk_ids": [
+        "eade9f5b5f1739563e5b61a9",
+        "94de8cf0830eebc102136238",
+        "6a78c7f4d9e3115b371fd063",
+        "315dbac433ed4f73f569a564",
+        "8a8fd45022be81c27d2466ac"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [],
+      "reranker_truncated_chunk_ids": []
+    },
+    {
+      "query_id": "retrieval-dev-18",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 2.580053792000399,
+      "primary_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4",
+        "5763c0ce1bff9f5bfe81f3cd",
+        "27219f76c4fdd26b62209dd8",
+        "a83da6ed814a92f4a2a7ad60",
+        "6a78c7f4d9e3115b371fd063"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4"
+      ],
+      "reranker_truncated_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-26",
+      "mode": "bm25",
+      "hit_at_5": true,
+      "seconds": 2.2263518330000807,
+      "primary_chunk_ids": [
+        "71d4f280e64e3f267a8f074c",
+        "3bdd99cdfd53dbc3032b5786",
+        "315dbac433ed4f73f569a564",
+        "94de8cf0830eebc102136238",
+        "6a78c7f4d9e3115b371fd063"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [],
+      "reranker_truncated_chunk_ids": []
+    },
+    {
+      "query_id": "retrieval-dev-01",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 2.661969749999116,
+      "primary_chunk_ids": [
+        "6a78c7f4d9e3115b371fd063",
+        "a83da6ed814a92f4a2a7ad60",
+        "eade9f5b5f1739563e5b61a9",
+        "94de8cf0830eebc102136238",
+        "87e366c89b1c9f869f18f85c"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [],
+      "reranker_truncated_chunk_ids": []
+    },
+    {
+      "query_id": "retrieval-dev-11",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 2.6971912500011967,
+      "primary_chunk_ids": [
+        "eade9f5b5f1739563e5b61a9",
+        "94de8cf0830eebc102136238",
+        "6a78c7f4d9e3115b371fd063",
+        "a83da6ed814a92f4a2a7ad60",
+        "87e366c89b1c9f869f18f85c"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [],
+      "reranker_truncated_chunk_ids": []
+    },
+    {
+      "query_id": "retrieval-dev-18",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 2.8722506249905564,
+      "primary_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4",
+        "5763c0ce1bff9f5bfe81f3cd",
+        "27219f76c4fdd26b62209dd8",
+        "a83da6ed814a92f4a2a7ad60",
+        "6a78c7f4d9e3115b371fd063"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4"
+      ],
+      "reranker_truncated_chunk_ids": [
+        "3ee8f4c84b299767459ac5e4"
+      ]
+    },
+    {
+      "query_id": "retrieval-dev-26",
+      "mode": "hybrid",
+      "hit_at_5": true,
+      "seconds": 2.2870079160056775,
+      "primary_chunk_ids": [
+        "71d4f280e64e3f267a8f074c",
+        "3bdd99cdfd53dbc3032b5786",
+        "315dbac433ed4f73f569a564",
+        "94de8cf0830eebc102136238",
+        "6a78c7f4d9e3115b371fd063"
+      ],
+      "attached_chunk_ids": [],
+      "embedding_truncated_chunk_ids": [],
+      "reranker_truncated_chunk_ids": []
+    }
+  ]
+}

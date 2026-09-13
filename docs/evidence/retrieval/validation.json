@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-13",
+  "implementation_commit": "e0c5ba79fbb0428a789d2ba953bf819a55a30700",
+  "tests": {
+    "retrieval": 6,
+    "m1": 22,
+    "m1_optional_retrieval_module_skipped": 1
+  },
+  "formal_index_exists": false,
+  "formal_gate": "M1 acceptance required: review is not PASSED",
+  "service_shutdown": "Application shutdown complete; experimental service stopped after HTTP checks",
+  "artifacts": {
+    "data/chunks.jsonl": "671ae8587763e1d4d3d58e1725807fd959ba43a4c45926b8cba7b8bc14450720",
+    "data/candidates/docling/chunks.jsonl": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+    "data/qa/retrieval/smoke_http.json": "dbc442d6124e26597fbeea3322cf47e3f6785665220bc978a7ae8e6d865a65e4",
+    "data/retrieval_smoke_build_isolated.log": "2862a30ea7408aed131c19ede74a5032414345ffc01cf7c7cdd1cd52a5f072cb",
+    "data/retrieval_tests_isolated.log": "f6febe4db7c5c838fcbaa93f75c8ce6b7ae2c1e082916ed04476c2c63856072e",
+    "data/m1_regression_after_m2.log": "db599ec8982837ad503e862c7ef0a70ab9c224508e9c87ee94ba4baada865b39",
+    "data/retrieval_formal_gate.log": "3613ab59c1b216ceb996e5c033dbb6b45f1e0c1d95d8edfa694a0d6830a6a6de",
+    "data/retrieval_server.log": "b3763f3034b65d4e7bd7eb8cf123e943eaa7b30de1bcdcba565932b83f602d39"
+  }
+}

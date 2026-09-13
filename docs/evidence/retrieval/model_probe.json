@@ -1,0 +1,29 @@
+{
+  "device": "cpu",
+  "dtype": "float32",
+  "model_bundle_sha256": "7c01c53fe2cfa65e4654de55e5a3c915d44cee7c7e8de2bd1131a7ccc9d85d48",
+  "shape": [
+    3,
+    1024
+  ],
+  "norms": [
+    1.0,
+    1.0000001192092896,
+    1.0000001192092896
+  ],
+  "dense_similarities": [
+    0.8380958437919617,
+    0.3049711585044861
+  ],
+  "rerank_scores": [
+    0.9999222755432129,
+    1.6037520254030824e-05
+  ],
+  "relevant_above_irrelevant": true,
+  "seconds": {
+    "load": 27.47413391599548,
+    "embed": 2.126241666992428,
+    "rerank": 0.14220070801093243
+  },
+  "retrieval_acceptance": false
+}

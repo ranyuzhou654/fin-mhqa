@@ -39,7 +39,7 @@ uv pip install --python .venv/bin/python --no-deps -e .
 - `scripts/run_m1.py`：两个本地工作进程，按报告缓存抽取结果；原 PDF 哈希不匹配则报错。
 - `scripts/audit_m1.py`：全量结构检查、真实 tokenizer 复算、固定 300 条审核样本。
 
-基础解析对照保存在 `data/chunks.jsonl`，其质量报告在 `data/qa/audit.json`，历史迭代在 `data/runs/`。最新 Docling 候选在 `data/candidates/docling/chunks.jsonl`，质量报告在 `data/qa/docling_corpus/`。大体积数据默认被 Git 忽略，小型来源与验证摘要提交在 `docs/evidence/`。模型运行前的下一决策见 [M2 决策说明](docs/M2_DECISION.md)。
+基础解析对照保存在 `data/chunks.jsonl`，其质量报告在 `data/qa/audit.json`，历史迭代在 `data/runs/`。最新 Docling 候选在 `data/candidates/docling/chunks.jsonl`，质量报告在 `data/qa/docling_corpus/`。大体积数据默认被 Git 忽略，小型来源与验证摘要提交在 `docs/evidence/`。已批准的模型与后续决策见 [M2 决策说明](docs/M2_DECISION.md)。
 
 ## Docling 小样
 
@@ -68,4 +68,57 @@ uv pip install --python .venv/bin/python --no-deps -e .
 
 固定样本保持不变，标签写入单独副本。评分同时检查每公司三类各 10 条、正文/表格 breadcrumb、表格内容与联合正确率均至少 95%、总数 6k–10k，以及结构审计零错误；未填标签会返回待审核，篡改证据或替换样本会报错。数值单元格坐标一致性是独立诊断，不充当事实正确率。
 
-30 条源页检索开发问题在 `configs/retrieval_dev30.jsonl`。运行 `.venv/bin/python scripts/bind_retrieval_dev.py` 可在检索开始前固定候选证据；当前 30/30 已绑定，未运行检索，不代表检索命中率。
+30 条源页检索开发问题在 `configs/retrieval_dev30.jsonl`。运行 `.venv/bin/python scripts/bind_retrieval_dev.py` 可在检索开始前固定候选证据；当前 30/30 已绑定，未运行正式全量检索，不代表检索命中率。
+
+## M2 本地检索
+
+两套模型已获批并完成本地推理及 HTTP 联调。当前只有 18 条未审核证据的实验索引；**正式 M2 验收仍待 M1 放行**。结果、真实故障修复和限制见 [M2 结果](docs/M2_RESULTS.md)。
+
+检索环境与 M1、Docling 分开；模型推理通过本地子进程运行，避免 macOS 上 Torch 与 FAISS 的 OpenMP 冲突。
+
+```bash
+uv venv .venv-retrieval --python 3.11
+uv pip install --python .venv-retrieval/bin/python -r requirements-retrieval.lock.txt
+uv pip install --python .venv-retrieval/bin/python --no-deps -e .
+.venv-retrieval/bin/python scripts/download_retrieval_models.py
+.venv-retrieval/bin/python scripts/probe_retrieval_models.py
+.venv-retrieval/bin/python -m pytest tests/test_retrieval.py -q
+```
+
+下载器固定模型版本并验证文件；实际推理仅访问本地文件。新目录可用以下命令复现实验；已有数据或索引会拒绝覆盖。当前检索实验已完成，服务已停止。
+
+```bash
+.venv-retrieval/bin/python scripts/build_retrieval_smoke.py
+.venv-retrieval/bin/python -m finmhqa.retrieval.build_index \
+  --chunks data/experiments/retrieval_smoke/chunks.jsonl \
+  --out data/experiments/retrieval_smoke/index --experimental --batch-size 2
+FINMHQA_INDEX=data/experiments/retrieval_smoke/index FINMHQA_EXPERIMENTAL=1 FINMHQA_BATCH_SIZE=2 \
+  .venv-retrieval/bin/python -m uvicorn finmhqa.retrieval.server:create_app \
+  --factory --host 127.0.0.1 --port 8101
+```
+
+服务就绪后，在另一个终端运行。评测输出路径须尚不存在：
+
+```bash
+.venv-retrieval/bin/python scripts/evaluate_retrieval.py \
+  --url http://127.0.0.1:8101 \
+  --queries data/experiments/retrieval_smoke/queries.jsonl \
+  --out data/qa/retrieval/smoke_http_recheck.json --n-cand 8
+```
+
+`POST /search` 接受 `query`、`mode`（dense/bm25/hybrid）、`top_k`（默认 5）、`n_cand`（默认 30）、可选 `company` 和 `expand_parent`。`GET /health` 显示数据规模、审核状态与模型来源哈希。主结果与附加父表分开计数，截断和原始质量标记保留。
+
+**下面是 M1 人工审核通过后的正式流程，目前执行建索引会被拒绝：**
+
+```bash
+.venv-retrieval/bin/python -m finmhqa.retrieval.build_index \
+  --chunks data/candidates/docling/chunks.jsonl --out index \
+  --qa-dir data/qa/docling_corpus --reviewed-samples data/qa/docling_corpus/reviewed.jsonl
+.venv-retrieval/bin/python -m uvicorn finmhqa.retrieval.server:create_app \
+  --factory --host 127.0.0.1 --port 8100
+# 服务启动后在另一终端评测：
+.venv-retrieval/bin/python scripts/evaluate_retrieval.py \
+  --queries data/eval/retrieval_dev30.bound.jsonl --out data/eval/retrieval_dev30.results.json
+```
+
+正式构建会复算固定样本评分并核对数据、审核与索引哈希；服务默认拒绝实验索引。评测仅在正式数据、原始 30 题绑定和默认候选数均匹配时产生正式验收判定。若 M1 修订改变候选，须先重新审核并绑定 gold 证据。
