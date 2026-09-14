@@ -85,3 +85,30 @@ def test_recoverable_search_error_is_a_paired_response(tmp_path,valid_error):
     else:
         es[2]['response']={};save(tmp_path,es)
         with pytest.raises(ValueError,match='neither results nor error'):audit_agent_case(tmp_path)
+
+
+@pytest.mark.parametrize('tamper',['none','text','source','anchor'])
+def test_context_replay_detects_modified_text_or_identity(tmp_path,tamper):
+    anchor={'chunk_id':'a','company':'甲','source_sha256':'hash','report_period':'2025H1','text':'100'}
+    context={'results':[dict(anchor,chunk_id='unit',text='单位：元')]}
+    args={'anchor_id':'a','scope':'page','cursor':0}
+    query={'query':'收入','company':'甲','mode':'hybrid'}
+    actions=[{'action':'search','searches':[query]}, {'action':'read_evidence_context','searches':None,'context':args}]
+    if tamper=='anchor':args['anchor_id']='unseen'
+    events=[];usage={'input_tokens':1}
+    import copy
+    altered=copy.deepcopy(context)
+    if tamper=='text':altered['results'][0]['text']='单位：万元'
+    if tamper=='source':altered['results'][0]['source_sha256']='other'
+    for i,(action,tool,params,response) in enumerate(zip(actions,['search','read_evidence_context'],[query,args],[{'results':[anchor]},altered])):
+        step=tmp_path/f'step_{i:02}';step.mkdir()
+        (step/'events.jsonl').write_text(json.dumps({'type':'item.completed','item':{'type':'agent_message','text':json.dumps(action)}})+'\n'+json.dumps({'type':'turn.completed','usage':usage})+'\n')
+        events.extend([{'event':'teacher_decision','role':'planner','step':i,'action':action,'usage':usage},
+                       {'event':'tool_request','step':i,'tool':tool,'args':params},
+                       {'event':'tool_response','step':i,'tool':tool,'response':response}])
+    final={'status':'insufficient','citations':[]};events.append({'event':'final','response':final})
+    save(tmp_path,events)
+    (tmp_path/'result.json').write_text(json.dumps({'final':final,'error':None,'decision_calls':2,'tool_calls':2,'search_calls':1}))
+    if tamper=='none':assert audit_agent_case(tmp_path,lambda _:context)['context_replay']=='PASSED'
+    else:
+        with pytest.raises(ValueError,match='context'):audit_agent_case(tmp_path,lambda _:context)
