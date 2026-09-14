@@ -1,0 +1,39 @@
+{
+  "scope": "fault injection only; not natural retrieval or dev20 correctness",
+  "scenarios": [
+    "unit_mask_first",
+    "period_mask_first",
+    "header_mask_first",
+    "conflict_first"
+  ],
+  "fault_version": 2,
+  "context_index": "index",
+  "reserve_verifier": true,
+  "execution_sha256": {
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/run_agent_recovery.py": "03700e8cfd7531abf5e4bb5679e5f8f05e03a050d8be2716d6b95aa0808df945",
+    "src/finmhqa/agent/graph.py": "6574c3311b5ffa8c9343b6ab9ecf2d694147a48d33fcd1d0aecebedd763984bb",
+    "src/finmhqa/agent/__init__.py": "baf7f4b77a740c4228bc36e7b2cb7bba6dec945c70879f2bdbf8cab6f1008415",
+    "src/finmhqa/agent/pilot_tools.py": "b11c984d22fc19360369124f074f47e3ac67215e63044a3dc05d8a20045323a7",
+    "src/finmhqa/agent/evidence_context.py": "e95ea17fd94a995331312fe345b313bdb0135bc48ee34fea90a1964e94685a13",
+    "src/finmhqa/agent/graph_contracts.py": "6876930047c0a2ba3eab79f26e3a068f19706e624675e3b71640a57b9444435f",
+    "src/finmhqa/agent/codex_teacher.py": "bdfc412f1dae81924c8546989d2877f4e992c9293248c458b6cea841411900b3"
+  },
+  "questions_sha256": "63192165903e5bb41f664c9e8ddf8271d29b2a6817be5c40cc0c88599272e5d8",
+  "synthesis": "verified",
+  "question_id": "agent-dev-001",
+  "question": "根据半年报，比较美的集团与宁德时代营业收入，选择收入较高的一家公司，再查询这家公司的归母净利润是多少？均采用2025年上半年合并口径，金额以亿元表示，四舍五入保留两位小数。",
+  "health": {
+    "status": "ready",
+    "count": 9322,
+    "admission": {
+      "status": "ACCEPTED",
+      "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+      "review_sha256": "10654a4adfdce3f10d750a3de30e5ab9ad79d6fe16b3e7300ccacac8d432ed88",
+      "audit_sha256": "91815bb08ba094943b63739fd2b0012acd114646a6890f036403aab91136d5a8"
+    },
+    "model_bundle_sha256": "7c01c53fe2cfa65e4654de55e5a3c915d44cee7c7e8de2bd1131a7ccc9d85d48"
+  },
+  "teacher": "gpt-5.6-sol",
+  "code_sha256": "03700e8cfd7531abf5e4bb5679e5f8f05e03a050d8be2716d6b95aa0808df945",
+  "conflict_caveat": "synthetic alternative explicitly signals a conflict; demonstrates prompted conflict handling, not blind detection"
+}

@@ -1,0 +1,5 @@
+{
+  "checked": 264,
+  "broken": [],
+  "scope": "local Markdown destinations outside fenced code; initial naive regex misread regex code example as link"
+}

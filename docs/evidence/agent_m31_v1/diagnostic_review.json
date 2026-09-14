@@ -1,0 +1,34 @@
+{
+  "scope": "assistant inspection of actual decisions/citations; no new PDF visual review or independent judge",
+  "results": [
+    {
+      "id": "unit_mask_first",
+      "classification": "PARTIAL_RECOVERY_WITH_CAVEAT",
+      "finding": "Planner主动识别单位遮蔽并读document_units，但随后以54页管理层营业收入构成的千元单位佐证96页合并利润表，适用性论证偏弱。后续目标利润查询返回同一parent_table的未遮蔽part1（4b28...），含千元、期间、合并表头，最终数值正确；不将第一次单位推断计为完整正确恢复。",
+      "injection_replay": "PASSED",
+      "trajectory_sha256": "02bccc94a7c2b535142780c2a09712692adffbf03c0b975e02ef2089641aebb2"
+    },
+    {
+      "id": "period_mask_first",
+      "classification": "INCIDENTAL_RECOVERY",
+      "finding": "没有主动识别期间缺口或调用上下文；在遮蔽列头的条件下先按首列计算。后续归母查询返回同一parent_table的part1，明确2025/2024列头，可为最终引用提供同表期间补充。证明后续正常查询恢复了信息，不证明主动期间检测。",
+      "injection_replay": "PASSED",
+      "trajectory_sha256": "46e7a16c304303d036eaeb1b11af541c3274c4f765102f366a4f100cae4a960b"
+    },
+    {
+      "id": "header_mask_first",
+      "classification": "EXPLICIT_CONTEXT_RECOVERY",
+      "finding": "Planner主动指出单位及期间表头遮蔽，调用page读回原始96页chunks及相交95–96页标题说明，原文含除特别注明外人民币千元、合并/公司列及2025/2024列。一次读取也拿到目标归母数据，无需再发选中公司目标search。不是独立盲测桥接策略结论。",
+      "injection_replay": "PASSED",
+      "trajectory_sha256": "48c2efe04a2be5bc294146560317d7b68ff65ffb6eac9ce9d582e2103e321cf0"
+    },
+    {
+      "id": "conflict_first",
+      "classification": "EXPLICIT_CONFLICT_RESOLVED",
+      "finding": "Planner主动指出冲突，按真实合并利润表锚点读table，重新获取251,123,714千元原表证据，排除99,999,999千元合成值；最终数值与实体正确，Verifier确认处理。冲突文本已明确提示冲突，并非未知冲突盲检。",
+      "injection_replay": "PASSED",
+      "trajectory_sha256": "e122fe99ae8b5315fd4634d7c51c1c2316e1b95de9f917ff6e763997e67e6bca"
+    }
+  ],
+  "native_notice": "header_mask_first step_02 includes one native error item: skill descriptions shortened to fit context budget; turn completed with valid JSON. Retained, not an unapproved tool call or top-level run failure."
+}

@@ -1,0 +1,11 @@
+{
+  "owned_pid": 19240,
+  "signal": "SIGINT",
+  "process_exit_code": 0,
+  "port_8100_closed": true,
+  "verified_at": "2026-09-14T04:20:45.506330+00:00",
+  "observed_log": [
+    "Application shutdown complete.",
+    "Finished server process [19240]"
+  ]
+}

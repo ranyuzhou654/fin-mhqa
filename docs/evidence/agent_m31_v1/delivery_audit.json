@@ -1,0 +1,24 @@
+{
+  "normal": {
+    "passed": 20,
+    "total": 20
+  },
+  "diagnostics": {
+    "passed": 4,
+    "total": 4
+  },
+  "total": 24,
+  "passed": 24,
+  "context_replay": "PASSED",
+  "diagnostic_injection_replay": "PASSED",
+  "diagnostic_execution_matches": {
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/run_agent_recovery.py": true,
+    "src/finmhqa/agent/graph.py": true,
+    "src/finmhqa/agent/__init__.py": true,
+    "src/finmhqa/agent/pilot_tools.py": true,
+    "src/finmhqa/agent/evidence_context.py": true,
+    "src/finmhqa/agent/graph_contracts.py": true,
+    "src/finmhqa/agent/codex_teacher.py": true
+  },
+  "scope": "event/tool/calculate/context/injection consistency, not 24 correct answers or semantic quality passes"
+}

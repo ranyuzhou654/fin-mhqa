@@ -1,6 +1,6 @@
 # M3 教师模型与 API 决策
 
-更新：用户已授权先使用内置 `gpt-5.6-sol` 生成30条开发小样，见 [结果](SYNTH_PILOT_SOL_RESULTS.md)。外部API采购暂缓；已通过12题受控工具循环验证，保存真实检索、计算与模型事件，见[结果](BRIDGE_TEACHER_RESULTS.md)。现已完成LangGraph四角色及20题开发运行门槛，见[M3结果](AGENT_M3_RESULTS.md)。独立Judge、正式合成和学生训练仍待后续实施。以下外部API方案仅作为后备。
+更新：用户已授权先使用内置 `gpt-5.6-sol` 生成30条开发小样，见 [结果](SYNTH_PILOT_SOL_RESULTS.md)。外部API采购暂缓；已通过12题受控工具循环验证，保存真实检索、计算与模型事件，见[结果](BRIDGE_TEACHER_RESULTS.md)。现已完成LangGraph四角色及20题开发运行门槛，见[M3结果](AGENT_M3_RESULTS.md)。另已完成[M3.1上下文与预算复测](AGENT_M31_RESULTS.md)，17/20，未优于上一版。独立Judge、正式合成和学生训练仍待后续实施。以下外部API方案仅作为后备。
 
 原外部方案进入 M3 前需用户确定教师模型及 API 服务商。当前未采购外部教师API，已通过内置Codex完成真实教师推理；正式M4流水线、学生模型与GPU训练尚未开始。
 
