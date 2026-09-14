@@ -1,0 +1,412 @@
+{
+  "scope": "Judge opinions only; reference labels pending; no accuracy/false-accept/Faithfulness score",
+  "total": 18,
+  "completed": 18,
+  "errors": [],
+  "answered_cases": 15,
+  "refused_cases": 3,
+  "answered_six_supported": 6,
+  "label_counts": {
+    "numeric_grounding": {
+      "supported": 14,
+      "not_applicable": 3,
+      "contradicted": 1
+    },
+    "unit_applicability": {
+      "supported": 11,
+      "not_applicable": 3,
+      "uncertain": 2,
+      "missing": 2
+    },
+    "period": {
+      "supported": 10,
+      "not_applicable": 3,
+      "missing": 1,
+      "uncertain": 3,
+      "contradicted": 1
+    },
+    "scope": {
+      "supported": 14,
+      "contradicted": 1,
+      "not_applicable": 3
+    },
+    "citation_coverage": {
+      "missing": 4,
+      "supported": 9,
+      "not_applicable": 3,
+      "uncertain": 2
+    },
+    "precision": {
+      "supported": 14,
+      "not_applicable": 3,
+      "contradicted": 1
+    },
+    "abstention": {
+      "not_applicable": 15,
+      "contradicted": 1,
+      "supported": 2
+    }
+  },
+  "controlled_edit_observations": [
+    {
+      "id": "qc-19b9a14eb7c3",
+      "variant": "premature_rounding",
+      "target_dimension": "precision",
+      "judge_label": "supported",
+      "is_human_reference": false
+    },
+    {
+      "id": "qc-1eafc7a669d4",
+      "variant": "wrong_scope",
+      "target_dimension": "scope",
+      "judge_label": "contradicted",
+      "is_human_reference": false
+    },
+    {
+      "id": "qc-64533eeb4921",
+      "variant": "unseen_citation",
+      "target_dimension": "citation_coverage",
+      "judge_label": "uncertain",
+      "is_human_reference": false
+    },
+    {
+      "id": "qc-67bf73499d78",
+      "variant": "unsupported_number",
+      "target_dimension": "numeric_grounding",
+      "judge_label": "contradicted",
+      "is_human_reference": false
+    },
+    {
+      "id": "qc-7bcb561d44d7",
+      "variant": "wrong_period",
+      "target_dimension": "period",
+      "judge_label": "contradicted",
+      "is_human_reference": false
+    },
+    {
+      "id": "qc-c74d75706a3b",
+      "variant": "missing_header_citation",
+      "target_dimension": "citation_coverage",
+      "judge_label": "missing",
+      "is_human_reference": false
+    }
+  ],
+  "usage": {
+    "input_tokens": 607760,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 17992,
+    "reasoning_output_tokens": 3959
+  },
+  "rows": [
+    {
+      "id": "qc-19b9a14eb7c3",
+      "group": "agent-dev-019",
+      "variant": "premature_rounding",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "supported",
+        "scope": "supported",
+        "citation_coverage": "missing",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "答案数值正确；主要缺陷是最终引用对贵州茅台目标数值的单位和期间覆盖不完整。",
+      "error": null
+    },
+    {
+      "id": "qc-1eafc7a669d4",
+      "group": "agent-dev-008",
+      "variant": "wrong_scope",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "supported",
+        "scope": "contradicted",
+        "citation_coverage": "supported",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "最终数值实际采用的是合并口径且结果正确，但解释将合并数据误称为母公司口径，构成明确的scope错误。",
+      "error": null
+    },
+    {
+      "id": "qc-2263ee587605",
+      "group": "agent-dev-007",
+      "variant": "original",
+      "answer_status": "insufficient",
+      "labels": {
+        "numeric_grounding": "not_applicable",
+        "unit_applicability": "not_applicable",
+        "period": "not_applicable",
+        "scope": "not_applicable",
+        "citation_coverage": "not_applicable",
+        "precision": "not_applicable",
+        "abstention": "contradicted"
+      },
+      "notes": "这是拒答样本；依规则仅判定abstention，不将其作为高质量回答样本。",
+      "error": null
+    },
+    {
+      "id": "qc-3bae5a01939f",
+      "group": "conflict_first",
+      "variant": "original",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "supported",
+        "scope": "supported",
+        "citation_coverage": "supported",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "观测中的fault-conflict-001给出冲突营业收入，但其未被最终引用；美的集团251,123,714千元同时得到正式合并利润表及营业收入构成表的一致支持，因此不影响对最终答案的支持判定。",
+      "error": null
+    },
+    {
+      "id": "qc-45df6728c7dd",
+      "group": "period_mask_first",
+      "variant": "original",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "missing",
+        "scope": "supported",
+        "citation_coverage": "missing",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "答案数值、单位换算、公司选择和利润口径均正确；主要缺陷是最终引用中的美的营业收入证据未显式展示2025年半年度列。",
+      "error": null
+    },
+    {
+      "id": "qc-64533eeb4921",
+      "group": "agent-dev-008",
+      "variant": "unseen_citation",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "uncertain",
+        "period": "uncertain",
+        "scope": "supported",
+        "citation_coverage": "uncertain",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "答案的数值、合并口径和舍入正确，但现金流量净额所在分块未直接给出单位及列名，因此单位和期间只能判为不确定。",
+      "error": null
+    },
+    {
+      "id": "qc-67bf73499d78",
+      "group": "agent-dev-008",
+      "variant": "unsupported_number",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "contradicted",
+        "unit_applicability": "supported",
+        "period": "supported",
+        "scope": "supported",
+        "citation_coverage": "supported",
+        "precision": "contradicted",
+        "abstention": "not_applicable"
+      },
+      "notes": "正确答案应为311.37亿元；最终答案与其解释中的原始现金流量净额不一致。",
+      "error": null
+    },
+    {
+      "id": "qc-71f13982ee6c",
+      "group": "agent-dev-008",
+      "variant": "original",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "supported",
+        "scope": "supported",
+        "citation_coverage": "supported",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "现金流量净额所在分页自身表头缺失，但最终引用同时包含同一合并现金流量表紧邻前页的明确单位与期间列头，足以补足分页连续表的表头信息。",
+      "error": null
+    },
+    {
+      "id": "qc-7645cc134ae5",
+      "group": "agent-dev-006",
+      "variant": "original",
+      "answer_status": "insufficient",
+      "labels": {
+        "numeric_grounding": "not_applicable",
+        "unit_applicability": "not_applicable",
+        "period": "not_applicable",
+        "scope": "not_applicable",
+        "citation_coverage": "not_applicable",
+        "precision": "not_applicable",
+        "abstention": "supported"
+      },
+      "notes": "拒答原因应具体表述为缺少贵州茅台2025年上半年合并口径的经营活动现金流量净额；现有母公司数值不可跨口径使用。",
+      "error": null
+    },
+    {
+      "id": "qc-7bcb561d44d7",
+      "group": "agent-dev-008",
+      "variant": "wrong_period",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "contradicted",
+        "scope": "supported",
+        "citation_coverage": "supported",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "最终数值和公司选择正确，但解释中的“2024年上半年”属于明确的期间误标，应修正为“2025年上半年”。",
+      "error": null
+    },
+    {
+      "id": "qc-96a8a15f7df3",
+      "group": "agent-dev-002",
+      "variant": "original",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "missing",
+        "period": "supported",
+        "scope": "supported",
+        "citation_coverage": "missing",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "答案数值、期间和合并口径均正确；主要缺陷是目标现金流量资料未标注单位，而能直接证明111.39亿元的管理层讨论证据未进入最终引用。",
+      "error": null
+    },
+    {
+      "id": "qc-c74d75706a3b",
+      "group": "agent-dev-008",
+      "variant": "missing_header_citation",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "missing",
+        "period": "uncertain",
+        "scope": "supported",
+        "citation_coverage": "missing",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "现金流金额的算术换算正确，但目标现金流片段自身缺少单位及列头；不能用相邻页片段自动补足这两个局部表格前提。",
+      "error": null
+    },
+    {
+      "id": "qc-d492c178c0e1",
+      "group": "agent-dev-018",
+      "variant": "original",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "supported",
+        "scope": "supported",
+        "citation_coverage": "supported",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "计算结果及最终单位、舍入均与可见观测一致。",
+      "error": null
+    },
+    {
+      "id": "qc-d6502af99f5f",
+      "group": "unit_mask_first",
+      "variant": "original",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "supported",
+        "scope": "supported",
+        "citation_coverage": "supported",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "答案的公司选择、归母净利润数值、口径、期间、单位换算及舍入均由最终引用覆盖。",
+      "error": null
+    },
+    {
+      "id": "qc-db06987d484d",
+      "group": "agent-dev-019",
+      "variant": "original",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "uncertain",
+        "period": "uncertain",
+        "scope": "supported",
+        "citation_coverage": "uncertain",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "最终数值计算正确，但贵州茅台目标行的可见片段缺少单位和列名，而被引用的表头片段未被可靠证明与其属于同一张表。",
+      "error": null
+    },
+    {
+      "id": "qc-e0fcc773b809",
+      "group": "header_mask_first",
+      "variant": "original",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "supported",
+        "scope": "supported",
+        "citation_coverage": "supported",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "最终答案及公司选择均由可见观测和所列引用充分支持。",
+      "error": null
+    },
+    {
+      "id": "qc-ec45d1c278f0",
+      "group": "agent-dev-011",
+      "variant": "original",
+      "answer_status": "insufficient",
+      "labels": {
+        "numeric_grounding": "not_applicable",
+        "unit_applicability": "not_applicable",
+        "period": "not_applicable",
+        "scope": "not_applicable",
+        "citation_coverage": "not_applicable",
+        "precision": "not_applicable",
+        "abstention": "supported"
+      },
+      "notes": "这是拒答样本；依据规则，前六维均为not_applicable。",
+      "error": null
+    },
+    {
+      "id": "qc-f837cf7ce219",
+      "group": "agent-dev-005",
+      "variant": "original",
+      "answer_status": "answered",
+      "labels": {
+        "numeric_grounding": "supported",
+        "unit_applicability": "supported",
+        "period": "supported",
+        "scope": "supported",
+        "citation_coverage": "supported",
+        "precision": "supported",
+        "abstention": "not_applicable"
+      },
+      "notes": "答案的公司选择、归母净利润数值、亿元换算及两位小数舍入均由可见证据充分支持。",
+      "error": null
+    }
+  ],
+  "reference_complete": 0,
+  "metrics": null,
+  "release_approved": false
+}

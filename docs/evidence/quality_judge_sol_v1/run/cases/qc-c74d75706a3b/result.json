@@ -1,0 +1,70 @@
+{
+  "id": "qc-c74d75706a3b",
+  "case_sha256": "d8099f5599642bfa8a05b5e8904ec24dbf1bc1f021cbf00672ac700d7592cd35",
+  "review": {
+    "id": "qc-c74d75706a3b",
+    "case_sha256": "d8099f5599642bfa8a05b5e8904ec24dbf1bc1f021cbf00672ac700d7592cd35",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:32:09.341992+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "missing",
+      "period": "uncertain",
+      "scope": "supported",
+      "citation_coverage": "missing",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "两家公司营业收入原值分别为52,770,984,383.52和28,169,564,043.41，差额计算为246.01亿元，确实应选择五粮液；现金流量净额31,136,736,628.58换算为亿元是311.3673662858，四舍五入为311.37。",
+      "unit_applicability": "最终现金流数值所在的目标表片段单位明确标注为“未标注”；前页另一片段虽标注单位为元，但不能自动向目标局部表格继承，故将31,136,736,628.58按元换算的必要单位前提缺失。",
+      "period": "两家公司营业收入均明确对应2025年半年度；但现金流量净额所在片段的列名未识别，无法仅凭数值顺序确定31,136,736,628.58对应2025年半年度。相邻前页出现列头，但观测明确说明邻接不证明属于同一表或同一范围，因此现金流目标期间仍不确定。",
+      "scope": "营业收入证据均来自“合并利润表”，现金流证据来自“五粮液合并现金流量表”，符合题目要求的合并口径。",
+      "citation_coverage": "最终引用覆盖了两家公司合并营业收入及五粮液现金流净额数值，但引用的现金流片段缺少单位和可识别列名，未完整覆盖将该数值认定为2025年上半年且以元计量的必要前提。",
+      "precision": "答案使用原表披露到分的数值31,136,736,628.58进行换算，仅在最终亿元结果处按要求四舍五入保留两位小数，得到311.37。",
+      "abstention": "该样本已作答，不适用拒答评价。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "unit_applicability": [
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "period": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "scope": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "citation_coverage": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "precision": [
+        "e65f385eaac83f299736117b"
+      ],
+      "abstention": []
+    },
+    "notes": "现金流金额的算术换算正确，但目标现金流片段自身缺少单位及列头；不能用相邻页片段自动补足这两个局部表格前提。"
+  },
+  "error": null,
+  "usage": {
+    "input_tokens": 33378,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 995,
+    "reasoning_output_tokens": 215
+  },
+  "seconds": 35.30018087499775
+}

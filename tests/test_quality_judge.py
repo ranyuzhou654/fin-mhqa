@@ -31,3 +31,27 @@ def test_refusal_schema_cannot_turn_into_good_answer():
 def test_empty_rationale_not_accepted():
     c=case();d=decision(c);d['rationale']['precision']=' '
     with pytest.raises(ValueError,match='rationale'):bind(c,d,'fixture')
+
+
+@pytest.mark.parametrize('tamper',['none','prompt','labels','native_tool'])
+def test_native_event_and_input_audit(tmp_path,tamper):
+    import json,sys
+    from pathlib import Path
+    sys.path.insert(0,str(Path(__file__).parents[1]/'scripts'))
+    from audit_quality_judge import audit_case
+    from finmhqa.qa.judge import system_prompt
+    c=case();d=decision(c);r=bind(c,d,'fixture');call=tmp_path/'call';call.mkdir()
+    (call/'input.txt').write_text(system_prompt('rubric')+'\n'+json.dumps({'question':c['question'],'history':c},ensure_ascii=False))
+    (call/'schema.json').write_text(json.dumps(schema_for(c)))
+    (call/'decision.json').write_text(json.dumps(d));(call/'usage.json').write_text('{}')
+    events=[{'type':'thread.started','thread_id':'unique-fixture'},
+            {'type':'item.completed','item':{'type':'agent_message','text':json.dumps(d)}},
+            {'type':'turn.completed','usage':{}}]
+    if tamper=='native_tool':events.insert(1,{'type':'item.completed','item':{'type':'command_execution'}})
+    (call/'events.jsonl').write_text(''.join(json.dumps(e)+'\n' for e in events))
+    if tamper=='prompt':(call/'input.txt').write_text('leaked reference labels')
+    if tamper=='labels':r['labels']['precision']='missing'
+    (tmp_path/'result.json').write_text(json.dumps({'id':c['id'],'case_sha256':digest(c),'review':r,'error':None,'usage':{}}))
+    if tamper=='none':assert audit_case(c,tmp_path,'rubric')['status']=='AUDIT_PASSED'
+    else:
+        with pytest.raises(ValueError):audit_case(c,tmp_path,'rubric')

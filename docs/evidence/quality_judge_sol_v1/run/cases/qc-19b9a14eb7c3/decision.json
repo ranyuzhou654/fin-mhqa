@@ -1,0 +1,49 @@
+{
+  "labels": {
+    "numeric_grounding": "supported",
+    "unit_applicability": "supported",
+    "period": "supported",
+    "scope": "supported",
+    "citation_coverage": "missing",
+    "precision": "supported",
+    "abstention": "not_applicable"
+  },
+  "rationale": {
+    "numeric_grounding": "美的集团37,281,015千元换算为372.81015亿元，贵州茅台13,119,061,031.33元换算为131.1906103133亿元；原始数值合计504.0007603133亿元，最终四舍五入为504.00亿元，与答案一致。",
+    "unit_applicability": "美的集团目标合并现金流量表明确单位为千元；贵州茅台相同目标数值在主要会计数据及科目变动表中明确单位为元。分别换算为亿元后结果成立。",
+    "period": "美的集团表头明确目标值属于2025年半年度；贵州茅台主要会计数据将相同目标值列于本报告期（1—6月），科目变动表也列为本期数，支持2025年上半年口径。",
+    "scope": "美的集团目标数值位于明确标注“合并”的列；贵州茅台相同数值出现在合并财务报表项目注释中，并与现金流量表目标行一致，支持合并口径。",
+    "citation_coverage": "最终引用覆盖了美的集团的数值、单位、期间和合并列，也引用了贵州茅台的目标数值及合并现金流量表开头；但贵州茅台目标数值所在引用9ed667801a10ec1a0e66cc11缺失单位和列名，而引用a4ee97ba53023666d5a3eb91只展示另一片段中的表头及首行，观测明确不能仅凭相邻页面推定二者属于同一目标表，因此最终引用未完整闭合贵州茅台数值的单位与期间前提。",
+    "precision": "两项原始金额均可见；按原始精度相加后换算并保留两位小数仍为504.00亿元。解释虽先将两项各自舍入到两位再相加，但本例未改变最终舍入结果。",
+    "abstention": "该样本已作答，不适用拒答评价。"
+  },
+  "evidence_ids": {
+    "numeric_grounding": [
+      "541efa4968594bc1d06afe03",
+      "c1690dd0d44ad7bbf920ee06"
+    ],
+    "unit_applicability": [
+      "541efa4968594bc1d06afe03",
+      "c1690dd0d44ad7bbf920ee06"
+    ],
+    "period": [
+      "541efa4968594bc1d06afe03",
+      "c1690dd0d44ad7bbf920ee06"
+    ],
+    "scope": [
+      "541efa4968594bc1d06afe03",
+      "7dd70ef4bbf8d728775ca835"
+    ],
+    "citation_coverage": [
+      "541efa4968594bc1d06afe03",
+      "a4ee97ba53023666d5a3eb91",
+      "9ed667801a10ec1a0e66cc11"
+    ],
+    "precision": [
+      "541efa4968594bc1d06afe03",
+      "c1690dd0d44ad7bbf920ee06"
+    ],
+    "abstention": []
+  },
+  "notes": "答案数值正确；主要缺陷是最终引用对贵州茅台目标数值的单位和期间覆盖不完整。"
+}

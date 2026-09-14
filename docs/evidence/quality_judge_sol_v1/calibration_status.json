@@ -1,0 +1,32 @@
+{
+  "scope": "development calibration only; not Train/Test release or a global Faithfulness score",
+  "total_cases": 18,
+  "reference_complete": 0,
+  "reference_pending_ids": [
+    "qc-19b9a14eb7c3",
+    "qc-1eafc7a669d4",
+    "qc-2263ee587605",
+    "qc-3bae5a01939f",
+    "qc-45df6728c7dd",
+    "qc-64533eeb4921",
+    "qc-67bf73499d78",
+    "qc-71f13982ee6c",
+    "qc-7645cc134ae5",
+    "qc-7bcb561d44d7",
+    "qc-96a8a15f7df3",
+    "qc-c74d75706a3b",
+    "qc-d492c178c0e1",
+    "qc-d6502af99f5f",
+    "qc-db06987d484d",
+    "qc-e0fcc773b809",
+    "qc-ec45d1c278f0",
+    "qc-f837cf7ce219"
+  ],
+  "status": "PENDING_HUMAN_REFERENCE",
+  "metrics": null,
+  "packet_sha256": "d4d3884395d4e5f2a685f8be136df13a3956da43c69921db54b10ce9f01d7959",
+  "reference_sha256": "3d03ed5f395bfac3c0ff55d43c35a548e050132a7cecc531c9258598895b6d7e",
+  "predictions_sha256": "72afa49d8dd628dc46db64302bf66c28844ec39440badec68e7298ed26b11730",
+  "groups": 12,
+  "sampling_caveat": "Purposefully selected Dev failures and paired edits, not prevalence or independent held-out estimate."
+}

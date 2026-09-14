@@ -1,0 +1,53 @@
+{
+  "id": "qc-2263ee587605",
+  "case_sha256": "48960ee7e447eadcd88fc0e16b55a73d76e7c522ac1510cb1e8f73cc51829969",
+  "review": {
+    "id": "qc-2263ee587605",
+    "case_sha256": "48960ee7e447eadcd88fc0e16b55a73d76e7c522ac1510cb1e8f73cc51829969",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:00.691530+00:00",
+    "labels": {
+      "numeric_grounding": "not_applicable",
+      "unit_applicability": "not_applicable",
+      "period": "not_applicable",
+      "scope": "not_applicable",
+      "citation_coverage": "not_applicable",
+      "precision": "not_applicable",
+      "abstention": "contradicted"
+    },
+    "rationale": {
+      "numeric_grounding": "最终输出为拒答，未给出任何数值答案，按规则不评价该维度。",
+      "unit_applicability": "最终输出为拒答，未采用或换算单位，按规则不评价该维度。",
+      "period": "最终输出为拒答，未给出目标期间的数据答案，按规则不评价该维度。",
+      "scope": "最终输出为拒答，未给出公司选择或利润口径答案，按规则不评价该维度。",
+      "citation_coverage": "最终输出为拒答且未提供引用，按规则前六维不评价。",
+      "precision": "最终输出为拒答，未给出需检验舍入精度的数值，按规则不评价该维度。",
+      "abstention": "当前真实可见观测已足够回答：比亚迪2025年上半年营业收入为371,280,948千元，海尔智家同期合并营业收入为156,494,034,448.85元，故比亚迪收入更高；比亚迪合并利润表列示同期归属于母公司所有者的净利润15,510,533千元，且文档明确财务报表及附注单位为千元，可换算并四舍五入为155.11亿元。因此以“证据或运行预算不足”为由拒答与观测相矛盾。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": [
+        "5763c0ce1bff9f5bfe81f3cd",
+        "50b0b59b197f1ae4f88f72fa",
+        "dfcac71cb623204d6f6d239d",
+        "ed8a1463462cd90a3ffcf505"
+      ]
+    },
+    "notes": "这是拒答样本；依规则仅判定abstention，不将其作为高质量回答样本。"
+  },
+  "error": null,
+  "usage": {
+    "input_tokens": 39767,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 549,
+    "reasoning_output_tokens": 53
+  },
+  "seconds": 19.460915208997903
+}

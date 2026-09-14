@@ -1,0 +1,14 @@
+{
+  "audits_passed": 18,
+  "unique_sessions": 18,
+  "packet_unchanged": true,
+  "reference_complete": 0,
+  "calibration_metrics": null,
+  "local_links_checked": 95,
+  "broken_links": [],
+  "same_model_bias_remains": true,
+  "evaluation_code_sha256": {
+    "scripts/audit_quality_judge.py": "7d254b4741500b388a9c85e0ac84b4d835b3c0539296ef0dba8d651b94372b77",
+    "scripts/summarize_quality_judge.py": "cc29f594c275975c9dc83807f8c1001a1546b379aae22c2d103c060b03479dd4"
+  }
+}

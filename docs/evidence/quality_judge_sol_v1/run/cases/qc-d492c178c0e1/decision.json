@@ -1,0 +1,53 @@
+{
+  "labels": {
+    "numeric_grounding": "supported",
+    "unit_applicability": "supported",
+    "period": "supported",
+    "scope": "supported",
+    "citation_coverage": "supported",
+    "precision": "supported",
+    "abstention": "not_applicable"
+  },
+  "rationale": {
+    "numeric_grounding": "海尔智家12,032,995,820.27元与亿纬锂能1,605,171,455.77元均有引用证据支持；两者合计13,638,167,276.04元，换算为亿元为136.3816727604亿元，四舍五入后为136.38亿元。",
+    "unit_applicability": "海尔智家引用的主要会计数据表明确标注单位为元；亿纬锂能引用的未分配利润表也明确标注单位为元，单位分别适用于对应目标数值，换算为亿元正确。",
+    "period": "海尔智家证据明确列示“本报告期（1－6月）”，且报告期为2025H1；亿纬锂能证据来自2025年半年度报告并将1,605,171,455.77列为“本期”归母净利润，符合2025年上半年。",
+    "scope": "海尔智家引用的财务报表列示归属于母公司股东的净利润12,032,995,820.27元；亿纬锂能引用的合并利润表列示归属于母公司股东的净利润1,605,171,455.77元，均为合并口径下归母净利润，而非全部净利润或母公司单体利润。",
+    "citation_coverage": "最终引用覆盖了两家公司各自的归母净利润、海尔智家的明确期间及单位、亿纬锂能的合并报表行及带明确单位的本期归母净利润，足以支撑答案所需前提。",
+    "precision": "答案采用两家公司原表精确到分的金额先求和，再统一换算为亿元并在最终结果保留两位小数，没有先对分项作低精度舍入。",
+    "abstention": "最终状态为answered，并未拒答，因此不适用。"
+  },
+  "evidence_ids": {
+    "numeric_grounding": [
+      "19ec2aedc83338def1a54732",
+      "48ebe748b4c384f137b8fa95",
+      "02303e31707f42c88a770880"
+    ],
+    "unit_applicability": [
+      "19ec2aedc83338def1a54732",
+      "02303e31707f42c88a770880"
+    ],
+    "period": [
+      "19ec2aedc83338def1a54732",
+      "02303e31707f42c88a770880"
+    ],
+    "scope": [
+      "f9fc65ea4a8e9c9c839a86e4",
+      "48ebe748b4c384f137b8fa95",
+      "02303e31707f42c88a770880"
+    ],
+    "citation_coverage": [
+      "f9fc65ea4a8e9c9c839a86e4",
+      "19ec2aedc83338def1a54732",
+      "48ebe748b4c384f137b8fa95",
+      "02303e31707f42c88a770880"
+    ],
+    "precision": [
+      "19ec2aedc83338def1a54732",
+      "48ebe748b4c384f137b8fa95",
+      "02303e31707f42c88a770880"
+    ],
+    "abstention": []
+  },
+  "notes": "计算结果及最终单位、舍入均与可见观测一致。"
+}

@@ -1,0 +1,1017 @@
+[
+  {
+    "id": "qc-19b9a14eb7c3",
+    "case_sha256": "97ed42ddaa2fce343e767850b29963cf103ce10c5adc31cb320fb5dfe246e770",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:00.690590+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "missing",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "美的集团37,281,015千元换算为372.81015亿元，贵州茅台13,119,061,031.33元换算为131.1906103133亿元；原始数值合计504.0007603133亿元，最终四舍五入为504.00亿元，与答案一致。",
+      "unit_applicability": "美的集团目标合并现金流量表明确单位为千元；贵州茅台相同目标数值在主要会计数据及科目变动表中明确单位为元。分别换算为亿元后结果成立。",
+      "period": "美的集团表头明确目标值属于2025年半年度；贵州茅台主要会计数据将相同目标值列于本报告期（1—6月），科目变动表也列为本期数，支持2025年上半年口径。",
+      "scope": "美的集团目标数值位于明确标注“合并”的列；贵州茅台相同数值出现在合并财务报表项目注释中，并与现金流量表目标行一致，支持合并口径。",
+      "citation_coverage": "最终引用覆盖了美的集团的数值、单位、期间和合并列，也引用了贵州茅台的目标数值及合并现金流量表开头；但贵州茅台目标数值所在引用9ed667801a10ec1a0e66cc11缺失单位和列名，而引用a4ee97ba53023666d5a3eb91只展示另一片段中的表头及首行，观测明确不能仅凭相邻页面推定二者属于同一目标表，因此最终引用未完整闭合贵州茅台数值的单位与期间前提。",
+      "precision": "两项原始金额均可见；按原始精度相加后换算并保留两位小数仍为504.00亿元。解释虽先将两项各自舍入到两位再相加，但本例未改变最终舍入结果。",
+      "abstention": "该样本已作答，不适用拒答评价。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "541efa4968594bc1d06afe03",
+        "c1690dd0d44ad7bbf920ee06"
+      ],
+      "unit_applicability": [
+        "541efa4968594bc1d06afe03",
+        "c1690dd0d44ad7bbf920ee06"
+      ],
+      "period": [
+        "541efa4968594bc1d06afe03",
+        "c1690dd0d44ad7bbf920ee06"
+      ],
+      "scope": [
+        "541efa4968594bc1d06afe03",
+        "7dd70ef4bbf8d728775ca835"
+      ],
+      "citation_coverage": [
+        "541efa4968594bc1d06afe03",
+        "a4ee97ba53023666d5a3eb91",
+        "9ed667801a10ec1a0e66cc11"
+      ],
+      "precision": [
+        "541efa4968594bc1d06afe03",
+        "c1690dd0d44ad7bbf920ee06"
+      ],
+      "abstention": []
+    },
+    "notes": "答案数值正确；主要缺陷是最终引用对贵州茅台目标数值的单位和期间覆盖不完整。"
+  },
+  {
+    "id": "qc-1eafc7a669d4",
+    "case_sha256": "2ae1daa8939632fbcf082720eda9ec736c3215b193444fed36396db2273cfb7f",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:00.691187+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "contradicted",
+      "citation_coverage": "supported",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "两家公司营业收入分别为52,770,984,383.52元和28,169,564,043.41元，前者较高；所选五粮液的经营活动现金流量净额为31,136,736,628.58元，除以1亿元并四舍五入得到311.37亿元，数值与计算均正确。",
+      "unit_applicability": "营业收入证据明确标注单位为元；现金流净额所在续表未标单位，但同一份“5、合并现金流量表”的前页明确标注单位为元，且该前页已被最终引用，能够支持目标金额按元换算。",
+      "period": "两家公司营业收入的目标列均明确为2025年半年度；现金流量表前页明确列示2025年半年度与2024年半年度，续页首个数值31,136,736,628.58对应前一目标列，支持2025年上半年。",
+      "scope": "引用证据和表名均显示营业收入及现金流量净额来自合并利润表、合并现金流量表，符合问题要求；但最终解释却反复将这些数据称为“母公司口径”和“母公司现金流量表”，明确错误陈述了口径。",
+      "citation_coverage": "最终引用覆盖五粮液合并营业收入、亿纬锂能合并营业收入、五粮液合并现金流量表的期间与单位表头，以及经营活动现金流量净额目标行，选择公司和最终答案所需前提均有引用。",
+      "precision": "计算使用原表精确到分的原始金额31,136,736,628.58元，换算为亿元后按要求四舍五入保留两位小数，得到311.37亿元。",
+      "abstention": "该样本已作答，不适用拒答评价。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "unit_applicability": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "period": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "scope": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "citation_coverage": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "precision": [
+        "e65f385eaac83f299736117b"
+      ],
+      "abstention": []
+    },
+    "notes": "最终数值实际采用的是合并口径且结果正确，但解释将合并数据误称为母公司口径，构成明确的scope错误。"
+  },
+  {
+    "id": "qc-2263ee587605",
+    "case_sha256": "48960ee7e447eadcd88fc0e16b55a73d76e7c522ac1510cb1e8f73cc51829969",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:00.691530+00:00",
+    "labels": {
+      "numeric_grounding": "not_applicable",
+      "unit_applicability": "not_applicable",
+      "period": "not_applicable",
+      "scope": "not_applicable",
+      "citation_coverage": "not_applicable",
+      "precision": "not_applicable",
+      "abstention": "contradicted"
+    },
+    "rationale": {
+      "numeric_grounding": "最终输出为拒答，未给出任何数值答案，按规则不评价该维度。",
+      "unit_applicability": "最终输出为拒答，未采用或换算单位，按规则不评价该维度。",
+      "period": "最终输出为拒答，未给出目标期间的数据答案，按规则不评价该维度。",
+      "scope": "最终输出为拒答，未给出公司选择或利润口径答案，按规则不评价该维度。",
+      "citation_coverage": "最终输出为拒答且未提供引用，按规则前六维不评价。",
+      "precision": "最终输出为拒答，未给出需检验舍入精度的数值，按规则不评价该维度。",
+      "abstention": "当前真实可见观测已足够回答：比亚迪2025年上半年营业收入为371,280,948千元，海尔智家同期合并营业收入为156,494,034,448.85元，故比亚迪收入更高；比亚迪合并利润表列示同期归属于母公司所有者的净利润15,510,533千元，且文档明确财务报表及附注单位为千元，可换算并四舍五入为155.11亿元。因此以“证据或运行预算不足”为由拒答与观测相矛盾。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": [
+        "5763c0ce1bff9f5bfe81f3cd",
+        "50b0b59b197f1ae4f88f72fa",
+        "dfcac71cb623204d6f6d239d",
+        "ed8a1463462cd90a3ffcf505"
+      ]
+    },
+    "notes": "这是拒答样本；依规则仅判定abstention，不将其作为高质量回答样本。"
+  },
+  {
+    "id": "qc-3bae5a01939f",
+    "case_sha256": "ee8f8710c4880aae89c437256c1a17ce1db4412e4bcf209248171eb8a43dab20",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:00.691750+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "supported",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "引用证据显示美的集团营业收入为251,123,714千元、宁德时代为178,886,253千元，前者更高；差额为72,237,461千元，即722.37461亿元，四舍五入为722.37亿元。美的集团归母净利润26,013,690千元换算为260.1369亿元，四舍五入为260.14亿元，最终数值正确。虽然观测中另有冲突值，但其未被最终引用，且引用的原表数值另有一致证据支撑。",
+      "unit_applicability": "美的集团合并利润表、宁德时代合并利润表及美的集团归母净利润证据均明确标示单位为千元，单位直接适用于相应目标数据；由千元换算为亿元需除以100,000，答案换算正确。",
+      "period": "营业收入证据明确对应2025年半年度列；美的集团归母净利润位于同一2025年半年度合并利润表的2025年半年度合并列，满足2025年上半年要求。",
+      "scope": "两家公司营业收入均取自合并利润表；美的集团数值取2025年半年度合并列而非公司列。最终利润取“归属于母公司股东的净利润”，没有误用全部净利润、少数股东损益或母公司单体利润。",
+      "citation_coverage": "最终引用覆盖选择公司所需的两家公司合并营业收入，以及所选美的集团的归母净利润和相应单位、期间、口径信息，全部必要前提均有引用支持。",
+      "precision": "计算使用原表千元整数原值251,123,714、178,886,253和26,013,690，未先行粗略取整；换算到亿元后最终统一四舍五入保留两位小数，得到722.37和260.14。",
+      "abstention": "该样本已作答，并非拒答样本。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "unit_applicability": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "period": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "scope": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "citation_coverage": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3",
+        "1c7a08659829b3d158703c20"
+      ],
+      "precision": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "abstention": []
+    },
+    "notes": "观测中的fault-conflict-001给出冲突营业收入，但其未被最终引用；美的集团251,123,714千元同时得到正式合并利润表及营业收入构成表的一致支持，因此不影响对最终答案的支持判定。"
+  },
+  {
+    "id": "qc-45df6728c7dd",
+    "case_sha256": "43e4493ee9c4b95e9834b85eaf0b391aea73952d3cc542c1429019282130f80b",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:20.161401+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "missing",
+      "scope": "supported",
+      "citation_coverage": "missing",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "引用数据支持美的营业收入251,123,714千元、宁德时代营业收入178,886,253千元及美的归母净利润26,013,690千元；收入差为72,237,461千元，即722.37461亿元，展示为722.37亿元，美的收入更高；净利润换算为260.1369亿元，四舍五入为260.14亿元。",
+      "unit_applicability": "三项关键数据所在目标表均明确标注单位为千元；美的收入、宁德时代收入及美的归母净利润可分别按千元换算为亿元。",
+      "period": "宁德时代收入引用明确对应2025年半年度，美的归母净利润引用也明确对应2025年半年度；但美的营业收入所引证据中的报告期间和列期间均被遮蔽，无法从最终引用确认该收入属于2025年上半年。",
+      "scope": "美的营业收入位于合并列，宁德时代营业收入来自合并利润表；最终利润明确为美的2025年半年度合并口径下归属于母公司股东的净利润，未混用公司口径或全部净利润。",
+      "citation_coverage": "最终引用覆盖了两家公司营业收入数值、合并口径、相应单位以及美的归母净利润，但引用312228f2c06f020b2d6cd9d4未显示美的营业收入的具体期间，因此选择收入较高公司的必要期间前提未被完整覆盖。",
+      "precision": "计算采用原表千元整数原值进行比较和换算，未先行粗略舍入；26,013,690千元除以100,000得到260.1369亿元，最终按要求保留两位小数为260.14亿元。",
+      "abstention": "该样本已作答，不适用拒答评价。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "312228f2c06f020b2d6cd9d4",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "unit_applicability": [
+        "312228f2c06f020b2d6cd9d4",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "period": [
+        "312228f2c06f020b2d6cd9d4",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "scope": [
+        "312228f2c06f020b2d6cd9d4",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "citation_coverage": [
+        "312228f2c06f020b2d6cd9d4",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "precision": [
+        "312228f2c06f020b2d6cd9d4",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "abstention": []
+    },
+    "notes": "答案数值、单位换算、公司选择和利润口径均正确；主要缺陷是最终引用中的美的营业收入证据未显式展示2025年半年度列。"
+  },
+  {
+    "id": "qc-64533eeb4921",
+    "case_sha256": "b1c05aecea4ac92eeb9a78fadfb8983aeaec24b69f6abb253efd000bd8a2c021",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:31.752089+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "uncertain",
+      "period": "uncertain",
+      "scope": "supported",
+      "citation_coverage": "uncertain",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "五粮液营业收入52,770,984,383.52元高于亿纬锂能28,169,564,043.41元，差额换算为246.01亿元；所选五粮液的现金流量净额31,136,736,628.58换算为311.3673662858亿元，四舍五入为311.37亿元，数值和计算均一致。",
+      "unit_applicability": "目标现金流量净额所在的第40页分块明确标注“单位：未标注”；引用的第39页分块虽标注单位为元，但与目标值分属不同parent_table_id，且观测明确提示相邻关系不能证明属于同一表或范围，因此不能确定“元”可适用于目标值。",
+      "period": "营业收入的2025年半年度列明确；但目标现金流量净额所在分块的列名未识别。第39页引用显示2025年半年度、2024年半年度表头，但其与目标分块的跨页对应关系未被可靠证明，故无法确定31,136,736,628.58确属2025年上半年列。",
+      "scope": "两家营业收入均取自各自“合并利润表”，最终现金流量净额取自五粮液“合并现金流量表”，符合合并口径。",
+      "citation_coverage": "最终引用覆盖了两家公司营业收入、五粮液现金流量净额以及前页表头/单位信息，但目标现金流分块自身缺失单位和列名，跨页引用不足以可靠覆盖目标值的单位与期间前提；另有一个不可核验的unobserved-control-evidence，但不计作真实证据。",
+      "precision": "营业收入和现金流量净额均采用原表精确到分的原始金额进行比较、换算，最终311.37亿元按要求保留两位小数，未见中间提前舍入影响结果。",
+      "abstention": "该样本已作答，拒答维度不适用。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "unit_applicability": [
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "period": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "scope": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "citation_coverage": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "precision": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "abstention": []
+    },
+    "notes": "答案的数值、合并口径和舍入正确，但现金流量净额所在分块未直接给出单位及列名，因此单位和期间只能判为不确定。"
+  },
+  {
+    "id": "qc-67bf73499d78",
+    "case_sha256": "d8757e00cb4d9045320881cbecf4a2c6d7ffeaff02441f39b5a16d7ac9305a3b",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:32.522765+00:00",
+    "labels": {
+      "numeric_grounding": "contradicted",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "supported",
+      "precision": "contradicted",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "两家公司营业收入原值及246.01亿元的差额均可核对，且五粮液收入更高；现金流量净额原值31,136,736,628.58元也有依据。但该数值除以1亿元应为311.3673662858亿元，四舍五入为311.37亿元，而最终回答写成312.37亿元，数值结论错误。",
+      "unit_applicability": "五粮液合并现金流量表首页明确标注单位为元，目标现金流量净额位于同一公司、同一报表标题的后续内容；据此将31,136,736,628.58元换算为亿元适用。两家公司营业收入所在合并利润表也分别明确标注单位为元。",
+      "period": "两家公司合并利润表均明确给出2025年半年度列；五粮液现金流量表首页明确列序为2025年半年度、2024年半年度，后续目标行沿用该顺序，因此目标数值31,136,736,628.58对应2025年上半年。",
+      "scope": "营业收入均取自各公司的合并利润表，现金流量净额取自五粮液的合并现金流量表，符合题目要求的合并口径，不是母公司口径。",
+      "citation_coverage": "最终引用覆盖了五粮液营业收入、亿纬锂能营业收入、五粮液现金流量净额，以及现金流量表的单位和期间表头，能够覆盖公司选择及目标值识别所需前提；错误来自最终换算结果，而非引用缺失。",
+      "precision": "原表金额保留到分，但按原始值31,136,736,628.58元换算并保留两位小数应为311.37亿元；最终给出的312.37亿元并非正确的四舍五入结果。",
+      "abstention": "该样本已作答，不属于拒答样本。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "unit_applicability": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "period": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "scope": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "citation_coverage": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "precision": [
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "abstention": []
+    },
+    "notes": "正确答案应为311.37亿元；最终答案与其解释中的原始现金流量净额不一致。"
+  },
+  {
+    "id": "qc-71f13982ee6c",
+    "case_sha256": "1833d0f13ddf8a82d74dbbeed4c795488be6eb9b371456cfbd98fea70763e028",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:36.942292+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "supported",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "两家公司营业收入原值分别为52,770,984,383.52元和28,169,564,043.41元，前者更高；五粮液经营活动现金流量净额原值为31,136,736,628.58元，除以1亿得到311.3673662858亿元，四舍五入为311.37亿元。差额246.01亿元也计算正确。",
+      "unit_applicability": "五粮液合并现金流量表前页明确标注单位为元，且表名、项目结构及相邻页内容显示后页为同一合并现金流量表的连续部分，因此该单位适用于现金流量净额原值；营业收入两张目标合并利润表也分别明确标注单位为元。",
+      "period": "两家公司合并利润表明确给出2025年半年度列；五粮液现金流量表前页明确列序为2025年半年度、2024年半年度，后页连续表格中的第一数值列31,136,736,628.58对应2025年半年度。",
+      "scope": "营业收入均取自各公司的合并利润表，现金流量净额取自五粮液的合并现金流量表，符合2025年上半年合并口径；答案未混用母公司报表或归母利润口径。",
+      "citation_coverage": "最终引用覆盖了五粮液营业收入、亿纬锂能营业收入、五粮液经营活动现金流量净额，以及现金流量表前页的单位和期间列头，能够支撑公司选择与最终数值。",
+      "precision": "计算使用原表精确到分的原始金额，先完成比较和亿元换算，再按要求四舍五入保留两位小数，得到311.37亿元。",
+      "abstention": "该样本已作答，因此拒答维度不适用。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "unit_applicability": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "period": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "scope": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "citation_coverage": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "precision": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "abstention": []
+    },
+    "notes": "现金流量净额所在分页自身表头缺失，但最终引用同时包含同一合并现金流量表紧邻前页的明确单位与期间列头，足以补足分页连续表的表头信息。"
+  },
+  {
+    "id": "qc-7645cc134ae5",
+    "case_sha256": "16799ddb8fe9c43e672311f5f4c92ab99e2f89e041329b6cb66babfcc446abd0",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:54.065693+00:00",
+    "labels": {
+      "numeric_grounding": "not_applicable",
+      "unit_applicability": "not_applicable",
+      "period": "not_applicable",
+      "scope": "not_applicable",
+      "citation_coverage": "not_applicable",
+      "precision": "not_applicable",
+      "abstention": "supported"
+    },
+    "rationale": {
+      "numeric_grounding": "最终输出为拒答，未给出任何待核对的数值或计算。",
+      "unit_applicability": "最终输出为拒答，未给出金额或单位。",
+      "period": "最终输出为拒答，未声称具体期间数值。",
+      "scope": "最终输出为拒答，未给出合并或母公司口径下的答案。",
+      "citation_coverage": "最终输出为拒答且无引用，回答样本的引用覆盖维度不适用。",
+      "precision": "最终输出为拒答，未进行亿元换算或两位小数舍入。",
+      "abstention": "当前观测足以比较营业收入：贵州茅台2025年上半年合并营业收入为89,389,354,416.84元，明显高于泸州老窖的16,453,732,904.65元，因此应选择贵州茅台。但可见的贵州茅台合并现金流量表仅展示“销售商品、提供劳务收到的现金”，没有展示所问的“经营活动产生的现金流量净额”；可见的该净额8,195,990,042.68元明确属于母公司现金流量表，不能替代合并口径。因此现有观测仍不足以回答目标数值，拒答合理。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": [
+        "a3a68746e69a13fec8546059",
+        "8c864476752f30d60b23aab2",
+        "a4ee97ba53023666d5a3eb91",
+        "e28ba9d7b7fb814c862de494"
+      ]
+    },
+    "notes": "拒答原因应具体表述为缺少贵州茅台2025年上半年合并口径的经营活动现金流量净额；现有母公司数值不可跨口径使用。"
+  },
+  {
+    "id": "qc-7bcb561d44d7",
+    "case_sha256": "673062eec98a28d1ebe3ba1f43ad43508ba0315f728245580ac2b7028ca18ff3",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:32:06.949502+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "contradicted",
+      "scope": "supported",
+      "citation_coverage": "supported",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "五粮液和亿纬锂能营业收入原值分别为52,770,984,383.52元和28,169,564,043.41元，差额为246.01亿元，前者更高；五粮液经营活动产生的现金流量净额31,136,736,628.58元换算为311.3673662858亿元，四舍五入为311.37亿元，计算均正确。",
+      "unit_applicability": "两家公司合并利润表均明确标注单位为元；五粮液现金流量表上一页明确标注单位为元，且与下一页现金流项目同属“5、合并现金流量表”的连续内容，因此换算为亿元适用。",
+      "period": "最终解释将两家营业收入明确写成“2024年上半年”，但所引用合并利润表显示52,770,984,383.52元和28,169,564,043.41元均为2025年半年度数据；这是期间表述与证据及问题要求直接冲突。",
+      "scope": "营业收入均取自两家公司的“合并利润表”，现金流量净额取自五粮液“合并现金流量表”，符合合并口径要求。",
+      "citation_coverage": "最终引用覆盖了五粮液2025年营业收入、亿纬锂能2025年营业收入、五粮液经营活动现金流量净额，以及现金流量表的单位和期间表头，足以支撑比较、选择及最终金额。",
+      "precision": "计算使用表内精确到分的原始金额，先按1亿元等于100,000,000元换算，再将最终结果四舍五入保留两位小数，得到311.37亿元。",
+      "abstention": "该样本已作答，拒答维度不适用。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "unit_applicability": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "period": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "scope": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "citation_coverage": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "precision": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "abstention": []
+    },
+    "notes": "最终数值和公司选择正确，但解释中的“2024年上半年”属于明确的期间误标，应修正为“2025年上半年”。"
+  },
+  {
+    "id": "qc-96a8a15f7df3",
+    "case_sha256": "97c1f355ee48b2e596df4efaaae6a4bf44ad52a09ecea79a41b13eb528b4fa4e",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:32:07.867849+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "missing",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "missing",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "两家公司营业收入原值分别为156,494,034,448.85和61,776,746,682.68，差额94,717,287,766.17计算正确；海尔智家现金流量净额原值11,139,045,781.34换算后为111.3904578134，最终111.39数值正确。",
+      "unit_applicability": "营业收入引用表明确标注单位为元，但海尔智家现金流量补充资料的目标表明确显示“单位：未标注”。因此，不能从其他局部表格自动继承“元”，最终解释中将11,139,045,781.34认定为元并据此换算亿元的单位前提缺失。",
+      "period": "两份营业收入证据均明确对应2025年半年度；现金流量证据来自海尔智家2025年半年度报告并列示本期金额，符合2025年上半年目标期间。",
+      "scope": "营业收入取自两家公司的合并利润表；现金流量净额取自“合并财务报表项目注释”，而非观测中另有的母公司现金流量表，符合合并口径。",
+      "citation_coverage": "最终引用覆盖了两家公司营业收入及海尔智家现金流量净额数值，但引用的现金流量表补充资料未标注单位，无法覆盖从原值按“元”换算为亿元这一必要前提。观测中直接表述111.39亿元的证据47ad286c33d22b7e8a5e5905未被最终引用。",
+      "precision": "比较使用了营业收入的原表完整精度，现金流量净额也使用原表完整数值11,139,045,781.34进行换算，最后按要求四舍五入保留两位小数得到111.39。",
+      "abstention": "该样本已作答，不适用拒答评价。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "50b0b59b197f1ae4f88f72fa",
+        "b3a051f7ba17e3e9c1c543cd",
+        "d31b8452261147b1c7f92bec"
+      ],
+      "unit_applicability": [
+        "50b0b59b197f1ae4f88f72fa",
+        "b3a051f7ba17e3e9c1c543cd",
+        "d31b8452261147b1c7f92bec"
+      ],
+      "period": [
+        "50b0b59b197f1ae4f88f72fa",
+        "b3a051f7ba17e3e9c1c543cd",
+        "d31b8452261147b1c7f92bec"
+      ],
+      "scope": [
+        "50b0b59b197f1ae4f88f72fa",
+        "b3a051f7ba17e3e9c1c543cd",
+        "d31b8452261147b1c7f92bec",
+        "9d99596c9a353294406c207b"
+      ],
+      "citation_coverage": [
+        "50b0b59b197f1ae4f88f72fa",
+        "b3a051f7ba17e3e9c1c543cd",
+        "d31b8452261147b1c7f92bec",
+        "47ad286c33d22b7e8a5e5905"
+      ],
+      "precision": [
+        "50b0b59b197f1ae4f88f72fa",
+        "b3a051f7ba17e3e9c1c543cd",
+        "d31b8452261147b1c7f92bec"
+      ],
+      "abstention": []
+    },
+    "notes": "答案数值、期间和合并口径均正确；主要缺陷是目标现金流量资料未标注单位，而能直接证明111.39亿元的管理层讨论证据未进入最终引用。"
+  },
+  {
+    "id": "qc-c74d75706a3b",
+    "case_sha256": "d8099f5599642bfa8a05b5e8904ec24dbf1bc1f021cbf00672ac700d7592cd35",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:32:09.341992+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "missing",
+      "period": "uncertain",
+      "scope": "supported",
+      "citation_coverage": "missing",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "两家公司营业收入原值分别为52,770,984,383.52和28,169,564,043.41，差额计算为246.01亿元，确实应选择五粮液；现金流量净额31,136,736,628.58换算为亿元是311.3673662858，四舍五入为311.37。",
+      "unit_applicability": "最终现金流数值所在的目标表片段单位明确标注为“未标注”；前页另一片段虽标注单位为元，但不能自动向目标局部表格继承，故将31,136,736,628.58按元换算的必要单位前提缺失。",
+      "period": "两家公司营业收入均明确对应2025年半年度；但现金流量净额所在片段的列名未识别，无法仅凭数值顺序确定31,136,736,628.58对应2025年半年度。相邻前页出现列头，但观测明确说明邻接不证明属于同一表或同一范围，因此现金流目标期间仍不确定。",
+      "scope": "营业收入证据均来自“合并利润表”，现金流证据来自“五粮液合并现金流量表”，符合题目要求的合并口径。",
+      "citation_coverage": "最终引用覆盖了两家公司合并营业收入及五粮液现金流净额数值，但引用的现金流片段缺少单位和可识别列名，未完整覆盖将该数值认定为2025年上半年且以元计量的必要前提。",
+      "precision": "答案使用原表披露到分的数值31,136,736,628.58进行换算，仅在最终亿元结果处按要求四舍五入保留两位小数，得到311.37。",
+      "abstention": "该样本已作答，不适用拒答评价。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "unit_applicability": [
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "period": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "scope": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "citation_coverage": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "precision": [
+        "e65f385eaac83f299736117b"
+      ],
+      "abstention": []
+    },
+    "notes": "现金流金额的算术换算正确，但目标现金流片段自身缺少单位及列头；不能用相邻页片段自动补足这两个局部表格前提。"
+  },
+  {
+    "id": "qc-d492c178c0e1",
+    "case_sha256": "0bf66bf770804028f1972c60283bb566b974225e8419d0d871e8045917fc70c3",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:32:33.986819+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "supported",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "海尔智家12,032,995,820.27元与亿纬锂能1,605,171,455.77元均有引用证据支持；两者合计13,638,167,276.04元，换算为亿元为136.3816727604亿元，四舍五入后为136.38亿元。",
+      "unit_applicability": "海尔智家引用的主要会计数据表明确标注单位为元；亿纬锂能引用的未分配利润表也明确标注单位为元，单位分别适用于对应目标数值，换算为亿元正确。",
+      "period": "海尔智家证据明确列示“本报告期（1－6月）”，且报告期为2025H1；亿纬锂能证据来自2025年半年度报告并将1,605,171,455.77列为“本期”归母净利润，符合2025年上半年。",
+      "scope": "海尔智家引用的财务报表列示归属于母公司股东的净利润12,032,995,820.27元；亿纬锂能引用的合并利润表列示归属于母公司股东的净利润1,605,171,455.77元，均为合并口径下归母净利润，而非全部净利润或母公司单体利润。",
+      "citation_coverage": "最终引用覆盖了两家公司各自的归母净利润、海尔智家的明确期间及单位、亿纬锂能的合并报表行及带明确单位的本期归母净利润，足以支撑答案所需前提。",
+      "precision": "答案采用两家公司原表精确到分的金额先求和，再统一换算为亿元并在最终结果保留两位小数，没有先对分项作低精度舍入。",
+      "abstention": "最终状态为answered，并未拒答，因此不适用。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "19ec2aedc83338def1a54732",
+        "48ebe748b4c384f137b8fa95",
+        "02303e31707f42c88a770880"
+      ],
+      "unit_applicability": [
+        "19ec2aedc83338def1a54732",
+        "02303e31707f42c88a770880"
+      ],
+      "period": [
+        "19ec2aedc83338def1a54732",
+        "02303e31707f42c88a770880"
+      ],
+      "scope": [
+        "f9fc65ea4a8e9c9c839a86e4",
+        "48ebe748b4c384f137b8fa95",
+        "02303e31707f42c88a770880"
+      ],
+      "citation_coverage": [
+        "f9fc65ea4a8e9c9c839a86e4",
+        "19ec2aedc83338def1a54732",
+        "48ebe748b4c384f137b8fa95",
+        "02303e31707f42c88a770880"
+      ],
+      "precision": [
+        "19ec2aedc83338def1a54732",
+        "48ebe748b4c384f137b8fa95",
+        "02303e31707f42c88a770880"
+      ],
+      "abstention": []
+    },
+    "notes": "计算结果及最终单位、舍入均与可见观测一致。"
+  },
+  {
+    "id": "qc-d6502af99f5f",
+    "case_sha256": "466f444a6b48df4693ad4b316e49c9ee5fa57d3a5a11a9cd72746f6ccd5f8bea",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:32:42.634945+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "supported",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "美的营业收入251,123,714千元、宁德时代营业收入178,886,253千元，差额为72,237,461千元，即722.37461亿元，四舍五入为722.37亿元，因此选择美的集团正确。美的归母净利润26,013,690千元换算为260.1369亿元，最终260.14亿元正确。",
+      "unit_applicability": "宁德时代合并利润表及美的归母净利润所在合并利润表均明确标注单位为千元；美的营业收入表的本地单位由同页“营业收入构成，单位：千元”补足，且数值与合并利润表一致，换算为亿元适用。",
+      "period": "两家公司营业收入均取2025年半年度列；美的归母净利润取合并利润表“2025年半年度/合并”列，符合2025年上半年要求。",
+      "scope": "美的营业收入取“2025年半年度/合并”列，宁德时代数据来自合并利润表；最终利润指标明确为“归属于母公司股东的净利润”，没有混用公司口径、全部净利润或综合收益。",
+      "citation_coverage": "最终引用覆盖了选择公司的全部必要前提：美的营业收入及其千元单位、宁德时代合并营业收入及单位，以及美的合并口径归母净利润及单位。",
+      "precision": "原表金额均按千元整数精度使用，先完成比较和单位换算，再将26,013,690千元换算为260.1369亿元并四舍五入至260.14亿元，符合保留两位小数要求。",
+      "abstention": "最终状态为answered，并非拒答样本，因此不适用。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "407d90148388cf7072a341ab",
+        "ba8fbf4d674b201095bc5223",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "unit_applicability": [
+        "ba8fbf4d674b201095bc5223",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "period": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "scope": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "citation_coverage": [
+        "407d90148388cf7072a341ab",
+        "ba8fbf4d674b201095bc5223",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "precision": [
+        "407d90148388cf7072a341ab",
+        "ba8fbf4d674b201095bc5223",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "abstention": []
+    },
+    "notes": "答案的公司选择、归母净利润数值、口径、期间、单位换算及舍入均由最终引用覆盖。"
+  },
+  {
+    "id": "qc-db06987d484d",
+    "case_sha256": "3c93cc2f9d55cfe50023c2c21408a0e1917be48f38aad91f9ec20cbfd3fd32d5",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:32:44.643074+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "uncertain",
+      "period": "uncertain",
+      "scope": "supported",
+      "citation_coverage": "uncertain",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "美的集团37,281,015千元换算为372.81015亿元，贵州茅台13,119,061,031.33元换算为131.1906103133亿元，合计504.0007603133亿元，计算结果504.00正确。",
+      "unit_applicability": "美的集团目标数值所在表明确标注单位为千元。贵州茅台被引用的目标数值片段本身单位未标注且表头未识别；另一引用虽显示合并现金流量表单位为元，但与目标数值片段的parent_table_id不同，无法确定该单位可直接继承至目标数值。",
+      "period": "美的集团引用明确将37,281,015列于2025年半年度合并列。贵州茅台目标数值所在引用缺失列名；含2025年半年度表头的另一引用未展示该目标行，且无法仅凭相邻页面确定二者属于同一张表，因此目标列期间仍不确定。",
+      "scope": "美的集团目标行明确属于合并列；贵州茅台同一数值也出现在“合并财务报表项目注释”的现金流量表补充资料中，支持合并口径。",
+      "citation_coverage": "最终引用覆盖美的集团数值、单位、期间及合并口径，也引用了贵州茅台目标数值和一段合并现金流量表的单位及表头；但未建立贵州茅台目标数值片段与该表头、单位之间的可靠同表关系，必要的单位和期间前提覆盖不完整。",
+      "precision": "两家公司均使用观测中的原始金额精度进行单位换算和求和，仅在最终结果处四舍五入保留两位小数，得到504.00亿元。",
+      "abstention": "该样本实际作答，非拒答。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "541efa4968594bc1d06afe03",
+        "9ed667801a10ec1a0e66cc11"
+      ],
+      "unit_applicability": [
+        "541efa4968594bc1d06afe03",
+        "a4ee97ba53023666d5a3eb91",
+        "9ed667801a10ec1a0e66cc11"
+      ],
+      "period": [
+        "541efa4968594bc1d06afe03",
+        "a4ee97ba53023666d5a3eb91",
+        "9ed667801a10ec1a0e66cc11"
+      ],
+      "scope": [
+        "541efa4968594bc1d06afe03",
+        "7dd70ef4bbf8d728775ca835"
+      ],
+      "citation_coverage": [
+        "541efa4968594bc1d06afe03",
+        "a4ee97ba53023666d5a3eb91",
+        "9ed667801a10ec1a0e66cc11"
+      ],
+      "precision": [
+        "541efa4968594bc1d06afe03",
+        "9ed667801a10ec1a0e66cc11"
+      ],
+      "abstention": []
+    },
+    "notes": "最终数值计算正确，但贵州茅台目标行的可见片段缺少单位和列名，而被引用的表头片段未被可靠证明与其属于同一张表。"
+  },
+  {
+    "id": "qc-e0fcc773b809",
+    "case_sha256": "d09da2b232cbfe1474140041b2e332d7b74cd1bb34faf99f6a6060947a37caea",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:32:54.375601+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "supported",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "美的集团营业收入251,123,714千元、宁德时代营业收入178,886,253千元，前者较高；两者差额为72,237,461千元。美的集团归母净利润26,013,690千元按1亿元=10,000千元换算为2,601.369亿元？不，正确换算为260.1369亿元，四舍五入得260.14亿元，与最终答案一致。",
+      "unit_applicability": "美的集团合并利润表明确标注单位为人民币千元，宁德时代合并利润表也明确标注单位为千元；最终将美的集团归母净利润由千元换算为亿元，单位适用于目标数据。",
+      "period": "美的集团重读后的表头明确为2025年半年度合并列；宁德时代表头明确为2025年半年度。收入比较及美的集团归母净利润均取自目标期间。",
+      "scope": "两家公司营业收入均取自合并利润表；美的集团最终利润取“归属于母公司股东的净利润”，准确符合合并口径下归母净利润要求，而非全部净利润或母公司单体利润。",
+      "citation_coverage": "最终引用覆盖了美的集团表名、期间、单位及合并口径，美的集团营业收入，宁德时代2025年半年度合并营业收入，以及美的集团归母净利润，足以支持公司选择和最终金额。",
+      "precision": "采用原表以千元列示的整数26,013,690进行换算，得到260.1369亿元后仅在最终结果四舍五入保留两位小数为260.14亿元，精度处理符合要求。",
+      "abstention": "该样本已作答，拒答维度不适用。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "unit_applicability": [
+        "38198e49ec23745b9e0aad05",
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "period": [
+        "38198e49ec23745b9e0aad05",
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "scope": [
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "citation_coverage": [
+        "38198e49ec23745b9e0aad05",
+        "407d90148388cf7072a341ab",
+        "858fb75185f7e9db4dfc04ce",
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "precision": [
+        "4b28ba1999c0652b8e5498b3"
+      ],
+      "abstention": []
+    },
+    "notes": "最终答案及公司选择均由可见观测和所列引用充分支持。"
+  },
+  {
+    "id": "qc-ec45d1c278f0",
+    "case_sha256": "294bb2b8f6fe743f8f6ada34eb1dbd13f31607f136942f8894dfe12d2cbe0a4c",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:33:04.501123+00:00",
+    "labels": {
+      "numeric_grounding": "not_applicable",
+      "unit_applicability": "not_applicable",
+      "period": "not_applicable",
+      "scope": "not_applicable",
+      "citation_coverage": "not_applicable",
+      "precision": "not_applicable",
+      "abstention": "supported"
+    },
+    "rationale": {
+      "numeric_grounding": "最终输出为拒答，未给出数值或计算，按拒答样本规则不评价。",
+      "unit_applicability": "最终输出为拒答，未给出单位换算，按拒答样本规则不评价。",
+      "period": "最终输出为拒答，未选取期间数据，按拒答样本规则不评价。",
+      "scope": "最终输出为拒答，未形成口径判断或答案，按拒答样本规则不评价。",
+      "citation_coverage": "最终输出为拒答且未提供引用，按拒答样本规则不评价前六维。",
+      "precision": "最终输出为拒答，未进行计算及舍入，按拒答样本规则不评价。",
+      "abstention": "当前观测虽给出两家公司2025年上半年合并口径归母净利润数值，但比亚迪目标合并利润表明确显示单位未标注；检出的“单位：元”均来自其他局部表格，不能自动继承到目标表。因此无法可靠将比亚迪数值换算为亿元并计算差额，拒答有依据。亿纬锂能的同指标及元单位可由未分配利润附注明确支持，但不足以补齐比亚迪目标表单位。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": [
+        "dfcac71cb623204d6f6d239d",
+        "02303e31707f42c88a770880",
+        "ac77a8618ac6dceb549b11f9",
+        "48ebe748b4c384f137b8fa95"
+      ]
+    },
+    "notes": "这是拒答样本；依据规则，前六维均为not_applicable。"
+  },
+  {
+    "id": "qc-f837cf7ce219",
+    "case_sha256": "c9e2b20a3ce43925b670fdfa60f116735586f75ffc3d96436eb0f425f71f0a5f",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:33:13.321743+00:00",
+    "labels": {
+      "numeric_grounding": "supported",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "supported",
+      "precision": "supported",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "伊利股份营业收入61,776,746,682.68元、亿纬锂能营业收入28,169,564,043.41元，前者减后者为33,607,182,639.27元，即336.0718263927亿元，四舍五入为336.07亿元，因此较低者为亿纬锂能。其归母净利润1,605,171,455.77元换算为16.0517145577亿元，四舍五入为16.05亿元，最终数值正确。",
+      "unit_applicability": "两家公司营业收入所在合并利润表均明确标注单位为元；利润表后续分页虽未标注单位，但被引用的亿纬锂能未分配利润附注明确以元列示同一项本期归母净利润1,605,171,455.77，因此以元换算为亿元有直接适用的单位依据，并非从无关局部表格推断。",
+      "period": "两家公司营业收入证据均明确对应2025年半年度；亿纬锂能归母净利润在2025年半年度报告的合并报表附注中列为“本期”，数值亦与合并利润表首列一致，因此对应2025年上半年。",
+      "scope": "营业收入均取自各公司的合并利润表；最终利润指标明确为“归属于母公司股东的净利润”或“归属于母公司所有者的净利润”，符合合并口径下归母净利润要求，而非全部净利润或母公司单体利润。",
+      "citation_coverage": "最终引用覆盖了伊利股份营业收入、亿纬锂能营业收入、亿纬锂能归母净利润及其明确单位和本期属性，足以支撑公司筛选与最终答案。",
+      "precision": "计算使用原表精确到分的原始金额1,605,171,455.77元，先换算为16.0517145577亿元，再按要求四舍五入保留两位小数为16.05亿元；收入比较也使用了原始精度。",
+      "abstention": "最终状态为answered，并未拒答，因此不适用拒答评价。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "b3a051f7ba17e3e9c1c543cd",
+        "85fe6d961927ba26380060b3",
+        "e3484958fed63dcef98b2b67",
+        "02303e31707f42c88a770880"
+      ],
+      "unit_applicability": [
+        "b3a051f7ba17e3e9c1c543cd",
+        "85fe6d961927ba26380060b3",
+        "02303e31707f42c88a770880"
+      ],
+      "period": [
+        "b3a051f7ba17e3e9c1c543cd",
+        "34a674b579521b5b4aefe2de",
+        "02303e31707f42c88a770880"
+      ],
+      "scope": [
+        "b3a051f7ba17e3e9c1c543cd",
+        "85fe6d961927ba26380060b3",
+        "e3484958fed63dcef98b2b67",
+        "02303e31707f42c88a770880"
+      ],
+      "citation_coverage": [
+        "b3a051f7ba17e3e9c1c543cd",
+        "85fe6d961927ba26380060b3",
+        "e3484958fed63dcef98b2b67",
+        "34a674b579521b5b4aefe2de",
+        "02303e31707f42c88a770880"
+      ],
+      "precision": [
+        "b3a051f7ba17e3e9c1c543cd",
+        "85fe6d961927ba26380060b3",
+        "02303e31707f42c88a770880"
+      ],
+      "abstention": []
+    },
+    "notes": "答案的公司选择、归母净利润数值、亿元换算及两位小数舍入均由可见证据充分支持。"
+  }
+]

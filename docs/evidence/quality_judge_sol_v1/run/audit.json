@@ -1,0 +1,324 @@
+{
+  "scope": "input/event/schema/provenance consistency; not semantic correctness",
+  "total": 18,
+  "passed": 18,
+  "unique_sessions": 18,
+  "current_execution_matches": {
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/run_quality_judge.py": true,
+    "src/finmhqa/qa/judge.py": true,
+    "src/finmhqa/qa/calibration.py": true,
+    "src/finmhqa/agent/codex_teacher.py": true,
+    "scripts/score_quality_calibration.py": true
+  },
+  "results": [
+    {
+      "id": "qc-19b9a14eb7c3",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9c-a373-7860-92e0-a107c3d68511",
+      "usage": {
+        "input_tokens": 31038,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1289,
+        "reasoning_output_tokens": 516
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-1eafc7a669d4",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9c-a374-7783-9c73-de25b7e8995f",
+      "usage": {
+        "input_tokens": 33130,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 969,
+        "reasoning_output_tokens": 152
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-2263ee587605",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9c-a38e-7fc1-beff-96c47e255b14",
+      "usage": {
+        "input_tokens": 39767,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 549,
+        "reasoning_output_tokens": 53
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-3bae5a01939f",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9c-a373-7620-958e-8ff2571dc433",
+      "usage": {
+        "input_tokens": 32767,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1027,
+        "reasoning_output_tokens": 134
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-45df6728c7dd",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9c-ef84-7d42-bddd-a6232011d2fb",
+      "usage": {
+        "input_tokens": 34837,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1023,
+        "reasoning_output_tokens": 169
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-64533eeb4921",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9d-1cc9-7bf0-865d-018339cda248",
+      "usage": {
+        "input_tokens": 33135,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1112,
+        "reasoning_output_tokens": 251
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-67bf73499d78",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9d-1fcd-72d1-85f6-7cc783598149",
+      "usage": {
+        "input_tokens": 33335,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1103,
+        "reasoning_output_tokens": 255
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-71f13982ee6c",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9d-310f-7220-af86-7445ada6a2e0",
+      "usage": {
+        "input_tokens": 33336,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1051,
+        "reasoning_output_tokens": 190
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-7645cc134ae5",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9d-73f4-7c53-9600-1626e4558bda",
+      "usage": {
+        "input_tokens": 39033,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 598,
+        "reasoning_output_tokens": 100
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-7bcb561d44d7",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9d-b826-77d2-b15a-684edf2360b6",
+      "usage": {
+        "input_tokens": 33396,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1119,
+        "reasoning_output_tokens": 284
+      },
+      "native_items": {
+        "error": 1,
+        "agent_message": 1
+      },
+      "native_notices": [
+        {
+          "id": "item_0",
+          "type": "error",
+          "message": "Skill descriptions were shortened to fit the skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest."
+        }
+      ]
+    },
+    {
+      "id": "qc-96a8a15f7df3",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9d-b7f7-7d02-bfa0-a53e51cf09a5",
+      "usage": {
+        "input_tokens": 31267,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1338,
+        "reasoning_output_tokens": 423
+      },
+      "native_items": {
+        "error": 1,
+        "agent_message": 1
+      },
+      "native_notices": [
+        {
+          "id": "item_0",
+          "type": "error",
+          "message": "Skill descriptions were shortened to fit the skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest."
+        }
+      ]
+    },
+    {
+      "id": "qc-c74d75706a3b",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9d-c050-7210-b778-c280f6e6d3e0",
+      "usage": {
+        "input_tokens": 33378,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 995,
+        "reasoning_output_tokens": 215
+      },
+      "native_items": {
+        "error": 1,
+        "agent_message": 1
+      },
+      "native_notices": [
+        {
+          "id": "item_0",
+          "type": "error",
+          "message": "Skill descriptions were shortened to fit the skills context budget. Codex can still see every skill, but some descriptions are shorter. Disable unused skills or plugins to leave more room for the rest."
+        }
+      ]
+    },
+    {
+      "id": "qc-d492c178c0e1",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9e-0fe9-73c3-92b7-08e46ef35109",
+      "usage": {
+        "input_tokens": 34382,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 909,
+        "reasoning_output_tokens": 128
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-d6502af99f5f",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9e-31ab-7e60-b9fc-4102e582295c",
+      "usage": {
+        "input_tokens": 30983,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1036,
+        "reasoning_output_tokens": 198
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-db06987d484d",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9e-3984-7710-b457-d35d2be99fa9",
+      "usage": {
+        "input_tokens": 31073,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1234,
+        "reasoning_output_tokens": 460
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-e0fcc773b809",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9e-5f8d-7970-a789-06b414d3edc1",
+      "usage": {
+        "input_tokens": 27783,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 906,
+        "reasoning_output_tokens": 102
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-ec45d1c278f0",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9e-8717-7811-8fb2-980ea30215f0",
+      "usage": {
+        "input_tokens": 42147,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 570,
+        "reasoning_output_tokens": 110
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-f837cf7ce219",
+      "status": "AUDIT_PASSED",
+      "session_id": "01a09e9e-a98a-7d43-9322-0c907ff257c0",
+      "usage": {
+        "input_tokens": 32973,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1164,
+        "reasoning_output_tokens": 219
+      },
+      "native_items": {
+        "agent_message": 1
+      },
+      "native_notices": []
+    }
+  ]
+}

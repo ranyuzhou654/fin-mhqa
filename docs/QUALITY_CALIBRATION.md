@@ -1,6 +1,6 @@
 # 质量校准 v1：审核标准、样本与离线评分
 
-2026-09-14。本阶段已完成质量校准基础设施和冻结审核包，**尚未完成质量校准**：18条人工参考标签均为空，没有执行Judge，也没有质量得分或训练准入。没有新模型/API/算力调用。先前源数据审核通过不自动覆盖这里的答案和轨迹审核。
+2026-09-14。本阶段已完成质量校准基础设施和冻结审核包，**尚未完成质量校准**：18条人工参考标签均为空，后续已完成18条Sol独立上下文复核，见[实际结果](QUALITY_JUDGE_SOL.md)；仍没有校准质量得分或训练准入。本审核包准备阶段没有模型/API/算力调用，后续Judge仅使用用户授权的内置Sol。先前源数据审核通过不自动覆盖这里的答案和轨迹审核。
 
 ## 从哪里审核
 
@@ -40,9 +40,9 @@
 
 [judge_inputs](evidence/quality_calibration_v1/judge_inputs)下每条文件只包含统一rubric及question/final/observations。没有原Planner理由、Verifier判决、gold答案、人工标签、受控变换名称或来源组名。所有病例使用稳定的不含题号的ID，映射单独留在manifest供审计。
 
-这是输入隔离，不是独立测试或模型独立性的证明。若Judge仍使用内置Sol，即便单独上下文，也仍有同模型偏差；更换厂商也不能替代人工参考校准。Judge模型及调用方式需要用户确定，本阶段只准备输入，不自动派发请求。
+这是输入隔离，不是独立测试或模型独立性的证明。若Judge仍使用内置Sol，即便单独上下文，也仍有同模型偏差；更换厂商也不能替代人工参考校准。用户随后已批准内置Sol，实际18条复核见[Judge报告](QUALITY_JUDGE_SOL.md)。本包仍只保存固定输入，不把后续模型意见写成人工真值。
 
-Judge的结果格式与[judge.template.json](evidence/quality_calibration_v1/judge.template.json)一致，reviewer_type为model，记录真实模型名/版本与执行时间。后续执行器还应保留原始输出、提示、模型配置和用量；当前没有声称这些运行记录已经存在。
+Judge的结果格式与[judge.template.json](evidence/quality_calibration_v1/judge.template.json)一致，reviewer_type为model，记录真实模型名/版本与执行时间。后续Sol执行器已保留原始输出、提示、模型配置和用量，见[实际运行报告](QUALITY_JUDGE_SOL.md)；它们与本冻结输入包分开归档。
 
 ## 评分如何使用
 
@@ -64,4 +64,4 @@ Judge的结果格式与[judge.template.json](evidence/quality_calibration_v1/jud
 
 [测试](../tests/test_quality_calibration.py)覆盖内容变动使标签失效、代理建议不能冒充人工参考、漏题/未见引用拒绝、拒答不能算作完整回答、uncertain分母以及真实18条包不携带Verifier判决。全仓库112项通过、1项跳过，见[测试记录](evidence/quality_calibration_v1/tests.xml)。此前跳过的检索依赖项本阶段仍未冒充通过；本阶段没有重新执行检索服务或模型实跑。
 
-下一决策是Judge模型与执行方式。人工参考完成后才能判断它的误放行情况，之后再决定如何修订合成过滤规则与扩大数据规模。
+Judge已选定并完成首轮复核；人工参考完成后才能判断它的误放行情况，之后再决定如何修订合成过滤规则与扩大数据规模。

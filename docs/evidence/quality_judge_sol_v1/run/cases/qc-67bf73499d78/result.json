@@ -1,0 +1,74 @@
+{
+  "id": "qc-67bf73499d78",
+  "case_sha256": "d8757e00cb4d9045320881cbecf4a2c6d7ffeaff02441f39b5a16d7ac9305a3b",
+  "review": {
+    "id": "qc-67bf73499d78",
+    "case_sha256": "d8757e00cb4d9045320881cbecf4a2c6d7ffeaff02441f39b5a16d7ac9305a3b",
+    "reviewer": "gpt-5.6-sol (Codex, reasoning=low)",
+    "reviewer_type": "model",
+    "reviewed_at": "2026-09-14T06:31:32.522765+00:00",
+    "labels": {
+      "numeric_grounding": "contradicted",
+      "unit_applicability": "supported",
+      "period": "supported",
+      "scope": "supported",
+      "citation_coverage": "supported",
+      "precision": "contradicted",
+      "abstention": "not_applicable"
+    },
+    "rationale": {
+      "numeric_grounding": "两家公司营业收入原值及246.01亿元的差额均可核对，且五粮液收入更高；现金流量净额原值31,136,736,628.58元也有依据。但该数值除以1亿元应为311.3673662858亿元，四舍五入为311.37亿元，而最终回答写成312.37亿元，数值结论错误。",
+      "unit_applicability": "五粮液合并现金流量表首页明确标注单位为元，目标现金流量净额位于同一公司、同一报表标题的后续内容；据此将31,136,736,628.58元换算为亿元适用。两家公司营业收入所在合并利润表也分别明确标注单位为元。",
+      "period": "两家公司合并利润表均明确给出2025年半年度列；五粮液现金流量表首页明确列序为2025年半年度、2024年半年度，后续目标行沿用该顺序，因此目标数值31,136,736,628.58对应2025年上半年。",
+      "scope": "营业收入均取自各公司的合并利润表，现金流量净额取自五粮液的合并现金流量表，符合题目要求的合并口径，不是母公司口径。",
+      "citation_coverage": "最终引用覆盖了五粮液营业收入、亿纬锂能营业收入、五粮液现金流量净额，以及现金流量表的单位和期间表头，能够覆盖公司选择及目标值识别所需前提；错误来自最终换算结果，而非引用缺失。",
+      "precision": "原表金额保留到分，但按原始值31,136,736,628.58元换算并保留两位小数应为311.37亿元；最终给出的312.37亿元并非正确的四舍五入结果。",
+      "abstention": "该样本已作答，不属于拒答样本。"
+    },
+    "evidence_ids": {
+      "numeric_grounding": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "unit_applicability": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "period": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "fa37907a92ff3f3d7ef3124a",
+        "e65f385eaac83f299736117b"
+      ],
+      "scope": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b"
+      ],
+      "citation_coverage": [
+        "cad29d5ea24462e1a71bf255",
+        "85fe6d961927ba26380060b3",
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "precision": [
+        "e65f385eaac83f299736117b",
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "abstention": []
+    },
+    "notes": "正确答案应为311.37亿元；最终答案与其解释中的原始现金流量净额不一致。"
+  },
+  "error": null,
+  "usage": {
+    "input_tokens": 33335,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1103,
+    "reasoning_output_tokens": 255
+  },
+  "seconds": 35.342051457992056
+}

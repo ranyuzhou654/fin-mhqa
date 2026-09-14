@@ -1,0 +1,27 @@
+{
+  "scope": "assistant analysis of actual Judge outputs and frozen pair differences; not human reference labels",
+  "priority_review": [
+    {
+      "id": "qc-19b9a14eb7c3",
+      "issue": "Judge rationale acknowledges intermediate rounding but labels precision supported because final answer unchanged. Frozen rubric asks whether original precision was used until final rounding. Needs rubric-consistency adjudication; original judgment preserved."
+    },
+    {
+      "id": "qc-64533eeb4921",
+      "issue": "Unobserved final citation is deterministically absent from observations. Judge recognizes it but labels citation coverage uncertain. Decide how invalid IDs should map to missing/contradicted, separately from cross-page ambiguity."
+    },
+    {
+      "ids": [
+        "qc-71f13982ee6c",
+        "qc-64533eeb4921"
+      ],
+      "issue": "Same question, observations and final explanation; only extra invalid citation differs. Unit and period labels changed from supported to uncertain. Paired consistency concern, not a measured repeatability rate.",
+      "pair_difference_verified": true
+    },
+    {
+      "id": "qc-2263ee587605",
+      "issue": "Judge says refusal contradicted because available evidence is sufficient. Original agent stopped after failed verification with insufficient revision budget. This rubric measures evidence sufficiency, not whether bypassing runtime safety would be correct."
+    }
+  ],
+  "reference_labels_modified": false,
+  "original_predictions_modified": false
+}
