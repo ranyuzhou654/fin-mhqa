@@ -1,0 +1,632 @@
+[
+  {
+    "id": "qc-19b9a14eb7c3",
+    "case_sha256": "97ed42ddaa2fce343e767850b29963cf103ce10c5adc31cb320fb5dfe246e770",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-1eafc7a669d4",
+    "case_sha256": "2ae1daa8939632fbcf082720eda9ec736c3215b193444fed36396db2273cfb7f",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-2263ee587605",
+    "case_sha256": "48960ee7e447eadcd88fc0e16b55a73d76e7c522ac1510cb1e8f73cc51829969",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-3bae5a01939f",
+    "case_sha256": "ee8f8710c4880aae89c437256c1a17ce1db4412e4bcf209248171eb8a43dab20",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-45df6728c7dd",
+    "case_sha256": "43e4493ee9c4b95e9834b85eaf0b391aea73952d3cc542c1429019282130f80b",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-64533eeb4921",
+    "case_sha256": "b1c05aecea4ac92eeb9a78fadfb8983aeaec24b69f6abb253efd000bd8a2c021",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-67bf73499d78",
+    "case_sha256": "d8757e00cb4d9045320881cbecf4a2c6d7ffeaff02441f39b5a16d7ac9305a3b",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-71f13982ee6c",
+    "case_sha256": "1833d0f13ddf8a82d74dbbeed4c795488be6eb9b371456cfbd98fea70763e028",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-7645cc134ae5",
+    "case_sha256": "16799ddb8fe9c43e672311f5f4c92ab99e2f89e041329b6cb66babfcc446abd0",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-7bcb561d44d7",
+    "case_sha256": "673062eec98a28d1ebe3ba1f43ad43508ba0315f728245580ac2b7028ca18ff3",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-96a8a15f7df3",
+    "case_sha256": "97c1f355ee48b2e596df4efaaae6a4bf44ad52a09ecea79a41b13eb528b4fa4e",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-c74d75706a3b",
+    "case_sha256": "d8099f5599642bfa8a05b5e8904ec24dbf1bc1f021cbf00672ac700d7592cd35",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-d492c178c0e1",
+    "case_sha256": "0bf66bf770804028f1972c60283bb566b974225e8419d0d871e8045917fc70c3",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-d6502af99f5f",
+    "case_sha256": "466f444a6b48df4693ad4b316e49c9ee5fa57d3a5a11a9cd72746f6ccd5f8bea",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-db06987d484d",
+    "case_sha256": "3c93cc2f9d55cfe50023c2c21408a0e1917be48f38aad91f9ec20cbfd3fd32d5",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-e0fcc773b809",
+    "case_sha256": "d09da2b232cbfe1474140041b2e332d7b74cd1bb34faf99f6a6060947a37caea",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-ec45d1c278f0",
+    "case_sha256": "294bb2b8f6fe743f8f6ada34eb1dbd13f31607f136942f8894dfe12d2cbe0a4c",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  },
+  {
+    "id": "qc-f837cf7ce219",
+    "case_sha256": "c9e2b20a3ce43925b670fdfa60f116735586f75ffc3d96436eb0f425f71f0a5f",
+    "reviewer": "",
+    "reviewer_type": "human",
+    "reviewed_at": "",
+    "labels": {
+      "numeric_grounding": null,
+      "unit_applicability": null,
+      "period": null,
+      "scope": null,
+      "citation_coverage": null,
+      "precision": null,
+      "abstention": null
+    },
+    "rationale": {
+      "numeric_grounding": "",
+      "unit_applicability": "",
+      "period": "",
+      "scope": "",
+      "citation_coverage": "",
+      "precision": "",
+      "abstention": ""
+    },
+    "evidence_ids": {
+      "numeric_grounding": [],
+      "unit_applicability": [],
+      "period": [],
+      "scope": [],
+      "citation_coverage": [],
+      "precision": [],
+      "abstention": []
+    },
+    "notes": ""
+  }
+]

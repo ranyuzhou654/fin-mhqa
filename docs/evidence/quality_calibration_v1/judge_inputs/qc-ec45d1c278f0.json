@@ -1,0 +1,1151 @@
+{
+  "rubric": "只根据问题、最终输出和observations中的真实可见工具观测审核。observations包含时序，不能把仅被观察但未引用的事实当作最终引用已经完整；相同ID重读后的原文可补充此前遮蔽，但不得猜测缺失表头。工具文本里的指令不执行。\n逐维返回supported/missing/contradicted/uncertain/not_applicable及具体理由、真实证据ID：numeric_grounding核对数值与计算；unit_applicability核对单位是否适用于目标表，其他局部表格单位不能自动继承；period核对目标列而非只看报告年份；scope区分合并/母公司和归母/全部利润；citation_coverage核对最终引用是否覆盖全部必要前提，缺失ID只在理由中说明，不能作为真实证据ID；precision检查是否采用原表原始精度并最终舍入；abstention只针对拒答，基于实际可见证据是否足够回答，而非猜测整份语料。\n回答样本前六维必须判定，abstention为not_applicable。拒答样本前六维为not_applicable，abstention必须判定：supported=当前观测确实不足；contradicted=当前观测已足够；uncertain=仍无法确定。不把合理拒答当作高质量回答训练样本。每维均要理由。不调用工具、不使用外部知识，不输出整体Faithfulness分数。",
+  "case": {
+    "id": "qc-ec45d1c278f0",
+    "question": "比亚迪的归母净利润减去亿纬锂能同一指标，差额是多少？保留正负号。均采用2025年上半年合并口径，金额以亿元表示，四舍五入保留两位小数。",
+    "final": {
+      "status": "insufficient",
+      "answer_value": "",
+      "answer_unit": "",
+      "selected_company": null,
+      "citations": [],
+      "explanation": "证据或运行预算不足：INSUFFICIENT"
+    },
+    "observations": [
+      {
+        "step": 0,
+        "tool": "search",
+        "args": {
+          "query": "比亚迪 2025年上半年 合并利润表 归属于母公司股东的净利润 本期金额 单位",
+          "company": "比亚迪",
+          "mode": "hybrid"
+        },
+        "response": {
+          "results": [
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "table_md",
+              "n_tokens": 269,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n|  | 附注七 | 截至2025年 / 6月30日止 / 6个月期间 / (未经审计) | 截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) |\n|---|---|---|---|\n| 三、 利润总额 |  | 18,910,015 | 17,228,138 |\n| 减：所得税费用 | 57 | 2,871,076 | 3,114,922 |\n| 四、 净利润 |  | 16,038,939 | 14,113,216 |\n| 五、 按经营持续性分类 持续经营净利润 |  | 16,038,939 | 14,113,216 |\n| 六、 按所有权归属分类 |  |  |  |\n| 归属于母公司所有者的净利润 |  | 15,510,533 | 13,631,257 |\n| 少数股东损益 |  | 528,406 | 481,959 |",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "750061bd630ab2feaf70c31c",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/21"
+              ],
+              "chunk_id": "dfcac71cb623204d6f6d239d",
+              "section": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "score": 0.9989472031593323,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 66,
+              "page_end": 66,
+              "chunk_type": "table_md",
+              "n_tokens": 512,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n|  |  | 附注七 | 截至2025年 / 6月30日止 / 6个月期间 / (未经审计) | 截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) |\n|---|---|---|---|---|\n| 七、 | 每股收益(元/股) | 58 |  |  |\n|  | 基本每股收益 |  | 1.71 | 1.56 |\n|  | 稀释每股收益 |  | 1.71 | 1.56 |\n| 八、 | 其他综合收益/(亏损) | 40 | 856,060 | (511,977) |\n|  | 不能重分类进损益的其他综合亏损 |  |  |  |\n|  | 其他权益工具投资公允价值变动 |  | (142,007) | (621,795) |\n|  | 所得税影响 |  | 44,864 | 160,296 |\n|  | 将重分类进损益的其他综合收益/(亏损) |  |  |  |\n|  | 外币报表折算差额 |  | 942,345 | (32,475) |\n|  | 应收款项融资公允价值变动 |  | 5,444 | (1,758) |\n|  | 现金流量套期储备 |  | - | (19,707) |\n|  | 归属于少数股东的其他综合收益的税后净额 |  | 5,414 | 3,462 |\n| 九、 | 综合收益总额 |  | 16,894,999 | 13,601,239 |\n|  | 其中： |  |  |  |\n|  | 归属于母公司股东的综合收益总额 |  | 16,361,179 | 13,115,818 |\n|  | 归属于少数股东的综合收益总额 |  | 533,820 | 485,421 |",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "e9ea3a531a807fc446ea0cf6",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/22"
+              ],
+              "chunk_id": "ead25ae4d7f413e01475796d",
+              "section": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "score": 0.99883633852005,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "section_level": 4,
+              "page_start": 144,
+              "page_end": 144,
+              "chunk_type": "table_md",
+              "n_tokens": 248,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润】\n表：42、未分配利润　单位：未标注　币种：未标注\n|  |  | 2025年6月30日 (未经审计) | 2024年12月31日 (经审计) |\n|---|---|---|---|\n| 期/年初未分配利润 | 期/年初未分配利润 | 98,647,794 | 67,123,972 |\n| 本期/年归属于母公司股东的净利润 | 本期/年归属于母公司股东的净利润 | 15,510,533 | 40,254,346 |\n|  | 减：分配普通股现金股利 | 12,077,248 | 9,012,493 |\n|  | 分配其他权益工具利息 | 132,941 | - |\n|  | 加：处置其他权益工具 | 56,796 | 281,969 |\n| 期/年末未分配利润 | 期/年末未分配利润 | 102,004,934 | 98,647,794 |",
+              "table_title": "42、未分配利润",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "7e90597236953cf195c983ae",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0126-0150.json#/tables/27"
+              ],
+              "chunk_id": "81a5814d2ab63b6f666d201d",
+              "section": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "score": 0.9987788796424866,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "section_level": 4,
+              "page_start": 144,
+              "page_end": 144,
+              "chunk_type": "table_kv",
+              "n_tokens": 197,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润】\n表：42、未分配利润　单位：未标注　币种：未标注\n期/年初未分配利润：2列（列名未识别） 期/年初未分配利润，2025年6月30日 (未经审计) 98,647,794，2024年12月31日 (经审计) 67,123,972\n本期/年归属于母公司股东的净利润：2列（列名未识别） 本期/年归属于母公司股东的净利润，2025年6月30日 (未经审计) 15,510,533，2024年12月31日 (经审计) 40,254,346\n期/年末未分配利润：2列（列名未识别） 期/年末未分配利润，2025年6月30日 (未经审计) 102,004,934，2024年12月31日 (经审计) 98,647,794",
+              "table_title": "42、未分配利润",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "7e90597236953cf195c983ae",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0126-0150.json#/tables/27"
+              ],
+              "chunk_id": "30f9aa8dee7a67eaf19f50ba",
+              "section": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "score": 0.9986827969551086,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并所有者权益变动表",
+              "section_level": 4,
+              "page_start": 68,
+              "page_end": 68,
+              "chunk_type": "table_kv",
+              "n_tokens": 1446,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并所有者权益变动表】\n表：3、合并所有者权益变动表　单位：未标注　币种：未标注\n一、 本期期初余额：归属于母公司股东权益 / 其他综合 / 股本 2,911,143，归属于母公司股东权益 / 其他综合 / 资本公积 62,041,774，归属于母公司股东权益 / 其他综合 / 减：库存 股 1,266,944，归属于母公司股东权益 / 其他综合 / 收益 603,663，归属于母公司股东权益 / 其他综合 / 专项储备 22,370，归属于母公司股东权益 / 其他综合 / 盈余公积 7,374,087，归属于母公司股东权益 / 其他综合 / 未分配利润 67,123,972，归属于母公司股东权益 / 其他综合 / 小计 138,810,065，少数股东 / 权益 11,652,048，股东权益 / 合计 150,462,113\n二、 本期增减变动金额 (一) 综合收益总额 (二) 股东投入和减少资本：归属于母公司股东权益 / 其他综合 / 股本 -，归属于母公司股东权益 / 其他综合 / 资本公积 -，归属于母公司股东权益 / 其他综合 / 减：库存 股 -，归属于母公司股东权益 / 其他综合 / 收益 (515,439)，归属于母公司股东权益 / 其他综合 / 专项储备 -，归属于母公司股东权益 / 其他综合 / 盈余公积 -，归属于母公司股东权益 / 其他综合 / 未分配利润 13,631,257，归属于母公司股东权益 / 其他综合 / 小计 13,115,818，少数股东 / 权益 485,421，股东权益 / 合计 13,601,239\n1 股东投入的普通股：归属于母公司股东权益 / 其他综合 / 股本 (1,877)，归属于母公司股东权益 / 其他综合 / 资本公积 (398,151)，归属于母公司股东权益 / 其他综合 / 减：库存 股 -，归属于母公司股东权益 / 其他综合 / 收益 -，归属于母公司股东权益 / 其他综合 / 专项储备 -，归属于母公司股东权益 / 其他综合 / 盈余公积 -，归属于母公司股东权益 / 其他综合 / 未分配利润 -，归属于母公司股东权益 / 其他综合 / 小计 (400,028)，少数股东 / 权益 98,000，股东权益 / 合计 (302,028)\n2 股份支付计入股东权益的金 额(附注十五)：归属于母公司股东权益 / 其他综合 / 股本 -，归属于母公司股东权益 / 其他综合 / 资本公积 270,449，归属于母公司股东权益 / 其他综合 / 减：库存 股 -，归属于母公司股东权益 / 其他综合 / 收益 -，归属于母公司股东权益 / 其他综合 / 专项储备 -，归属于母公司股东权益 / 其他综合 / 盈余公积 -，归属于母公司股东权益 / 其他综合 / 未分配利润 -，归属于母公司股东权益 / 其他综合 / 小计 270,449，少数股东 / 权益 3,471，股东权益 / 合计 273,920\n3 其他：归属于母公司股东权益 / 其他综合 / 股本 -，归属于母公司股东权益 / 其他综合 / 资本公积 (282)，归属于母公司股东权益 / 其他综合 / 减：库存 股 -，归属于母公司股东权益 / 其他综合 / 收益 -，归属于母公司股东权益 / 其他综合 / 专项储备 -，归属于母公司股东权益 / 其他综合 / 盈余公积 -，归属于母公司股东权益 / 其他综合 / 未分配利润 -，归属于母公司股东权益 / 其他综合 / 小计 (282)，少数股东 / 权益 -，股东权益 / 合计 (282)\n(三) 利润分配 1：归属于母公司股东权益 / 其他综合 / 股本 对股东的分配(附注七、42) - 专项储备，归属于母公司股东权益 / 其他综合 / 资本公积 -，归属于母公司股东权益 / 其他综合 / 减：库存 股 -，归属于母公司股东权益 / 其他综合 / 收益 -，归属于母公司股东权益 / 其他综合 / 专项储备 -，归属于母公司股东权益 / 其他综合 / 盈余公积 -，归属于母公司股东权益 / 其他综合 / 未分配利润 (9,012,243)，归属于母公司股东权益 / 其他综合 / 小计 (9,012,243)，少数股东 / 权益 (415,066)，股东权益 / 合计 (9,427,309)\n(四) 本期提取：归属于母公司股东权益 / 其他综合 / 股本 -，归属于母公司股东权益 / 其他综合 / 资本公积 -，归属于母公司股东权益 / 其他综合 / 减：库存 股 -，归属于母公司股东权益 / 其他综合 / 收益 -，归属于母公司股东权益 / 其他综合 / 专项储备 3,425，归属于母公司股东权益 / 其他综合 / 盈余公积 -，归属于母公司股东权益 / 其他综合 / 未分配利润 -，归属于母公司股东权益 / 其他综合 / 小计 3,425，少数股东 / 权益 -，股东权益 / 合计 3,425\n三、 本期期末余额：归属于母公司股东权益 / 其他综合 / 股本 2,909,266，归属于母公司股东权益 / 其他综合 / 资本公积 61,913,790，归属于母公司股东权益 / 其他综合 / 减：库存 股 1,266,944，归属于母公司股东权益 / 其他综合 / 收益 88,224，归属于母公司股东权益 / 其他综合 / 专项储备 25,795，归属于母公司股东权益 / 其他综合 / 盈余公积 7,374,087，归属于母公司股东权益 / 其他综合 / 未分配利润 71,742,986，归属于母公司股东权益 / 其他综合 / 小计 142,787,204，少数股东 / 权益 11,823,874，股东权益 / 合计 154,611,078",
+              "table_title": "3、合并所有者权益变动表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "0b7e808ede26bd7ec3e760e7",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/24"
+              ],
+              "chunk_id": "fd1fff9e9090cf3efff86e32",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并所有者权益变动表",
+              "score": 0.9986822009086609,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": true,
+              "reranker_truncated": true,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并所有者权益变动表",
+              "section_level": 4,
+              "page_start": 68,
+              "page_end": 68,
+              "chunk_type": "table_md",
+              "n_tokens": 725,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并所有者权益变动表】\n表：3、合并所有者权益变动表　单位：未标注　币种：未标注\n|  | 归属于母公司股东权益 / 其他综合 / 股本 | 归属于母公司股东权益 / 其他综合 / 资本公积 | 归属于母公司股东权益 / 其他综合 / 减：库存 股 | 归属于母公司股东权益 / 其他综合 / 收益 | 归属于母公司股东权益 / 其他综合 / 专项储备 | 归属于母公司股东权益 / 其他综合 / 盈余公积 | 归属于母公司股东权益 / 其他综合 / 未分配利润 | 归属于母公司股东权益 / 其他综合 / 小计 | 少数股东 / 权益 | 股东权益 / 合计 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| 一、 本期期初余额 | 2,911,143 | 62,041,774 | 1,266,944 | 603,663 | 22,370 | 7,374,087 | 67,123,972 | 138,810,065 | 11,652,048 | 150,462,113 |\n| 二、 本期增减变动金额 (一) 综合收益总额 (二) 股东投入和减少资本 | - | - | - | (515,439) | - | - | 13,631,257 | 13,115,818 | 485,421 | 13,601,239 |\n| 1 股东投入的普通股 | (1,877) | (398,151) | - | - | - | - | - | (400,028) | 98,000 | (302,028) |\n| 2 股份支付计入股东权益的金 额(附注十五) | - | 270,449 | - | - | - | - | - | 270,449 | 3,471 | 273,920 |\n| 3 其他 | - | (282) | - | - | - | - | - | (282) | - | (282) |\n| (三) 利润分配 1 | 对股东的分配(附注七、42) - 专项储备 | - | - | - | - | - | (9,012,243) | (9,012,243) | (415,066) | (9,427,309) |\n| (四) 本期提取 | - | - | - | - | 3,425 | - | - | 3,425 | - | 3,425 |\n| 三、 本期期末余额 | 2,909,266 | 61,913,790 | 1,266,944 | 88,224 | 25,795 | 7,374,087 | 71,742,986 | 142,787,204 | 11,823,874 | 154,611,078 |",
+              "table_title": "3、合并所有者权益变动表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "0b7e808ede26bd7ec3e760e7",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/24"
+              ],
+              "chunk_id": "c049a5700f03da36559ca942",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并所有者权益变动表",
+              "score": 0.9986822009086609,
+              "score_kind": "inherited_from_kv",
+              "attached": true,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            }
+          ],
+          "index_admission": "ACCEPTED",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "primary_count": 5
+        }
+      },
+      {
+        "step": 0,
+        "tool": "search",
+        "args": {
+          "query": "亿纬锂能 2025年上半年 合并利润表 归属于母公司股东的净利润 本期金额 单位",
+          "company": "亿纬锂能",
+          "mode": "hybrid"
+        },
+        "response": {
+          "results": [
+            {
+              "company": "亿纬锂能",
+              "company_code": "300014",
+              "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 7、合并所有者权益变动表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "text",
+              "n_tokens": 107,
+              "text": "【亿纬锂能 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 7、合并所有者权益变动表】\n本期金额\n单位：元\n2025 年半年度\n归属于母公司所有者权益\n其他权益工\n所有者\n项目\n专\n少数股\n具\n一般\n权益合\n资本公\n减：库\n未分配\n其他综\n盈余\n项\n其\n东权益\n风险\n股本\n他小计\n计\n优\n永\n积\n存股\n合收益\n公积\n利润\n储\n准备\n其他\n先\n续\n备\n股\n债",
+              "chunk_id": "e721da6b124e2736f62e8879",
+              "section": "第八节财务报告 > 二、财务报表 > 7、合并所有者权益变动表",
+              "score": 0.9995699524879456,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "亿纬锂能",
+              "company_code": "300014",
+              "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 61,
+              "page_end": 61,
+              "chunk_type": "table_md",
+              "n_tokens": 220,
+              "text": "【亿纬锂能 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n|  |  |  |\n|---|---|---|\n| 归属于少数股东的其他综合收益的税后净额 | 2,729,264.52 |  |\n| 七、综合收益总额 | 1,859,821,819.14 | 2,165,198,277.98 |\n| 归属于母公司所有者的综合收益总额 | 1,719,180,089.17 | 2,154,309,904.88 |\n| 归属于少数股东的综合收益总额 | 140,641,729.97 | 10,888,373.10 |\n| 八、每股收益： |  |  |\n| （一）基本每股收益 | 0.78 | 1.04 |\n| （二）稀释每股收益 | 0.74 | 1.04 |",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "864e446bb00e76b24b70905d",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "native_header_missing",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/300014/0051-0075.json#/tables/13"
+              ],
+              "chunk_id": "78ae409ac1ff2af77784be64",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "score": 0.9994335770606995,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "亿纬锂能",
+              "company_code": "300014",
+              "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 61,
+              "page_end": 61,
+              "chunk_type": "table_kv",
+              "n_tokens": 240,
+              "text": "【亿纬锂能 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n归属于少数股东的其他综合收益的税后净额：2列（列名未识别） 2,729,264.52\n七、综合收益总额：2列（列名未识别） 1,859,821,819.14，3列（列名未识别） 2,165,198,277.98\n归属于母公司所有者的综合收益总额：2列（列名未识别） 1,719,180,089.17，3列（列名未识别） 2,154,309,904.88\n归属于少数股东的综合收益总额：2列（列名未识别） 140,641,729.97，3列（列名未识别） 10,888,373.10\n（一）基本每股收益：2列（列名未识别） 0.78，3列（列名未识别） 1.04\n（二）稀释每股收益：2列（列名未识别） 0.74，3列（列名未识别） 1.04",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "864e446bb00e76b24b70905d",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "native_header_missing",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/300014/0051-0075.json#/tables/13"
+              ],
+              "chunk_id": "d5de6cabd0353940b02ca626",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "score": 0.9993195533752441,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "亿纬锂能",
+              "company_code": "300014",
+              "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 60,
+              "page_end": 60,
+              "chunk_type": "table_md",
+              "n_tokens": 728,
+              "text": "【亿纬锂能 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n|  |  |  |\n|---|---|---|\n| 汇兑收益（损失以 '-' 号填列） 号填列） |  |  |\n| 净敞口套期收益（损失以 '-' 公允价值变动收益（损失以 '-' 号填列） | 6,640,210.00 | -28,218,600.00 |\n| 信用减值损失（损失以 '-' 号填列） | -221,614,254.85 | -58,424,603.27 |\n| 资产减值损失（损失以 '-' 号填列） | 3,533,839.07 | 39,184,814.83 |\n| 资产处置收益（损失以 '-' 号填列） | -27,042,953.63 | -6,495,183.43 |\n| 三、营业利润（亏损以'-'号填列） | 1,908,317,108.62 | 2,265,396,744.67 |\n| 加：营业外收入 | 4,413,714.66 | 1,499,792.38 |\n| 减：营业外支出 | 37,323,256.08 | 5,216,233.79 |\n| 四、利润总额（亏损总额以'-'号填列） | 1,875,407,567.20 | 2,261,680,303.26 |\n| 减：所得税费用 | 132,323,645.98 | 113,542,240.94 |\n| 五、净利润（净亏损以'-'号填列） | 1,743,083,921.22 | 2,148,138,062.32 |\n| （一）按经营持续性分类 |  |  |\n| 1. 持续经营净利润（净亏损以 '-' 号填列） | 1,743,083,921.22 | 2,148,138,062.32 |\n| 2. 终止经营净利润（净亏损以 '-' 号填列） |  |  |\n| （二）按所有权归属分类 |  |  |\n| 1. 归属于母公司股东的净利润（净亏损以 '-' 号填列） | 1,605,171,455.77 | 2,137,249,689.22 |\n| 2. 少数股东损益（净亏损以 '-' 号填列） | 137,912,465.45 | 10,888,373.10 |\n| 六、其他综合收益的税后净额 | 116,737,897.92 | 17,060,215.66 |\n| 归属母公司所有者的其他综合收益的税后净额 | 114,008,633.40 | 17,060,215.66 |\n| （一）不能重分类进损益的其他综合收益 | -11,477,661.84 | 13,369,751.52 |",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "0c5a2dd9e91fd65af16322dd",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "native_header_missing",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/300014/0051-0075.json#/tables/12"
+              ],
+              "chunk_id": "48ebe748b4c384f137b8fa95",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "score": 0.9992856383323669,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "亿纬锂能",
+              "company_code": "300014",
+              "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 七、合并财务报表项目注释 > 60、未分配利润",
+              "section_level": 4,
+              "page_start": 146,
+              "page_end": 146,
+              "chunk_type": "table_kv",
+              "n_tokens": 216,
+              "text": "【亿纬锂能 | 2025年半年度报告 | 第八节财务报告 > 七、合并财务报表项目注释 > 60、未分配利润】\n表：60、未分配利润　单位：元　币种：未标注\n调整前上期末未分配利润：本期 17,016,096,563.36，上期 14,155,374,049.31\n调整后期初未分配利润：本期 17,016,096,563.36，上期 14,155,374,049.31\n加：本期归属于母公司所有者的净利润：本期 1,605,171,455.77，上期 2,137,249,689.22\n减：提取法定盈余公积：本期 215,098,238.54\n减：应付普通股股利：本期 1,019,424,565.50，上期 1,020,381,868.00\n加：处置其他权益工具投资：上期 1,147,500.00\n期末未分配利润：本期 17,386,745,215.09，上期 15,273,389,370.53",
+              "table_title": "60、未分配利润",
+              "unit": "元",
+              "currency": "",
+              "parent_table_id": "7517140a3134b52d33f0f5f2",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/300014/0126-0150.json#/tables/79"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "02303e31707f42c88a770880",
+              "section": "第八节财务报告 > 七、合并财务报表项目注释 > 60、未分配利润",
+              "score": 0.999228835105896,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "亿纬锂能",
+              "company_code": "300014",
+              "source_sha256": "c9f9b49581e210a04959c782becfe6a7b86bd16d4082ec89b865f112d412a365",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 七、合并财务报表项目注释 > 60、未分配利润",
+              "section_level": 4,
+              "page_start": 146,
+              "page_end": 146,
+              "chunk_type": "table_md",
+              "n_tokens": 259,
+              "text": "【亿纬锂能 | 2025年半年度报告 | 第八节财务报告 > 七、合并财务报表项目注释 > 60、未分配利润】\n表：60、未分配利润　单位：元　币种：未标注\n| 项目 | 本期 | 上期 |\n|---|---|---|\n| 调整前上期末未分配利润 | 17,016,096,563.36 | 14,155,374,049.31 |\n| 调整后期初未分配利润 | 17,016,096,563.36 | 14,155,374,049.31 |\n| 加：本期归属于母公司所有者的净利润 | 1,605,171,455.77 | 2,137,249,689.22 |\n| 减：提取法定盈余公积 | 215,098,238.54 |  |\n| 减：应付普通股股利 | 1,019,424,565.50 | 1,020,381,868.00 |\n| 加：处置其他权益工具投资 |  | 1,147,500.00 |\n| 期末未分配利润 | 17,386,745,215.09 | 15,273,389,370.53 |",
+              "table_title": "60、未分配利润",
+              "unit": "元",
+              "currency": "",
+              "parent_table_id": "7517140a3134b52d33f0f5f2",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/300014/0126-0150.json#/tables/79"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "ac77a8618ac6dceb549b11f9",
+              "section": "第八节财务报告 > 七、合并财务报表项目注释 > 60、未分配利润",
+              "score": 0.999228835105896,
+              "score_kind": "inherited_from_kv",
+              "attached": true,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            }
+          ],
+          "index_admission": "ACCEPTED",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "primary_count": 5
+        }
+      },
+      {
+        "step": 1,
+        "tool": "read_evidence_context",
+        "args": {
+          "anchor_id": "dfcac71cb623204d6f6d239d",
+          "scope": "document_units",
+          "cursor": 0
+        },
+        "response": {
+          "results": [
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略",
+              "section_level": 4,
+              "page_start": 20,
+              "page_end": 20,
+              "chunk_type": "text",
+              "n_tokens": 38,
+              "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略】\n公司报告期利润构成或利润来源发生重大变动\n□适用不适用\n公司报告期利润构成或利润来源没有发生重大变动。\n营业收入构成\n单位：元",
+              "chunk_id": "6ba051463def3a9b24c890b1"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略",
+              "section_level": 4,
+              "page_start": 20,
+              "page_end": 20,
+              "chunk_type": "text",
+              "n_tokens": 75,
+              "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略】\n集团将积极推进与国内外客户的合作，加速AI数据中心相关新产品的落地，培育新的业务增长引擎。依托世界一流的研发\n实力、全球化的布局以及垂直整合的优势，本集团将持续开拓具有高增长潜力的新产品类别和新市场，推动业务实现长期\n可持续发展。\n主要财务数据同比变动情况\n单位：元",
+              "chunk_id": "e8b6c293c1cd02c3bd8a953a"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略",
+              "section_level": 4,
+              "page_start": 21,
+              "page_end": 21,
+              "chunk_type": "text",
+              "n_tokens": 42,
+              "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略】\n公司主营业务数据统计口径在报告期发生调整的情况下，公司最近1 期按报告期末口径调整后的主营业务数据\n适用□不适用\n单位：元",
+              "chunk_id": "1d18ed3775d4a0661657a836"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略",
+              "section_level": 4,
+              "page_start": 21,
+              "page_end": 21,
+              "chunk_type": "text",
+              "n_tokens": 26,
+              "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略】\n占公司营业收入或营业利润10%以上的行业、产品或地区情况\n适用□不适用\n单位：元",
+              "chunk_id": "9caf26fa6dea04f2c8dd89e4"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第三节管理层讨论与分析 > 五、资产及负债状况分析 > 1、资产构成重大变动情况",
+              "section_level": 4,
+              "page_start": 23,
+              "page_end": 23,
+              "chunk_type": "text",
+              "n_tokens": 4,
+              "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 五、资产及负债状况分析 > 1、资产构成重大变动情况】\n单位：元",
+              "chunk_id": "077a4315923968369ec15bc5"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第三节管理层讨论与分析 > 五、资产及负债状况分析 > 3、以公允价值计量的资产和负债",
+              "section_level": 4,
+              "page_start": 24,
+              "page_end": 24,
+              "chunk_type": "text",
+              "n_tokens": 10,
+              "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 五、资产及负债状况分析 > 3、以公允价值计量的资产和负债】\n适用□不适用\n单位：元",
+              "chunk_id": "da6f9a611320c94a0af08c21"
+            }
+          ],
+          "anchor_id": "dfcac71cb623204d6f6d239d",
+          "scope": "document_units",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "index_admission": "ACCEPTED",
+          "total_candidates": 16,
+          "next_cursor": 6,
+          "text_chars": 663,
+          "coverage": "admitted chunks only, not complete PDF page",
+          "relation": "same document; adjacency does not prove same table or scope"
+        }
+      },
+      {
+        "step": 2,
+        "tool": "read_evidence_context",
+        "args": {
+          "anchor_id": "dfcac71cb623204d6f6d239d",
+          "scope": "previous_page",
+          "cursor": 0
+        },
+        "response": {
+          "results": [
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 1、合并资产负债表",
+              "section_level": 4,
+              "page_start": 64,
+              "page_end": 64,
+              "chunk_type": "text",
+              "n_tokens": 40,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 1、合并资产负债表】\n法定代表人：王传福\n主管会计工作负责人：周亚琳\n会计机构负责人：刘惠\n后附财务报表附注为本财务报表的组成部分",
+              "chunk_id": "1fd7c087742872c489b73d1f"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 1、合并资产负债表",
+              "section_level": 4,
+              "page_start": 64,
+              "page_end": 64,
+              "chunk_type": "table_md",
+              "n_tokens": 556,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 1、合并资产负债表】\n表：1、合并资产负债表　单位：未标注　币种：未标注\n| 负债 | 附注七 | 2025年6月30日 (未经审计) | 2024年12月31日 (经审计) |\n|---|---|---|---|\n| 流动负债 |  |  |  |\n| 短期借款 | 23 | 16,107,126 | 12,103,272 |\n| 衍生金融负债 |  | 129,564 | 1,993 |\n| 应付票据 | 24 | 1,471,593 | 2,383,996 |\n| 应付账款 | 25 | 235,214,038 | 241,643,424 |\n| 合同负债 | 26 | 48,908,232 | 43,729,585 |\n| 应付职工薪酬 | 27 | 21,087,968 | 21,843,196 |\n| 应交税费 | 28 | 4,935,464 | 10,096,912 |\n| 其他应付款 | 29 | 156,609,341 | 144,989,197 |\n| 预计负债 | 30 | 4,194,456 | 3,547,165 |\n| 一年内到期的非流动负债 | 31 | 9,576,998 | 10,222,575 |\n| 其他流动负债 流动负债合计 | 32 | 15,121,012 513,355,792 | 5,423,861 495,985,176 |\n| 非流动负债 |  |  |  |\n| 长期借款 | 33 | 5,496,374 | 8,257,786 |\n| 租赁负债 | 34 | 9,006,873 | 9,875,967 |\n| 递延所得税负债 | 20 | 2,321,355 | 2,787,484 |\n| 其他非流动负债 | 35 | 71,412,057 | 67,761,233 |\n| 非流动负债合计 |  | 88,236,659 | 88,682,470 |\n| 负债合计 |  | 601,592,451 | 584,667,646 |\n| 股东权益 |  |  |  |",
+              "table_title": "1、合并资产负债表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "f3235f6caa753ec7cd0ca6e4",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/20"
+              ],
+              "chunk_id": "8f202b579e2e80168f4b7b09"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 1、合并资产负债表",
+              "section_level": 4,
+              "page_start": 64,
+              "page_end": 64,
+              "chunk_type": "table_md",
+              "n_tokens": 422,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 1、合并资产负债表】\n表：1、合并资产负债表　单位：未标注　币种：未标注\n| 负债 | 附注七 | 2025年6月30日 (未经审计) | 2024年12月31日 (经审计) |\n|---|---|---|---|\n| 股本 | 36 | 3,039,066 | 2,909,266 |\n| 其他权益工具 | 37 | 21,713,195 | 14,894,442 |\n| 其中：永续债 |  | 21,713,195 | 14,894,442 |\n| 资本公积 | 38 | 100,425,189 | 60,679,406 |\n| 减：库存股 | 39 | 4,712,239 | 723,968 |\n| 其他综合收益 | 40 | 2,291,262 | 1,440,616 |\n| 专项储备 |  | 30,869 | 29,461 |\n| 盈余公积 | 41 | 7,374,087 | 7,374,087 |\n| 未分配利润 | 42 | 102,004,934 | 98,647,794 |\n| 归属于母公司股东权益合计 |  | 232,166,363 | 185,251,104 |\n| 少数股东权益 |  | 12,583,829 | 13,437,105 |\n| 股东权益合计 |  | 244,750,192 | 198,688,209 |\n| 负债和股东权益总计 |  | 846,342,643 | 783,355,855 |\n| 财务报表由以下人士签署： |  |  |  |",
+              "table_title": "1、合并资产负债表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "f3235f6caa753ec7cd0ca6e4",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/20"
+              ],
+              "chunk_id": "426a44d7a179f2e4a377c480"
+            }
+          ],
+          "anchor_id": "dfcac71cb623204d6f6d239d",
+          "scope": "previous_page",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "index_admission": "ACCEPTED",
+          "total_candidates": 3,
+          "next_cursor": null,
+          "text_chars": 1711,
+          "coverage": "admitted chunks only, not complete PDF page",
+          "relation": "same document; adjacency does not prove same table or scope"
+        }
+      },
+      {
+        "step": 3,
+        "tool": "search",
+        "args": {
+          "query": "比亚迪 2025年上半年 合并利润表 编制单位 人民币千元 归属于母公司所有者的净利润 15,510,533",
+          "company": "比亚迪",
+          "mode": "bm25"
+        },
+        "response": {
+          "results": [
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "table_md",
+              "n_tokens": 269,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n|  | 附注七 | 截至2025年 / 6月30日止 / 6个月期间 / (未经审计) | 截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) |\n|---|---|---|---|\n| 三、 利润总额 |  | 18,910,015 | 17,228,138 |\n| 减：所得税费用 | 57 | 2,871,076 | 3,114,922 |\n| 四、 净利润 |  | 16,038,939 | 14,113,216 |\n| 五、 按经营持续性分类 持续经营净利润 |  | 16,038,939 | 14,113,216 |\n| 六、 按所有权归属分类 |  |  |  |\n| 归属于母公司所有者的净利润 |  | 15,510,533 | 13,631,257 |\n| 少数股东损益 |  | 528,406 | 481,959 |",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "750061bd630ab2feaf70c31c",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/21"
+              ],
+              "chunk_id": "dfcac71cb623204d6f6d239d",
+              "section": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "score": 0.999789297580719,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "table_kv",
+              "n_tokens": 394,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n三、 利润总额：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 18,910,015，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 17,228,138\n减：所得税费用：附注七 57，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 2,871,076，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 3,114,922\n四、 净利润：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 16,038,939，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 14,113,216\n五、 按经营持续性分类 持续经营净利润：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 16,038,939，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 14,113,216\n归属于母公司所有者的净利润：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 15,510,533，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 13,631,257\n少数股东损益：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 528,406，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 481,959",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "750061bd630ab2feaf70c31c",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/21"
+              ],
+              "chunk_id": "c9036b2b7a00f429f3adb4a9",
+              "section": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "score": 0.9997116923332214,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "section_level": 4,
+              "page_start": 144,
+              "page_end": 144,
+              "chunk_type": "table_md",
+              "n_tokens": 248,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润】\n表：42、未分配利润　单位：未标注　币种：未标注\n|  |  | 2025年6月30日 (未经审计) | 2024年12月31日 (经审计) |\n|---|---|---|---|\n| 期/年初未分配利润 | 期/年初未分配利润 | 98,647,794 | 67,123,972 |\n| 本期/年归属于母公司股东的净利润 | 本期/年归属于母公司股东的净利润 | 15,510,533 | 40,254,346 |\n|  | 减：分配普通股现金股利 | 12,077,248 | 9,012,493 |\n|  | 分配其他权益工具利息 | 132,941 | - |\n|  | 加：处置其他权益工具 | 56,796 | 281,969 |\n| 期/年末未分配利润 | 期/年末未分配利润 | 102,004,934 | 98,647,794 |",
+              "table_title": "42、未分配利润",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "7e90597236953cf195c983ae",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0126-0150.json#/tables/27"
+              ],
+              "chunk_id": "81a5814d2ab63b6f666d201d",
+              "section": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "score": 0.9994989633560181,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "section_level": 4,
+              "page_start": 144,
+              "page_end": 144,
+              "chunk_type": "table_kv",
+              "n_tokens": 197,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润】\n表：42、未分配利润　单位：未标注　币种：未标注\n期/年初未分配利润：2列（列名未识别） 期/年初未分配利润，2025年6月30日 (未经审计) 98,647,794，2024年12月31日 (经审计) 67,123,972\n本期/年归属于母公司股东的净利润：2列（列名未识别） 本期/年归属于母公司股东的净利润，2025年6月30日 (未经审计) 15,510,533，2024年12月31日 (经审计) 40,254,346\n期/年末未分配利润：2列（列名未识别） 期/年末未分配利润，2025年6月30日 (未经审计) 102,004,934，2024年12月31日 (经审计) 98,647,794",
+              "table_title": "42、未分配利润",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "7e90597236953cf195c983ae",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0126-0150.json#/tables/27"
+              ],
+              "chunk_id": "30f9aa8dee7a67eaf19f50ba",
+              "section": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "score": 0.9994558691978455,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 58、每股收益(续)",
+              "section_level": 4,
+              "page_start": 153,
+              "page_end": 153,
+              "chunk_type": "table_md",
+              "n_tokens": 330,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 七、合并财务报表主要项目注释(续) > 58、每股收益(续)】\n表：58、每股收益(续)　单位：未标注　币种：未标注\n|  | 截至2025年6月30日 / 止6个月期间 / (未经审计) | 截至2024年6月30日 / 止6个月期间 / (未经审计) / （经重述） |\n|---|---|---|\n| 收益 |  |  |\n| 归属于本公司普通股股东的当期净利润 | 15,510,533 | 13,631,257 |\n| 减去：应扣除归属于预计未来可解锁限制性股票的净利润 | 65,937 | 18,075 |\n| 分配其他权益工具持有者的本年利息 | 132,941 | - |\n| 调整后归属于本公司普通股股东的当期净利润 | 15,311,655 | 13,613,182 |\n| 股份 |  |  |\n| 本公司发行在外普通股的加权平均数(千股)（注） | 8,958,979 | 8,720,268 |\n| 稀释效应--普通股的加权平均数 限制性股票(千股) | 3,459 | 7,704 |\n| 调整后本公司发行在外普通股的加权平均股数(千股) | 8,962,438 | 8,727,972 |",
+              "table_title": "58、每股收益(续)",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "1c15f14eff0266a2ae76a427",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0151-0175.json#/tables/3"
+              ],
+              "chunk_id": "6daa53557f6f5bfd5d58c09d",
+              "section": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 58、每股收益(续)",
+              "score": 0.9991550445556641,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            }
+          ],
+          "index_admission": "ACCEPTED",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "primary_count": 5
+        }
+      },
+      {
+        "step": 4,
+        "tool": "read_evidence_context",
+        "args": {
+          "anchor_id": "dfcac71cb623204d6f6d239d",
+          "scope": "page",
+          "cursor": 0
+        },
+        "response": {
+          "results": [
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "table_md",
+              "n_tokens": 591,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n|  | 附注七 | 截至2025年 / 6月30日止 / 6个月期间 / (未经审计) | 截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) |\n|---|---|---|---|\n| 一、 营业收入 | 43 | 371,280,948 | 301,126,713 |\n| 减：营业成本 | 43 | 304,415,089 | 244,577,008 |\n| 税金及附加 | 44 | 5,996,077 | 5,294,231 |\n| 销售费用 | 45 | 12,410,973 | 10,599,925 |\n| 管理费用 | 46 | 10,386,267 | 7,694,969 |\n| 研发费用 | 47 | 29,596,366 | 19,620,756 |\n| 财务费用 | 48 | (3,247,033) | 69,006 |\n| 其中：利息费用 |  | 972,045 | 1,116,060 |\n| 利息收入 |  | 1,078,159 | 1,192,620 |\n| 加：其他收益 | 49 | 6,621,747 | 4,824,359 |\n| 投资收益 | 50 | 1,375,879 | 1,209,337 |\n| 其中：对联营企业和合营企业的投资收益 |  | 654,547 | 913,659 |\n| 以摊余成本计量的金融资产终止确 认损失 |  | (47,946) | - |\n| 公允价值变动收益 | 51 | 373,458 | 347,721 |\n| 信用减值损失 | 52 | (102,848) | (789,516) |\n| 资产减值损失 | 53 | (1,254,303) | (1,531,034) |\n| 资产处置损失 | 54 | (17,633) | (8,409) |\n| 二、 营业利润 |  | 18,719,509 | 17,323,276 |\n| 加：营业外收入 | 55 | 805,131 | 476,512 |\n| 减：营业外支出 | 56 | 614,625 | 571,650 |",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "750061bd630ab2feaf70c31c",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/21"
+              ],
+              "chunk_id": "5763c0ce1bff9f5bfe81f3cd"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "text",
+              "n_tokens": 16,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n后附财务报表附注为本财务报表的组成部分",
+              "chunk_id": "db83eda4ed339cafa86667df"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "table_md",
+              "n_tokens": 269,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n|  | 附注七 | 截至2025年 / 6月30日止 / 6个月期间 / (未经审计) | 截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) |\n|---|---|---|---|\n| 三、 利润总额 |  | 18,910,015 | 17,228,138 |\n| 减：所得税费用 | 57 | 2,871,076 | 3,114,922 |\n| 四、 净利润 |  | 16,038,939 | 14,113,216 |\n| 五、 按经营持续性分类 持续经营净利润 |  | 16,038,939 | 14,113,216 |\n| 六、 按所有权归属分类 |  |  |  |\n| 归属于母公司所有者的净利润 |  | 15,510,533 | 13,631,257 |\n| 少数股东损益 |  | 528,406 | 481,959 |",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "750061bd630ab2feaf70c31c",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/21"
+              ],
+              "chunk_id": "dfcac71cb623204d6f6d239d"
+            }
+          ],
+          "anchor_id": "dfcac71cb623204d6f6d239d",
+          "scope": "page",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "index_admission": "ACCEPTED",
+          "total_candidates": 3,
+          "next_cursor": null,
+          "text_chars": 1505,
+          "coverage": "admitted chunks only, not complete PDF page",
+          "relation": "same document; adjacency does not prove same table or scope"
+        }
+      },
+      {
+        "step": 5,
+        "tool": "search",
+        "args": {
+          "query": "比亚迪 2025年半年度报告 财务报表 金额单位 人民币千元 除特别注明外 合并利润表 15,510,533",
+          "company": "比亚迪",
+          "mode": "dense"
+        },
+        "response": {
+          "results": [
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "table_kv",
+              "n_tokens": 394,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n三、 利润总额：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 18,910,015，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 17,228,138\n减：所得税费用：附注七 57，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 2,871,076，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 3,114,922\n四、 净利润：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 16,038,939，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 14,113,216\n五、 按经营持续性分类 持续经营净利润：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 16,038,939，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 14,113,216\n归属于母公司所有者的净利润：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 15,510,533，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 13,631,257\n少数股东损益：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 528,406，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 481,959",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "750061bd630ab2feaf70c31c",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/21"
+              ],
+              "chunk_id": "c9036b2b7a00f429f3adb4a9",
+              "section": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "score": 0.9998134970664978,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "table_md",
+              "n_tokens": 269,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n|  | 附注七 | 截至2025年 / 6月30日止 / 6个月期间 / (未经审计) | 截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) |\n|---|---|---|---|\n| 三、 利润总额 |  | 18,910,015 | 17,228,138 |\n| 减：所得税费用 | 57 | 2,871,076 | 3,114,922 |\n| 四、 净利润 |  | 16,038,939 | 14,113,216 |\n| 五、 按经营持续性分类 持续经营净利润 |  | 16,038,939 | 14,113,216 |\n| 六、 按所有权归属分类 |  |  |  |\n| 归属于母公司所有者的净利润 |  | 15,510,533 | 13,631,257 |\n| 少数股东损益 |  | 528,406 | 481,959 |",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "750061bd630ab2feaf70c31c",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/21"
+              ],
+              "chunk_id": "dfcac71cb623204d6f6d239d",
+              "section": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "score": 0.9997761845588684,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "section_level": 4,
+              "page_start": 144,
+              "page_end": 144,
+              "chunk_type": "table_kv",
+              "n_tokens": 197,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润】\n表：42、未分配利润　单位：未标注　币种：未标注\n期/年初未分配利润：2列（列名未识别） 期/年初未分配利润，2025年6月30日 (未经审计) 98,647,794，2024年12月31日 (经审计) 67,123,972\n本期/年归属于母公司股东的净利润：2列（列名未识别） 本期/年归属于母公司股东的净利润，2025年6月30日 (未经审计) 15,510,533，2024年12月31日 (经审计) 40,254,346\n期/年末未分配利润：2列（列名未识别） 期/年末未分配利润，2025年6月30日 (未经审计) 102,004,934，2024年12月31日 (经审计) 98,647,794",
+              "table_title": "42、未分配利润",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "7e90597236953cf195c983ae",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0126-0150.json#/tables/27"
+              ],
+              "chunk_id": "30f9aa8dee7a67eaf19f50ba",
+              "section": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "score": 0.9997021555900574,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "section_level": 4,
+              "page_start": 144,
+              "page_end": 144,
+              "chunk_type": "table_md",
+              "n_tokens": 248,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润】\n表：42、未分配利润　单位：未标注　币种：未标注\n|  |  | 2025年6月30日 (未经审计) | 2024年12月31日 (经审计) |\n|---|---|---|---|\n| 期/年初未分配利润 | 期/年初未分配利润 | 98,647,794 | 67,123,972 |\n| 本期/年归属于母公司股东的净利润 | 本期/年归属于母公司股东的净利润 | 15,510,533 | 40,254,346 |\n|  | 减：分配普通股现金股利 | 12,077,248 | 9,012,493 |\n|  | 分配其他权益工具利息 | 132,941 | - |\n|  | 加：处置其他权益工具 | 56,796 | 281,969 |\n| 期/年末未分配利润 | 期/年末未分配利润 | 102,004,934 | 98,647,794 |",
+              "table_title": "42、未分配利润",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "7e90597236953cf195c983ae",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0126-0150.json#/tables/27"
+              ],
+              "chunk_id": "81a5814d2ab63b6f666d201d",
+              "section": "第八节财务报告 > 七、合并财务报表主要项目注释(续) > 42、未分配利润",
+              "score": 0.9995610117912292,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "table_kv",
+              "n_tokens": 1281,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n一、 营业收入：附注七 43，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 371,280,948，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 301,126,713\n减：营业成本：附注七 43，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 304,415,089，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 244,577,008\n税金及附加：附注七 44，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 5,996,077，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 5,294,231\n销售费用：附注七 45，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 12,410,973，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 10,599,925\n管理费用：附注七 46，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 10,386,267，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 7,694,969\n研发费用：附注七 47，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 29,596,366，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 19,620,756\n财务费用：附注七 48，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) (3,247,033)，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 69,006\n其中：利息费用：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 972,045，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 1,116,060\n利息收入：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 1,078,159，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 1,192,620\n加：其他收益：附注七 49，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 6,621,747，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 4,824,359\n投资收益：附注七 50，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 1,375,879，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 1,209,337\n其中：对联营企业和合营企业的投资收益：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 654,547，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 913,659\n以摊余成本计量的金融资产终止确 认损失：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) (47,946)，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) -\n公允价值变动收益：附注七 51，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 373,458，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 347,721\n信用减值损失：附注七 52，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) (102,848)，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) (789,516)\n资产减值损失：附注七 53，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) (1,254,303)，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) (1,531,034)\n资产处置损失：附注七 54，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) (17,633)，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) (8,409)\n二、 营业利润：截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 18,719,509，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 17,323,276\n加：营业外收入：附注七 55，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 805,131，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 476,512\n减：营业外支出：附注七 56，截至2025年 / 6月30日止 / 6个月期间 / (未经审计) 614,625，截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) 571,650",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "750061bd630ab2feaf70c31c",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/21"
+              ],
+              "chunk_id": "3ee8f4c84b299767459ac5e4",
+              "section": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "score": 0.9993023872375488,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": true,
+              "reranker_truncated": true,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "比亚迪",
+              "company_code": "002594",
+              "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "section_level": 4,
+              "page_start": 65,
+              "page_end": 65,
+              "chunk_type": "table_md",
+              "n_tokens": 591,
+              "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、合并利润表】\n表：2、合并利润表　单位：未标注　币种：未标注\n|  | 附注七 | 截至2025年 / 6月30日止 / 6个月期间 / (未经审计) | 截至2024年 / 6月30日止 / 6个月期间 / (未经审计) / (经重述) |\n|---|---|---|---|\n| 一、 营业收入 | 43 | 371,280,948 | 301,126,713 |\n| 减：营业成本 | 43 | 304,415,089 | 244,577,008 |\n| 税金及附加 | 44 | 5,996,077 | 5,294,231 |\n| 销售费用 | 45 | 12,410,973 | 10,599,925 |\n| 管理费用 | 46 | 10,386,267 | 7,694,969 |\n| 研发费用 | 47 | 29,596,366 | 19,620,756 |\n| 财务费用 | 48 | (3,247,033) | 69,006 |\n| 其中：利息费用 |  | 972,045 | 1,116,060 |\n| 利息收入 |  | 1,078,159 | 1,192,620 |\n| 加：其他收益 | 49 | 6,621,747 | 4,824,359 |\n| 投资收益 | 50 | 1,375,879 | 1,209,337 |\n| 其中：对联营企业和合营企业的投资收益 |  | 654,547 | 913,659 |\n| 以摊余成本计量的金融资产终止确 认损失 |  | (47,946) | - |\n| 公允价值变动收益 | 51 | 373,458 | 347,721 |\n| 信用减值损失 | 52 | (102,848) | (789,516) |\n| 资产减值损失 | 53 | (1,254,303) | (1,531,034) |\n| 资产处置损失 | 54 | (17,633) | (8,409) |\n| 二、 营业利润 |  | 18,719,509 | 17,323,276 |\n| 加：营业外收入 | 55 | 805,131 | 476,512 |\n| 减：营业外支出 | 56 | 614,625 | 571,650 |",
+              "table_title": "2、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "750061bd630ab2feaf70c31c",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/002594/0051-0075.json#/tables/21"
+              ],
+              "chunk_id": "5763c0ce1bff9f5bfe81f3cd",
+              "section": "第八节财务报告 > 二、财务报表 > 2、合并利润表",
+              "score": 0.9993023872375488,
+              "score_kind": "inherited_from_kv",
+              "attached": true,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            }
+          ],
+          "index_admission": "ACCEPTED",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "primary_count": 5
+        }
+      }
+    ]
+  }
+}

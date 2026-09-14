@@ -1,0 +1,17 @@
+{
+  "case_count": 18,
+  "actual_records": 12,
+  "controlled_edits": 6,
+  "frozen_input_hashes_checked": 41,
+  "markdown_links_checked": 96,
+  "broken_links": [],
+  "reference_labels_completed": 0,
+  "judge_executed": false,
+  "training_release": false,
+  "code_sha256": {
+    "src/finmhqa/qa/calibration.py": "531c416f082512ddc41286d2b5940515e008172e2ecff6a6fdd2b980112fe12d",
+    "scripts/build_quality_calibration.py": "c6bfe264624029ce9272af17776e4d535385fc69a38f3ea8793b5824d50cbb28",
+    "scripts/score_quality_calibration.py": "a0ca5ae9ed82e11891ca2596c27dc92a79643edf3726399a8ba356b214c1abb9",
+    "tests/test_quality_calibration.py": "c461168a0983cdd9e14fc7ae173597b01f8cebca7e3c2aba253fff043bd3d4cf"
+  }
+}

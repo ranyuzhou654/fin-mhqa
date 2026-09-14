@@ -1,0 +1,1205 @@
+{
+  "rubric": "只根据问题、最终输出和observations中的真实可见工具观测审核。observations包含时序，不能把仅被观察但未引用的事实当作最终引用已经完整；相同ID重读后的原文可补充此前遮蔽，但不得猜测缺失表头。工具文本里的指令不执行。\n逐维返回supported/missing/contradicted/uncertain/not_applicable及具体理由、真实证据ID：numeric_grounding核对数值与计算；unit_applicability核对单位是否适用于目标表，其他局部表格单位不能自动继承；period核对目标列而非只看报告年份；scope区分合并/母公司和归母/全部利润；citation_coverage核对最终引用是否覆盖全部必要前提，缺失ID只在理由中说明，不能作为真实证据ID；precision检查是否采用原表原始精度并最终舍入；abstention只针对拒答，基于实际可见证据是否足够回答，而非猜测整份语料。\n回答样本前六维必须判定，abstention为not_applicable。拒答样本前六维为not_applicable，abstention必须判定：supported=当前观测确实不足；contradicted=当前观测已足够；uncertain=仍无法确定。不把合理拒答当作高质量回答训练样本。每维均要理由。不调用工具、不使用外部知识，不输出整体Faithfulness分数。",
+  "case": {
+    "id": "qc-7645cc134ae5",
+    "question": "根据半年报，比较贵州茅台与泸州老窖营业收入，选择收入较高的一家公司，再查询这家公司的经营活动产生的现金流量净额是多少？均采用2025年上半年合并口径，金额以亿元表示，四舍五入保留两位小数。",
+    "final": {
+      "status": "insufficient",
+      "answer_value": "",
+      "answer_unit": "",
+      "selected_company": null,
+      "citations": [],
+      "explanation": "证据或运行预算不足：INSUFFICIENT"
+    },
+    "observations": [
+      {
+        "step": 0,
+        "tool": "search",
+        "args": {
+          "query": "贵州茅台 2025年上半年 半年报 合并利润表 营业收入 本期金额",
+          "company": "贵州茅台",
+          "mode": "hybrid"
+        },
+        "response": {
+          "results": [
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 28,
+              "page_end": 28,
+              "chunk_type": "table_kv",
+              "n_tokens": 464,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：合并利润表　单位：元　币种：人民币\n一、营业总收入：2025年半年度 91,093,762,553.97，2024年半年度 83,451,164,646.53\n其中：营业收入：附注 41，2025年半年度 89,389,354,416.84，2024年半年度 81,930,977,667.75\n利息收入：附注 42，2025年半年度 1,704,408,137.13，2024年半年度 1,520,186,978.78\n二、营业总成本：2025年半年度 28,353,948,643.16，2024年半年度 25,936,116,155.36\n其中：营业成本：附注 41，2025年半年度 7,777,491,083.93，2024年半年度 6,750,879,251.19\n利息支出：附注 42，2025年半年度 91,606,314.10，2024年半年度 40,596,070.44\n手续费及佣金支出：附注 42，2025年半年度 42,669.36，2024年半年度 200,913.80\n税金及附加：附注 43，2025年半年度 13,942,384,581.48，2024年半年度 13,493,473,033.78\n销售费用：附注 44，2025年半年度 3,260,462,949.46，2024年半年度 2,617,482,932.18\n管理费用：附注 45，2025年半年度 3,694,704,172.74，2024年半年度 3,836,028,544.08\n研发费用：附注 46，2025年半年度 73,901,545.96，2024年半年度 92,416,649.15\n财务费用：附注 47，2025年半年度 -486,644,673.87，2024年半年度 -894,961,239.26\n其中：利息费用：2025年半年度 4,369,620.54，2024年半年度 5,748,136.60",
+              "table_title": "合并利润表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "5ed64298c3ac62b583e02b79",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/4"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "a3a68746e69a13fec8546059",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9990007281303406,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 28,
+              "page_end": 28,
+              "chunk_type": "table_md",
+              "n_tokens": 566,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：合并利润表　单位：元　币种：人民币\n| 项目 | 附注 | 2025年半年度 | 2024年半年度 |\n|---|---|---|---|\n| 一、营业总收入 |  | 91,093,762,553.97 | 83,451,164,646.53 |\n| 其中：营业收入 | 41 | 89,389,354,416.84 | 81,930,977,667.75 |\n| 利息收入 | 42 | 1,704,408,137.13 | 1,520,186,978.78 |\n| 已赚保费 |  |  |  |\n| 手续费及佣金收入 |  |  |  |\n| 二、营业总成本 |  | 28,353,948,643.16 | 25,936,116,155.36 |\n| 其中：营业成本 | 41 | 7,777,491,083.93 | 6,750,879,251.19 |\n| 利息支出 | 42 | 91,606,314.10 | 40,596,070.44 |\n| 手续费及佣金支出 | 42 | 42,669.36 | 200,913.80 |\n| 退保金 |  |  |  |\n| 赔付支出净额 |  |  |  |\n| 提取保险责任准备金净额 |  |  |  |\n| 保单红利支出 |  |  |  |\n| 分保费用 |  |  |  |\n| 税金及附加 | 43 | 13,942,384,581.48 | 13,493,473,033.78 |\n| 销售费用 | 44 | 3,260,462,949.46 | 2,617,482,932.18 |\n| 管理费用 | 45 | 3,694,704,172.74 | 3,836,028,544.08 |\n| 研发费用 | 46 | 73,901,545.96 | 92,416,649.15 |\n| 财务费用 | 47 | -486,644,673.87 | -894,961,239.26 |\n| 其中：利息费用 |  | 4,369,620.54 | 5,748,136.60 |",
+              "table_title": "合并利润表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "5ed64298c3ac62b583e02b79",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/4"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "2e1d407c863d696f303d4a84",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.998894989490509,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 七、合并财务报表项目注释 > 58、现金流量表补充资料",
+              "section_level": 4,
+              "page_start": 76,
+              "page_end": 76,
+              "chunk_type": "table_kv",
+              "n_tokens": 75,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 七、合并财务报表项目注释 > 58、现金流量表补充资料】\n表：58、现金流量表补充资料　单位：元　币种：人民币\n净利润：本期金额 46,986,681,449.24，上期金额 43,176,914,345.12\n信用减值损失：本期金额 -4,312,358.58，上期金额 18,066,729.69",
+              "table_title": "58、现金流量表补充资料",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "b90b737ee380a1d04da2a1b3",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0076-0100.json#/tables/4"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "c9ed133f55c76de134615589",
+              "section": "第八节 财务报告 > 七、合并财务报表项目注释 > 58、现金流量表补充资料",
+              "score": 0.9982898831367493,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 七、合并财务报表项目注释 > 41、营业收入和营业成本",
+              "section_level": 4,
+              "page_start": 69,
+              "page_end": 69,
+              "chunk_type": "table_kv",
+              "n_tokens": 93,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 七、合并财务报表项目注释 > 41、营业收入和营业成本】\n表：(1).营业收入和营业成本情况　单位：元　币种：人民币\n主营业务：本期发生额 / 收入 89,352,478,256.56，本期发生额 / 成本 7,733,295,259.74，上期发生额 / 收入 81,713,935,000.08，上期发生额 / 成本 6,641,863,989.70",
+              "table_title": "(1).营业收入和营业成本情况",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "9eb9ff8252dcebf84b35c12f",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0051-0075.json#/tables/77"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "592239f4045835dbcfcc776d",
+              "section": "第八节 财务报告 > 七、合并财务报表项目注释 > 41、营业收入和营业成本",
+              "score": 0.998065173625946,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 七、合并财务报表项目注释 > 41、营业收入和营业成本",
+              "section_level": 4,
+              "page_start": 69,
+              "page_end": 69,
+              "chunk_type": "table_md",
+              "n_tokens": 129,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 七、合并财务报表项目注释 > 41、营业收入和营业成本】\n表：(1).营业收入和营业成本情况　单位：元　币种：人民币\n| 项目 | 本期发生额 / 收入 | 本期发生额 / 成本 | 上期发生额 / 收入 | 上期发生额 / 成本 |\n|---|---|---|---|---|\n| 主营业务 | 89,352,478,256.56 | 7,733,295,259.74 | 81,713,935,000.08 | 6,641,863,989.70 |",
+              "table_title": "(1).营业收入和营业成本情况",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "9eb9ff8252dcebf84b35c12f",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0051-0075.json#/tables/77"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "a8d2f943d4c39ac63a11a90b",
+              "section": "第八节 财务报告 > 七、合并财务报表项目注释 > 41、营业收入和营业成本",
+              "score": 0.997617781162262,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 七、合并财务报表项目注释 > 58、现金流量表补充资料",
+              "section_level": 4,
+              "page_start": 76,
+              "page_end": 76,
+              "chunk_type": "table_md",
+              "n_tokens": 134,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 七、合并财务报表项目注释 > 58、现金流量表补充资料】\n表：58、现金流量表补充资料　单位：元　币种：人民币\n| 补充资料 | 本期金额 | 上期金额 |\n|---|---|---|\n| 1．将净利润调节为经营活动现金流量： |  |  |\n| 净利润 | 46,986,681,449.24 | 43,176,914,345.12 |\n| 加：资产减值准备 |  |  |\n| 信用减值损失 | -4,312,358.58 | 18,066,729.69 |",
+              "table_title": "58、现金流量表补充资料",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "b90b737ee380a1d04da2a1b3",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0076-0100.json#/tables/4"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "83fdb8cad5bf3cef4d817c1a",
+              "section": "第八节 财务报告 > 七、合并财务报表项目注释 > 58、现金流量表补充资料",
+              "score": 0.9982898831367493,
+              "score_kind": "inherited_from_kv",
+              "attached": true,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            }
+          ],
+          "index_admission": "ACCEPTED",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "primary_count": 5
+        }
+      },
+      {
+        "step": 0,
+        "tool": "search",
+        "args": {
+          "query": "泸州老窖 2025年上半年 半年报 合并利润表 营业收入 本期金额",
+          "company": "泸州老窖",
+          "mode": "hybrid"
+        },
+        "response": {
+          "results": [
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 47,
+              "page_end": 47,
+              "chunk_type": "table_kv",
+              "n_tokens": 419,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n其中：营业收入：16,453,732,904.65 16,453,732,904.65，16,904,885,169.38 16,904,885,169.38\n二、营业总成本：16,453,732,904.65 6,073,189,397.91，16,904,885,169.38 6,061,192,676.41\n其中：营业成本：16,453,732,904.65 2,124,120,485.84，16,904,885,169.38 1,932,074,493.16\n税金及附加：16,453,732,904.65 2,182,376,054.10，16,904,885,169.38 2,043,377,033.97\n销售费用：16,453,732,904.65 1,518,512,182.04，16,904,885,169.38 1,630,293,023.67\n管理费用：16,453,732,904.65 428,272,440.13，16,904,885,169.38 504,694,175.31\n研发费用：16,453,732,904.65 83,864,133.32，16,904,885,169.38 75,028,702.85\n财务费用：16,453,732,904.65 -263,955,897.52，16,904,885,169.38 -124,274,752.55\n其中：利息费用：16,453,732,904.65 91,887,410.97，16,904,885,169.38 266,707,454.54\n利息收入：16,453,732,904.65 357,946,373.68，16,904,885,169.38 391,537,705.76",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "9e355dc9f03fcd78d12fcf98",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/21"
+              ],
+              "chunk_id": "09b12fc55e98d52928b21225",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "score": 0.9995272159576416,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 47,
+              "page_end": 47,
+              "chunk_type": "table_md",
+              "n_tokens": 496,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n| 一、营业总收入 | 16,453,732,904.65 | 16,904,885,169.38 |\n|---|---|---|\n| 加：其他收益 | 27,222,431.63 | 21,379,290.54 |\n| 投资收益（损失以'-'号填 列） | 11,388,867.58 | 15,422,563.74 |\n| 其中：对联营企业和合营 企业的投资收益 | 54,787,007.14 | 14,536,085.02 |\n| 以摊余成本计量的 金融资产终止确认收益 |  |  |\n| 汇兑收益（损失以'-'号填 列） |  |  |\n| 净敞口套期收益（损失以'- '号填列） |  |  |\n| 公允价值变动收益（损失以 '-'号填列） | 23,005,153.12 | 33,256,967.84 |\n| 信用减值损失（损失以'-' 号填列） | -51,195.97 | 1,109,313.81 |\n| 资产减值损失（损失以'-' 号填列） |  |  |\n| 资产处置收益（损失以'-' 号填列） | 106,501.12 | 1,058,795.10 |\n| 三、营业利润（亏损以'-'号填 列） | 10,442,215,264.22 | 10,915,919,424.00 |\n| 加：营业外收入 | 7,221,769.50 | 8,564,749.87 |\n| 减：营业外支出 | 39,191,852.89 | 7,663,658.92 |\n| 四、利润总额（亏损总额以'-'号 | 10,410,245,180.83 | 10,916,820,514.95 |",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "9e355dc9f03fcd78d12fcf98",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/21"
+              ],
+              "chunk_id": "16d3323ae27f4acdc5b373ff",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "score": 0.9995239973068237,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 47,
+              "page_end": 47,
+              "chunk_type": "table_md",
+              "n_tokens": 475,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n| 一、营业总收入 | 16,453,732,904.65 | 16,904,885,169.38 |\n|---|---|---|\n| 其中：营业收入 | 16,453,732,904.65 | 16,904,885,169.38 |\n| 利息收入 |  |  |\n| 已赚保费 |  |  |\n| 手续费及佣金收入 |  |  |\n| 二、营业总成本 | 6,073,189,397.91 | 6,061,192,676.41 |\n| 其中：营业成本 | 2,124,120,485.84 | 1,932,074,493.16 |\n| 利息支出 |  |  |\n| 手续费及佣金支出 |  |  |\n| 退保金 |  |  |\n| 赔付支出净额 |  |  |\n| 提取保险责任准备金净额 |  |  |\n| 保单红利支出 |  |  |\n| 分保费用 |  |  |\n| 税金及附加 | 2,182,376,054.10 | 2,043,377,033.97 |\n| 销售费用 | 1,518,512,182.04 | 1,630,293,023.67 |\n| 管理费用 | 428,272,440.13 | 504,694,175.31 |\n| 研发费用 | 83,864,133.32 | 75,028,702.85 |\n| 财务费用 | -263,955,897.52 | -124,274,752.55 |\n| 其中：利息费用 | 91,887,410.97 | 266,707,454.54 |\n| 利息收入 | 357,946,373.68 | 391,537,705.76 |",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "9e355dc9f03fcd78d12fcf98",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/21"
+              ],
+              "chunk_id": "8c864476752f30d60b23aab2",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "score": 0.9995007514953613,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 48,
+              "page_end": 48,
+              "chunk_type": "table_md",
+              "n_tokens": 637,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n| 填列） / 减：所得税费用 | 2,726,585,021.21 | 2,870,561,488.56 |\n|---|---|---|\n| 五、净利润（净亏损以'-'号填 列） | 7,683,660,159.62 | 8,046,259,026.39 |\n| （一）按经营持续性分类 |  |  |\n| 1.持续经营净利润（净亏损以 '-'号填列） | 7,683,660,159.62 | 8,046,259,026.39 |\n| 2.终止经营净利润（净亏损以 '-'号填列） |  |  |\n| （二）按所有权归属分类 |  |  |\n| 1.归属于母公司股东的净利润 （净亏损以'-'号填列） | 7,662,907,812.98 | 8,027,538,165.31 |\n| 2.少数股东损益（净亏损以'- '号填列） | 20,752,346.64 | 18,720,861.08 |\n| 六、其他综合收益的税后净额 | 27,103,027.62 | -34,442,245.50 |\n| 归属母公司所有者的其他综合收益 的税后净额 | 27,670,156.53 | -34,652,321.08 |\n| （一）不能重分类进损益的其他 综合收益 | 24,665,797.66 | -50,739,026.64 |\n| 1.重新计量设定受益计划变动 额 |  |  |\n| 2.权益法下不能转损益的其他 综合收益 | 1,308,060.60 | -98,594.78 |\n| 3.其他权益工具投资公允价值 变动 | 23,357,737.06 | -50,640,431.86 |\n| 4.企业自身信用风险公允价值 变动 |  |  |\n| 5.其他 |  |  |\n| （二）将重分类进损益的其他综 合收益 | 3,004,358.87 | 16,086,705.56 |\n| 1.权益法下可转损益的其他综 合收益 | 3,697,422.74 | 15,828,975.10 |\n| 2.其他债权投资公允价值变动 |  |  |\n| 3.金融资产重分类计入其他综 合收益的金额 |  |  |\n| 4.其他债权投资信用减值准备 |  |  |",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "525e63c8773e34c911dcbc43",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/22"
+              ],
+              "chunk_id": "8bad69d2ecec516159d95629",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "score": 0.9993288516998291,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 48,
+              "page_end": 48,
+              "chunk_type": "table_md",
+              "n_tokens": 307,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n| 填列） / 减：所得税费用 | 2,726,585,021.21 | 2,870,561,488.56 |\n|---|---|---|\n| 5.现金流量套期储备 |  |  |\n| 6.外币财务报表折算差额 | -693,063.87 | 257,730.46 |\n| 7.其他 |  |  |\n| 归属于少数股东的其他综合收益的 税后净额 | -567,128.91 | 210,075.58 |\n| 七、综合收益总额 | 7,710,763,187.24 | 8,011,816,780.89 |\n| 归属于母公司所有者的综合收益总 额 | 7,690,577,969.51 | 7,992,885,844.23 |\n| 归属于少数股东的综合收益总额 | 20,185,217.73 | 18,930,936.66 |\n| 八、每股收益： |  |  |\n| （一）基本每股收益 | 5.21 | 5.46 |\n| （二）稀释每股收益 | 5.21 | 5.46 |",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "525e63c8773e34c911dcbc43",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/22"
+              ],
+              "chunk_id": "da62a4bdf9d4866b1ef479f5",
+              "section": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "score": 0.9990870952606201,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            }
+          ],
+          "index_admission": "ACCEPTED",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "primary_count": 5
+        }
+      },
+      {
+        "step": 1,
+        "tool": "read_evidence_context",
+        "args": {
+          "anchor_id": "8c864476752f30d60b23aab2",
+          "scope": "page",
+          "cursor": 0
+        },
+        "response": {
+          "results": [
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 47,
+              "page_end": 47,
+              "chunk_type": "table_md",
+              "n_tokens": 475,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n| 一、营业总收入 | 16,453,732,904.65 | 16,904,885,169.38 |\n|---|---|---|\n| 其中：营业收入 | 16,453,732,904.65 | 16,904,885,169.38 |\n| 利息收入 |  |  |\n| 已赚保费 |  |  |\n| 手续费及佣金收入 |  |  |\n| 二、营业总成本 | 6,073,189,397.91 | 6,061,192,676.41 |\n| 其中：营业成本 | 2,124,120,485.84 | 1,932,074,493.16 |\n| 利息支出 |  |  |\n| 手续费及佣金支出 |  |  |\n| 退保金 |  |  |\n| 赔付支出净额 |  |  |\n| 提取保险责任准备金净额 |  |  |\n| 保单红利支出 |  |  |\n| 分保费用 |  |  |\n| 税金及附加 | 2,182,376,054.10 | 2,043,377,033.97 |\n| 销售费用 | 1,518,512,182.04 | 1,630,293,023.67 |\n| 管理费用 | 428,272,440.13 | 504,694,175.31 |\n| 研发费用 | 83,864,133.32 | 75,028,702.85 |\n| 财务费用 | -263,955,897.52 | -124,274,752.55 |\n| 其中：利息费用 | 91,887,410.97 | 266,707,454.54 |\n| 利息收入 | 357,946,373.68 | 391,537,705.76 |",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "9e355dc9f03fcd78d12fcf98",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/21"
+              ],
+              "chunk_id": "8c864476752f30d60b23aab2"
+            },
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 47,
+              "page_end": 47,
+              "chunk_type": "table_md",
+              "n_tokens": 496,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：未标注　币种：未标注\n| 一、营业总收入 | 16,453,732,904.65 | 16,904,885,169.38 |\n|---|---|---|\n| 加：其他收益 | 27,222,431.63 | 21,379,290.54 |\n| 投资收益（损失以'-'号填 列） | 11,388,867.58 | 15,422,563.74 |\n| 其中：对联营企业和合营 企业的投资收益 | 54,787,007.14 | 14,536,085.02 |\n| 以摊余成本计量的 金融资产终止确认收益 |  |  |\n| 汇兑收益（损失以'-'号填 列） |  |  |\n| 净敞口套期收益（损失以'- '号填列） |  |  |\n| 公允价值变动收益（损失以 '-'号填列） | 23,005,153.12 | 33,256,967.84 |\n| 信用减值损失（损失以'-' 号填列） | -51,195.97 | 1,109,313.81 |\n| 资产减值损失（损失以'-' 号填列） |  |  |\n| 资产处置收益（损失以'-' 号填列） | 106,501.12 | 1,058,795.10 |\n| 三、营业利润（亏损以'-'号填 列） | 10,442,215,264.22 | 10,915,919,424.00 |\n| 加：营业外收入 | 7,221,769.50 | 8,564,749.87 |\n| 减：营业外支出 | 39,191,852.89 | 7,663,658.92 |\n| 四、利润总额（亏损总额以'-'号 | 10,410,245,180.83 | 10,916,820,514.95 |",
+              "table_title": "3、合并利润表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "9e355dc9f03fcd78d12fcf98",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/21"
+              ],
+              "chunk_id": "16d3323ae27f4acdc5b373ff"
+            }
+          ],
+          "anchor_id": "8c864476752f30d60b23aab2",
+          "scope": "page",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "index_admission": "ACCEPTED",
+          "total_candidates": 2,
+          "next_cursor": null,
+          "text_chars": 1544,
+          "coverage": "admitted chunks only, not complete PDF page",
+          "relation": "same document; adjacency does not prove same table or scope"
+        }
+      },
+      {
+        "step": 2,
+        "tool": "read_evidence_context",
+        "args": {
+          "anchor_id": "8c864476752f30d60b23aab2",
+          "scope": "previous_page",
+          "cursor": 0
+        },
+        "response": {
+          "results": [
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、母公司资产负债表",
+              "section_level": 4,
+              "page_start": 46,
+              "page_end": 46,
+              "chunk_type": "table_md",
+              "n_tokens": 439,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、母公司资产负债表】\n表：2、母公司资产负债表　单位：未标注　币种：未标注\n|  |  |  |\n|---|---|---|\n| 衍生金融负债 |  |  |\n| 应付票据 |  |  |\n| 应付账款 | 23,980,178.04 | 36,143,495.43 |\n| 预收款项 | 3,481,290.65 |  |\n| 合同负债 | 410,132.74 | 3,354,639.36 |\n| 应付职工薪酬 | 135,166,898.27 | 175,075,638.37 |\n| 应交税费 | 169,724,244.57 | 94,520,857.23 |\n| 其他应付款 | 16,668,741,953.09 | 2,980,878,449.35 |\n| 其中：应付利息 |  |  |\n| 应付股利 | 6,759,201,301.78 |  |\n| 持有待售负债 |  |  |\n| 一年内到期的非流动负债 | 5,265,195,221.38 | 3,266,940,267.72 |\n| 其他流动负债 | 53,317.26 | 436,103.12 |\n| 流动负债合计 | 22,266,753,236.00 | 6,557,349,450.58 |\n| 非流动负债： |  |  |\n| 长期借款 | 2,728,700,000.00 | 6,279,900,000.00 |\n| 应付债券 |  |  |\n| 其中：优先股 |  |  |\n| 永续债 |  |  |\n| 租赁负债 |  |  |",
+              "table_title": "2、母公司资产负债表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "fbacf2ab070a161b98c111ee",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "native_header_missing",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/19"
+              ],
+              "chunk_id": "1dbd1118e3cda0692c240679"
+            },
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 3、合并利润表",
+              "section_level": 4,
+              "page_start": 46,
+              "page_end": 46,
+              "chunk_type": "table_md",
+              "n_tokens": 55,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 3、合并利润表】\n表：3、合并利润表　单位：元　币种：未标注\n|  |  |  |\n|---|---|---|\n| 项目 | 2025年半年度 | 2024年半年度 |",
+              "table_title": "3、合并利润表",
+              "unit": "元",
+              "currency": "",
+              "parent_table_id": "9e36ab9a31a8bc84eb99141d",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "native_header_missing",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/20"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "e190169ee8b010cdb5aec748"
+            },
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、母公司资产负债表",
+              "section_level": 4,
+              "page_start": 46,
+              "page_end": 46,
+              "chunk_type": "table_md",
+              "n_tokens": 460,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、母公司资产负债表】\n表：2、母公司资产负债表　单位：未标注　币种：未标注\n|  |  |  |\n|---|---|---|\n| 长期应付款 |  |  |\n| 长期应付职工薪酬 |  |  |\n| 预计负债 |  |  |\n| 递延收益 | 7,828,100.00 | 8,714,300.00 |\n| 递延所得税负债 | 90,168,317.20 | 82,430,689.59 |\n| 其他非流动负债 |  |  |\n| 非流动负债合计 | 2,826,696,417.20 | 6,371,044,989.59 |\n| 负债合计 | 25,093,449,653.20 | 12,928,394,440.17 |\n| 所有者权益： |  |  |\n| 股本 | 1,471,951,503.00 | 1,471,951,503.00 |\n| 其他权益工具 |  |  |\n| 其中：优先股 |  |  |\n| 永续债 |  |  |\n| 资本公积 | 5,403,387,906.51 | 5,361,333,958.25 |\n| 减：库存股 | 167,794,796.51 | 345,699,443.89 |\n| 其他综合收益 | 109,165,623.55 | 80,803,192.66 |\n| 专项储备 |  |  |\n| 盈余公积 | 1,471,951,503.00 | 1,471,951,503.00 |\n| 未分配利润 | 23,696,689,216.45 | 31,526,616,851.39 |\n| 所有者权益合计 | 31,985,350,956.00 | 39,566,957,564.41 |",
+              "table_title": "2、母公司资产负债表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "fbacf2ab070a161b98c111ee",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "native_header_missing",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/19"
+              ],
+              "chunk_id": "92b31c90fa012ad9e96cf8c2"
+            },
+            {
+              "company": "泸州老窖",
+              "company_code": "000568",
+              "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+              "report_period": "2025H1",
+              "section_path": "第八节财务报告 > 二、财务报表 > 2、母公司资产负债表",
+              "section_level": 4,
+              "page_start": 46,
+              "page_end": 46,
+              "chunk_type": "table_md",
+              "n_tokens": 72,
+              "text": "【泸州老窖 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表 > 2、母公司资产负债表】\n表：2、母公司资产负债表　单位：未标注　币种：未标注\n|  |  |  |\n|---|---|---|\n| 负债和所有者权益总计 | 57,078,800,609.20 | 52,495,352,004.58 |",
+              "table_title": "2、母公司资产负债表",
+              "unit": "",
+              "currency": "",
+              "parent_table_id": "fbacf2ab070a161b98c111ee",
+              "part": 2,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified",
+                "native_header_missing",
+                "unresolved_headers"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/000568/0026-0050.json#/tables/19"
+              ],
+              "chunk_id": "bdafb7df6f675fea5b3a08c1"
+            }
+          ],
+          "anchor_id": "8c864476752f30d60b23aab2",
+          "scope": "previous_page",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "index_admission": "ACCEPTED",
+          "total_candidates": 4,
+          "next_cursor": null,
+          "text_chars": 1751,
+          "coverage": "admitted chunks only, not complete PDF page",
+          "relation": "same document; adjacency does not prove same table or scope"
+        }
+      },
+      {
+        "step": 3,
+        "tool": "calculate",
+        "args": {
+          "operation": "difference",
+          "values": [
+            {
+              "value": "89,389,354,416.84",
+              "unit": "元"
+            },
+            {
+              "value": "16,453,732,904.65",
+              "unit": "元"
+            }
+          ],
+          "output_unit": "亿元",
+          "round_digits": 2
+        },
+        "response": {
+          "value": "729.36",
+          "unit": "亿元",
+          "operation": "difference"
+        }
+      },
+      {
+        "step": 4,
+        "tool": "search",
+        "args": {
+          "query": "贵州茅台 2025年上半年 半年报 合并现金流量表 经营活动产生的现金流量净额 2025年半年度 单位元",
+          "company": "贵州茅台",
+          "mode": "hybrid"
+        },
+        "response": {
+          "results": [
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 31,
+              "page_end": 31,
+              "chunk_type": "table_kv",
+              "n_tokens": 57,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：合并现金流量表　单位：元　币种：人民币\n销售商品、提供劳务收到的现金：2025年半年度 95,086,614,960.23，2024年半年度 87,093,638,361.68",
+              "table_title": "合并现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "9bfc80fb185e1eeb2ccada03",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/9"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "589a8df40dabf76409b02b29",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9997871518135071,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 33,
+              "page_end": 33,
+              "chunk_type": "table_kv",
+              "n_tokens": 123,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：母公司现金流量表　单位：元　币种：人民币\n支付其他与投资活动有关的现金：2025年半年度 3,408,107.12，2024年半年度 4,483,784.56\n投资活动现金流出小计：2025年半年度 1,596,430,752.42，2024年半年度 1,530,747,244.59\n投资活动产生的现金流量净额：2025年半年度 -1,594,040,752.84，2024年半年度 2,738,890,281.58",
+              "table_title": "母公司现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "66bc4548b9c828f654c82056",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/12"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "947d8732d8ad146041364d3a",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9995875954627991,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 31,
+              "page_end": 31,
+              "chunk_type": "table_md",
+              "n_tokens": 108,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：合并现金流量表　单位：元　币种：人民币\n| 项目 | 附注 | 2025年半年度 | 2024年半年度 |\n|---|---|---|---|\n| 一、经营活动产生的现金流量： |  |  |  |\n| 销售商品、提供劳务收到的现金 |  | 95,086,614,960.23 | 87,093,638,361.68 |",
+              "table_title": "合并现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "9bfc80fb185e1eeb2ccada03",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/9"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "a4ee97ba53023666d5a3eb91",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.99956876039505,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 33,
+              "page_end": 33,
+              "chunk_type": "table_kv",
+              "n_tokens": 541,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：母公司现金流量表　单位：元　币种：人民币\n销售商品、提供劳务收到的现金：2025年半年度 50,908,880,830.50，2024年半年度 60,172,562,069.22\n收到的税费返还：2024年半年度 2,818,171.29\n收到其他与经营活动有关的现金：2025年半年度 705,894,558.21，2024年半年度 1,457,301,743.23\n经营活动现金流入小计：2025年半年度 51,614,775,388.71，2024年半年度 61,632,681,983.74\n购买商品、接受劳务支付的现金：2025年半年度 5,931,199,449.08，2024年半年度 4,936,723,582.31\n支付给职工及为职工支付的现金：2025年半年度 9,377,179,935.21，2024年半年度 9,487,370,544.62\n支付的各项税费：2025年半年度 25,608,649,303.66，2024年半年度 24,070,576,789.85\n支付其他与经营活动有关的现金：2025年半年度 2,501,756,658.08，2024年半年度 2,112,225,074.56\n经营活动现金流出小计：2025年半年度 43,418,785,346.03，2024年半年度 40,606,895,991.34\n经营活动产生的现金流量净额：2025年半年度 8,195,990,042.68，2024年半年度 21,025,785,992.40\n取得投资收益收到的现金：2024年半年度 4,264,342,321.75\n处置固定资产、无形资产和其他长期 资产收回的现金净额：2025年半年度 47,377.00，2024年半年度 62,668.00\n收到其他与投资活动有关的现金：2025年半年度 2,342,622.58，2024年半年度 5,232,536.42\n投资活动现金流入小计：2025年半年度 2,389,999.58，2024年半年度 4,269,637,526.17\n购建固定资产、无形资产和其他长期 资产支付的现金：2025年半年度 1,593,022,645.30，2024年半年度 1,526,263,460.03",
+              "table_title": "母公司现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "66bc4548b9c828f654c82056",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/12"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "b3df90c8921477aa62a0520d",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9994315505027771,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 七、合并财务报表项目注释 > 57、现金流量表项目",
+              "section_level": 4,
+              "page_start": 75,
+              "page_end": 75,
+              "chunk_type": "table_md",
+              "n_tokens": 132,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 七、合并财务报表项目注释 > 57、现金流量表项目】\n表：57、现金流量表项目　单位：元　币种：人民币\n| 项目 | 本期发生额 | 上期发生额 |\n|---|---|---|\n| 自有资金利息收入 | 2,608,722,655.39 | 1,253,992,847.08 |\n| 收到的其他收入 | 1,350,451,083.65 | 1,005,248,694.75 |\n| 合计 | 3,959,173,739.04 | 2,259,241,541.83 |",
+              "table_title": "57、现金流量表项目",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "726945d5a57bb1555d2e10c2",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0051-0075.json#/tables/98"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "69336c8e4917bbfa2c203f00",
+              "section": "第八节 财务报告 > 七、合并财务报表项目注释 > 57、现金流量表项目",
+              "score": 0.999373733997345,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 33,
+              "page_end": 33,
+              "chunk_type": "table_md",
+              "n_tokens": 195,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：母公司现金流量表　单位：元　币种：人民币\n| 项目 | 附注 | 2025年半年度 | 2024年半年度 |\n|---|---|---|---|\n| 取得子公司及其他营业单位支付的 现金净额 |  |  |  |\n| 支付其他与投资活动有关的现金 |  | 3,408,107.12 | 4,483,784.56 |\n| 投资活动现金流出小计 |  | 1,596,430,752.42 | 1,530,747,244.59 |\n| 投资活动产生的现金流量净额 |  | -1,594,040,752.84 | 2,738,890,281.58 |\n| 三、筹资活动产生的现金流量： |  |  |  |",
+              "table_title": "母公司现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "66bc4548b9c828f654c82056",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/12"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "22c7bf9ef78f9124a4efd9a2",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9995875954627991,
+              "score_kind": "inherited_from_kv",
+              "attached": true,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 33,
+              "page_end": 33,
+              "chunk_type": "table_md",
+              "n_tokens": 662,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：母公司现金流量表　单位：元　币种：人民币\n| 项目 | 附注 | 2025年半年度 | 2024年半年度 |\n|---|---|---|---|\n| 一、经营活动产生的现金流量： |  |  |  |\n| 销售商品、提供劳务收到的现金 |  | 50,908,880,830.50 | 60,172,562,069.22 |\n| 收到的税费返还 |  |  | 2,818,171.29 |\n| 收到其他与经营活动有关的现金 |  | 705,894,558.21 | 1,457,301,743.23 |\n| 经营活动现金流入小计 |  | 51,614,775,388.71 | 61,632,681,983.74 |\n| 购买商品、接受劳务支付的现金 |  | 5,931,199,449.08 | 4,936,723,582.31 |\n| 支付给职工及为职工支付的现金 |  | 9,377,179,935.21 | 9,487,370,544.62 |\n| 支付的各项税费 |  | 25,608,649,303.66 | 24,070,576,789.85 |\n| 支付其他与经营活动有关的现金 |  | 2,501,756,658.08 | 2,112,225,074.56 |\n| 经营活动现金流出小计 |  | 43,418,785,346.03 | 40,606,895,991.34 |\n| 经营活动产生的现金流量净额 |  | 8,195,990,042.68 | 21,025,785,992.40 |\n| 二、投资活动产生的现金流量： |  |  |  |\n| 收回投资收到的现金 |  |  |  |\n| 取得投资收益收到的现金 |  |  | 4,264,342,321.75 |\n| 处置固定资产、无形资产和其他长期 资产收回的现金净额 |  | 47,377.00 | 62,668.00 |\n| 处置子公司及其他营业单位收到的 现金净额 |  |  |  |\n| 收到其他与投资活动有关的现金 |  | 2,342,622.58 | 5,232,536.42 |\n| 投资活动现金流入小计 |  | 2,389,999.58 | 4,269,637,526.17 |\n| 购建固定资产、无形资产和其他长期 资产支付的现金 |  | 1,593,022,645.30 | 1,526,263,460.03 |\n| 投资支付的现金 |  |  |  |",
+              "table_title": "母公司现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "66bc4548b9c828f654c82056",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/12"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "e28ba9d7b7fb814c862de494",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9994315505027771,
+              "score_kind": "inherited_from_kv",
+              "attached": true,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            }
+          ],
+          "index_admission": "ACCEPTED",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "primary_count": 5
+        }
+      },
+      {
+        "step": 5,
+        "tool": "read_evidence_context",
+        "args": {
+          "anchor_id": "a4ee97ba53023666d5a3eb91",
+          "scope": "table",
+          "cursor": 0
+        },
+        "response": {
+          "results": [
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 31,
+              "page_end": 31,
+              "chunk_type": "table_md",
+              "n_tokens": 108,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：合并现金流量表　单位：元　币种：人民币\n| 项目 | 附注 | 2025年半年度 | 2024年半年度 |\n|---|---|---|---|\n| 一、经营活动产生的现金流量： |  |  |  |\n| 销售商品、提供劳务收到的现金 |  | 95,086,614,960.23 | 87,093,638,361.68 |",
+              "table_title": "合并现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "9bfc80fb185e1eeb2ccada03",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/9"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "a4ee97ba53023666d5a3eb91"
+            }
+          ],
+          "anchor_id": "a4ee97ba53023666d5a3eb91",
+          "scope": "table",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "index_admission": "ACCEPTED",
+          "total_candidates": 1,
+          "next_cursor": null,
+          "text_chars": 203,
+          "coverage": "admitted chunks only, not complete PDF page",
+          "relation": "same document; adjacency does not prove same table or scope"
+        }
+      },
+      {
+        "step": 6,
+        "tool": "search",
+        "args": {
+          "query": "贵州茅台 2025年上半年 合并现金流量表 经营活动产生的现金流量净额 2025年半年度 精确金额 元",
+          "company": "贵州茅台",
+          "mode": "bm25"
+        },
+        "response": {
+          "results": [
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 31,
+              "page_end": 31,
+              "chunk_type": "table_kv",
+              "n_tokens": 57,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：合并现金流量表　单位：元　币种：人民币\n销售商品、提供劳务收到的现金：2025年半年度 95,086,614,960.23，2024年半年度 87,093,638,361.68",
+              "table_title": "合并现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "9bfc80fb185e1eeb2ccada03",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/9"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "589a8df40dabf76409b02b29",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9997367262840271,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 31,
+              "page_end": 31,
+              "chunk_type": "table_md",
+              "n_tokens": 108,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：合并现金流量表　单位：元　币种：人民币\n| 项目 | 附注 | 2025年半年度 | 2024年半年度 |\n|---|---|---|---|\n| 一、经营活动产生的现金流量： |  |  |  |\n| 销售商品、提供劳务收到的现金 |  | 95,086,614,960.23 | 87,093,638,361.68 |",
+              "table_title": "合并现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "9bfc80fb185e1eeb2ccada03",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/9"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "a4ee97ba53023666d5a3eb91",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9995161294937134,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 33,
+              "page_end": 33,
+              "chunk_type": "table_kv",
+              "n_tokens": 123,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：母公司现金流量表　单位：元　币种：人民币\n支付其他与投资活动有关的现金：2025年半年度 3,408,107.12，2024年半年度 4,483,784.56\n投资活动现金流出小计：2025年半年度 1,596,430,752.42，2024年半年度 1,530,747,244.59\n投资活动产生的现金流量净额：2025年半年度 -1,594,040,752.84，2024年半年度 2,738,890,281.58",
+              "table_title": "母公司现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "66bc4548b9c828f654c82056",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/12"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "947d8732d8ad146041364d3a",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9994107484817505,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 33,
+              "page_end": 33,
+              "chunk_type": "table_md",
+              "n_tokens": 662,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：母公司现金流量表　单位：元　币种：人民币\n| 项目 | 附注 | 2025年半年度 | 2024年半年度 |\n|---|---|---|---|\n| 一、经营活动产生的现金流量： |  |  |  |\n| 销售商品、提供劳务收到的现金 |  | 50,908,880,830.50 | 60,172,562,069.22 |\n| 收到的税费返还 |  |  | 2,818,171.29 |\n| 收到其他与经营活动有关的现金 |  | 705,894,558.21 | 1,457,301,743.23 |\n| 经营活动现金流入小计 |  | 51,614,775,388.71 | 61,632,681,983.74 |\n| 购买商品、接受劳务支付的现金 |  | 5,931,199,449.08 | 4,936,723,582.31 |\n| 支付给职工及为职工支付的现金 |  | 9,377,179,935.21 | 9,487,370,544.62 |\n| 支付的各项税费 |  | 25,608,649,303.66 | 24,070,576,789.85 |\n| 支付其他与经营活动有关的现金 |  | 2,501,756,658.08 | 2,112,225,074.56 |\n| 经营活动现金流出小计 |  | 43,418,785,346.03 | 40,606,895,991.34 |\n| 经营活动产生的现金流量净额 |  | 8,195,990,042.68 | 21,025,785,992.40 |\n| 二、投资活动产生的现金流量： |  |  |  |\n| 收回投资收到的现金 |  |  |  |\n| 取得投资收益收到的现金 |  |  | 4,264,342,321.75 |\n| 处置固定资产、无形资产和其他长期 资产收回的现金净额 |  | 47,377.00 | 62,668.00 |\n| 处置子公司及其他营业单位收到的 现金净额 |  |  |  |\n| 收到其他与投资活动有关的现金 |  | 2,342,622.58 | 5,232,536.42 |\n| 投资活动现金流入小计 |  | 2,389,999.58 | 4,269,637,526.17 |\n| 购建固定资产、无形资产和其他长期 资产支付的现金 |  | 1,593,022,645.30 | 1,526,263,460.03 |\n| 投资支付的现金 |  |  |  |",
+              "table_title": "母公司现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "66bc4548b9c828f654c82056",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/12"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "e28ba9d7b7fb814c862de494",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9993540644645691,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 33,
+              "page_end": 33,
+              "chunk_type": "table_kv",
+              "n_tokens": 541,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：母公司现金流量表　单位：元　币种：人民币\n销售商品、提供劳务收到的现金：2025年半年度 50,908,880,830.50，2024年半年度 60,172,562,069.22\n收到的税费返还：2024年半年度 2,818,171.29\n收到其他与经营活动有关的现金：2025年半年度 705,894,558.21，2024年半年度 1,457,301,743.23\n经营活动现金流入小计：2025年半年度 51,614,775,388.71，2024年半年度 61,632,681,983.74\n购买商品、接受劳务支付的现金：2025年半年度 5,931,199,449.08，2024年半年度 4,936,723,582.31\n支付给职工及为职工支付的现金：2025年半年度 9,377,179,935.21，2024年半年度 9,487,370,544.62\n支付的各项税费：2025年半年度 25,608,649,303.66，2024年半年度 24,070,576,789.85\n支付其他与经营活动有关的现金：2025年半年度 2,501,756,658.08，2024年半年度 2,112,225,074.56\n经营活动现金流出小计：2025年半年度 43,418,785,346.03，2024年半年度 40,606,895,991.34\n经营活动产生的现金流量净额：2025年半年度 8,195,990,042.68，2024年半年度 21,025,785,992.40\n取得投资收益收到的现金：2024年半年度 4,264,342,321.75\n处置固定资产、无形资产和其他长期 资产收回的现金净额：2025年半年度 47,377.00，2024年半年度 62,668.00\n收到其他与投资活动有关的现金：2025年半年度 2,342,622.58，2024年半年度 5,232,536.42\n投资活动现金流入小计：2025年半年度 2,389,999.58，2024年半年度 4,269,637,526.17\n购建固定资产、无形资产和其他长期 资产支付的现金：2025年半年度 1,593,022,645.30，2024年半年度 1,526,263,460.03",
+              "table_title": "母公司现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "66bc4548b9c828f654c82056",
+              "part": 0,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/12"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "b3df90c8921477aa62a0520d",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9992538094520569,
+              "score_kind": "reranker_sigmoid",
+              "attached": false,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            },
+            {
+              "company": "贵州茅台",
+              "company_code": "600519",
+              "source_sha256": "c80fb7180169469053c396e65315414368bcfa9f1f1d4e3bf793c8fb327e6b0c",
+              "report_period": "2025H1",
+              "section_path": "第八节 财务报告 > 二、财务报表",
+              "section_level": 2,
+              "page_start": 33,
+              "page_end": 33,
+              "chunk_type": "table_md",
+              "n_tokens": 195,
+              "text": "【贵州茅台 | 2025年半年度报告 | 第八节 财务报告 > 二、财务报表】\n表：母公司现金流量表　单位：元　币种：人民币\n| 项目 | 附注 | 2025年半年度 | 2024年半年度 |\n|---|---|---|---|\n| 取得子公司及其他营业单位支付的 现金净额 |  |  |  |\n| 支付其他与投资活动有关的现金 |  | 3,408,107.12 | 4,483,784.56 |\n| 投资活动现金流出小计 |  | 1,596,430,752.42 | 1,530,747,244.59 |\n| 投资活动产生的现金流量净额 |  | -1,594,040,752.84 | 2,738,890,281.58 |\n| 三、筹资活动产生的现金流量： |  |  |  |",
+              "table_title": "母公司现金流量表",
+              "unit": "元",
+              "currency": "人民币",
+              "parent_table_id": "66bc4548b9c828f654c82056",
+              "part": 1,
+              "extraction_method": "docling_accurate",
+              "quality_status": "unreviewed",
+              "quality_flags": [
+                "cell_bbox_unverified"
+              ],
+              "source_table_refs": [
+                "data/docling_native/59cdcef7571d/600519/0026-0050.json#/tables/12"
+              ],
+              "unit_source": "table_local_explicit",
+              "chunk_id": "22c7bf9ef78f9124a4efd9a2",
+              "section": "第八节 财务报告 > 二、财务报表",
+              "score": 0.9994107484817505,
+              "score_kind": "inherited_from_kv",
+              "attached": true,
+              "embedding_truncated": false,
+              "reranker_truncated": false,
+              "index_admission": "ACCEPTED"
+            }
+          ],
+          "index_admission": "ACCEPTED",
+          "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+          "primary_count": 5
+        }
+      }
+    ]
+  }
+}
