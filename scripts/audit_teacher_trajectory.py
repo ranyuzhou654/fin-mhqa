@@ -26,8 +26,8 @@ def audit_case(folder):
             pending=row
         elif row['event']=='tool_response':
             if not pending or pending['tool']!=row['tool'] or pending['step']!=row['step']:raise ValueError('orphan/mismatched tool response')
-            if row['tool']=='search':
-                searches+=1
+            if row['tool'] in ('search','read_evidence_context'):
+                searches+=int(row['tool']=='search')
                 if 'error' not in row['response'] and 'results' not in row['response']:
                     raise ValueError('search response has neither results nor error')
                 for chunk in row['response'].get('results',[]):seen.add(chunk['chunk_id'])

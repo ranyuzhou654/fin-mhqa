@@ -18,7 +18,7 @@ def score_case(row,expected,folder):
         try:correct=Decimal(final['answer_value'])==Decimal(row['answer_value']) and final['answer_unit']==row['answer_unit']
         except Exception:pass
         if row['type']=='bridge':correct=correct and final['selected_company']==expected['selected_company']
-    chunks={c['chunk_id']:c for e in events if e['event']=='tool_response' and e['tool']=='search' for c in e['response'].get('results',[])}
+    chunks={c['chunk_id']:c for e in events if e['event']=='tool_response' and e['tool'] in ('search','read_evidence_context') for c in e['response'].get('results',[])}
     citations=set(final['citations']) if final else set();hits=[];cited=[]
     for h in row['hops']:
         match={cid for cid,c in chunks.items() if c['company_code']==h['company_code'] and c['source_sha256']==h['source_sha256'] and norm(h['value']) in norm(c['text']) and metric_match(h['metric'],c['text'])}

@@ -1,4 +1,5 @@
 """Bounded four-role LangGraph; transport and event sink are injectable."""
+from copy import deepcopy
 import json
 import re
 import time
@@ -6,7 +7,7 @@ from typing import TypedDict
 from langgraph.graph import StateGraph, START, END
 from jsonschema import validate
 from .codex_teacher import SYSTEM, SCHEMA
-from .graph_contracts import PLAN_SCHEMA, VERIFY_SCHEMA, FINAL_SCHEMA, PLANNER, VERIFIER, SYNTHESIZER
+from .graph_contracts import PLAN_SCHEMA, VERIFY_SCHEMA, FINAL_SCHEMA, PLANNER, VERIFIER, SYNTHESIZER, CONTEXT_PLAN_SCHEMA, CONTEXT_PLANNER
 from .pilot_tools import calculate, decimal
 
 
@@ -54,10 +55,15 @@ def final_checks(final,state):
 
 
 class AgentGraph:
-    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model'):
+    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model',context_reader=None,reserve_verifier=False):
         if arm not in ('structured','generic','flat'):raise ValueError('invalid arm')
         self.model,self.search,self.record=model,search,record
         if synthesis not in ('model','verified'):raise ValueError('invalid synthesis mode')
+        if reserve_verifier and (arm == 'flat' or synthesis != 'verified' or max_models < 2):
+            raise ValueError('reserved verification requires structured/generic verified mode and >=2 calls')
+        if context_reader is not None and arm == 'flat':raise ValueError('context requires graph planner')
+        self.context_reader=context_reader
+        self.reserve_verifier=reserve_verifier
         self.synthesis=synthesis
         self.arm=arm;self.max_models=max_models;self.max_tools=max_tools
         self.max_searches=max_searches;self.max_replans=max_replans
@@ -80,14 +86,24 @@ class AgentGraph:
 
     def planner(self,s):
         self.record({'event':'node','name':'planner','replan_count':s['replan_count']})
-        if s['model_calls']>=self.max_models:
+        if s['model_calls']>=self.max_models - int(self.reserve_verifier):
             s.update(halt=True,terminal_reason='MODEL_BUDGET');return s
         history=list(s['history'])
         if self.arm!='flat':
             history.append({'plan':s['plan'],'feedback':s['feedback'],
                 'remaining_tools':self.max_tools-s['tool_calls'],'remaining_model_calls':self.max_models-s['model_calls']})
-        action=self.call(s,'planner',history,PLANNER if self.arm!='flat' else SYSTEM,
-                         PLAN_SCHEMA if self.arm!='flat' else SCHEMA)
+        prompt = CONTEXT_PLANNER if self.context_reader is not None else PLANNER if self.arm!='flat' else SYSTEM
+        schema = deepcopy(CONTEXT_PLAN_SCHEMA if self.context_reader is not None else PLAN_SCHEMA if self.arm!='flat' else SCHEMA)
+        finalize = self.reserve_verifier and self.max_models-s['model_calls'] <= 2
+        if self.reserve_verifier:
+            history.append({'budget': {'finalize_only': finalize, 'reserved_verifier_calls': 1,
+                'remaining_model_calls': self.max_models-s['model_calls'],
+                'remaining_tools': self.max_tools-s['tool_calls']}})
+            if finalize:
+                schema['properties']['action']['enum'] = ['finish']
+                prompt += '\n本步仅能finish：预算只够提交候选并验证。证据不足则insufficient。'
+                self.record({'event':'budget_reservation','finalize_only':True,'remaining_models':self.max_models-s['model_calls']})
+        action=self.call(s,'planner',history,prompt,schema)
         s['action']=action;s['feedback']={};s['verified']=False
         if self.arm!='flat':
             plan=action['plan'];ids=set()
@@ -128,6 +144,25 @@ class AgentGraph:
                 if 'error' not in response:
                     chunks=response['results'];s['evidence'].update({c['chunk_id']:c for c in chunks})
                     if not chunks:problems.append(issue('EMPTY_RETRIEVAL','本次检索没有结果。','改变关键词或检索模式，保留已解决事实。'))
+        elif action['action']=='read_evidence_context':
+            if s['tool_calls']>=self.max_tools:s.update(halt=True,terminal_reason='TOOL_BUDGET');return s
+            args=action['context']
+            def read(args):
+                if self.context_reader is None:raise ValueError('context tool unavailable')
+                anchor=s['evidence'].get(args['anchor_id'])
+                if anchor is None:raise ValueError('context anchor was not observed')
+                key='context:'+json.dumps(args,sort_keys=True,ensure_ascii=False)
+                if key in s['tried']:raise ValueError('duplicate context request')
+                s['tried'].append(key)
+                response=self.context_reader(args)
+                for c in response['results']:
+                    if any(c[k]!=anchor[k] for k in ('company','source_sha256')):
+                        raise ValueError('context escaped anchor document')
+                return response
+            response=tool('read_evidence_context',args,read)
+            if 'error' not in response:
+                s['evidence'].update({c['chunk_id']:c for c in response['results']})
+                if not response['results']:problems.append(issue('EMPTY_CONTEXT','该范围没有已准入的上下文。','改选范围或检索，不能推断缺失内容。'))
         elif action['action']=='calculate':
             if s['tool_calls']>=self.max_tools:s.update(halt=True,terminal_reason='TOOL_BUDGET');return s
             response=tool('calculate',action['calculation'],calculate)

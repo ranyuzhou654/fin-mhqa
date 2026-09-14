@@ -117,3 +117,46 @@ def test_verified_publication_preserves_reviewed_explanation():
 def test_verified_publication_does_not_bypass_verifier():
     state,_,_=run([query(),calc(),finish(),reject('CONFLICT')],max_models=4,synthesis='verified')
     assert state['final']['status']=='insufficient'
+
+
+def test_reserved_last_call_is_for_verification():
+    state,events,m=run([query(),calc(),finish(),PASS],max_models=4,synthesis='verified',reserve_verifier=True)
+    assert state['final']==F and state['model_calls']==4
+    assert m.inputs[2][-1]['budget']['finalize_only'] is True
+    assert any(e['event']=='budget_reservation' for e in events)
+
+
+def test_reserved_budget_rejects_extra_search_instead_of_unverified_publication():
+    from jsonschema import ValidationError
+    with pytest.raises(ValidationError):
+        run([query(),calc(),query('extra')],max_models=4,synthesis='verified',reserve_verifier=True)
+
+
+def test_rejected_last_verification_does_not_publish_or_exceed_budget():
+    state,events,_=run([query(),calc(),finish(),reject('CONFLICT')],max_models=4,synthesis='verified',reserve_verifier=True)
+    assert state['final']['status']=='insufficient' and state['model_calls']==4
+
+
+def context_action(anchor='c1'):
+    return dict(action('read_evidence_context'),context={'anchor_id':anchor,'scope':'document_units','cursor':0})
+
+
+def test_context_result_is_citable_and_counted_in_shared_budget():
+    anchor=dict(C,source_sha256='hash')
+    extra=dict(anchor,chunk_id='units',text='单位：元')
+    f=dict(F,citations=['c1','units'])
+    steps=[dict(a,context=a.get('context')) for a in [query(),context_action(),calc(),finish(f)]]+[PASS]
+    state,events,_=run(steps,lambda _: {'results':[anchor]},context_reader=lambda _: {'results':[extra]},synthesis='verified',reserve_verifier=True)
+    assert state['final']==f and state['tool_calls']==3 and state['search_calls']==1
+
+
+@pytest.mark.parametrize('unseen',[True,False])
+def test_context_requires_observed_anchor_and_matching_source(unseen):
+    anchor=dict(C,source_sha256='hash'); calls=[]
+    def read(args):
+        calls.append(args)
+        return {'results':[dict(anchor,chunk_id='bad',source_sha256='other')]}
+    steps=[dict(query(),context=None),context_action('unseen' if unseen else 'c1')]
+    state,events,_=run(steps,lambda _: {'results':[anchor]},context_reader=read,synthesis='verified',max_replans=0)
+    assert state['final']['status']=='insufficient' and 'bad' not in state['evidence']
+    assert len(calls)==(0 if unseen else 1)
