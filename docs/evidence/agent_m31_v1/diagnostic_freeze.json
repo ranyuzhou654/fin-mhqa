@@ -1,0 +1,18 @@
+{
+  "scenarios": [
+    "unit_mask_first",
+    "period_mask_first",
+    "header_mask_first",
+    "conflict_first"
+  ],
+  "question_id": "agent-dev-001",
+  "question_sha256": "63192165903e5bb41f664c9e8ddf8271d29b2a6817be5c40cc0c88599272e5d8",
+  "runner_sha256": "03700e8cfd7531abf5e4bb5679e5f8f05e03a050d8be2716d6b95aa0808df945",
+  "scope": "four declared first-query perturbations; known development question; not independent Test",
+  "expected_behavior": {
+    "unit_mask_first": "retrieve and cite explicit unit proof",
+    "period_mask_first": "retrieve current-period column proof",
+    "header_mask_first": "recover unit period and consolidation scope",
+    "conflict_first": "identify and resolve with source evidence or abstain; explicit synthetic conflict, not blind detection"
+  }
+}

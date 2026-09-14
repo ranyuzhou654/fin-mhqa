@@ -1,0 +1,708 @@
+{
+  "scope": "real corpus deterministic reachability and unchanged text; not answer quality",
+  "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "script_sha256": "c9a97b7dada36e8485181562937d394f6b051339333daee3e8e048c5125353c3",
+  "results": [
+    {
+      "probe": {
+        "anchor_id": "a87071b0d5639630b3554bd5",
+        "scope": "document_units",
+        "required_id": "cdfb0a6aec6b20836ecf91a1"
+      },
+      "passed": true,
+      "calls_to_enumerate": 3,
+      "responses": [
+        {
+          "args": {
+            "anchor_id": "a87071b0d5639630b3554bd5",
+            "scope": "document_units",
+            "cursor": 0
+          },
+          "response": {
+            "results": [
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略",
+                "section_level": 4,
+                "page_start": 20,
+                "page_end": 20,
+                "chunk_type": "text",
+                "n_tokens": 38,
+                "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略】\n公司报告期利润构成或利润来源发生重大变动\n□适用不适用\n公司报告期利润构成或利润来源没有发生重大变动。\n营业收入构成\n单位：元",
+                "chunk_id": "6ba051463def3a9b24c890b1"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略",
+                "section_level": 4,
+                "page_start": 20,
+                "page_end": 20,
+                "chunk_type": "text",
+                "n_tokens": 75,
+                "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略】\n集团将积极推进与国内外客户的合作，加速AI数据中心相关新产品的落地，培育新的业务增长引擎。依托世界一流的研发\n实力、全球化的布局以及垂直整合的优势，本集团将持续开拓具有高增长潜力的新产品类别和新市场，推动业务实现长期\n可持续发展。\n主要财务数据同比变动情况\n单位：元",
+                "chunk_id": "e8b6c293c1cd02c3bd8a953a"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略",
+                "section_level": 4,
+                "page_start": 21,
+                "page_end": 21,
+                "chunk_type": "text",
+                "n_tokens": 42,
+                "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略】\n公司主营业务数据统计口径在报告期发生调整的情况下，公司最近1 期按报告期末口径调整后的主营业务数据\n适用□不适用\n单位：元",
+                "chunk_id": "1d18ed3775d4a0661657a836"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略",
+                "section_level": 4,
+                "page_start": 21,
+                "page_end": 21,
+                "chunk_type": "text",
+                "n_tokens": 26,
+                "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 三、主营业务分析 > 3. 前景及策略】\n占公司营业收入或营业利润10%以上的行业、产品或地区情况\n适用□不适用\n单位：元",
+                "chunk_id": "9caf26fa6dea04f2c8dd89e4"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 五、资产及负债状况分析 > 1、资产构成重大变动情况",
+                "section_level": 4,
+                "page_start": 23,
+                "page_end": 23,
+                "chunk_type": "text",
+                "n_tokens": 4,
+                "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 五、资产及负债状况分析 > 1、资产构成重大变动情况】\n单位：元",
+                "chunk_id": "077a4315923968369ec15bc5"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 五、资产及负债状况分析 > 3、以公允价值计量的资产和负债",
+                "section_level": 4,
+                "page_start": 24,
+                "page_end": 24,
+                "chunk_type": "text",
+                "n_tokens": 10,
+                "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 五、资产及负债状况分析 > 3、以公允价值计量的资产和负债】\n适用□不适用\n单位：元",
+                "chunk_id": "da6f9a611320c94a0af08c21"
+              }
+            ],
+            "anchor_id": "a87071b0d5639630b3554bd5",
+            "scope": "document_units",
+            "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+            "index_admission": "ACCEPTED",
+            "total_candidates": 16,
+            "next_cursor": 6,
+            "text_chars": 663,
+            "coverage": "admitted chunks only, not complete PDF page",
+            "relation": "same document; adjacency does not prove same table or scope"
+          }
+        },
+        {
+          "args": {
+            "anchor_id": "a87071b0d5639630b3554bd5",
+            "scope": "document_units",
+            "cursor": 6
+          },
+          "response": {
+            "results": [
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 六、投资状况分析 > 4、金融资产投资",
+                "section_level": 4,
+                "page_start": 26,
+                "page_end": 26,
+                "chunk_type": "text",
+                "n_tokens": 14,
+                "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 六、投资状况分析 > 4、金融资产投资】\n（1）证券投资情况\n适用□不适用\n单位：元",
+                "chunk_id": "91dce16628c08d0efcb50111"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 六、投资状况分析 > 4、金融资产投资",
+                "section_level": 4,
+                "page_start": 28,
+                "page_end": 28,
+                "chunk_type": "text",
+                "n_tokens": 36,
+                "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 六、投资状况分析 > 4、金融资产投资】\n（2）衍生品投资情况\n适用□不适用\n1）报告期内以套期保值为目的的衍生品投资\n适用□不适用\n单位：万元",
+                "chunk_id": "e3c1e1413342ba30fe34d9da"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 八、主要控股参股公司分析",
+                "section_level": 2,
+                "page_start": 30,
+                "page_end": 30,
+                "chunk_type": "text",
+                "n_tokens": 25,
+                "text": "【比亚迪 | 2025年半年度报告 | 第三节管理层讨论与分析 > 八、主要控股参股公司分析】\n适用□不适用\n主要子公司及对公司净利润影响达10%以上的参股公司情况\n单位：元",
+                "chunk_id": "25b801d1773d0ddf670c0bbf"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第五节重要事项 > 十二、重大合同及其履行情况 > 2、重大担保",
+                "section_level": 4,
+                "page_start": 44,
+                "page_end": 44,
+                "chunk_type": "text",
+                "n_tokens": 10,
+                "text": "【比亚迪 | 2025年半年度报告 | 第五节重要事项 > 十二、重大合同及其履行情况 > 2、重大担保】\n适用□不适用\n单位：万元",
+                "chunk_id": "4fd6e24a6fc961aab140dbb2"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第七节债券相关情况 > 三、非金融企业债务融资工具 > 1、非金融企业债务融资工具基本信息",
+                "section_level": 4,
+                "page_start": 61,
+                "page_end": 61,
+                "chunk_type": "text",
+                "n_tokens": 4,
+                "text": "【比亚迪 | 2025年半年度报告 | 第七节债券相关情况 > 三、非金融企业债务融资工具 > 1、非金融企业债务融资工具基本信息】\n单位：万元",
+                "chunk_id": "84d971db53b5d02d274cdf19"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第八节财务报告 > 二、财务报表",
+                "section_level": 2,
+                "page_start": 63,
+                "page_end": 63,
+                "chunk_type": "text",
+                "n_tokens": 13,
+                "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 二、财务报表】\n财务报表及附注的单位为：千元",
+                "chunk_id": "ed8a1463462cd90a3ffcf505"
+              }
+            ],
+            "anchor_id": "a87071b0d5639630b3554bd5",
+            "scope": "document_units",
+            "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+            "index_admission": "ACCEPTED",
+            "total_candidates": 16,
+            "next_cursor": 12,
+            "text_chars": 464,
+            "coverage": "admitted chunks only, not complete PDF page",
+            "relation": "same document; adjacency does not prove same table or scope"
+          }
+        },
+        {
+          "args": {
+            "anchor_id": "a87071b0d5639630b3554bd5",
+            "scope": "document_units",
+            "cursor": 12
+          },
+          "response": {
+            "results": [
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第八节财务报告 > 五、重要会计政策及会计估计（续） > 3、记账本位币",
+                "section_level": 4,
+                "page_start": 79,
+                "page_end": 79,
+                "chunk_type": "text",
+                "n_tokens": 79,
+                "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 五、重要会计政策及会计估计（续） > 3、记账本位币】\n本公司记账本位币和编制本财务报表所采用的货币均为人民币，除有特别说明外，均以人民币千元为单位表示。\n本集团下属子公司、合营企业及联营企业，根据其经营所处的主要经济环境自行决定其记账本位币，编制本财务报\n表时折算为人民币。",
+                "chunk_id": "cdfb0a6aec6b20836ecf91a1"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第八节财务报告 > 五、重要会计政策及会计估计(续) > 9、外币业务和外币报表折算",
+                "section_level": 4,
+                "page_start": 82,
+                "page_end": 82,
+                "chunk_type": "text",
+                "n_tokens": 361,
+                "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 五、重要会计政策及会计估计(续) > 9、外币业务和外币报表折算】\n本集团对于发生的外币交易，将外币金额折算为记账本位币金额。\n外币交易在初始确认时，采用交易发生当月月初中国人民银行公布的中间汇率（除非汇率波动使得采用该汇率折算\n不适当，则采用交易发生日的即期汇率折算）将外币金额折算为记账本位币金额，但投资者以外币投入的资本以交易发\n生日的即期汇率折算。于资产负债表日，对于外币货币性项目采用资产负债表日即期汇率折算。由此产生的结算和货币\n性项目折算差额，除属于与购建符合资本化条件的资产相关的外币专门借款产生的差额按照借款费用资本化的原则处理\n外，均计入当期损益。以历史成本计量的外币非货币性项目，仍采用初始确认时所采用的汇率折算，不改变其记账本位\n币金额。以公允价值计量的外币非货币性项目，采用公允价值确定日的即期汇率折算，由此产生的差额根据非货币性项\n目的性质计入当期损益或其他综合收益。\n对于境外经营，本集团在编制财务报表时将其记账本位币折算为人民币：对资产负债表中的资产和负债项目，采用\n资产负债表日的即期汇率折算，所有者权益项目除“未分配利润”项目外，其他项目采用发生时的即期汇率折算；利润\n表中的收入和费用项目，采用交易发生当期平均汇率（除非汇率波动使得采用该汇率折算不适当，则采用交易发生日的",
+                "chunk_id": "ac60ddd94947249fe9c76fa5"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第八节财务报告 > 十二、与金融工具相关的风险(续) > 2、金融工具风险(续)",
+                "section_level": 4,
+                "page_start": 170,
+                "page_end": 170,
+                "chunk_type": "text",
+                "n_tokens": 108,
+                "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 十二、与金融工具相关的风险(续) > 2、金融工具风险(续)】\n（3）市场风险\n汇率风险\n本集团面临交易性的汇率风险。此类风险由于经营单位以其记账本位币以外的货币进行的销售或采购所致。\n本集团采用外汇远期合同减少汇率风险敞口。\n下表为汇率风险的敏感性分析，反映了在其他变量不变的假设下，人民币对美元在合理的范围内波动时，将对净利\n润(由于货币性资产和货币性负债的公允价值变化)和股东权益产生的影响。",
+                "chunk_id": "1ec8ce2682ff074cc2b6aef8"
+              },
+              {
+                "company": "比亚迪",
+                "company_code": "002594",
+                "source_sha256": "c42620b87a67995ed7c2bc78fbcc99bede6732fede6a0dbb3f49221ac1ec96ea",
+                "report_period": "2025H1",
+                "section_path": "第八节财务报告 > 十五、股份支付 > 1、各项权益工具",
+                "section_level": 4,
+                "page_start": 182,
+                "page_end": 182,
+                "chunk_type": "text",
+                "n_tokens": 297,
+                "text": "【比亚迪 | 2025年半年度报告 | 第八节财务报告 > 十五、股份支付 > 1、各项权益工具】\n本公司2025年员工持股计划（以下简称“本次员工持股计划”）参与对象包括公司职工代表监事、高级管理人员以\n及比亚迪集团的中层管理人员、核心骨干员工。参与本次员工持股计划的总人数不超过25,000人。\n本次员工持股计划已通过二级市场以集中竞价交易的方式累计买入公司A股股票10,714,990股，约占公司总股本的\n0.3526%，成交均价约为人民币372.18元/股，成交金额为人民币3,987,912,042.01元(不含交易费用)，本员工持股计划\n已完成股票的购买，购买股票的资金来源为集团提取的激励基金、员工合法薪酬、员工自筹资金以及法律、行政法规允\n许的其他方式。本员工持股计划以“份”作为认购单位，每份份额的认购价格为1.00元，实际认购份额为3,988,270,580\n份。\n本次员工持股计划持有的标的股票分三期解锁，解锁时点分别为自公司公告最后一笔标的股票购买完成之日起满12\n个月、24个月、36个月，每期解锁的标的股票比例分别为30%、30%、40%。每期具体解锁比例和数量根据公司业绩考核及\n个人业绩考核结果确定。",
+                "chunk_id": "ce968476234b2f0c42f66c4f"
+              }
+            ],
+            "anchor_id": "a87071b0d5639630b3554bd5",
+            "scope": "document_units",
+            "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+            "index_admission": "ACCEPTED",
+            "total_candidates": 16,
+            "next_cursor": null,
+            "text_chars": 1498,
+            "coverage": "admitted chunks only, not complete PDF page",
+            "relation": "same document; adjacency does not prove same table or scope"
+          }
+        }
+      ]
+    },
+    {
+      "probe": {
+        "anchor_id": "6a78c7f4d9e3115b371fd063",
+        "scope": "table",
+        "required_id": "6a78c7f4d9e3115b371fd063"
+      },
+      "passed": true,
+      "calls_to_enumerate": 1,
+      "responses": [
+        {
+          "args": {
+            "anchor_id": "6a78c7f4d9e3115b371fd063",
+            "scope": "table",
+            "cursor": 0
+          },
+          "response": {
+            "results": [
+              {
+                "company": "美的集团",
+                "company_code": "000333",
+                "source_sha256": "cec88d9c6ded328ac9b467ba55254ab831b906dfc613982f6ac0504fc2055a12",
+                "report_period": "2025H1",
+                "section_path": "第二节 公司简介和主要财务指标 > 四、主要会计数据和财务指标",
+                "section_level": 2,
+                "page_start": 7,
+                "page_end": 7,
+                "chunk_type": "table_md",
+                "n_tokens": 388,
+                "text": "【美的集团 | 2025年半年度报告 | 第二节 公司简介和主要财务指标 > 四、主要会计数据和财务指标】\n表：公司是否需追溯调整或重述以前年度会计数据　单位：未标注　币种：未标注\n|  | 本报告期 | 上年同期 | 本报告期比上年同期 增减 |\n|---|---|---|---|\n| 营业收入（千元） | 251,123,714 | 217,274,086 | 15.58% |\n| 归属于上市公司股东的净利润（千元） | 26,013,690 | 20,804,176 | 25.04% |\n| 归属于上市公司股东的扣除非经常性损益的 净利润（千元） | 26,235,399 | 20,180,878 | 30.00% |\n| 经营活动产生的现金流量净额（千元） | 37,281,015 | 33,488,170 | 11.33% |\n| 基本每股收益（元 / 股） | 3.41 | 3.02 | 12.91% |\n| 稀释每股收益（元 / 股） | 3.41 | 3.01 | 13.29% |\n| 加权平均净资产收益率 | 11.29% | 12.20% | -0.91% |\n|  | 本报告期末 | 上年度末 | 本报告期末比上年度 末增减 |\n| 总资产（千元） | 638,033,509 | 604,351,853 | 5.57% |\n| 归属于上市公司股东的净资产（千元） | 216,110,027 | 216,750,057 | -0.30% |",
+                "table_title": "公司是否需追溯调整或重述以前年度会计数据",
+                "unit": "",
+                "currency": "",
+                "parent_table_id": "7f358a88066e7639e642a074",
+                "part": 0,
+                "extraction_method": "docling_accurate",
+                "quality_status": "unreviewed",
+                "quality_flags": [
+                  "cell_bbox_unverified"
+                ],
+                "source_table_refs": [
+                  "data/docling_native/59cdcef7571d/000333/0001-0025.json#/tables/4"
+                ],
+                "chunk_id": "6a78c7f4d9e3115b371fd063"
+              }
+            ],
+            "anchor_id": "6a78c7f4d9e3115b371fd063",
+            "scope": "table",
+            "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+            "index_admission": "ACCEPTED",
+            "total_candidates": 1,
+            "next_cursor": null,
+            "text_chars": 640,
+            "coverage": "admitted chunks only, not complete PDF page",
+            "relation": "same document; adjacency does not prove same table or scope"
+          }
+        }
+      ]
+    },
+    {
+      "probe": {
+        "anchor_id": "ca459b76d4deb2fe6e28697f",
+        "scope": "page",
+        "required_id": "ca459b76d4deb2fe6e28697f"
+      },
+      "passed": true,
+      "calls_to_enumerate": 2,
+      "responses": [
+        {
+          "args": {
+            "anchor_id": "ca459b76d4deb2fe6e28697f",
+            "scope": "page",
+            "cursor": 0
+          },
+          "response": {
+            "results": [
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （一）报告期内主要工作举措 > 5、精细管理强本固基，总部能力不断增强",
+                "section_level": 4,
+                "page_start": 9,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 199,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （一）报告期内主要工作举措 > 5、精细管理强本固基，总部能力不断增强】\n公司治理不断夯实。持续深化以党委会、董事会、经理办公会、营销工作联席会、生产经营调度会为核心的公司级\n战略决策机制，建立完善信披信息化、流程化、表单化机制。公司荣获“上市公司投资者关系管理天马奖”“中国上市\n公司协会投资者关系管理最佳实践”等奖项。风险防控不断筑牢。开展生产经营重点工作督查督办，严控法务风险，扎\n实推进知识产权保护工作，获得四川首张酒类数据知识产权登记证书。“两个乐园”再上台阶。公司通过校园招聘和社\n会招聘引进人才194 人，积极开展测评官培训和认证，确保人才引进质效提升；顺利开展“五一”国际劳动节表扬大会\n暨第二届企业文化人人讲邀请赛等工会活动，泸州老窖“员工乐园”“人才乐园”迈上新高度。",
+                "chunk_id": "2215c934b2a56beffd2b6844"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 2、持续推动产品创新。面对当前低度化、健康化、利口化、多元化等产品需求，主动创新求变，加快全新品饮方",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 20,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 2、持续推动产品创新。面对当前低度化、健康化、利口化、多元化等产品需求，主动创新求变，加快全新品饮方】\n式的开发与推广，研发28 度国窖1573，适时投入市场。",
+                "chunk_id": "3a1e932d35467c2a3b54b851"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 1、加强市场精耕深耕。随着区县和部分村镇消费需求增加，新生代消费者品牌意识提升，制定市场精耕深耕中长",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 20,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 1、加强市场精耕深耕。随着区县和部分村镇消费需求增加，新生代消费者品牌意识提升，制定市场精耕深耕中长】\n期策略，系统推进县级以下市场的消费者培育，实现品牌白酒渠道下沉。",
+                "chunk_id": "400364bc59e1b1c14ac1ee23"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 2、经销商情况",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "table_md",
+                "n_tokens": 111,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 2、经销商情况】\n表：2、经销商情况　单位：个　币种：未标注\n| 地区 | 报告期末经销商 数量 | 报告期内增加数 量 | 报告期内减少数 量 | 经销商数量比上 年同期增减（ % ） | 重大变动说明 |\n|---|---|---|---|---|---|\n| 境内 | 1703 | 88 | 86 | -3.73 |  |",
+                "table_title": "2、经销商情况",
+                "unit": "个",
+                "currency": "",
+                "parent_table_id": "201df38e7ff96dba3fe2a0ae",
+                "part": 0,
+                "extraction_method": "docling_accurate",
+                "quality_status": "unreviewed",
+                "quality_flags": [
+                  "cell_bbox_unverified"
+                ],
+                "source_table_refs": [
+                  "data/docling_native/59cdcef7571d/000568/0001-0025.json#/tables/8"
+                ],
+                "unit_source": "table_local_explicit",
+                "chunk_id": "425e3ab097037c6e5b63fe33"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 2、新兴渠道运营模式：主要为线上销售运营，公司与电商平台、自媒体、网络主播等建立合作关系，通过线上平台",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 31,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 2、新兴渠道运营模式：主要为线上销售运营，公司与电商平台、自媒体、网络主播等建立合作关系，通过线上平台】\n的旗舰店、专卖店、直播间等网络终端实现面向消费者的销售。\n经销模式\n适用□不适用",
+                "chunk_id": "53c9cb696d528c34333093cf"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 2、经销商情况",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 4,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 2、经销商情况】\n单位：个",
+                "chunk_id": "78b943647b8a05ddb7497f5c"
+              }
+            ],
+            "anchor_id": "ca459b76d4deb2fe6e28697f",
+            "scope": "page",
+            "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+            "index_admission": "ACCEPTED",
+            "total_candidates": 12,
+            "next_cursor": 6,
+            "text_chars": 1173,
+            "coverage": "admitted chunks only, not complete PDF page",
+            "relation": "same document; adjacency does not prove same table or scope"
+          }
+        },
+        {
+          "args": {
+            "anchor_id": "ca459b76d4deb2fe6e28697f",
+            "scope": "page",
+            "cursor": 6
+          },
+          "response": {
+            "results": [
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 1、传统渠道运营模式：主要为线下经销商授权经销模式，公司按产品线分区域与经销商建立合作关系，公司直接",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 18,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 1、传统渠道运营模式：主要为线下经销商授权经销模式，公司按产品线分区域与经销商建立合作关系，公司直接】\n向经销商供货，再由经销商向消费者和终端网点进行销售。",
+                "chunk_id": "78fbc0adab5613e74366f88f"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （一）报告期内主要工作举措 > 6、践行社会责任担当，绿色生态蔚然成风",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 161,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （一）报告期内主要工作举措 > 6、践行社会责任担当，绿色生态蔚然成风】\n乡村振兴结对帮扶。在红原县、古蔺县、叙永县积极推进产业帮扶、消费帮扶、人才帮扶等项目，助力帮扶地区振\n兴发展。社会公益继续推进。坚持开展“小书包、大爱心”“栋梁工程”等捐资助学项目，累计捐赠2,000 万元驰援西\n藏地震灾区和宜宾筠连山体滑坡灾区，切实彰显国企担当。绿色低碳可持续发展。积极开发碳资产，持续推进节能降耗，\n启动ESG 体系建设项目，编制完成并发布2024 年中英文版ESG 报告，明晟（MSCI）ESG 评级名列行业前茅。",
+                "chunk_id": "8f9e0543fc979302cf921e3d"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 4、持续推动渠道转型。全面落地公司数智营销，进一步提升费效比；通过自建电商平台、深化与主流电商及即时",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 138,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 4、持续推动渠道转型。全面落地公司数智营销，进一步提升费效比；通过自建电商平台、深化与主流电商及即时】\n零售平台的合作，积极构建线上线下融合的全渠道营销网络，强化对终端和消费者的直接触达能力。\n品牌运营情况\n公司始终坚持聚焦“双品牌、三品系、大单品”战略：国窖1573 牢牢站稳中国“三大高端白酒”阵营；泸州老窖品\n牌复兴计划成绩斐然，系列产品呈现稳健发展势头；养生酒、中式果酿酒等创新产品持续培育，成为推动公司迈向年轻\n化、时尚化、健康化和国际化的生力军。\n主要销售模式\n公司目前主要有两种销售模式：",
+                "chunk_id": "c8496493484097205d93d78e"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 1、主要销售模式",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "table_md",
+                "n_tokens": 230,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 1、主要销售模式】\n表：1、主要销售模式　单位：元　币种：未标注\n|  | 营业收入 | 营业成本 | 毛利率 | 营业收入比 上年同期增 减 | 营业成本比 上年同期增 减 | 毛利率比上 年同期增减 |\n|---|---|---|---|---|---|---|\n| 分销售模式 | 分销售模式 | 分销售模式 | 分销售模式 | 分销售模式 | 分销售模式 | 分销售模式 |\n| 传统渠道运营模式 | 15,465,210,242.79 | 1,948,035,410.61 | 87.40% | -3.99% | 10.83% | -1.69% |\n| 新兴渠道运营模式 | 931,961,646.75 | 153,545,380.71 | 83.52% | 27.55% | 0.08% | 4.52% |",
+                "table_title": "1、主要销售模式",
+                "unit": "元",
+                "currency": "",
+                "parent_table_id": "cb7b91546ec5c525f9e53751",
+                "part": 0,
+                "extraction_method": "docling_accurate",
+                "quality_status": "unreviewed",
+                "quality_flags": [
+                  "cell_bbox_unverified"
+                ],
+                "source_table_refs": [
+                  "data/docling_native/59cdcef7571d/000568/0001-0025.json#/tables/7"
+                ],
+                "unit_source": "table_local_explicit",
+                "chunk_id": "ca459b76d4deb2fe6e28697f"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 3、持续夯实核心基本盘。因应消费分化趋势，将资源向中高端大众主流产品倾斜，积极布局高增长的光瓶酒赛道，",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 18,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 3、持续夯实核心基本盘。因应消费分化趋势，将资源向中高端大众主流产品倾斜，积极布局高增长的光瓶酒赛道，】\n拟推出全新的泸州老窖二曲产品，持续巩固大众市场定位。",
+                "chunk_id": "d500fa84e4f903327dba7868"
+              },
+              {
+                "company": "泸州老窖",
+                "company_code": "000568",
+                "source_sha256": "f423c830835b03b46714e1f8ab1d114141d8408b2526e803ee6baa096d6cdfbc",
+                "report_period": "2025H1",
+                "section_path": "第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 1、主要销售模式",
+                "section_level": 4,
+                "page_start": 10,
+                "page_end": 10,
+                "chunk_type": "text",
+                "n_tokens": 4,
+                "text": "【泸州老窖 | 2025年半年度报告 | 第三节管理层讨论与分析 > 一、报告期内公司从事的主要业务 > （二）下半年主要工作措施 > 1、主要销售模式】\n单位：元",
+                "chunk_id": "fc9126b686be32b724367f3c"
+              }
+            ],
+            "anchor_id": "ca459b76d4deb2fe6e28697f",
+            "scope": "page",
+            "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+            "index_admission": "ACCEPTED",
+            "total_candidates": 12,
+            "next_cursor": null,
+            "text_chars": 1431,
+            "coverage": "admitted chunks only, not complete PDF page",
+            "relation": "same document; adjacency does not prove same table or scope"
+          }
+        }
+      ]
+    },
+    {
+      "probe": {
+        "anchor_id": "3625a26ca12e941341a26e0e",
+        "scope": "previous_page",
+        "required_id": "b80dc40280a60c309e8c606b"
+      },
+      "passed": true,
+      "calls_to_enumerate": 1,
+      "responses": [
+        {
+          "args": {
+            "anchor_id": "3625a26ca12e941341a26e0e",
+            "scope": "previous_page",
+            "cursor": 0
+          },
+          "response": {
+            "results": [
+              {
+                "company": "海尔智家",
+                "company_code": "600690",
+                "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+                "report_period": "2025H1",
+                "section_path": "第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > (七) 行业领先的研发和技术实力",
+                "section_level": 3,
+                "page_start": 30,
+                "page_end": 31,
+                "chunk_type": "text",
+                "n_tokens": 368,
+                "text": "【海尔智家 | 2025年半年度报告 | 第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > (七) 行业领先的研发和技术实力】\n海尔智家深耕科技创新，加快发展新质生产力，向高端化、智能化、绿色化升级，依托行业\n领先、完整的研发布局，持续为全球用户提供满足需求的家电、定制智慧便捷的生活，引领用户\n生活的体验跃迁，实现了高端品牌、场景品牌、生态品牌的全面领跑。\n•原创科技引领：海尔智家推出了磁控全空间保鲜冰箱，突破冷冻保鲜难题，实现冻鱼保鲜\n60 天、冷鲜肉存储10 天依然红嫩鲜，营养如初;搭载AI 之眼的全嵌油烟机，通过智能联动灶具，\n首创防溢锅技术，实现烹饪过程中实时监测，智能调整火力大小避免溢锅；全球首创一体三滚筒\n“懒人”洗衣机，满足用户分区洗护需求；行业首款可以达到53℃制冷量110%和70℃可稳定运\n行的空调；解决燃气热水器一级能效冷凝水难题，通过航天级雾化离心科技实现冷凝水100%外\n排，并拒绝冷凝水净化回收再利用；行业首款无镁棒金属内胆热水器，升级AI 净护系统替代镁棒，\n真正实现”无镁棒、无水垢。\n•国家权威认证：截至2025 年6 月底，公司累计获得17 项国家科技进步奖，获奖数量行业第\n一；行业内唯一三次最高奖：颠覆性技术创新大赛最高奖（优胜奖）。\n•专利质量引领：截至2025 年6 月底，海尔智家在全球累计专利申请11.6 万余项，其中发明",
+                "chunk_id": "d5eac269dbf74a559bab0261"
+              },
+              {
+                "company": "海尔智家",
+                "company_code": "600690",
+                "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+                "report_period": "2025H1",
+                "section_path": "第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > (八)国内领先的物流配送能力",
+                "section_level": 3,
+                "page_start": 31,
+                "page_end": 31,
+                "chunk_type": "text",
+                "n_tokens": 154,
+                "text": "【海尔智家 | 2025年半年度报告 | 第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > (八)国内领先的物流配送能力】\n海尔日日顺物流展现出强大的竞争力，主要体现在全流程、多场景的供应链管理解决方案以\n及送装同步的物流服务网络。公司通过数字化运营管理能力整合仓储、运力及服务网点等资源，\n搭建了覆盖全国、到村入户的物流网络，能够提供从采购、工厂制造到终端消费者的全流程服务。\n此外，海尔日日顺物流还具备强大的定制化服务能力，能够根据客户的个性化需求，提供定制化\n的供应链解决方案，满足不同客户的多样化需求。同时，公司在跨境供应链管理方面也有一定的\n优势，能够通过空运、海运、铁路及多式联运等方式满足客户的跨境物流需求。",
+                "chunk_id": "3f9693f1e33d83e991b8050a"
+              },
+              {
+                "company": "海尔智家",
+                "company_code": "600690",
+                "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+                "report_period": "2025H1",
+                "section_path": "第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > （九）可持续发展能力",
+                "section_level": 3,
+                "page_start": 31,
+                "page_end": 31,
+                "chunk_type": "text",
+                "n_tokens": 293,
+                "text": "【海尔智家 | 2025年半年度报告 | 第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > （九）可持续发展能力】\n①全球ESG 管治架构：海尔智家为深入实践ESG 管理工作，在全球三级ESG 管治架构（董\n事会ESG 委员会、ESG 全球执行办公室以及全球ESG 执行工作组）基础上进一步夯实组织架构\n体系，执行层面新增环境管理链群、可持续风险管理链群、公司治理链群、供应链管理链群等子\n链群，为更加扎实推进全球ESG 管理工作提供组织保障。\n②绿色发展与低碳运营：海尔智家制定了“绿色设计、绿色制造、绿色营销、绿色回收、绿\n色处置、绿色采购”的全生命周期绿色管理“6 Green”战略，推进全生命周期绿色行动。将低碳、\n循环、节能和减排融入日常运营，推进产业绿色升级。\n③社会责任与公益慈善：海尔智家在全球范围内积极参与希望工程、乡村振兴、急难救助等\n公益项目，通过捐赠和志愿服务等方式，持续回报社会。\n④ESG 评级领先：海尔智家在中证指数、MSCI 和Wind 三大机构发布的ESG 评级中处于国\n内同行业领先评级，其中MSCI 评级提升到AA 级别，这表明其在环境、社会责任和公司治理方\n面的卓越表现。",
+                "chunk_id": "7f0c046a91ad402d6749ba55"
+              },
+              {
+                "company": "海尔智家",
+                "company_code": "600690",
+                "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+                "report_period": "2025H1",
+                "section_path": "第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > (十)始终坚持“人的价值第一”",
+                "section_level": 3,
+                "page_start": 31,
+                "page_end": 32,
+                "chunk_type": "text",
+                "n_tokens": 163,
+                "text": "【海尔智家 | 2025年半年度报告 | 第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > (十)始终坚持“人的价值第一”】\n“人的价值第一”的宗旨始终贯穿海尔的发展。自创业之初的自主经营班组到现在的人单合\n一模式，海尔鼓励每一位员工在为用户创造价值的同时实现自身价值的最大化。海尔的人单合一，\n其中“人”指的是创客；“单”指的是用户价值；“合一”指的是员工的价值实现与所创造的用户价\n值合一。“人的价值第一”是人单合一模式最大的宗旨。\n海尔智家坚持以用户为是，以自己为非的价值观，坚持创业、创新的“两创”精神，变员工\n为创客，变执行者为创业者，变企业为开放的生态平台，支持公司创物联网时代智慧家庭的全球\n引领。",
+                "chunk_id": "b80dc40280a60c309e8c606b"
+              },
+              {
+                "company": "海尔智家",
+                "company_code": "600690",
+                "source_sha256": "5a1c0a4e3a5154d1e17baaf966fa7fd83fc12e168ed974afecd851f56b603074",
+                "report_period": "2025H1",
+                "section_path": "第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > (七) 行业领先的研发和技术实力",
+                "section_level": 3,
+                "page_start": 31,
+                "page_end": 31,
+                "chunk_type": "text",
+                "n_tokens": 233,
+                "text": "【海尔智家 | 2025年半年度报告 | 第三节 管理层讨论与分析 > 三、报告期内核心竞争力分析 > (七) 行业领先的研发和技术实力】\n专利7.5 万余项；累计获得国家专利金奖12 项，行业第一；在2025 年上半年“全球智慧家庭发\n明专利排行榜”中，海尔智家以2208 件公开的专利申请再次排名榜首，连续13 次排名全球第一。\n•国际标准引领：截至2025 年6 月底，海尔智家累计主导和参与国际标准发布116 项，国家/\n行业标准发布840 项；是行业内唯一全面覆盖IEC、ISO、IEEE、OCF、Matter 等国际组织智慧家\n庭标准的企业；全球唯一同时进入IEC IB 理事局和IEC MSB 市场战略局的企业，使得公司能够\n深度参与国际标准化工作，掌握标准制定的话语权。\n•体验设计引领：海尔累计获得德国IF 设计奖、红点奖等国际设计大奖600 余项。获得国际\n设计金奖6 项，行业最多；获得工信部“中国优秀工业设计金奖”3 项，是唯一金奖三连冠企业。",
+                "chunk_id": "e80c738ca32bf179a805cf5d"
+              }
+            ],
+            "anchor_id": "3625a26ca12e941341a26e0e",
+            "scope": "previous_page",
+            "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+            "index_admission": "ACCEPTED",
+            "total_candidates": 5,
+            "next_cursor": null,
+            "text_chars": 2170,
+            "coverage": "admitted chunks only, not complete PDF page",
+            "relation": "same document; adjacency does not prove same table or scope"
+          }
+        }
+      ]
+    }
+  ]
+}

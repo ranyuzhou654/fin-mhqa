@@ -31,3 +31,17 @@ def test_mask_includes_metadata_that_leaked_in_live_v1():
     period=transform(source,'period_mask_first')['results'][0]
     assert '2025' not in period['table_title'] and '2025' not in period['section_path']
     assert source['results'][0]['unit_source']=='page96: 人民币千元'
+
+
+def test_header_mask_removes_unit_period_scope_without_mutating_source():
+    from run_agent_recovery import transform
+    original={'results':[{'chunk_id':'a','source_sha256':'hash','company':'甲',
+        'text':'2025年上半年合并营业收入 100 千元；2024年母公司收入 80 千元',
+        'unit':'千元','report_period':'2025H1','section_path':'合并利润表',
+        'table_title':'2025年合并利润表','unit_source':'人民币千元'}]}
+    result=transform(original,'header_mask_first')
+    shown=str(result['results'][0])
+    assert all(term not in shown for term in ('2025','2024','千元','合并','母公司'))
+    assert '100' in shown and '80' in shown
+    assert result['results'][0]['source_sha256']=='hash'
+    assert original['results'][0]['unit']=='千元'

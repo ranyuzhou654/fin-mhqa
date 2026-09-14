@@ -11,6 +11,7 @@ import threading
 import time
 from finmhqa.agent.codex_teacher import CodexTeacher
 from finmhqa.agent.graph import AgentGraph
+from finmhqa.agent.evidence_context import EvidenceContext
 from finmhqa.agent.pilot_tools import request_json,search
 
 SCENARIOS=['empty_first','timeout_first','unit_mask_first','period_mask_first','conflict_first']
@@ -27,6 +28,14 @@ def transform(response,scenario):
                 if isinstance(c.get(key),str):c[key]=re.sub(pattern,replacement,c[key])
             if scenario=='unit_mask_first':c['unit']=''
             else:c['report_period']=''
+    elif scenario=='header_mask_first':
+        # Combine existing unit/period masks and remove scope labels in all
+        # exposed header fields. Keep values and immutable source identities.
+        response=transform(transform(response,'unit_mask_first'),'period_mask_first')
+        for c in response['results']:
+            for key in ('text','table_title','section_path','section'):
+                if isinstance(c.get(key),str):
+                    c[key]=re.sub(r'合并|母公司|主要会计数据和财务指标','[表头遮蔽]',c[key])
     elif scenario=='conflict_first':
         # A visibly incompatible same-scope numerical claim is synthetic; its true source is recorded outside model input.
         if response['results']:
@@ -38,14 +47,21 @@ def transform(response,scenario):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--questions',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
-    p.add_argument('--url',default='http://127.0.0.1:8100');p.add_argument('--synthesis',choices=['model','verified'],default='verified');p.add_argument('--scenarios',nargs='+',choices=SCENARIOS,default=SCENARIOS);a=p.parse_args()
+    p.add_argument('--url',default='http://127.0.0.1:8100');p.add_argument('--synthesis',choices=['model','verified'],default='verified');p.add_argument('--scenarios',nargs='+',choices=SCENARIOS+['header_mask_first'],default=SCENARIOS)
+    p.add_argument('--context-index',type=Path);p.add_argument('--reserve-verifier',action='store_true');a=p.parse_args()
+    if a.reserve_verifier and a.synthesis!='verified':p.error('reserve requires verified publication')
     if a.out.exists():raise FileExistsError(a.out)
     rows=[json.loads(l) for l in a.questions.read_text().splitlines()]
     if any(set(r)!={'id','question'} for r in rows):raise ValueError('question-only input required')
     question=next(r['question'] for r in rows if r['id']=='agent-dev-001')
     a.out.mkdir(parents=True);health=request_json(a.url+'/health');lock=threading.Lock()
+    if health['count']!=9322 or health['admission']['status']!='ACCEPTED':raise ValueError('wrong corpus/admission')
+    context=EvidenceContext(a.context_index,health['admission']['dataset_sha256']) if a.context_index else None
     teacher=CodexTeacher('/Applications/ChatGPT.app/Contents/Resources/codex',a.out/'empty_teacher_cwd')
     manifest={'scope':'fault injection only; not natural retrieval or dev20 correctness','scenarios':a.scenarios,'fault_version':2,
+        'context_index':str(a.context_index) if a.context_index else None,'reserve_verifier':a.reserve_verifier,
+        'execution_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__),*Path('src/finmhqa/agent').glob('*.py')]},
+        'questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),
         'synthesis':a.synthesis,'question_id':'agent-dev-001','question':question,'health':health,'teacher':'gpt-5.6-sol',
         'code_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'conflict_caveat':'synthetic alternative explicitly signals a conflict; demonstrates prompted conflict handling, not blind detection'}
@@ -67,7 +83,7 @@ def main():
                     response=transform(response,scenario)
                 return response
             def model(q,payload,step,prompt,schema):return teacher.decide(q,payload,folder/f'step_{step:02}',system=prompt,output_schema=schema)
-            try:state=AgentGraph(model,retrieve,record,synthesis=a.synthesis).run(question)
+            try:state=AgentGraph(model,retrieve,record,synthesis=a.synthesis,context_reader=context.read if context else None,reserve_verifier=a.reserve_verifier).run(question)
             except Exception as exc:error=f'{type(exc).__name__}: {exc}';record({'event':'error','message':error})
         result={'id':scenario,'final':state.get('final'),'error':error,'terminal_reason':state.get('terminal_reason','ERROR'),
             'replan_count':state.get('replan_count'),'injection_applied':used,'seconds':time.monotonic()-start,
