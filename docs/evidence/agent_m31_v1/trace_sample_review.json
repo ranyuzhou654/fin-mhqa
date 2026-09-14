@@ -1,0 +1,81 @@
+{
+  "scope": "assistant review of actual cited text and calculation inputs; not independent Judge, human review or Faithfulness score",
+  "fixed_sample": [
+    "agent-dev-005",
+    "agent-dev-002",
+    "agent-dev-018",
+    "agent-dev-008",
+    "agent-dev-019"
+  ],
+  "status": "COMPLETE",
+  "results": [
+    {
+      "id": "agent-dev-002",
+      "status": "CITATION_GAP",
+      "finding": "现金流量补充资料 d31b8452261147b1c7f92bec 未标单位；最终只引用另两家公司/本公司的收入表单位，未引用能适用于目标现金流表的单位声明或完整现金流表。数值与精确操作数正确不等于目标单位充分支持。",
+      "unit_support": "gap",
+      "period_scope_support": "table本期与合并注释章节可见",
+      "precision": "exact source operands; final-only rounding",
+      "trajectory_sha256": "e8f77ddc643f1512f5f9f24494d50a998757c4613972ca9b3101b46f1cc42086"
+    },
+    {
+      "id": "agent-dev-005",
+      "status": "TEXT_SUPPORTED",
+      "finding": "归母利润跨页 KV 列名未识别，补读上一页59的表头并引用；另外引用146页未分配利润本期归母净利润行，明确元单位，补强了目标数的本期/单位。文本核查支持，未新增PDF视觉审核。",
+      "unit_support": "explicit target-note unit and previous header",
+      "period_scope_support": "current-period target note and consolidated statement header",
+      "precision": "exact source operands; final-only rounding",
+      "trajectory_sha256": "afa3f5d1ce79e11c6cc689ad0c67070ec132774178fdfbb948d6cce064f394bf"
+    },
+    {
+      "id": "agent-dev-008",
+      "status": "TEXT_SUPPORTED",
+      "finding": "目标现金流40页列名未识别，实际补读并引用39页同名合并现金流表表头，包含2025/2024列和元单位；原值用于换算。跨页列对齐仅按返回文本核查，未新增PDF视觉审核。",
+      "unit_support": "previous-page header cited",
+      "period_scope_support": "previous-page current-period/consolidation header cited",
+      "precision": "exact source operands; final-only rounding",
+      "trajectory_sha256": "40cf20fa21b2635507f083bf5cc06a236368da26e16ac074a21218aa5d45e80c"
+    },
+    {
+      "id": "agent-dev-018",
+      "status": "PRECISION_FIXED_WITH_SCOPE_CAVEAT",
+      "finding": "本轮海尔采用原数12,032,995,820.27元，亿纬1,605,171,455.77元，直接求和最后舍入；不再使用120.33亿元摘要。两方补充注释/主要财务数据明确本期及元单位。海尔72页原表标题退化为二、财务报表，最终未引用71页明确合并表头，合并口径主要依赖归母行及主要会计数据交叉支持；不记为独立完整Faithfulness通过。",
+      "unit_support": "explicit matching-value note/summary cited",
+      "period_scope_support": "current-period exact-value cross-check; Haier explicit consolidated header absent",
+      "precision": "exact source operands; final-only rounding",
+      "trajectory_sha256": "b1cd2fb0804bafa7b08f7c7c11bb9dbe21af1d57c6abfa541e3adfdd24193611"
+    },
+    {
+      "id": "agent-dev-019",
+      "status": "TEXT_SUPPORTED",
+      "finding": "美的97页同表同时给出本期/上期、合并/公司、千元及目标数；贵州茅台32页目标数列名/单位缺失，最终引用31页合并现金流表表头（本期列、元单位）。原始数直接相加后末位舍入，未使用舍入摘要。跨页对应为文本审核，未新增视觉核验。",
+      "unit_support": "local Midea unit and Moutai previous-page header",
+      "period_scope_support": "Midea explicit consolidated current column; Moutai adjacent header cited",
+      "precision": "exact source operands; final-only rounding",
+      "trajectory_sha256": "ddc3494e70bd2449da01430d66164c501d292faefb2c2d3c906ef102d3f49aa6"
+    }
+  ],
+  "failure_reviews": [
+    {
+      "id": "agent-dev-006",
+      "reason": "TOOL_BUDGET then insufficient",
+      "finding": "泸州老窖单位/期间通过前页补齐，但贵州茅台现金流只返回首段；同一parent_table读取未包含目标续表，最后检索得到母公司净额，Planner拒绝替代合并值。实际8次工具，8次模型调用。",
+      "next_issue": "跨页续表被不同parent_table切开时，应优先尝试next_page并给最终计算保留工具空间",
+      "trajectory_sha256": "244ed8853dad72ffddd374b7ec3164cded92631b225f9723549fd37e99e90d5b"
+    },
+    {
+      "id": "agent-dev-007",
+      "reason": "MODEL_BUDGET after rejection",
+      "finding": "两次单位候选读取得到适用千元说明，归母数正确；第9次模型调用Verifier指出营业收入候选引用缺直接合并口径证据。余1次不足以修改候选并再次核验，因此拒答。",
+      "next_issue": "直接证据选择应在首次候选完成；单位候选排序及修订预算仍需实验",
+      "trajectory_sha256": "18dde1e416c25a9af5db2bd6d49e73504a1b5106a05e26b75ffceac3fb1dac3a"
+    },
+    {
+      "id": "agent-dev-011",
+      "reason": "INSUFFICIENT",
+      "finding": "取得归母数但单位说明只读cursor=0，未继续cursor=6而多次更换搜索。实际7次工具、7次模型后主动拒答；不是所有工具都耗尽，也不是单位声明在语料中不存在。",
+      "next_issue": "单位声明候选排序与显式next_cursor利用仍需优化",
+      "trajectory_sha256": "8bffad527625e96af216904c89b18b966596b82cb70d5e038b393a5d82beebe4"
+    }
+  ]
+}

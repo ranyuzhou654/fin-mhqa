@@ -1,0 +1,244 @@
+{
+  "scope": "single-run historical comparison; combined intervention, no causal attribution or independent Faithfulness",
+  "baseline": {
+    "correct": 19,
+    "total": 20,
+    "tool_calls": 94,
+    "mean_tools": 4.7,
+    "model_calls": 128,
+    "search_calls": 64,
+    "mean_seconds": 167.69134237290055,
+    "errors": 0,
+    "runtime_gate": "PASSED"
+  },
+  "current": {
+    "correct": 17,
+    "total": 20,
+    "tool_calls": 101,
+    "mean_tools": 5.05,
+    "model_calls": 120,
+    "search_calls": 57,
+    "mean_seconds": 142.70472613769962,
+    "errors": 0,
+    "runtime_gate": "PASSED"
+  },
+  "changed_correctness": [
+    {
+      "id": "agent-dev-006",
+      "before": true,
+      "after": false
+    },
+    {
+      "id": "agent-dev-011",
+      "before": true,
+      "after": false
+    }
+  ],
+  "context_calls": 17,
+  "context_scope_counts": {
+    "previous_page": 4,
+    "page": 4,
+    "table": 5,
+    "document_units": 4
+  },
+  "cases_using_context": 10,
+  "cases_citing_context_returned_ids": 5,
+  "context_citation_caveat": "IDs may also have appeared in search; citation intersection does not prove unique benefit or complete support",
+  "results": [
+    {
+      "id": "agent-dev-001",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-002",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-003",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-004",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-005",
+      "context_calls": 1,
+      "context_text_chars": 1406,
+      "context_errors": 0,
+      "context_returned_ids_cited": [
+        "34a674b579521b5b4aefe2de"
+      ],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-006",
+      "context_calls": 3,
+      "context_text_chars": 3498,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "INSUFFICIENT"
+    },
+    {
+      "id": "agent-dev-007",
+      "context_calls": 3,
+      "context_text_chars": 2632,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "MODEL_BUDGET"
+    },
+    {
+      "id": "agent-dev-008",
+      "context_calls": 1,
+      "context_text_chars": 1246,
+      "context_errors": 0,
+      "context_returned_ids_cited": [
+        "fa37907a92ff3f3d7ef3124a"
+      ],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-009",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-010",
+      "context_calls": 1,
+      "context_text_chars": 413,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-011",
+      "context_calls": 3,
+      "context_text_chars": 3879,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "INSUFFICIENT"
+    },
+    {
+      "id": "agent-dev-012",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-013",
+      "context_calls": 1,
+      "context_text_chars": 236,
+      "context_errors": 0,
+      "context_returned_ids_cited": [
+        "7a2cda920ccc22ecd70e37fa"
+      ],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-014",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-015",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-016",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-017",
+      "context_calls": 0,
+      "context_text_chars": 0,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-018",
+      "context_calls": 2,
+      "context_text_chars": 3207,
+      "context_errors": 0,
+      "context_returned_ids_cited": [],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-019",
+      "context_calls": 1,
+      "context_text_chars": 203,
+      "context_errors": 0,
+      "context_returned_ids_cited": [
+        "a4ee97ba53023666d5a3eb91"
+      ],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    },
+    {
+      "id": "agent-dev-020",
+      "context_calls": 1,
+      "context_text_chars": 236,
+      "context_errors": 0,
+      "context_returned_ids_cited": [
+        "7a2cda920ccc22ecd70e37fa"
+      ],
+      "finalize_reservation_events": 0,
+      "terminal_reason": "ANSWERED"
+    }
+  ],
+  "source_sha256": {
+    "docs/evidence/agent_dev20_v1/verified_run/evaluation.json": "ac6e5f5cf87d42200d8fac097c1679e100d1f2027be2cbef3ded192fe28b1ef1",
+    "docs/evidence/agent_m31_v1/dev20/evaluation.json": "afc6630c62c5634bdfc97977d1fd64f38376b5caffc58be376d01b67330a8d89",
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/summarize_agent_context.py": "3885d9ad0bafb1a320837457d1b14772cf30c47bc45c898cde96bb2782106fd9"
+  }
+}
