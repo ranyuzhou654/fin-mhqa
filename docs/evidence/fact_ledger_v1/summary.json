@@ -1,0 +1,50 @@
+{
+  "chunks_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "candidates": 340,
+  "admitted": 298,
+  "review": 42,
+  "admitted_by_scope": {
+    "consolidated": 240,
+    "parent": 58
+  },
+  "admitted_by_metric": {
+    "revenue": 20,
+    "cost_of_revenue": 20,
+    "selling_expense": 18,
+    "admin_expense": 18,
+    "net_profit": 38,
+    "cfo_net": 40,
+    "cfi_net": 20,
+    "total_assets": 40,
+    "total_liabilities": 18,
+    "equity_parent": 20,
+    "cash": 18,
+    "np_parent": 18,
+    "rd_expense": 10
+  },
+  "admitted_by_company": {
+    "五粮液": 28,
+    "亿纬锂能": 28,
+    "伊利股份": 32,
+    "宁德时代": 28,
+    "格力电器": 32,
+    "比亚迪": 30,
+    "泸州老窖": 26,
+    "海尔智家": 30,
+    "美的集团": 32,
+    "贵州茅台": 32
+  },
+  "confirmation": {
+    "corroboration": 110,
+    "identity+corroboration": 106,
+    "identity": 82
+  },
+  "rejection_reasons": {
+    "neither identity nor independent table confirms the value": 38,
+    "row or cell not found": 4
+  },
+  "code_sha256": {
+    "src/finmhqa/bench/ledger.py": "d932e6b685a44ff156f8647d60c1ffb965e6fd417ffb92cb45aee49ee13f56a2",
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/build_fact_ledger.py": "faecfaf522408cb55e41c1c746e69cf0b549c492bfe7026fc7b3d68551ee2fb8"
+  }
+}

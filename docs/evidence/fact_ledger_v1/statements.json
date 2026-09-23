@@ -1,0 +1,930 @@
+{
+  "五粮液": {
+    "report_unit_declaration": {
+      "unit": "元",
+      "chunk_id": "fb41e4d9a5cca064125bdf1f"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "consolidated",
+        "pages": [
+          31,
+          32,
+          33
+        ],
+        "chunks": [
+          "1200e4a9e94744acb71de6e4",
+          "13448e6379d1bbf91aea6db8",
+          "9ccd194c2247de369ab1fd48",
+          "ed3b1170730984dd3071354a",
+          "b8f6e26ff7e134fe492fba6a",
+          "71e9cca59bc6431796ef8e77"
+        ]
+      },
+      {
+        "statement": "BS",
+        "scope": "parent",
+        "pages": [
+          34,
+          35,
+          36
+        ],
+        "chunks": [
+          "0948dc0e7c5ffb9d6402b983",
+          "e4d8c569a21409bbcbacdf9e",
+          "1b4d9689a6cdd7dc6f006046",
+          "480179a43581547b7dc2378b",
+          "451ee84c9bcad80d99ecb6ca"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "consolidated",
+        "pages": [
+          36,
+          37,
+          38
+        ],
+        "chunks": [
+          "ae7186bdf65beef61fa58c30",
+          "5c3ea952ac84aa31ef5d6089",
+          "f72ad533366a5838d3337287",
+          "54466249c8eafc10a08d8504",
+          "4cf4eb09162698cf4925bb37",
+          "1f11c9af84f498812f92c569"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "parent",
+        "pages": [
+          38,
+          39
+        ],
+        "chunks": [
+          "4ba07872531574ccc188a477",
+          "5c93d56f59c1da6316d6362d",
+          "ef810ebdebea268044142c1c",
+          "4add412331ef46bdd473ad1b"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "consolidated",
+        "pages": [
+          39,
+          40,
+          41
+        ],
+        "chunks": [
+          "fa37907a92ff3f3d7ef3124a",
+          "db11b1b2be14e9de589fd37f",
+          "97f939c0bc56dcb96e0853b2",
+          "29134840ed060d19f19c2a78",
+          "f9d835e07885d175eddd72a2"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "parent",
+        "pages": [
+          41,
+          42
+        ],
+        "chunks": [
+          "477d75f36fc3ca133b47d8ec",
+          "031d66f4571d2cc896dedaa2",
+          "4f324e1e7e3b06c40ccc28d3"
+        ]
+      }
+    ]
+  },
+  "亿纬锂能": {
+    "report_unit_declaration": {
+      "unit": "元",
+      "chunk_id": "50d5b76cb112c237d9344fc6"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "consolidated",
+        "pages": [
+          53,
+          54,
+          55,
+          56
+        ],
+        "chunks": [
+          "8657c6e8f1229569b0a106ee",
+          "4e927f2383ba5b5bd012187a",
+          "29af98fa53b9d2249b5347d6",
+          "1fa7d7c14304f6b91ff2b503",
+          "e50ac51d8490a6cdf02ae556",
+          "dbe1ea032829f3776d628a0c"
+        ]
+      },
+      {
+        "statement": "BS",
+        "scope": "parent",
+        "pages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "chunks": [
+          "e53ccf3e68fb298692987d11",
+          "86fb905e3255ceaf12df4dd2",
+          "64c8a6f5ab2990197ca93459",
+          "091c18e0e1b4d0465621fa2e",
+          "4b04ce8bf57fc9171ac2ab1c",
+          "ffd5c9212d25f460cf64ce38",
+          "91c68b27f7edb36219fdad36"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "consolidated",
+        "pages": [
+          59,
+          60,
+          61
+        ],
+        "chunks": [
+          "34a674b579521b5b4aefe2de",
+          "e77def671b7d38f414e32b46",
+          "48ebe748b4c384f137b8fa95",
+          "fd57f8390a014feae2fee9fc",
+          "78ae409ac1ff2af77784be64"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "parent",
+        "pages": [
+          61,
+          62
+        ],
+        "chunks": [
+          "e1160b9edf884f3a1a1a82ac",
+          "2dfde36102a9d2425462eade",
+          "d412721b5b96872dd51ca207",
+          "0781b89807ee3b4db2f67a19"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "consolidated",
+        "pages": [
+          62,
+          63,
+          64
+        ],
+        "chunks": [
+          "2e15b27c76555587f2c5f203",
+          "e1ef7975d7a1108a60775f0a",
+          "a82e69dde70d48d352d34df9",
+          "4ecee175f3ff36078269a11d"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "parent",
+        "pages": [
+          64,
+          65
+        ],
+        "chunks": [
+          "3b3a35f63ba3904d9c28edbb",
+          "62c4501d7bd034a58b55f186",
+          "6397b871de9f2bcdcbad7a9e"
+        ]
+      }
+    ]
+  },
+  "伊利股份": {
+    "report_unit_declaration": {
+      "unit": "元",
+      "chunk_id": "5d85688b53cdf11bee43beff"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "consolidated",
+        "pages": [
+          47,
+          48
+        ],
+        "chunks": [
+          "97f02cc176fe4d4c2a2c35fb",
+          "a8f2ceb611d8f3602bf80c40",
+          "4b7c4ff01fb047f6595337b5",
+          "0627c15446a5671457d4928c",
+          "01643f37a234a4c827965ca3",
+          "47a668fdb203362c2c6fe2c3"
+        ]
+      },
+      {
+        "statement": "BS",
+        "scope": "parent",
+        "pages": [
+          49,
+          50
+        ],
+        "chunks": [
+          "c2ad2a560c265c0a156a5b1d",
+          "f787c675bce0025c50cb0901",
+          "97a8d540269d54bcb9c4107c",
+          "eef093291ab89fc902242247",
+          "f2b1d58fb0e80a2e26593a62",
+          "900492a39dd4a82398020089"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "consolidated",
+        "pages": [
+          51,
+          52
+        ],
+        "chunks": [
+          "e6c50ad291a07ed8cb804f11",
+          "d39ea6b4b90afbbfbb35ddea",
+          "207c91474e8ee3b9f15ea6b3",
+          "5d8f7ea6c83171e490cee1df"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "parent",
+        "pages": [
+          53
+        ],
+        "chunks": [
+          "ef4faff77aea3d4e2671a26b",
+          "483a55d3e260ebd04a9d7fc4",
+          "172be8ca435b02a2356bb7d0"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "consolidated",
+        "pages": [
+          54,
+          55
+        ],
+        "chunks": [
+          "98be4b523342c8525c502609",
+          "66fb43cb7ddcff97e3590ac9",
+          "f031898572ba0c930ec53e9e",
+          "8ee9b1b9bb91a2e579600b0b"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "parent",
+        "pages": [
+          56
+        ],
+        "chunks": [
+          "e2b2e62fce9a941558fa7bda",
+          "8373480a1cb7d7237d600851"
+        ]
+      }
+    ]
+  },
+  "宁德时代": {
+    "report_unit_declaration": {
+      "unit": "千元",
+      "chunk_id": "46a8c7a4f4993ae7bb21b99a"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "consolidated",
+        "pages": [
+          63,
+          64,
+          65,
+          66
+        ],
+        "chunks": [
+          "caeb4fc798e2c08bc4ea7f6e",
+          "af7b72513bf8d0784fb022cb",
+          "dab4453b0621593434568829",
+          "4d1a689ffb52cf89fa5f88b7",
+          "d23bd3c832a63e3bb679183d",
+          "8f219724753d500014f0fde3",
+          "609616f21f9a3ff63462f095"
+        ]
+      },
+      {
+        "statement": "BS",
+        "scope": "parent",
+        "pages": [
+          66,
+          67,
+          68
+        ],
+        "chunks": [
+          "c9f171326e326e1c35f59f7a",
+          "f0d81f76113c5a3834223250",
+          "9142eb54a4fa7cf6aba99ea4",
+          "6db2c90c9591283c6e34923b",
+          "0ae40001a33aea6f085ad638"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "consolidated",
+        "pages": [
+          68,
+          69,
+          70
+        ],
+        "chunks": [
+          "e55d85df8f44a5ca90f9fa36",
+          "3caad4013e7bb7eadfc96ec5",
+          "d0c6da2b2488fd0eb4907946",
+          "9481f94eed42d698fc89d164",
+          "4a318f03aff523aac70539e9"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "parent",
+        "pages": [
+          70,
+          71
+        ],
+        "chunks": [
+          "45d7c71b4b43b5a9b7fbe71c",
+          "07c23577fa8409e12c32dbed",
+          "deecb807dca50700805277fe"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "consolidated",
+        "pages": [
+          72,
+          73
+        ],
+        "chunks": [
+          "b9efd34f57156b15c71842e7",
+          "5fc55ae3c85e21344dcba02d",
+          "70ddc0a1c001292fb302b4dd"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "parent",
+        "pages": [
+          73,
+          74
+        ],
+        "chunks": [
+          "750572661801fc998199bad2",
+          "1f40e6064e205332e87d7aa1",
+          "916c76bd1044838eb65d2f3c"
+        ]
+      }
+    ]
+  },
+  "格力电器": {
+    "report_unit_declaration": {
+      "unit": "元",
+      "chunk_id": "ebad9462e9f7e282afa1da60"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "consolidated",
+        "pages": [
+          50,
+          51,
+          52,
+          53
+        ],
+        "chunks": [
+          "4ef609463daf9fad7904d214",
+          "6790bc6ad06147e8ace31d1e",
+          "2dc2a87e4449cac9551c51b0",
+          "c62eb95187af39fc5e74d62d",
+          "6557e613f822212287a16bb6",
+          "e2c877eb14fb3f02cafd8ff5",
+          "4b91f91cccaafe1065491669"
+        ]
+      },
+      {
+        "statement": "BS",
+        "scope": "parent",
+        "pages": [
+          54,
+          55,
+          56
+        ],
+        "chunks": [
+          "4559f1eb8110594f5dab1535",
+          "1990539b392237d4d7946d68",
+          "cca9e870f908b2480a51e371",
+          "2872b853cd2f885f17208d1f",
+          "13a49cee6e4e28007e01fdff",
+          "6a9cfcb72b33f806176c1fbd"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "consolidated",
+        "pages": [
+          57
+        ],
+        "chunks": [
+          "83d1e4f9ba9db3adfffd8b1a",
+          "f69eee9dde346c2705529ead",
+          "450bbde529f780b80e670373"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "parent",
+        "pages": [
+          59,
+          60
+        ],
+        "chunks": [
+          "398add2f7eafd2db772041bc",
+          "2dd0cb561a668508f2db617c",
+          "be636bb183a77aa120a533cc"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "consolidated",
+        "pages": [
+          61,
+          62
+        ],
+        "chunks": [
+          "f1de93ad828e9fcc003bce9e",
+          "868438af95d020b901399ff4",
+          "31a35d895929160999ec8ae7",
+          "30cce35a1d7bf007db3d7e14"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "parent",
+        "pages": [
+          63,
+          64
+        ],
+        "chunks": [
+          "3ab04e73d6cd687b3e500ad4",
+          "9effb1be1731ba92f7d6cc04",
+          "2f85d82b1328275bba925859"
+        ]
+      }
+    ]
+  },
+  "比亚迪": {
+    "report_unit_declaration": {
+      "unit": "千元",
+      "chunk_id": "ed8a1463462cd90a3ffcf505"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "consolidated",
+        "pages": [
+          63,
+          64
+        ],
+        "chunks": [
+          "218c045d3214db45edec3ab4",
+          "56bb80ea08bf221d3ebf6cb4",
+          "8f202b579e2e80168f4b7b09",
+          "426a44d7a179f2e4a377c480"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "consolidated",
+        "pages": [
+          65,
+          66,
+          67
+        ],
+        "chunks": [
+          "5763c0ce1bff9f5bfe81f3cd",
+          "dfcac71cb623204d6f6d239d",
+          "ead25ae4d7f413e01475796d",
+          "0ff018f940b061877b5ec9db",
+          "e8d26aea8e8d39bbb50d8b81"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "consolidated",
+        "pages": [
+          69,
+          70
+        ],
+        "chunks": [
+          "e376d0730c11ba776c6a8cd4",
+          "9c58c2d917ecf5b8a9c87be7",
+          "d07c2b941baf1b32e798ef1e"
+        ]
+      },
+      {
+        "statement": "BS",
+        "scope": "parent",
+        "pages": [
+          71,
+          72
+        ],
+        "chunks": [
+          "25d95f1513dad6d7ca82860d",
+          "fb0b58adb9642103eed7741c",
+          "8ae4b4e90facfdaae22eca9b",
+          "45c6835601ac9ea6e3e357e4"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "parent",
+        "pages": [
+          73,
+          74,
+          75
+        ],
+        "chunks": [
+          "6fd76feace0f7b589a4027ad",
+          "0306983eb3cc193239b02cd9",
+          "ceff4efa3356abdfe1be1551",
+          "75b74ce149c0ceea4b38ef0e"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "parent",
+        "pages": [
+          76,
+          77
+        ],
+        "chunks": [
+          "8d7a9ce29a0a0cfabb76e0d4",
+          "80b5320e27a78845b1429ec3",
+          "c93904affaf1154a1a62721a"
+        ]
+      }
+    ]
+  },
+  "泸州老窖": {
+    "report_unit_declaration": {
+      "unit": "元",
+      "chunk_id": "4c6ec76547e4a299681476d4"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "consolidated",
+        "pages": [
+          42,
+          43,
+          44
+        ],
+        "chunks": [
+          "db2929ce0aaf922143146aa3",
+          "f110e8ef76fc2cae08833adf",
+          "e83fcafa0c021f6351839566",
+          "d90e3ed77e0234a3f8c07f71",
+          "f745f68c5367c3120d00a64c",
+          "7cc267a666bfbf76ec401454",
+          "0fc0365f4df2996f03325eea"
+        ]
+      },
+      {
+        "statement": "BS",
+        "scope": "parent",
+        "pages": [
+          44,
+          45,
+          46
+        ],
+        "chunks": [
+          "da3cec6216ded52326e1d238",
+          "8cff5f634cef480bcfb09db5",
+          "576066915f00370bc0da2ebb",
+          "6d663f994532f87eed4485de",
+          "1dbd1118e3cda0692c240679",
+          "92b31c90fa012ad9e96cf8c2",
+          "bdafb7df6f675fea5b3a08c1"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "consolidated",
+        "pages": [
+          46,
+          47,
+          48
+        ],
+        "chunks": [
+          "e190169ee8b010cdb5aec748",
+          "8c864476752f30d60b23aab2",
+          "16d3323ae27f4acdc5b373ff",
+          "8bad69d2ecec516159d95629",
+          "da62a4bdf9d4866b1ef479f5"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "parent",
+        "pages": [
+          48,
+          49,
+          50
+        ],
+        "chunks": [
+          "cefd9a4cedde99deab8602e5",
+          "1acf68339f5b5cbc797395c3",
+          "aef00589c20870e0ab708c82",
+          "ba37d70f73574310bbcb884b"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "consolidated",
+        "pages": [
+          50,
+          51
+        ],
+        "chunks": [
+          "bfc9dae8dec9335a77b1b432",
+          "57808b7534b9bbe1cd482625",
+          "d09ce21e9aa9a073a6c0ee6a",
+          "5d2d9f8e0a37deccf044ae61"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "parent",
+        "pages": [
+          51,
+          52
+        ],
+        "chunks": [
+          "4c7df3e3bb79f778932e3956",
+          "e4af6ac8eba57478b9cca7ea",
+          "cfa28ed793cc0530c5eed2f3"
+        ]
+      }
+    ]
+  },
+  "海尔智家": {
+    "report_unit_declaration": {
+      "unit": "元",
+      "chunk_id": "ca56d4523247e002737347ef"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "consolidated",
+        "pages": [
+          67,
+          68,
+          69
+        ],
+        "chunks": [
+          "61acabd8e206bf05c6b3af61",
+          "46804d44a1b929e6ede62ce8",
+          "e2f17a35738c1b2aed8039c4",
+          "631624c55477166e20ab9beb",
+          "38b16e219d6d53e2b9f4f1a8",
+          "084b6cf68830e54371082a0c",
+          "308972a311b23781352d55d5"
+        ]
+      },
+      {
+        "statement": "BS",
+        "scope": "parent",
+        "pages": [
+          69,
+          70,
+          71
+        ],
+        "chunks": [
+          "849513e9a5af9e66e0909068",
+          "8ff13acf53b2a103f8546c23",
+          "394de96e808708805f542a67",
+          "f922a02a9a929bd04704a5a7",
+          "ab53ea7ca699442ab88494fc",
+          "7c26b6a30e01693c330a305f"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "consolidated",
+        "pages": [
+          71,
+          72,
+          73
+        ],
+        "chunks": [
+          "fe7f7b6d26f52577621813d8",
+          "1cfd9b2b219096b14fe27010",
+          "f9fc65ea4a8e9c9c839a86e4",
+          "fbe864faf3f73011bd8dcc07"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "parent",
+        "pages": [
+          73,
+          74
+        ],
+        "chunks": [
+          "54ffbe3af0a6c5290075944b",
+          "0b4122fb1ac210c5c3b72969",
+          "5b729a16bed1917af95a2f47"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "consolidated",
+        "pages": [
+          74,
+          75,
+          76
+        ],
+        "chunks": [
+          "7a2cda920ccc22ecd70e37fa",
+          "dd3800e677b83ce9112f3c61",
+          "d92aaae07fe06e4105dfabdb",
+          "51dfd0ced024c752c49749af",
+          "82aafdd5989fb2c0458e560b"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "parent",
+        "pages": [
+          76,
+          77
+        ],
+        "chunks": [
+          "d1aba3a503246e95afb25b91",
+          "330415c2cd02452f0a90431e",
+          "230b0de2bf462a0c85940326"
+        ]
+      }
+    ]
+  },
+  "美的集团": {
+    "report_unit_declaration": {
+      "unit": "千元",
+      "chunk_id": "719509dfe6a07918b803e198"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "both",
+        "pages": [
+          94,
+          95
+        ],
+        "chunks": [
+          "5057e28d71821fd6ef3e5f08",
+          "467ee69a95c000e27bb56c37",
+          "2434685d415eb6c166c3fcea",
+          "451518829d04f430d62d5bb3"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "both",
+        "pages": [
+          96
+        ],
+        "chunks": [
+          "407d90148388cf7072a341ab",
+          "4b28ba1999c0652b8e5498b3",
+          "28b12d455f189467a52504e5"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "both",
+        "pages": [
+          97
+        ],
+        "chunks": [
+          "541efa4968594bc1d06afe03",
+          "1fdd001d21b29145533eaa0e",
+          "3825f983db6f4a881e440086"
+        ]
+      }
+    ]
+  },
+  "贵州茅台": {
+    "report_unit_declaration": {
+      "unit": "元",
+      "chunk_id": "e9dbc0449471db3e38a9f295"
+    },
+    "statements": [
+      {
+        "statement": "BS",
+        "scope": "consolidated",
+        "pages": [
+          24,
+          25,
+          26
+        ],
+        "chunks": [
+          "8edbcd9cabd3363831497fa1",
+          "f70a62d2925cc5015d9b0b4d",
+          "9f0b70aabf7b90c2ff7533d1",
+          "ed3004a5ce5611c0810c9480",
+          "46901300f25dd723a829d884",
+          "ae3cc820f7cf5ba2526e519a"
+        ]
+      },
+      {
+        "statement": "BS",
+        "scope": "parent",
+        "pages": [
+          26,
+          27,
+          28
+        ],
+        "chunks": [
+          "17afaf11d4f556bce1a286df",
+          "348756bcd56d6f74eb773fac",
+          "00895f55e1eef4b478a5e6d6",
+          "977989618db989c3c61bb22e",
+          "1260659ceecaeec86d597005"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "consolidated",
+        "pages": [
+          28,
+          29,
+          30
+        ],
+        "chunks": [
+          "2e1d407c863d696f303d4a84",
+          "bc233e6941b22d4f03c01373",
+          "15e20ce4d75b3d0efadebb17",
+          "716b599b36e4d8dc416855cc"
+        ]
+      },
+      {
+        "statement": "IS",
+        "scope": "parent",
+        "pages": [
+          30,
+          31
+        ],
+        "chunks": [
+          "ff4049d45fdf2cfedfe3ea40",
+          "7dbe394d0ac3d4869ec4a498",
+          "7c47109aecbd36cec22f99fa"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "consolidated",
+        "pages": [
+          31,
+          32,
+          33
+        ],
+        "chunks": [
+          "a4ee97ba53023666d5a3eb91",
+          "e2521763fb75c988a149c4bb",
+          "9ed667801a10ec1a0e66cc11",
+          "22c2484399f6d8729608c025",
+          "fab06b3450b8c2e9cee645e9"
+        ]
+      },
+      {
+        "statement": "CF",
+        "scope": "parent",
+        "pages": [
+          33,
+          34
+        ],
+        "chunks": [
+          "e28ba9d7b7fb814c862de494",
+          "22c7bf9ef78f9124a4efd9a2",
+          "a0382dc48be42efa0217ced5"
+        ]
+      }
+    ]
+  }
+}

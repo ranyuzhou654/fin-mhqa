@@ -1,0 +1,46 @@
+# 事实台账复核清单
+
+候选 340 条，准入 298 条，待复核 42 条。未准入的事实不进入评测集，也不做修补。
+
+- **五粮液** consolidated 利润表 归属于母公司股东的净利润 2024H1：— （报表页 [36, 37, 38]）— row or cell not found
+- **五粮液** consolidated 利润表 归属于母公司股东的净利润 2025H1：— （报表页 [36, 37, 38]）— row or cell not found
+- **五粮液** consolidated 利润表 研发费用 2024H1：159,760,941.28 元（p36 `ae7186bdf65beef61fa58c30`）— neither identity nor independent table confirms the value
+- **五粮液** consolidated 利润表 研发费用 2025H1：209,601,741.37 元（p36 `ae7186bdf65beef61fa58c30`）— neither identity nor independent table confirms the value
+- **五粮液** parent 利润表 营业收入 2024H1：— （报表页 [38, 39]）— row or cell not found
+- **五粮液** parent 利润表 营业收入 2025H1：— （报表页 [38, 39]）— row or cell not found
+- **亿纬锂能** consolidated 利润表 管理费用 2024H1：514,574,523.98 元（p59 `34a674b579521b5b4aefe2de`）— neither identity nor independent table confirms the value
+- **亿纬锂能** consolidated 利润表 管理费用 2025H1：1,447,058,307.83 元（p59 `34a674b579521b5b4aefe2de`）— neither identity nor independent table confirms the value
+- **亿纬锂能** consolidated 利润表 研发费用 2024H1：1,422,285,997.68 元（p59 `34a674b579521b5b4aefe2de`）— neither identity nor independent table confirms the value
+- **亿纬锂能** consolidated 利润表 研发费用 2025H1：1,261,072,434.69 元（p59 `34a674b579521b5b4aefe2de`）— neither identity nor independent table confirms the value
+- **亿纬锂能** parent 利润表 营业收入 2024H1：5,059,821,123.46 元（p61 `e1160b9edf884f3a1a1a82ac`）— neither identity nor independent table confirms the value
+- **亿纬锂能** parent 利润表 营业收入 2025H1：7,210,658,459.24 元（p61 `e1160b9edf884f3a1a1a82ac`）— neither identity nor independent table confirms the value
+- **伊利股份** parent 利润表 营业收入 2024H1：53,181,267,564.08 元（p53 `ef4faff77aea3d4e2671a26b`）— neither identity nor independent table confirms the value
+- **伊利股份** parent 利润表 营业收入 2025H1：55,822,814,980.48 元（p53 `ef4faff77aea3d4e2671a26b`）— neither identity nor independent table confirms the value
+- **宁德时代** consolidated 利润表 研发费用 2024H1：8,592,452 千元（p68 `e55d85df8f44a5ca90f9fa36`）— neither identity nor independent table confirms the value
+- **宁德时代** consolidated 利润表 研发费用 2025H1：10,094,566 千元（p68 `e55d85df8f44a5ca90f9fa36`）— neither identity nor independent table confirms the value
+- **宁德时代** consolidated 利润表 销售费用 2024H1：1,865,588 千元（p68 `e55d85df8f44a5ca90f9fa36`）— neither identity nor independent table confirms the value
+- **宁德时代** consolidated 利润表 销售费用 2025H1：1,621,425 千元（p68 `e55d85df8f44a5ca90f9fa36`）— neither identity nor independent table confirms the value
+- **宁德时代** parent 利润表 营业收入 2024H1：87,132,546 千元（p70 `45d7c71b4b43b5a9b7fbe71c`）— neither identity nor independent table confirms the value
+- **宁德时代** parent 利润表 营业收入 2025H1：115,831,053 千元（p70 `45d7c71b4b43b5a9b7fbe71c`）— neither identity nor independent table confirms the value
+- **格力电器** parent 利润表 营业收入 2024H1：69,466,689,275.80 元（p59 `398add2f7eafd2db772041bc`）— neither identity nor independent table confirms the value
+- **格力电器** parent 利润表 营业收入 2025H1：61,206,982,662.30 元（p59 `398add2f7eafd2db772041bc`）— neither identity nor independent table confirms the value
+- **比亚迪** consolidated 利润表 研发费用 2024H1：19,620,756 千元（p65 `5763c0ce1bff9f5bfe81f3cd`）— neither identity nor independent table confirms the value
+- **比亚迪** consolidated 利润表 研发费用 2025H1：29,596,366 千元（p65 `5763c0ce1bff9f5bfe81f3cd`）— neither identity nor independent table confirms the value
+- **比亚迪** parent 利润表 营业收入 2024H1：1,559,413 千元（p73 `6fd76feace0f7b589a4027ad`）— neither identity nor independent table confirms the value
+- **比亚迪** parent 利润表 营业收入 2025H1：784,158 千元（p73 `6fd76feace0f7b589a4027ad`）— neither identity nor independent table confirms the value
+- **泸州老窖** consolidated 资产负债表 货币资金 2024-12-31：33,578,396,831.33 元（p42 `db2929ce0aaf922143146aa3`）— neither identity nor independent table confirms the value
+- **泸州老窖** consolidated 资产负债表 货币资金 2025-06-30：35,451,080,327.05 元（p42 `db2929ce0aaf922143146aa3`）— neither identity nor independent table confirms the value
+- **泸州老窖** consolidated 资产负债表 负债合计 2024-12-31：20,826,588,928.87 元（p44 `0fc0365f4df2996f03325eea`）— neither identity nor independent table confirms the value
+- **泸州老窖** consolidated 资产负债表 负债合计 2025-06-30：23,509,629,209.56 元（p44 `0fc0365f4df2996f03325eea`）— neither identity nor independent table confirms the value
+- **泸州老窖** consolidated 利润表 研发费用 2024H1：75,028,702.85 元（p47 `8c864476752f30d60b23aab2`）— neither identity nor independent table confirms the value
+- **泸州老窖** consolidated 利润表 研发费用 2025H1：83,864,133.32 元（p47 `8c864476752f30d60b23aab2`）— neither identity nor independent table confirms the value
+- **泸州老窖** parent 利润表 营业收入 2024H1：5,698,158,853.96 元（p49 `1acf68339f5b5cbc797395c3`）— neither identity nor independent table confirms the value
+- **泸州老窖** parent 利润表 营业收入 2025H1：6,761,860,378.40 元（p49 `1acf68339f5b5cbc797395c3`）— neither identity nor independent table confirms the value
+- **海尔智家** parent 利润表 净利润 2024H1：308,018,429.29 元（p74 `0b4122fb1ac210c5c3b72969`）— neither identity nor independent table confirms the value
+- **海尔智家** parent 利润表 净利润 2025H1：2,755,881,249.18 元（p74 `0b4122fb1ac210c5c3b72969`）— neither identity nor independent table confirms the value
+- **海尔智家** parent 利润表 营业收入 2024H1：251,601,614.76 元（p73 `54ffbe3af0a6c5290075944b`）— neither identity nor independent table confirms the value
+- **海尔智家** parent 利润表 营业收入 2025H1：453,790,319.36 元（p73 `54ffbe3af0a6c5290075944b`）— neither identity nor independent table confirms the value
+- **美的集团** parent 利润表 营业收入 2024H1：348,937 千元（p96 `407d90148388cf7072a341ab`）— neither identity nor independent table confirms the value
+- **美的集团** parent 利润表 营业收入 2025H1：537,660 千元（p96 `407d90148388cf7072a341ab`）— neither identity nor independent table confirms the value
+- **贵州茅台** parent 利润表 营业收入 2024H1：45,657,305,847.21 元（p30 `ff4049d45fdf2cfedfe3ea40`）— neither identity nor independent table confirms the value
+- **贵州茅台** parent 利润表 营业收入 2025H1：49,679,827,345.61 元（p30 `ff4049d45fdf2cfedfe3ea40`）— neither identity nor independent table confirms the value

@@ -1,0 +1,7 @@
+{"company": "比亚迪", "scope": "consolidated", "statement": "IS", "chunk_id": "ead25ae4d7f413e01475796d", "problem": "column count 5 differs from statement header 4"}
+{"company": "比亚迪", "scope": "consolidated", "statement": "IS", "chunk_id": "0ff018f940b061877b5ec9db", "problem": "column count 12 differs from statement header 4"}
+{"company": "比亚迪", "scope": "consolidated", "statement": "IS", "chunk_id": "e8d26aea8e8d39bbb50d8b81", "problem": "column count 2 differs from statement header 4"}
+{"company": "比亚迪", "scope": "consolidated", "statement": "CF", "chunk_id": "d07c2b941baf1b32e798ef1e", "problem": "column count 5 differs from statement header 4"}
+{"company": "比亚迪", "scope": "parent", "statement": "IS", "chunk_id": "ceff4efa3356abdfe1be1551", "problem": "column count 10 differs from statement header 4"}
+{"company": "比亚迪", "scope": "parent", "statement": "IS", "chunk_id": "75b74ce149c0ceea4b38ef0e", "problem": "column count 9 differs from statement header 4"}
+{"company": "比亚迪", "scope": "parent", "statement": "CF", "chunk_id": "c93904affaf1154a1a62721a", "problem": "column count 4 differs from statement header 3"}

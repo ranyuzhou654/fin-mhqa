@@ -1,0 +1,345 @@
+{
+ "reviewer": "Claude (agent spot check, not human review)",
+ "seed": 20260923,
+ "sample_size": 20,
+ "correct": 20,
+ "items": [
+  {
+   "fact_id": "f-ee27476f2227",
+   "company": "比亚迪",
+   "scope": "parent",
+   "metric": "资产总计",
+   "period": "2025-06-30",
+   "value": "152,838,703",
+   "unit": "千元",
+   "chunk_id": "fb0b58adb9642103eed7741c",
+   "source_row": [
+    "资产总计",
+    "",
+    "152,838,703",
+    "150,143,573"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-2da71165660d",
+   "company": "格力电器",
+   "scope": "consolidated",
+   "metric": "净利润",
+   "period": "2025H1",
+   "value": "14,512,869,071.01",
+   "unit": "元",
+   "chunk_id": "f69eee9dde346c2705529ead",
+   "source_row": [
+    "五、净利润（净亏损以'-'号填列）",
+    "14,512,869,071.01",
+    "13,887,709,317.03"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-5c10348c4ab8",
+   "company": "比亚迪",
+   "scope": "consolidated",
+   "metric": "营业收入",
+   "period": "2024H1",
+   "value": "301,126,713",
+   "unit": "千元",
+   "chunk_id": "5763c0ce1bff9f5bfe81f3cd",
+   "source_row": [
+    "一、 营业收入",
+    "43",
+    "371,280,948",
+    "301,126,713"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-5de65281b25e",
+   "company": "泸州老窖",
+   "scope": "consolidated",
+   "metric": "归属于母公司股东的净利润",
+   "period": "2024H1",
+   "value": "8,027,538,165.31",
+   "unit": "元",
+   "chunk_id": "8bad69d2ecec516159d95629",
+   "source_row": [
+    "1.归属于母公司股东的净利润 （净亏损以'-'号填列）",
+    "7,662,907,812.98",
+    "8,027,538,165.31"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-97391967b528",
+   "company": "格力电器",
+   "scope": "consolidated",
+   "metric": "研发费用",
+   "period": "2024H1",
+   "value": "3,531,965,035.50",
+   "unit": "元",
+   "chunk_id": "83d1e4f9ba9db3adfffd8b1a",
+   "source_row": [
+    "研发费用",
+    "3,917,542,274.18",
+    "3,531,965,035.50"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-5f67973c265a",
+   "company": "海尔智家",
+   "scope": "consolidated",
+   "metric": "净利润",
+   "period": "2024H1",
+   "value": "10,773,597,554.50",
+   "unit": "元",
+   "chunk_id": "f9fc65ea4a8e9c9c839a86e4",
+   "source_row": [
+    "五、净利润（净亏损以 ' － ' 号填列）",
+    "",
+    "12,485,115,799.44",
+    "10,773,597,554.50"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-1b4e37606018",
+   "company": "美的集团",
+   "scope": "consolidated",
+   "metric": "资产总计",
+   "period": "2025-06-30",
+   "value": "638,033,509",
+   "unit": "千元",
+   "chunk_id": "467ee69a95c000e27bb56c37",
+   "source_row": [
+    "资产总计",
+    "",
+    "638,033,509",
+    "604,351,853",
+    "318,666,285",
+    "300,151,455"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-924bea8f9d1f",
+   "company": "宁德时代",
+   "scope": "consolidated",
+   "metric": "负债合计",
+   "period": "2025-06-30",
+   "value": "542,792,019",
+   "unit": "千元",
+   "chunk_id": "8f219724753d500014f0fde3",
+   "source_row": [
+    "负债合计",
+    "542,792,019",
+    "513,201,949"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-d885fce4f326",
+   "company": "五粮液",
+   "scope": "consolidated",
+   "metric": "投资活动产生的现金流量净额",
+   "period": "2024H1",
+   "value": "-1,069,383,823.78",
+   "unit": "元",
+   "chunk_id": "97f939c0bc56dcb96e0853b2",
+   "source_row": [
+    "投资活动产生的现金流量净额",
+    "-967,484,650.22",
+    "-1,069,383,823.78"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-cc2c23af7c9f",
+   "company": "五粮液",
+   "scope": "consolidated",
+   "metric": "负债合计",
+   "period": "2025-06-30",
+   "value": "49,284,244,654.68",
+   "unit": "元",
+   "chunk_id": "71e9cca59bc6431796ef8e77",
+   "source_row": [
+    "负债合计",
+    "49,284,244,654.68",
+    "51,857,424,971.48"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-88869354f479",
+   "company": "美的集团",
+   "scope": "parent",
+   "metric": "资产总计",
+   "period": "2024-12-31",
+   "value": "300,151,455",
+   "unit": "千元",
+   "chunk_id": "467ee69a95c000e27bb56c37",
+   "source_row": [
+    "资产总计",
+    "",
+    "638,033,509",
+    "604,351,853",
+    "318,666,285",
+    "300,151,455"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-8a88e6dff9ac",
+   "company": "宁德时代",
+   "scope": "consolidated",
+   "metric": "归属于母公司所有者权益合计",
+   "period": "2024-12-31",
+   "value": "246,930,033",
+   "unit": "千元",
+   "chunk_id": "8f219724753d500014f0fde3",
+   "source_row": [
+    "归属于母公司所有者权益合计",
+    "294,923,020",
+    "246,930,033"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-11a1d54fcb58",
+   "company": "美的集团",
+   "scope": "parent",
+   "metric": "资产总计",
+   "period": "2025-06-30",
+   "value": "318,666,285",
+   "unit": "千元",
+   "chunk_id": "467ee69a95c000e27bb56c37",
+   "source_row": [
+    "资产总计",
+    "",
+    "638,033,509",
+    "604,351,853",
+    "318,666,285",
+    "300,151,455"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-5f25853ea596",
+   "company": "贵州茅台",
+   "scope": "parent",
+   "metric": "资产总计",
+   "period": "2024-12-31",
+   "value": "180,236,524,477.01",
+   "unit": "元",
+   "chunk_id": "00895f55e1eef4b478a5e6d6",
+   "source_row": [
+    "资产总计",
+    "",
+    "152,515,703,429.78",
+    "180,236,524,477.01"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-649433a66d6b",
+   "company": "亿纬锂能",
+   "scope": "consolidated",
+   "metric": "营业收入",
+   "period": "2025H1",
+   "value": "28,169,564,043.41",
+   "unit": "元",
+   "chunk_id": "34a674b579521b5b4aefe2de",
+   "source_row": [
+    "其中：营业收入",
+    "28,169,564,043.41",
+    "21,659,398,588.08"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-c1f73ec22340",
+   "company": "美的集团",
+   "scope": "consolidated",
+   "metric": "经营活动产生的现金流量净额",
+   "period": "2025H1",
+   "value": "37,281,015",
+   "unit": "千元",
+   "chunk_id": "541efa4968594bc1d06afe03",
+   "source_row": [
+    "经营活动产生的现金流量净额",
+    "四 (62)(c)",
+    "37,281,015",
+    "33,488,170",
+    "34,159,720",
+    "11,427,927"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-0ac006e7c2e8",
+   "company": "亿纬锂能",
+   "scope": "consolidated",
+   "metric": "资产总计",
+   "period": "2025-06-30",
+   "value": "110,693,660,018.39",
+   "unit": "元",
+   "chunk_id": "29af98fa53b9d2249b5347d6",
+   "source_row": [
+    "资产总计",
+    "110,693,660,018.39",
+    "100,890,624,125.27"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-a16267a714ea",
+   "company": "亿纬锂能",
+   "scope": "consolidated",
+   "metric": "营业成本",
+   "period": "2024H1",
+   "value": "18,167,593,331.51",
+   "unit": "元",
+   "chunk_id": "34a674b579521b5b4aefe2de",
+   "source_row": [
+    "其中：营业成本",
+    "23,289,022,724.62",
+    "18,167,593,331.51"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-7e8157da919b",
+   "company": "比亚迪",
+   "scope": "consolidated",
+   "metric": "归属于母公司所有者权益合计",
+   "period": "2025-06-30",
+   "value": "232,166,363",
+   "unit": "千元",
+   "chunk_id": "426a44d7a179f2e4a377c480",
+   "source_row": [
+    "归属于母公司股东权益合计",
+    "",
+    "232,166,363",
+    "185,251,104"
+   ],
+   "row_column_period_correct": true
+  },
+  {
+   "fact_id": "f-9eb8516de4ec",
+   "company": "宁德时代",
+   "scope": "parent",
+   "metric": "资产总计",
+   "period": "2024-12-31",
+   "value": "521,484,018",
+   "unit": "千元",
+   "chunk_id": "9142eb54a4fa7cf6aba99ea4",
+   "source_row": [
+    "资产总计",
+    "588,143,824",
+    "521,484,018"
+   ],
+   "row_column_period_correct": true
+  }
+ ]
+}
