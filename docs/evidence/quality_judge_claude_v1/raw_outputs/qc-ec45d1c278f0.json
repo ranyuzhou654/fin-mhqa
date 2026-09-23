@@ -1,0 +1,30 @@
+{
+  "labels": {
+    "numeric_grounding": "not_applicable",
+    "unit_applicability": "not_applicable",
+    "period": "not_applicable",
+    "scope": "not_applicable",
+    "citation_coverage": "not_applicable",
+    "precision": "not_applicable",
+    "abstention": "contradicted"
+  },
+  "rationale": {
+    "numeric_grounding": "拒答样本，不评价数值维度。",
+    "unit_applicability": "拒答样本，不评价单位维度。",
+    "period": "拒答样本，不评价期间维度。",
+    "scope": "拒答样本，不评价口径维度。",
+    "citation_coverage": "拒答样本，不评价引用覆盖维度。",
+    "precision": "拒答样本，不评价精度维度。",
+    "abstention": "当前观测已足以作答。亿纬锂能：60、未分配利润附注（02303e31707f42c88a770880、ac77a8618ac6dceb549b11f9，单位元，table_local_explicit）给出“本期归属于母公司所有者的净利润”1,605,171,455.77元，与合并利润表块48ebe748b4c384f137b8fa95中的数值一致。比亚迪：合并利润表（dfcac71cb623204d6f6d239d、c9036b2b7a00f429f3adb4a9）“截至2025年6月30日止6个月期间”的归属于母公司所有者的净利润为15,510,533，期间与合并口径明确，唯一缺口是单位未标注。但观测内可以确定单位：58、每股收益（6daa53557f6f5bfd5d58c09d）以同一数值15,510,533为分子，调整后15,311,655，加权平均股数8,958,979以“千股”计；15,311,655 ÷ 8,958,979 ≈ 1.71，正好等于合并利润表续表（ead25ae4d7f413e01475796d）中“每股收益(元/股)”的基本每股收益1.71，只有“千元”能使二者一致。据此可得比亚迪155.10533亿元 − 亿纬锂能16.0517145577亿元 ≈ +139.05亿元。智能体已检索到全部必要事实，却以“证据或运行预算不足”拒答，拒答不合理。"
+  },
+  "evidence_ids": {
+    "numeric_grounding": [],
+    "unit_applicability": [],
+    "period": [],
+    "scope": [],
+    "citation_coverage": [],
+    "precision": [],
+    "abstention": ["dfcac71cb623204d6f6d239d", "c9036b2b7a00f429f3adb4a9", "6daa53557f6f5bfd5d58c09d", "ead25ae4d7f413e01475796d", "02303e31707f42c88a770880", "ac77a8618ac6dceb549b11f9", "48ebe748b4c384f137b8fa95"]
+  },
+  "notes": "比亚迪利润表的单位在观测中没有显式标注，需要借助每股收益（元/股）与股数（千股）的算术关系才能反推出千元。若采用更严格的“单位必须显式标注”标准，本维可降为uncertain；但按观测内可验证的证据链，本案应判为可作答。"
+}

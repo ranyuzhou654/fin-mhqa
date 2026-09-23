@@ -4,7 +4,7 @@
 
 ## 从哪里审核
 
-打开[审核入口](evidence/quality_calibration_v1/REVIEW.md)。每条有最终输出、可读证据页以及完整时序JSON。先复制[空白人工模板](evidence/quality_calibration_v1/reference.template.json)为本地 `data/qa/quality_calibration_v1/reviewed.json`，再填写，不修改冻结模板。每条ID绑定内容SHA256，改动问题、最终输出或工具观测后，旧标签不能复用。
+推荐用交互脚本逐条填写，可随时输入 q 保存退出、下次续填，不显示 Judge 意见：`.venv/bin/python scripts/label_quality_reference.py`，输出为 `data/qa/quality_calibration_v1/reviewed.json`。也可手工填写：打开[审核入口](evidence/quality_calibration_v1/REVIEW.md)。每条有最终输出、可读证据页以及完整时序JSON。先复制[空白人工模板](evidence/quality_calibration_v1/reference.template.json)为本地 `data/qa/quality_calibration_v1/reviewed.json`，再填写，不修改冻结模板。每条ID绑定内容SHA256，改动问题、最终输出或工具观测后，旧标签不能复用。
 
 当前[初始状态](evidence/quality_calibration_v1/initial_status.json)为 PENDING_HUMAN_REFERENCE，0/18已审核，metrics=null。没有代替用户填入通过标签，也没有把此前本代理的文本核查当作人工真值。审核人字段是归属声明，不是身份认证或电子签名。
 

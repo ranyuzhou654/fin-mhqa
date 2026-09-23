@@ -1,0 +1,37 @@
+{
+ "labels": {
+  "numeric_grounding": "not_applicable",
+  "unit_applicability": "not_applicable",
+  "period": "not_applicable",
+  "scope": "not_applicable",
+  "citation_coverage": "not_applicable",
+  "precision": "not_applicable",
+  "abstention": "contradicted"
+ },
+ "rationale": {
+  "numeric_grounding": "拒答样本，不评价数值依据。",
+  "unit_applicability": "拒答样本，不评价单位适用性。",
+  "period": "拒答样本，不评价期间。",
+  "scope": "拒答样本，不评价口径。",
+  "citation_coverage": "拒答样本，最终无引用，不评价引用覆盖。",
+  "precision": "拒答样本，不评价精度。",
+  "abstention": "拒答理由为MODEL_BUDGET，但当前观测已足以作答：比亚迪营业收入构成表明确以元计371,280,948,000.00元（52e388a1787b91755b534281/df365d166ef42c1b092f0ef9），合并利润表同值371,280,948且文本说明“财务报表及附注的单位为：千元”（ed8a1463462cd90a3ffcf505）；海尔智家合并利润表营业收入156,494,034,448.85元（50b0b59b197f1ae4f88f72fa），比亚迪较高，calculate亦算得差额2147.87亿元。比亚迪合并利润表2025年上半年列“归属于母公司所有者的净利润”15,510,533千元（dfcac71cb623204d6f6d239d），calculate已换算为155.11亿元。所需前提均已观测到，拒答不成立。"
+ },
+ "evidence_ids": {
+  "numeric_grounding": [],
+  "unit_applicability": [],
+  "period": [],
+  "scope": [],
+  "citation_coverage": [],
+  "precision": [],
+  "abstention": [
+   "52e388a1787b91755b534281",
+   "df365d166ef42c1b092f0ef9",
+   "50b0b59b197f1ae4f88f72fa",
+   "dfcac71cb623204d6f6d239d",
+   "ed8a1463462cd90a3ffcf505",
+   "5763c0ce1bff9f5bfe81f3cd"
+  ]
+ },
+ "notes": "观测中已完成全部检索与换算（155.11亿元），因预算耗尽而拒答，属于不必要拒答。"
+}

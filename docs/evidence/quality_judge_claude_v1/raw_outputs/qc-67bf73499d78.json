@@ -1,0 +1,53 @@
+{
+ "labels": {
+  "numeric_grounding": "contradicted",
+  "unit_applicability": "uncertain",
+  "period": "uncertain",
+  "scope": "supported",
+  "citation_coverage": "supported",
+  "precision": "contradicted",
+  "abstention": "not_applicable"
+ },
+ "rationale": {
+  "numeric_grounding": "营业收入比较正确：五粮液合并利润表营业收入52,770,984,383.52元（cad29d5ea24462e1a71bf255），亿纬锂能28,169,564,043.41元（85fe6d961927ba26380060b3），差额246.01亿元与calculate一致，选择五粮液成立。但经营活动产生的现金流量净额31,136,736,628.58（e65f385eaac83f299736117b）换算为亿元约311.3674，calculate工具也返回311.37亿元，最终答案却写312.37亿元，与观测和自身计算结果矛盾。",
+  "unit_applicability": "营业收入所在合并利润表单位明确为元。但经营活动现金流量净额所在chunk e65f385eaac83f299736117b（及同表db11b1b2be14e9de589fd37f）单位为“未标注”且带native_header_missing/unresolved_headers标记，parent_table_id(02ceda…)与标注“单位：元”的现金流量表首段fa37907a92ff3f3d7ef3124a(93e367…)不同；read_evidence_context也提示相邻不证明同表。将“元”套用到该数值属于跨局部表推断，虽合理但未被直接证实。",
+  "period": "营业收入取自“2025年半年度”列，期间正确。但现金流量净额所在chunk列名未识别（“2列（列名未识别）”），2025年上半年列归属只能依据续表首段fa37907a92ff3f3d7ef3124a的表头顺序推断，未被同一表格直接证实。",
+  "scope": "两家公司营业收入均取自“合并利润表”，经营活动现金流量净额取自“5、合并现金流量表”章节，符合题目要求的合并口径；未混用母公司报表。",
+  "citation_coverage": "最终引用覆盖了两家营业收入（cad29d5ea24462e1a71bf255、85fe6d961927ba26380060b3）、现金流量净额数值（e65f385eaac83f299736117b）以及提供表头与单位线索的现金流量表首段（fa37907a92ff3f3d7ef3124a），必要前提均有对应引用；问题在于答案数值本身错误而非引用缺失。",
+  "precision": "原表数值31,136,736,628.58元精确到分，换算后应为311.3674亿元，四舍五入两位为311.37；最终给出312.37，不是对原始精度数值的正确舍入结果。",
+  "abstention": "本样本为回答样本，不适用拒答判定。"
+ },
+ "evidence_ids": {
+  "numeric_grounding": [
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3",
+   "e65f385eaac83f299736117b"
+  ],
+  "unit_applicability": [
+   "e65f385eaac83f299736117b",
+   "fa37907a92ff3f3d7ef3124a",
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3"
+  ],
+  "period": [
+   "e65f385eaac83f299736117b",
+   "fa37907a92ff3f3d7ef3124a"
+  ],
+  "scope": [
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3",
+   "e65f385eaac83f299736117b"
+  ],
+  "citation_coverage": [
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3",
+   "e65f385eaac83f299736117b",
+   "fa37907a92ff3f3d7ef3124a"
+  ],
+  "precision": [
+   "e65f385eaac83f299736117b"
+  ],
+  "abstention": []
+ },
+ "notes": "最终答案312.37与calculate返回的311.37不一致，疑为抄写错误；现金流量净额所在续表单位与列名均未标注，依赖相邻表首段推断。"
+}

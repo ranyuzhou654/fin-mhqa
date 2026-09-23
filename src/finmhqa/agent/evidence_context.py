@@ -6,12 +6,31 @@ import json
 from pathlib import Path
 import re
 
+# Explicit report-wide declaration such as "财务报表及附注的单位为：千元"; ranking only, never applied automatically.
+DECLARATION = re.compile(r'(单位|金额单位)\s*(为|是)?\s*[：:]?\s*(人民币)?\s*(元|千元|万元|百万元|亿元)')
+UNLABELED = '单位：未标注'
+
+
+def body(c):
+    return c['text'].split('】', 1)[-1].strip()
+
+
+def unit_rank(c, anchor):
+    text = body(c)
+    strong = bool(DECLARATION.search(text)) and len(text) <= 200
+    report = '财务报告' in (c.get('section_path') or '') or '财务报告' in c['text'][:80]
+    return (0 if strong and report else 1 if strong else 2, abs(c['page_start'] - anchor['page_start']))
+
 
 class EvidenceContext:
     PAGE_SIZE = 6
     MAX_CHARS = 24000
 
-    def __init__(self, index_dir, expected_dataset):
+    def __init__(self, index_dir, expected_dataset, version=2):
+        # version 1 replays archived M3.1 runs: page-order unit candidates and no table continuation.
+        if version not in (1, 2):
+            raise ValueError('unknown context version')
+        self.version = version
         root = Path(index_dir)
         manifest = json.loads((root / 'manifest.json').read_text())
         data = (root / 'chunk_meta.jsonl').read_bytes()
@@ -46,6 +65,17 @@ class EvidenceContext:
         if scope == 'table':
             parent = anchor.get('parent_table_id')
             candidates = [c for c in candidates if parent and c.get('parent_table_id') == parent and c['chunk_type'] == 'table_md']
+        elif scope == 'table_continuation' and self.version >= 2:
+            # Docling does not merge a table split across pages when the next header is missing.
+            # Offer unlabeled table parts on the following page in the same section as candidates only.
+            parent = anchor.get('parent_table_id')
+            if not parent:
+                raise ValueError('table continuation requires a table anchor')
+            parts = [c for c in candidates if c.get('parent_table_id') == parent]
+            last = max(c['page_end'] for c in parts)
+            candidates = [c for c in candidates if c['chunk_type'] == 'table_md' and c['page_start'] == last + 1
+                          and c.get('parent_table_id') != parent and UNLABELED in c['text'][:200]
+                          and c.get('section_path') == anchor.get('section_path')]
         elif scope in ('page', 'previous_page', 'next_page'):
             page = anchor['page_start'] if scope == 'page' else anchor['page_start'] - 1 if scope == 'previous_page' else anchor['page_end'] + 1
             candidates = [c for c in candidates if c['page_start'] <= page <= c['page_end'] and c['chunk_type'] != 'table_kv']
@@ -57,7 +87,8 @@ class EvidenceContext:
                           and re.search(r'(人民币|千元|万元|亿元|元)', c['text'])]
         else:
             raise ValueError('invalid context scope')
-        candidates = sorted(candidates, key=lambda c: (c['page_start'], c.get('part', 0), c['chunk_id']))
+        rank = (lambda c: unit_rank(c, anchor)) if scope == 'document_units' and self.version >= 2 else (lambda c: ())
+        candidates = sorted(candidates, key=lambda c: (*rank(c), c['page_start'], c.get('part', 0), c['chunk_id']))
         if cursor > len(candidates):
             raise ValueError('context cursor beyond candidates')
         selected = []
@@ -71,8 +102,16 @@ class EvidenceContext:
             selected.append(deepcopy(c))
             size += length
         end = cursor + len(selected)
-        return {'results': selected, 'anchor_id': args['anchor_id'], 'scope': scope,
+        extra = {}
+        if scope == 'table' and self.version >= 2:
+            extra['continuation_candidates'] = len(self.read_continuation(anchor)) if anchor.get('parent_table_id') else 0
+        if scope == 'table_continuation':
+            extra['relation_note'] = 'unlabeled table on the next page in the same section; continuation is not proven'
+        return {**extra, 'results': selected, 'anchor_id': args['anchor_id'], 'scope': scope,
                 'dataset_sha256': self.dataset, 'index_admission': 'ACCEPTED',
                 'total_candidates': len(candidates), 'next_cursor': end if end < len(candidates) else None,
                 'text_chars': size, 'coverage': 'admitted chunks only, not complete PDF page',
                 'relation': 'same document; adjacency does not prove same table or scope'}
+
+    def read_continuation(self, anchor):
+        return self.read(dict(anchor_id=anchor['chunk_id'], scope='table_continuation', cursor=0))['results']

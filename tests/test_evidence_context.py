@@ -58,3 +58,39 @@ def test_changed_dataset_refused(tmp_path):
     r=reader(tmp_path,[chunk('a',1)])
     with (tmp_path/'chunk_meta.jsonl').open('a') as f:f.write(' ')
     with pytest.raises(ValueError,match='dataset'):EvidenceContext(tmp_path,r.dataset)
+
+
+def test_report_level_unit_declaration_ranked_before_local_units(tmp_path):
+    a=dict(chunk('a',65),section_path='第八节财务报告 > 二、财务报表')
+    local=[dict(chunk(f'l{i}',20+i),section_path='第三节管理层讨论与分析',text=f'【甲】\n表格说明 单位：万元 第{i}段') for i in range(7)]
+    decl=dict(chunk('decl',63),section_path='第八节财务报告 > 二、财务报表',text='【甲】\n财务报表及附注的单位为：千元')
+    chunks=[a,*local,decl]
+    assert reader(tmp_path,chunks).read(dict(anchor_id='a',scope='document_units',cursor=0))['results'][0]==decl
+    (tmp_path/'v1').mkdir()
+    v1=reader(tmp_path/'v1',chunks); v1=EvidenceContext(tmp_path/'v1',v1.dataset,version=1)
+    first=v1.read(dict(anchor_id='a',scope='document_units',cursor=0))
+    assert decl not in first['results'] and first['next_cursor']==6
+
+
+def test_table_continuation_offers_only_unlabeled_next_page_parts_in_same_section(tmp_path):
+    sec='财务报表'
+    def table(cid,page,parent,title):
+        return dict(chunk(cid,page),chunk_type='table_md',parent_table_id=parent,section_path=sec,text=f'【甲】\n表：{title}\n| 行 | 值 |')
+    head=table('head',31,'t','合并现金流量表　单位：元')
+    cont=table('cont',32,'u','二、财务报表　单位：未标注　币种：未标注')
+    labeled=table('labeled',32,'v','母公司现金流量表　单位：元')
+    far=table('far',33,'w','二、财务报表　单位：未标注')
+    other=dict(table('other',32,'x','二、财务报表　单位：未标注'),section_path='附注')
+    r=reader(tmp_path,[head,cont,labeled,far,other])
+    t=r.read(dict(anchor_id='head',scope='table',cursor=0))
+    assert t['results']==[head] and t['continuation_candidates']==1
+    c=r.read(dict(anchor_id='head',scope='table_continuation',cursor=0))
+    assert c['results']==[cont] and 'not proven' in c['relation_note']
+    v1=EvidenceContext(tmp_path,r.dataset,version=1)
+    assert 'continuation_candidates' not in v1.read(dict(anchor_id='head',scope='table',cursor=0))
+    with pytest.raises(ValueError,match='scope'):v1.read(dict(anchor_id='head',scope='table_continuation',cursor=0))
+
+
+def test_table_continuation_requires_table_anchor(tmp_path):
+    r=reader(tmp_path,[chunk('plain',1)])
+    with pytest.raises(ValueError,match='table anchor'):r.read(dict(anchor_id='plain',scope='table_continuation',cursor=0))

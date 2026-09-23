@@ -1,0 +1,37 @@
+{
+ "labels": {
+  "numeric_grounding": "not_applicable",
+  "unit_applicability": "not_applicable",
+  "period": "not_applicable",
+  "scope": "not_applicable",
+  "citation_coverage": "not_applicable",
+  "precision": "not_applicable",
+  "abstention": "supported"
+ },
+ "rationale": {
+  "numeric_grounding": "拒答样本，无最终数值，不适用。",
+  "unit_applicability": "拒答样本，不适用。",
+  "period": "拒答样本，不适用。",
+  "scope": "拒答样本，不适用。",
+  "citation_coverage": "拒答样本，无引用，不适用。",
+  "precision": "拒答样本，不适用。",
+  "abstention": "亿纬锂能2025年上半年归母净利润1,605,171,455.77元可由02303e31707f42c88a770880(单位：元)得到。比亚迪合并利润表dfcac71cb623204d6f6d239d中“截至2025年6月30日止6个月期间”归属于母公司所有者的净利润为15,510,533，但该表及同表分块5763c0ce1bff9f5bfe81f3cd、c9036b2b7a00f429f3adb4a9、未分配利润注释81a5814d2ab63b6f666d201d等均为“单位：未标注”；代理多次通过read_evidence_context和检索寻找“千元”说明均未找到，document_units返回的“单位：元”(如6ba051463def3a9b24c890b1)属于管理层讨论中的其他局部表格，不能继承到合并利润表。缺少比亚迪数值单位，无法换算为亿元并求差，当前观测确实不足，拒答合理。"
+ },
+ "evidence_ids": {
+  "numeric_grounding": [],
+  "unit_applicability": [],
+  "period": [],
+  "scope": [],
+  "citation_coverage": [],
+  "precision": [],
+  "abstention": [
+   "dfcac71cb623204d6f6d239d",
+   "5763c0ce1bff9f5bfe81f3cd",
+   "c9036b2b7a00f429f3adb4a9",
+   "81a5814d2ab63b6f666d201d",
+   "6ba051463def3a9b24c890b1",
+   "02303e31707f42c88a770880"
+  ]
+ },
+ "notes": "比亚迪归母净利润数值与期间可见，但单位在所有已见观测中均未标注；document_units仅返回前6条(next_cursor=6)，未继续翻页。"
+}

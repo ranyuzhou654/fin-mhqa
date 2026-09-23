@@ -1,0 +1,42 @@
+{
+  "name": "teacher_v2_deepseek",
+  "candidate_of": "teacher_v1",
+  "teacher": {
+    "backend": "openai",
+    "base_url": "https://opencode.ai/zen/v1",
+    "model": "deepseek-v4.1-flash"
+  },
+  "arm": "structured",
+  "synthesis": "verified",
+  "context_index": "index",
+  "reserve_verifier": true,
+  "reserve_calculation": true,
+  "context_version": 2,
+  "budgets": {
+    "max_models": 12,
+    "max_tools": 8,
+    "max_searches": 6,
+    "max_replans": 2
+  },
+  "retrieval": {
+    "top_k": 5,
+    "n_cand": 30,
+    "corpus_count": 9322
+  },
+  "scope": "candidate teacher: identical to teacher_v1 except the model; adopt only after same-condition dev20 comparison",
+  "acceptance": {
+    "registered": "2026-09-23, confirmed by user before any DeepSeek run",
+    "dev20_correct_min": 17,
+    "trajectory_audit": "20/20",
+    "top_level_errors_max": 1,
+    "mean_tools_max": 6,
+    "judge": "false-pass rate not above Sol once human reference exists",
+    "reference": "Sol rc1 19/20 (without reserve_calculation); single runs; near-threshold results need two more DeepSeek runs"
+  },
+  "decision": {
+    "status": "ADOPTED_AS_TEACHER",
+    "date": "2026-09-23",
+    "basis": "dev20 run1: 20/20 correct, audit 20/20, 0 errors, mean tools 4.2 — all pre-registered thresholds met on a single run",
+    "not_adopted_as": "sole Judge or sole quality gate: DeepSeek Judge was more lenient than Sol on the frozen calibration packet; human reference still pending"
+  }
+}

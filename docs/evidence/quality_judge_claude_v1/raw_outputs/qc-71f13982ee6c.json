@@ -1,0 +1,30 @@
+{
+  "labels": {
+    "numeric_grounding": "supported",
+    "unit_applicability": "uncertain",
+    "period": "uncertain",
+    "scope": "supported",
+    "citation_coverage": "uncertain",
+    "precision": "supported",
+    "abstention": "not_applicable"
+  },
+  "rationale": {
+    "numeric_grounding": "五粮液营业收入52,770,984,383.52与亿纬锂能营业收入28,169,564,043.41分别见于cad29d5ea24462e1a71bf255和85fe6d961927ba26380060b3，差额246.01亿元计算正确，五粮液较高的选择成立；经营活动产生的现金流量净额31,136,736,628.58见于e65f385eaac83f299736117b（db11b1b2be14e9de589fd37f同值），换算为311.37亿元的计算与数值本身一致。",
+    "unit_applicability": "两家营业收入所在表明确标注单位为元。但现金流量净额所在块e65f385eaac83f299736117b（父表02ceda6abb86497f77d283c6）单位为“未标注”，且带有native_header_missing/unresolved_headers标记；答案引用的fa37907a92ff3f3d7ef3124a虽标注单位为元，却属于另一父表93e36754da8700449031f7d2（不同source table），按规则其他局部表格单位不能自动继承，目标值的单位缺乏直接证据。",
+    "period": "营业收入取自“2025年半年度”列，期间正确。但现金流量净额所在块的列名为“2列（列名未识别）”“3列（列名未识别）”，read_evidence_context也未返回同一父表的表头；答案把第2列当作2025年上半年属于推断，不能凭相邻表猜测缺失表头，因此期间无法确认。",
+    "scope": "营业收入来自“3、合并利润表”，现金流量净额来自section_path为“5、合并现金流量表”的块，均为合并口径，符合题目要求；没有误用母公司报表。",
+    "citation_coverage": "引用覆盖了两家营业收入（cad29d5ea24462e1a71bf255、85fe6d961927ba26380060b3）和目标数值块（e65f385eaac83f299736117b），但用于补单位和表头的fa37907a92ff3f3d7ef3124a属于不同父表，并不能证明目标值所在表的单位和期间列，关于单位和期间的必要前提在引用中没有得到有效支撑。",
+    "precision": "采用原表精确到分的原始数值（31,136,736,628.58元），只在最终换算时四舍五入保留两位小数，得到311.37亿元，精度处理正确。",
+    "abstention": "本样本为回答样本，不适用拒答维度。"
+  },
+  "evidence_ids": {
+    "numeric_grounding": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b", "db11b1b2be14e9de589fd37f"],
+    "unit_applicability": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b", "fa37907a92ff3f3d7ef3124a"],
+    "period": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b"],
+    "scope": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b"],
+    "citation_coverage": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b", "fa37907a92ff3f3d7ef3124a"],
+    "precision": ["e65f385eaac83f299736117b"],
+    "abstention": []
+  },
+  "notes": "数值很可能正确，但目标现金流量表块的表头和单位没有解析出来，答案借用了另一父表（fa37907a92ff3f3d7ef3124a）的单位和期间，按规则不能自动继承，因此单位、期间和引用覆盖判为uncertain。"
+}

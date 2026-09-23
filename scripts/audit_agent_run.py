@@ -7,7 +7,7 @@ from finmhqa.agent.pilot_tools import calculate
 from audit_teacher_trajectory import audit_case
 
 
-def audit_agent_case(folder,context_reader=None):
+def audit_agent_case(folder,context_reader=None,limits=(10,8,6)):
     base=audit_case(folder)
     events=[json.loads(l) for l in (folder/'trajectory.jsonl').read_text().splitlines()]
     result=json.loads((folder/'result.json').read_text());policy=None;pending=None;remaining=[];models=0;tools=0;searches=0;model_final=None;tried=[];seen={};context_reads=0
@@ -46,7 +46,7 @@ def audit_agent_case(folder,context_reader=None):
             expected=model_final if model_final is not None else policy.get('final') if policy else None
             if e['response']!=expected:raise ValueError('published answer differs from actual teacher candidate/output')
     if models!=result['decision_calls'] or tools!=result['tool_calls'] or searches!=result['search_calls']:raise ValueError('result counts mismatch')
-    if models>10 or tools>8 or searches>6:raise ValueError('budget exceeded')
+    if models>limits[0] or tools>limits[1] or searches>limits[2]:raise ValueError('budget exceeded')
     return {**base,'policy_tool_correspondence':'PASSED','calculation_replay':'PASSED','context_reads':context_reads,'context_replay':'PASSED' if context_reader is not None else 'NOT_REQUESTED'}
 
 
@@ -55,10 +55,11 @@ def audit_run(run):
     context=None
     if manifest.get('context_index'):
         from finmhqa.agent.evidence_context import EvidenceContext
-        context=EvidenceContext(manifest['context_index'],manifest['health_before']['admission']['dataset_sha256'])
+        context=EvidenceContext(manifest['context_index'],manifest['health_before']['admission']['dataset_sha256'],manifest.get('context_version',1))
+    limits=(manifest.get('max_models',10),manifest.get('max_tools',8),manifest.get('max_searches',6))
     for arm in manifest['arms']:
         for case in sorted((run/arm).glob('agent-dev-*')):
-            try:report=audit_agent_case(case,context.read if context else None)
+            try:report=audit_agent_case(case,context.read if context else None,limits)
             except Exception as e:report={'id':case.name,'status':'AUDIT_FAILED','error':str(e)}
             results.append({'arm':arm,**report})
     return {'results':results,'passed':sum(r['status']=='AUDIT_PASSED' for r in results),'total':len(results),

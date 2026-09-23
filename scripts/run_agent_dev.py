@@ -10,6 +10,7 @@ from pathlib import Path
 import threading
 import time
 from finmhqa.agent.codex_teacher import CodexTeacher
+from finmhqa.agent.openai_compat import OpenAICompatTeacher
 from finmhqa.agent.graph import AgentGraph
 from finmhqa.agent.evidence_context import EvidenceContext
 from finmhqa.agent.pilot_tools import request_json,search
@@ -22,7 +23,14 @@ def main():
     p.add_argument('--synthesis',choices=['model','verified'],default='verified')
     p.add_argument('--context-index',type=Path)
     p.add_argument('--reserve-verifier',action='store_true')
+    p.add_argument('--config',type=Path,help='frozen teacher config; overrides arms/synthesis/context/budgets')
     p.add_argument('--only');a=p.parse_args()
+    budgets=dict(max_models=10,max_tools=8,max_searches=6,max_replans=2);config=None
+    if a.config:
+        config=json.loads(a.config.read_text())
+        a.arms=[config['arm']];a.synthesis=config['synthesis'];a.reserve_verifier=config['reserve_verifier']
+        a.context_index=Path(config['context_index']) if config['context_index'] else None
+        budgets=dict(config['budgets'],reserve_calculation=config.get('reserve_calculation',False))
     if (a.context_index or a.reserve_verifier) and ('flat' in a.arms or a.synthesis!='verified'):p.error('M3.1 requires graph arms and verified publication')
     if a.out.exists():raise FileExistsError(a.out)
     rows=[json.loads(l) for l in a.questions.read_text().splitlines()]
@@ -30,14 +38,21 @@ def main():
     if a.only:rows=[r for r in rows if r['id']==a.only]
     if not rows:raise ValueError('no cases')
     a.out.mkdir(parents=True)
-    teacher=CodexTeacher('/Applications/ChatGPT.app/Contents/Resources/codex',a.out/'empty_teacher_cwd')
+    spec=config['teacher'] if config else 'gpt-5.6-sol'
+    if isinstance(spec,dict) and spec['backend']=='openai':
+        teacher=OpenAICompatTeacher(spec['base_url'],spec['model']);teacher_name=f"{spec['model']} via {spec['base_url']}"
+    elif spec=='gpt-5.6-sol':
+        teacher=CodexTeacher('/Applications/ChatGPT.app/Contents/Resources/codex',a.out/'empty_teacher_cwd');teacher_name=spec
+    else:raise ValueError('unknown teacher spec')
     health=request_json(a.url+'/health')
     if health['count']!=9322 or health['admission']['status']!='ACCEPTED':raise ValueError('wrong corpus/admission')
-    context=EvidenceContext(a.context_index,health['admission']['dataset_sha256']) if a.context_index else None
-    files=[Path('src/finmhqa/agent')/f for f in ['codex_teacher.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py']]+[Path(__file__)]
-    metadata={'questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),'teacher':'gpt-5.6-sol',
+    context_version=config.get('context_version',2) if config else 1
+    context=EvidenceContext(a.context_index,health['admission']['dataset_sha256'],context_version) if a.context_index else None
+    files=[Path('src/finmhqa/agent')/f for f in ['codex_teacher.py','openai_compat.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py']]+[Path(__file__)]
+    metadata={'questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),'teacher':teacher_name,
         'langgraph':importlib.metadata.version('langgraph'),'health_before':health,'arms':a.arms,'workers':a.workers,
-        'synthesis':a.synthesis,'context_index':str(a.context_index) if a.context_index else None,'reserve_verifier':a.reserve_verifier,'max_models':10,'max_tools':8,'max_searches':6,'max_replans':2,'code_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
+        'synthesis':a.synthesis,'context_index':str(a.context_index) if a.context_index else None,'reserve_verifier':a.reserve_verifier,**budgets,'context_version':context_version if a.context_index else None,
+        'config':str(a.config) if a.config else None,'config_sha256':hashlib.sha256(a.config.read_bytes()).hexdigest() if a.config else None,'code_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
         'scope':'development only; authored from previously reviewed facts; not independent Test',
         'flat':'existing action policy with shared safety guards and budgets; no semantic verifier or synthesis model call',
         'generic':'same graph and verifier; only failure feedback to planner replaced with generic failure message'}
@@ -54,7 +69,7 @@ def main():
                 return teacher.decide(question,history,folder/f'step_{step:02}',system=prompt,output_schema=schema)
             def retrieve(args):
                 with lock:return search(a.url,args,health['admission']['dataset_sha256'])
-            try:state=AgentGraph(model,retrieve,record,arm,synthesis=a.synthesis,context_reader=context.read if context else None,reserve_verifier=a.reserve_verifier).run(row['question'])
+            try:state=AgentGraph(model,retrieve,record,arm,synthesis=a.synthesis,context_reader=context.read if context else None,reserve_verifier=a.reserve_verifier,**budgets).run(row['question'])
             except Exception as exc:error=f'{type(exc).__name__}: {exc}';record({'event':'error','message':error})
         result={'id':row['id'],'arm':arm,'final':state.get('final'),'error':error,'terminal_reason':state.get('terminal_reason','ERROR'),
             'seconds':time.monotonic()-start,'search_calls':sum(e['event']=='tool_request' and e['tool']=='search' for e in logs),

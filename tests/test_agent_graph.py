@@ -160,3 +160,42 @@ def test_context_requires_observed_anchor_and_matching_source(unseen):
     state,events,_=run(steps,lambda _: {'results':[anchor]},context_reader=read,synthesis='verified',max_replans=0)
     assert state['final']['status']=='insufficient' and 'bad' not in state['evidence']
     assert len(calls)==(0 if unseen else 1)
+
+
+def test_frozen_budget_leaves_one_revision_cycle_after_full_tool_use():
+    # teacher_v1: 8 tool steps + finish + rejected verify still leaves finish + verify (M3.1 case 007).
+    tools=[query(f'q{i}') for i in range(6)]+[calc(),calc()]
+    state,events,m=run([*tools,finish(),reject('SCOPE_MISMATCH'),finish(),PASS],
+                       max_models=12,synthesis='verified',reserve_verifier=True)
+    assert state['final']==F and state['model_calls']==12 and state['tool_calls']==8
+    assert state['replan_count']==1
+
+
+def test_prompt_states_actual_model_budget():
+    prompts=[];m=Scripted([query(),calc(),finish(),PASS])
+    def model(q,payload,step,prompt,schema):
+        prompts.append(prompt);return m(q,payload,step,prompt,schema)
+    AgentGraph(model,lambda _: {'results':[C]},lambda e:None,max_models=12,synthesis='verified').run('甲收入多少')
+    assert '合计最多12次' in prompts[0] and '合计最多10次' not in prompts[0]
+
+
+def test_old_ten_call_budget_cannot_revise_after_full_tool_use():
+    tools=[query(f'q{i}') for i in range(6)]+[calc(),calc()]
+    state,_,_=run([*tools,finish(),reject('SCOPE_MISMATCH')],max_models=10,synthesis='verified',reserve_verifier=True)
+    assert state['final']['status']=='insufficient' and state['terminal_reason']=='MODEL_BUDGET'
+
+
+def test_last_tool_call_is_reserved_for_final_calculation():
+    from jsonschema import ValidationError
+    searches=[query(f'q{i}') for i in range(6)]+[calc()]
+    state,events,_=run([*searches,calc('100'),finish(),PASS],max_models=12,synthesis='verified',
+                       reserve_verifier=True,reserve_calculation=True)
+    assert state['final']==F and state['tool_calls']==8
+    assert any(e.get('calculation_only') for e in events)
+    with pytest.raises(ValidationError):
+        run([query('a'),query('b'),query('c')],max_tools=3,max_searches=6,synthesis='verified',reserve_calculation=True)
+
+
+def test_calculation_reservation_refused_for_flat_arm():
+    with pytest.raises(ValueError,match='graph planner'):
+        AgentGraph(lambda *a:None,lambda *a:None,lambda e:None,'flat',reserve_calculation=True)

@@ -1,0 +1,30 @@
+{
+  "labels": {
+    "numeric_grounding": "supported",
+    "unit_applicability": "uncertain",
+    "period": "uncertain",
+    "scope": "supported",
+    "citation_coverage": "missing",
+    "precision": "supported",
+    "abstention": "not_applicable"
+  },
+  "rationale": {
+    "numeric_grounding": "五粮液营业收入52,770,984,383.52（cad29d5ea24462e1a71bf255）与亿纬锂能营业收入28,169,564,043.41（85fe6d961927ba26380060b3）均与原文一致，差额246.01亿元计算正确，选择五粮液正确；经营活动产生的现金流量净额31,136,736,628.58与e65f385eaac83f299736117b第2列原文一致，按元换算为311.37亿元的算术正确。",
+    "unit_applicability": "营业收入所在合并利润表明确标注单位为元（cad29d5ea24462e1a71bf255、85fe6d961927ba26380060b3）。但目标值所在合并现金流量表分块e65f385eaac83f299736117b（及同表db11b1b2be14e9de589fd37f）单位为“未标注”，且表头缺失；向前一页读取到的fa37907a92ff3f3d7ef3124a虽标注单位元，但其parent_table_id（93e36754…）与目标表（02ceda6a…）不同，按规则不能自动继承其他局部表格单位。答案将该值按元换算缺乏直接的单位依据。",
+    "period": "营业收入取自合并利润表“2025年半年度”列，期间正确。但现金流量净额所在分块列名为“2列（列名未识别）”“3列（列名未识别）”，目标表未给出列头，无法从本表确认第2列即2025年上半年；fa37907a92ff3f3d7ef3124a的“2025年半年度/2024年半年度”表头属于不同parent表，不得据此猜测缺失表头。",
+    "scope": "营业收入均取自“合并利润表”，现金流量净额取自section_path为“5、合并现金流量表”的分块e65f385eaac83f299736117b，均为合并口径，未混用母公司报表。",
+    "citation_coverage": "最终引用cad29d5ea24462e1a71bf255、85fe6d961927ba26380060b3、e65f385eaac83f299736117b覆盖了两家营业收入及目标现金流数值，但没有任何被引用证据能确立目标值的单位（元）和所属期间列；被引用的e65f385eaac83f299736117b本身单位未标注、列名未识别，因而单位与期间这一必要前提未被引用覆盖。",
+    "precision": "计算使用原表完整精度31,136,736,628.58，最终才四舍五入到两位小数得311.37（311.3673…），营业收入差额同样采用原始精度，舍入处理正确。",
+    "abstention": "本样本为作答样本，不适用拒答维度。"
+  },
+  "evidence_ids": {
+    "numeric_grounding": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b"],
+    "unit_applicability": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b", "fa37907a92ff3f3d7ef3124a"],
+    "period": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b", "db11b1b2be14e9de589fd37f"],
+    "scope": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b"],
+    "citation_coverage": ["cad29d5ea24462e1a71bf255", "85fe6d961927ba26380060b3", "e65f385eaac83f299736117b"],
+    "precision": ["e65f385eaac83f299736117b"],
+    "abstention": []
+  },
+  "notes": "数值与公司选择本身正确，但目标现金流量表分块单位未标注、列名未识别，唯一带单位与期间表头的相邻分块属于不同parent表，不能继承；单位与期间判为uncertain，引用未覆盖该前提。"
+}

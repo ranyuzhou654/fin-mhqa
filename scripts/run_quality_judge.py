@@ -1,4 +1,4 @@
-"""One ephemeral Sol call per frozen case; no reference labels or source variants sent."""
+"""One independent Judge call per frozen case (Codex Sol or OpenAI-compatible API); no reference labels or source variants sent."""
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime,timezone
@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import time
 from finmhqa.agent.codex_teacher import CodexTeacher
+from finmhqa.agent.openai_compat import OpenAICompatTeacher
 from finmhqa.qa.calibration import blank_review,digest
 from finmhqa.qa.judge import schema_for,system_prompt,bind
 from score_quality_calibration import load_packet
@@ -14,7 +15,8 @@ from score_quality_calibration import load_packet
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--packet',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
-    p.add_argument('--workers',type=int,choices=[1,2,4],default=4);a=p.parse_args()
+    p.add_argument('--workers',type=int,choices=[1,2,4],default=4)
+    p.add_argument('--backend',choices=['codex','openai'],default='codex',help='openai reads LLM_BASE_URL/LLM_MODEL_NAME/LLM_API_KEY');a=p.parse_args()
     if a.out.exists():raise FileExistsError(a.out)
     cases,packet=load_packet(a.packet)
     inputs={c['id']:json.loads((a.packet/'judge_inputs'/(c['id']+'.json')).read_text()) for c in cases}
@@ -23,23 +25,28 @@ def main():
         if inputs[c['id']]!={'rubric':rubric,'case':c}:raise ValueError('judge input differs from frozen case/rubric')
     a.out.mkdir(parents=True)
     binary='/Applications/ChatGPT.app/Contents/Resources/codex'
-    teacher=CodexTeacher(binary,a.out/'empty_cwd')
-    files=[Path(__file__),Path('src/finmhqa/qa/judge.py'),Path('src/finmhqa/qa/calibration.py'),Path('src/finmhqa/agent/codex_teacher.py'),Path('scripts/score_quality_calibration.py')]
+    if a.backend=='codex':
+        teacher=CodexTeacher(binary,a.out/'empty_cwd');model='gpt-5.6-sol';reviewer='gpt-5.6-sol (Codex, reasoning=low)'
+    else:
+        teacher=OpenAICompatTeacher();model=teacher.model;reviewer=f'{teacher.model} ({teacher.base_url}, temperature=0)'
+    files=[Path(__file__),Path('src/finmhqa/qa/judge.py'),Path('src/finmhqa/qa/calibration.py'),Path('src/finmhqa/agent/codex_teacher.py'),
+           Path('src/finmhqa/agent/openai_compat.py'),Path('scripts/score_quality_calibration.py')]
     manifest={'packet_sha256':hashlib.sha256((a.packet/'manifest.json').read_bytes()).hexdigest(),'case_ids':[c['id'] for c in cases],
-        'case_sha256':{c['id']:digest(c) for c in cases},'model':'gpt-5.6-sol','reasoning':'low','workers':a.workers,
+        'case_sha256':{c['id']:digest(c) for c in cases},'model':model,'backend':a.backend,'reviewer':reviewer,
+        'base_url':getattr(teacher,'base_url',None),'reasoning':'low' if a.backend=='codex' else 'provider default','workers':a.workers,
         'mode':'one ephemeral independent context per case; same model bias remains','attempts_per_case':1,
         'references_sent':False,'prior_verifier_sent':False,'gold_sent':False,
         'code_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
-        'cli_sha256':hashlib.sha256(Path(binary).read_bytes()).hexdigest()}
+        'cli_sha256':hashlib.sha256(Path(binary).read_bytes()).hexdigest() if a.backend=='codex' else None}
     (a.out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     def run(c):
         folder=a.out/c['id'];folder.mkdir();start=time.monotonic();error=None;usage=None;decision=None
         timestamp=datetime.now(timezone.utc).isoformat()
-        review=blank_review(c);review.update(reviewer_type='model',reviewer=manifest['model'],reviewed_at=timestamp)
+        review=blank_review(c);review.update(reviewer_type='model',reviewer=reviewer,reviewed_at=timestamp)
         try:
             decision,usage=teacher.decide(c['question'],inputs[c['id']]['case'],folder/'call',
-                system=system_prompt(rubric),output_schema=schema_for(c))
-            review=bind(c,decision,timestamp)
+                system=system_prompt(rubric,a.backend),output_schema=schema_for(c))
+            review=bind(c,decision,timestamp,reviewer)
         except Exception as exc:error=f'{type(exc).__name__}: {exc}';review['notes']='RUN_FAILED: '+error
         result={'id':c['id'],'case_sha256':digest(c),'review':review,'error':error,'usage':usage,'seconds':time.monotonic()-start}
         (folder/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')

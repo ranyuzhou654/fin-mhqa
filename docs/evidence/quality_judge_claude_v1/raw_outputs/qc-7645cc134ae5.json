@@ -1,0 +1,30 @@
+{
+  "labels": {
+    "numeric_grounding": "not_applicable",
+    "unit_applicability": "not_applicable",
+    "period": "not_applicable",
+    "scope": "not_applicable",
+    "citation_coverage": "not_applicable",
+    "precision": "not_applicable",
+    "abstention": "supported"
+  },
+  "rationale": {
+    "numeric_grounding": "拒答样本，未给出数值，不适用。",
+    "unit_applicability": "拒答样本，未给出数值，不适用。",
+    "period": "拒答样本，未给出数值，不适用。",
+    "scope": "拒答样本，未给出数值，不适用。",
+    "citation_coverage": "拒答样本，无最终引用，不适用。",
+    "precision": "拒答样本，未给出数值，不适用。",
+    "abstention": "观测中贵州茅台合并利润表营业收入89,389,354,416.84元（a3a68746e69a13fec8546059）明显可用于比较，但所选公司贵州茅台的合并现金流量表仅观测到“销售商品、提供劳务收到的现金”一行（589a8df40dabf76409b02b29、a4ee97ba53023666d5a3eb91，按table范围重读后仍只有该行）；观测到的经营活动产生的现金流量净额8,195,990,042.68属于“母公司现金流量表”（b3df90c8921477aa62a0520d、e28ba9d7b7fb814c862de494），口径不符。此外泸州老窖营业收入所在分块8c864476752f30d60b23aab2单位未标注。当前观测确实不足以给出合并口径的目标值，拒答合理。"
+  },
+  "evidence_ids": {
+    "numeric_grounding": [],
+    "unit_applicability": [],
+    "period": [],
+    "scope": [],
+    "citation_coverage": [],
+    "precision": [],
+    "abstention": ["a3a68746e69a13fec8546059", "8c864476752f30d60b23aab2", "589a8df40dabf76409b02b29", "a4ee97ba53023666d5a3eb91", "b3df90c8921477aa62a0520d", "e28ba9d7b7fb814c862de494"]
+  },
+  "notes": "合并现金流量表的经营活动现金流量净额行从未被观测到，仅有母公司口径数值，拒答成立；拒答理由表述较笼统，不作为高质量回答样本。"
+}

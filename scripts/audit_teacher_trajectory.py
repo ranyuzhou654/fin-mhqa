@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from finmhqa.agent.openai_compat import normalized_events
 
 
 def audit_case(folder):
@@ -12,6 +13,8 @@ def audit_case(folder):
         if row['event']=='teacher_decision':
             step=folder/f"step_{row['step']:02}"
             events=list(map(json.loads,(step/'events.jsonl').read_text().splitlines()))
+            if (step/'response.json').exists() and normalized_events(json.loads((step/'response.json').read_text()))!=events:
+                raise ValueError('normalized events differ from raw API response')
             completed=[e['item']['text'] for e in events if e['type']=='item.completed' and e['item']['type']=='agent_message']
             if not completed or json.loads(completed[-1])!=row['action']:raise ValueError('journal differs from actual teacher response')
             turns=[e for e in events if e['type']=='turn.completed']

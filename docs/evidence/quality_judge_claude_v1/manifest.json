@@ -1,0 +1,64 @@
+{
+  "judge": "Claude Opus 5.5 (blind subagent, 3 cases per context)",
+  "model": "claude-opus-5-5",
+  "inputs": "identical rubric/question/final/observations as Sol and DeepSeek Judge (judge_inputs), plus output schema; no edit type, source group, or other Judge labels",
+  "isolation": "6 fresh subagent contexts, 3 cases each, source groups split across batches; not one context per case like Sol/DeepSeek",
+  "isolation_incidents": [
+    "batch 3 and batch 6 listed other output filenames during validation (no contents opened)",
+    "batch 5 printed other Claude outputs after writing its own; its 3 cases were re-judged by a fresh context (raw_outputs_rerun5) and the rerun is used"
+  ],
+  "audit_limit": "no raw API events available for subagents; only schema/evidence-ID/content-hash validation",
+  "batch5_original_vs_rerun_label_changes": [
+    [
+      "qc-45df6728c7dd",
+      {
+        "period": [
+          "supported",
+          "uncertain"
+        ]
+      }
+    ],
+    [
+      "qc-7bcb561d44d7",
+      {
+        "unit_applicability": [
+          "supported",
+          "uncertain"
+        ],
+        "period": [
+          "supported",
+          "contradicted"
+        ]
+      }
+    ],
+    [
+      "qc-ec45d1c278f0",
+      {
+        "abstention": [
+          "contradicted",
+          "supported"
+        ]
+      }
+    ]
+  ],
+  "input_sha256": {
+    "qc-19b9a14eb7c3.json": "b63e7be6c8dfd26663810efdb49faff3830f5e23aec3b2eeafabf66bffe5bf90",
+    "qc-1eafc7a669d4.json": "f8e7b1313750f3543aa10a45f54d858d03fa8ddfcd9d679eacea4afc4489bb3e",
+    "qc-2263ee587605.json": "f3c6e474519f64df95eaca5d4b6227b4bc675791504b6816e9aed882941cbf0c",
+    "qc-3bae5a01939f.json": "f4e6019009a532815ea34c621d9fb7eaf15ad0931f0b07f1f0e92b6e94d6e6db",
+    "qc-45df6728c7dd.json": "91c4719aea263b5d058aa6559a49569a3b6e1d56521945cbece7a33226c5cee0",
+    "qc-64533eeb4921.json": "ee4557ea058ca55381a6238e4437dc5f8ee062a60f989eac2aa323ba5e5440d0",
+    "qc-67bf73499d78.json": "63aa3b38c23f16c4e0747aedfec5a45be8368bf4837545f8c9f21f5dc417a2e8",
+    "qc-71f13982ee6c.json": "0babd71e18495b2aafb147a9b794edd4f529b77f7f6f9cee26d49ff14faaf8c0",
+    "qc-7645cc134ae5.json": "4c589ccd5150a743a8601b50b6a120364730642a39e2598a949300772968a5b1",
+    "qc-7bcb561d44d7.json": "8b9edc22363bed855ae95eda16d96ccb180d56d07ccfb863118eacdb85f3a46c",
+    "qc-96a8a15f7df3.json": "2859c600d68b8def06c7dc753d12d4f267ef061afbd2a4b02819e466bf43c022",
+    "qc-c74d75706a3b.json": "fcb6b50a9fc3f735649e59d8bf4596f27afe1a9b30ae7ca60f8378b0a6212011",
+    "qc-d492c178c0e1.json": "8e4fbc671453827259c9cc17f458e1dfff189731df912a9215e2886c95ddb62f",
+    "qc-d6502af99f5f.json": "68fafd94f1b1bdd2f395cf2c65bd6bb5922ee320073d4daf2a8712f3c0541260",
+    "qc-db06987d484d.json": "76ddeaa445075b4f05e09729b99c2d55e91d781fdd7c0392c13ab51773e30763",
+    "qc-e0fcc773b809.json": "983ef67f89d882e01f4acfb82d32c19da91bab1cf1f6dfd5e9ed5fa789cab145",
+    "qc-ec45d1c278f0.json": "ac821daffa1a3b909751664c6503814581c00ee52f027213aae39eb5f286106a",
+    "qc-f837cf7ce219.json": "04fe97b113b5e1581a3bcd16f21bc486d8cecc82df9feb1bca7aa5e0cdeb5f3a"
+  }
+}

@@ -1,0 +1,54 @@
+{
+ "labels": {
+  "numeric_grounding": "supported",
+  "unit_applicability": "supported",
+  "period": "supported",
+  "scope": "supported",
+  "citation_coverage": "supported",
+  "precision": "supported",
+  "abstention": "not_applicable"
+ },
+ "rationale": {
+  "numeric_grounding": "美的集团合并营业收入251,123,714（407d90148388cf7072a341ab），宁德时代合并营业收入178,886,253千元（858fb75185f7e9db4dfc04ce），差额72,237,461千元=722.37亿元，与calculate一致，选择美的集团成立。归属于母公司股东的净利润26,013,690千元（4b28ba1999c0652b8e5498b3）=260.1369亿元，答案260.14亿元正确。",
+  "unit_applicability": "宁德时代合并利润表单位明确为千元。美的营业收入所在chunk 407d90148388cf7072a341ab单位被遮蔽，但同一表（parent_table_id 3910a4ab…、同页96）的续段4b28ba1999c0652b8e5498b3明确“单位：千元”，页级说明为“金额单位为人民币千元”；营业收入构成前的文本ba8fbf4d674b201095bc5223亦注明“单位：千元”且数值一致。归母净利润本身即取自标注千元的4b28ba1999c0652b8e5498b3。单位适用于目标表。",
+  "period": "营业收入取自“2025 年半年度 / 合并”列与宁德“2025 年半年度”列；归母净利润取自“2025 年半年度 / 合并”列26,013,690，而非2024年经重列列或公司列，期间正确。",
+  "scope": "美的集团数据来自“合并及公司利润表”的合并列（公司列归母为240,730，未被误用）；指标为“归属于母公司股东的净利润”而非净利润26,647,354；宁德时代取自合并利润表。口径符合要求。",
+  "citation_coverage": "最终引用包含美的营业收入（407d90148388cf7072a341ab）、单位说明（ba8fbf4d674b201095bc5223）、宁德营业收入（858fb75185f7e9db4dfc04ce）及含千元单位与归母净利润的合并利润表续段（4b28ba1999c0652b8e5498b3），覆盖比较与最终取值的全部必要前提。",
+  "precision": "使用原表千元整数26,013,690，换算后260.1369亿元，最终四舍五入保留两位为260.14，符合原始精度与最终舍入要求；比较差额722.37亿元亦按原始值计算。",
+  "abstention": "本样本为回答样本，不适用拒答判定。"
+ },
+ "evidence_ids": {
+  "numeric_grounding": [
+   "407d90148388cf7072a341ab",
+   "858fb75185f7e9db4dfc04ce",
+   "4b28ba1999c0652b8e5498b3"
+  ],
+  "unit_applicability": [
+   "407d90148388cf7072a341ab",
+   "4b28ba1999c0652b8e5498b3",
+   "ba8fbf4d674b201095bc5223",
+   "858fb75185f7e9db4dfc04ce"
+  ],
+  "period": [
+   "407d90148388cf7072a341ab",
+   "858fb75185f7e9db4dfc04ce",
+   "4b28ba1999c0652b8e5498b3"
+  ],
+  "scope": [
+   "407d90148388cf7072a341ab",
+   "858fb75185f7e9db4dfc04ce",
+   "4b28ba1999c0652b8e5498b3"
+  ],
+  "citation_coverage": [
+   "407d90148388cf7072a341ab",
+   "ba8fbf4d674b201095bc5223",
+   "858fb75185f7e9db4dfc04ce",
+   "4b28ba1999c0652b8e5498b3"
+  ],
+  "precision": [
+   "4b28ba1999c0652b8e5498b3"
+  ],
+  "abstention": []
+ },
+ "notes": "美的营业收入chunk单位遮蔽，依靠同一parent表续段的千元单位补足；ba8fbf4d674b201095bc5223对应的是管理层讨论中营业收入构成表的单位，属辅助佐证。"
+}

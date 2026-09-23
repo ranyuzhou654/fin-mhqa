@@ -6,16 +6,19 @@ import json
 from pathlib import Path
 from finmhqa.qa.judge import bind,schema_for,system_prompt
 from finmhqa.qa.calibration import digest
+from finmhqa.agent.openai_compat import normalized_events
 from score_quality_calibration import load_packet
 
 
-def audit_case(case,folder,rubric):
+def audit_case(case,folder,rubric,reviewer='gpt-5.6-sol (Codex, reasoning=low)',backend='codex'):
     r=json.loads((folder/'result.json').read_text());call=folder/'call'
     if r['id']!=case['id'] or r['case_sha256']!=digest(case):raise ValueError('wrong case binding')
-    expected=system_prompt(rubric)+'\n'+json.dumps({'question':case['question'],'history':case},ensure_ascii=False)
+    expected=system_prompt(rubric,backend)+'\n'+json.dumps({'question':case['question'],'history':case},ensure_ascii=False)
     if (call/'input.txt').read_text()!=expected:raise ValueError('input differs from frozen case/rubric')
     if json.loads((call/'schema.json').read_text())!=schema_for(case):raise ValueError('schema changed')
     events=[json.loads(l) for l in (call/'events.jsonl').read_text().splitlines()]
+    if (call/'response.json').exists() and normalized_events(json.loads((call/'response.json').read_text()))!=events:
+        raise ValueError('normalized events differ from raw API response')
     sessions=[e['thread_id'] for e in events if e.get('type')=='thread.started']
     if len(sessions)!=1:raise ValueError('expected one fresh session')
     native_items=Counter();messages=[];usage=[];notices=[]
@@ -32,7 +35,7 @@ def audit_case(case,folder,rubric):
     decision=json.loads(messages[-1])
     if decision!=json.loads((call/'decision.json').read_text()):raise ValueError('saved decision differs from native event')
     if usage[0]!=json.loads((call/'usage.json').read_text()):raise ValueError('saved usage differs')
-    if bind(case,decision,r['review']['reviewed_at'])!=r['review']:raise ValueError('published labels differ from actual model')
+    if bind(case,decision,r['review']['reviewed_at'],reviewer)!=r['review']:raise ValueError('published labels differ from actual model')
     return {'id':case['id'],'status':'AUDIT_PASSED','session_id':sessions[0],'usage':r['usage'],'native_items':dict(native_items),'native_notices':notices}
 
 
@@ -42,7 +45,7 @@ def audit_run(packet,run):
     if manifest['case_ids']!=[c['id'] for c in cases] or manifest['case_sha256']!={c['id']:digest(c) for c in cases}:raise ValueError('run set changed')
     rubric=json.loads((packet/'rubric.json').read_text())['prompt'];results=[]
     for c in cases:
-        try:results.append(audit_case(c,run/c['id'],rubric))
+        try:results.append(audit_case(c,run/c['id'],rubric,manifest.get('reviewer','gpt-5.6-sol (Codex, reasoning=low)'),manifest.get('backend','codex')))
         except Exception as e:results.append({'id':c['id'],'status':'AUDIT_FAILED','error':str(e)})
     sessions=[r['session_id'] for r in results if 'session_id' in r]
     if len(sessions)!=len(set(sessions)):raise ValueError('Judge sessions reused across cases')

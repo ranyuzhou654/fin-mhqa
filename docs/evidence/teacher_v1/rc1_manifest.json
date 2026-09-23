@@ -1,0 +1,41 @@
+{
+  "questions_sha256": "63192165903e5bb41f664c9e8ddf8271d29b2a6817be5c40cc0c88599272e5d8",
+  "teacher": "gpt-5.6-sol",
+  "langgraph": "1.2.11",
+  "health_before": {
+    "status": "ready",
+    "count": 9322,
+    "admission": {
+      "status": "ACCEPTED",
+      "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+      "review_sha256": "10654a4adfdce3f10d750a3de30e5ab9ad79d6fe16b3e7300ccacac8d432ed88",
+      "audit_sha256": "91815bb08ba094943b63739fd2b0012acd114646a6890f036403aab91136d5a8"
+    },
+    "model_bundle_sha256": "7c01c53fe2cfa65e4654de55e5a3c915d44cee7c7e8de2bd1131a7ccc9d85d48"
+  },
+  "arms": [
+    "structured"
+  ],
+  "workers": 4,
+  "synthesis": "verified",
+  "context_index": "index",
+  "reserve_verifier": true,
+  "max_models": 12,
+  "max_tools": 8,
+  "max_searches": 6,
+  "max_replans": 2,
+  "context_version": 2,
+  "config": "configs/teacher_v1.json",
+  "config_sha256": "e7f3077cc6343bad84484a718b1144898103bbc9029237b16094cd2f746e1c2f",
+  "code_sha256": {
+    "src/finmhqa/agent/codex_teacher.py": "bdfc412f1dae81924c8546989d2877f4e992c9293248c458b6cea841411900b3",
+    "src/finmhqa/agent/graph.py": "fef37c8d75888479ad58a69b8f57cfc9f7adca69a5712e953bb15ba72c97857e",
+    "src/finmhqa/agent/graph_contracts.py": "12221fdc40cadd6b5ed6f3db4798f3fbedaff500f531f99747b6f0c1f05048dd",
+    "src/finmhqa/agent/pilot_tools.py": "b11c984d22fc19360369124f074f47e3ac67215e63044a3dc05d8a20045323a7",
+    "src/finmhqa/agent/evidence_context.py": "11a799360c27dbdce3f70e04c6978f418c367700793d82b8a237741940c0159d",
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/run_agent_dev.py": "d7e885c12eaaa36535aab7c359f06525add893cdd3b0d145d75bf9985d97f864"
+  },
+  "scope": "development only; authored from previously reviewed facts; not independent Test",
+  "flat": "existing action policy with shared safety guards and budgets; no semantic verifier or synthesis model call",
+  "generic": "same graph and verifier; only failure feedback to planner replaced with generic failure message"
+}

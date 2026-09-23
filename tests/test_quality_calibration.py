@@ -69,3 +69,22 @@ def test_actual_packet_freezes_12_records_6_edits_and_no_verifier_leak(tmp_path)
     assert compare(cases,json.loads((root/'reference.template.json').read_text()))['metrics'] is None
     (root/'judge_inputs'/(cases[0]['id']+'.json')).write_text('{}')
     with pytest.raises(ValueError,match='packet changed'):load_packet(root)
+
+
+def test_interactive_labelling_produces_valid_human_reference():
+    from label_quality_reference import label_case, Quit
+    packet=Path(__file__).parents[1]/'docs/evidence/quality_calibration_v1'
+    cases=[json.loads(l) for l in (packet/'cases.jsonl').read_text().splitlines()]
+    answered=next(c for c in cases if c['final']['status']=='answered')
+    refused=next(c for c in cases if c['final']['status']=='insufficient')
+    seen=sorted({x['chunk_id'] for o in answered['observations'] for x in o['response'].get('results',[])})
+    answers=iter(['x','s','理由','zzz',seen[0][:8]]+['m','理由','']*5+['备注'])
+    r=label_case(answered,blank_review(answered),'审核人',read=lambda _:next(answers),write=lambda _:None)
+    assert r['labels']['numeric_grounding']=='supported' and r['evidence_ids']['numeric_grounding']==[seen[0]]
+    assert r['labels']['abstention']=='not_applicable' and r['reviewer_type']=='human'
+    answers=iter(['c','观测已够','',''])
+    r2=label_case(refused,blank_review(refused),'审核人',read=lambda _:next(answers),write=lambda _:None)
+    assert r2['labels']['abstention']=='contradicted' and r2['labels']['scope']=='not_applicable'
+    pending,complete=validate_reviews([answered,refused],[r,r2],human=True)
+    assert not pending and len(complete)==2
+    with pytest.raises(Quit):label_case(answered,blank_review(answered),'x',read=lambda _:'q',write=lambda _:None)

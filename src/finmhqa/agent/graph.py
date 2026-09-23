@@ -55,7 +55,7 @@ def final_checks(final,state):
 
 
 class AgentGraph:
-    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model',context_reader=None,reserve_verifier=False):
+    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model',context_reader=None,reserve_verifier=False,reserve_calculation=False):
         if arm not in ('structured','generic','flat'):raise ValueError('invalid arm')
         self.model,self.search,self.record=model,search,record
         if synthesis not in ('model','verified'):raise ValueError('invalid synthesis mode')
@@ -64,6 +64,9 @@ class AgentGraph:
         if context_reader is not None and arm == 'flat':raise ValueError('context requires graph planner')
         self.context_reader=context_reader
         self.reserve_verifier=reserve_verifier
+        # Keep the last tool call for the final unit conversion/arithmetic (M3.1 case 006 ran out after finding the value).
+        if reserve_calculation and arm == 'flat':raise ValueError('calculation reservation requires graph planner')
+        self.reserve_calculation=reserve_calculation
         self.synthesis=synthesis
         self.arm=arm;self.max_models=max_models;self.max_tools=max_tools
         self.max_searches=max_searches;self.max_replans=max_replans
@@ -93,6 +96,7 @@ class AgentGraph:
             history.append({'plan':s['plan'],'feedback':s['feedback'],
                 'remaining_tools':self.max_tools-s['tool_calls'],'remaining_model_calls':self.max_models-s['model_calls']})
         prompt = CONTEXT_PLANNER if self.context_reader is not None else PLANNER if self.arm!='flat' else SYSTEM
+        prompt = prompt.replace('合计最多10次', f'合计最多{self.max_models}次')
         schema = deepcopy(CONTEXT_PLAN_SCHEMA if self.context_reader is not None else PLAN_SCHEMA if self.arm!='flat' else SCHEMA)
         finalize = self.reserve_verifier and self.max_models-s['model_calls'] <= 2
         if self.reserve_verifier:
@@ -103,6 +107,11 @@ class AgentGraph:
                 schema['properties']['action']['enum'] = ['finish']
                 prompt += '\n本步仅能finish：预算只够提交候选并验证。证据不足则insufficient。'
                 self.record({'event':'budget_reservation','finalize_only':True,'remaining_models':self.max_models-s['model_calls']})
+        if self.reserve_calculation and not finalize and self.max_tools-s['tool_calls']<=1:
+            allowed=['calculate','finish'] if self.max_tools>s['tool_calls'] else ['finish']
+            schema['properties']['action']['enum']=allowed
+            prompt+='\n工具预算只剩最后一次，已保留给最终计算：本步只能calculate或finish，不能再检索或读取上下文。'
+            self.record({'event':'budget_reservation','calculation_only':True,'remaining_tools':self.max_tools-s['tool_calls']})
         action=self.call(s,'planner',history,prompt,schema)
         s['action']=action;s['feedback']={};s['verified']=False
         if self.arm!='flat':

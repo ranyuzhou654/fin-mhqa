@@ -1,0 +1,12 @@
+{
+  "total": 18,
+  "completed": 17,
+  "errors": [
+    {
+      "id": "qc-ec45d1c278f0",
+      "error": "RuntimeError: teacher transport failed: Remote end closed connection without response"
+    }
+  ],
+  "quality_accuracy": null,
+  "human_reference": "pending"
+}

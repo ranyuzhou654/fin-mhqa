@@ -1,0 +1,293 @@
+{
+  "scope": "input/event/schema/provenance consistency; not semantic correctness",
+  "total": 18,
+  "passed": 17,
+  "unique_sessions": 17,
+  "current_execution_matches": {
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/run_quality_judge.py": true,
+    "src/finmhqa/qa/judge.py": true,
+    "src/finmhqa/qa/calibration.py": true,
+    "src/finmhqa/agent/codex_teacher.py": true,
+    "src/finmhqa/agent/openai_compat.py": true,
+    "scripts/score_quality_calibration.py": true
+  },
+  "results": [
+    {
+      "id": "qc-19b9a14eb7c3",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-8f2f3c0cbc0245d0894ee790dc99bce2",
+      "usage": {
+        "input_tokens": 17435,
+        "cached_input_tokens": 408,
+        "output_tokens": 5622,
+        "reasoning_output_tokens": 4786
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-1eafc7a669d4",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-fe51315f7bf64ab38d62d358c6d0594d",
+      "usage": {
+        "input_tokens": 19993,
+        "cached_input_tokens": 408,
+        "output_tokens": 5368,
+        "reasoning_output_tokens": 4695
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-2263ee587605",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-b50deab83c2c4e06ae7edf012e7e467c",
+      "usage": {
+        "input_tokens": 26043,
+        "cached_input_tokens": 20,
+        "output_tokens": 2661,
+        "reasoning_output_tokens": 2153
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-3bae5a01939f",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-6cc7b91c2a3547739ef7c1665ae4ed48",
+      "usage": {
+        "input_tokens": 19754,
+        "cached_input_tokens": 0,
+        "output_tokens": 4875,
+        "reasoning_output_tokens": 3704
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-45df6728c7dd",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-01324dcd60bc462cbf36470c44f64b08",
+      "usage": {
+        "input_tokens": 21180,
+        "cached_input_tokens": 0,
+        "output_tokens": 5037,
+        "reasoning_output_tokens": 4331
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-64533eeb4921",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-559af1240d79490ebe9e3ba30d0c5fd0",
+      "usage": {
+        "input_tokens": 19997,
+        "cached_input_tokens": 408,
+        "output_tokens": 5200,
+        "reasoning_output_tokens": 4293
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-67bf73499d78",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-0b288d190d5a4da4850a8386c6b0f556",
+      "usage": {
+        "input_tokens": 19990,
+        "cached_input_tokens": 3124,
+        "output_tokens": 5069,
+        "reasoning_output_tokens": 4263
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-71f13982ee6c",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-438169395f484150a93e5ae8429bfa21",
+      "usage": {
+        "input_tokens": 19991,
+        "cached_input_tokens": 3124,
+        "output_tokens": 7649,
+        "reasoning_output_tokens": 6490
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-7645cc134ae5",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-21ced3f44f7e4124855cd15b1722de12",
+      "usage": {
+        "input_tokens": 25531,
+        "cached_input_tokens": 20,
+        "output_tokens": 2305,
+        "reasoning_output_tokens": 1855
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-7bcb561d44d7",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-78dbb20d156f4310913d9f95153a30d8",
+      "usage": {
+        "input_tokens": 19992,
+        "cached_input_tokens": 3124,
+        "output_tokens": 4554,
+        "reasoning_output_tokens": 3837
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-96a8a15f7df3",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-2a9a6a6f28ef4267bf7aab841788e851",
+      "usage": {
+        "input_tokens": 17757,
+        "cached_input_tokens": 408,
+        "output_tokens": 5650,
+        "reasoning_output_tokens": 4673
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-c74d75706a3b",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-db1426489fe44d70a2af611bc3756249",
+      "usage": {
+        "input_tokens": 19974,
+        "cached_input_tokens": 3122,
+        "output_tokens": 6328,
+        "reasoning_output_tokens": 5208
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-d492c178c0e1",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-3c960464f1704372b7e7b5c7557f6871",
+      "usage": {
+        "input_tokens": 20721,
+        "cached_input_tokens": 408,
+        "output_tokens": 5510,
+        "reasoning_output_tokens": 4502
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-d6502af99f5f",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-90a5f3664bf64005a0dc278bda181a50",
+      "usage": {
+        "input_tokens": 17674,
+        "cached_input_tokens": 408,
+        "output_tokens": 3914,
+        "reasoning_output_tokens": 3172
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-db06987d484d",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-dd75790244e24a979ca8faab22f36688",
+      "usage": {
+        "input_tokens": 17471,
+        "cached_input_tokens": 410,
+        "output_tokens": 8987,
+        "reasoning_output_tokens": 8090
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-e0fcc773b809",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-ad39227b3b974132ae09c4af0f5efcc3",
+      "usage": {
+        "input_tokens": 14485,
+        "cached_input_tokens": 426,
+        "output_tokens": 3915,
+        "reasoning_output_tokens": 3177
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    },
+    {
+      "id": "qc-ec45d1c278f0",
+      "status": "AUDIT_FAILED",
+      "error": "[Errno 2] No such file or directory: 'data/qa/quality_judge_deepseek_v1/qc-ec45d1c278f0/call/events.jsonl'"
+    },
+    {
+      "id": "qc-f837cf7ce219",
+      "status": "AUDIT_PASSED",
+      "session_id": "chatcmpl-72aab7f5f1314eeb9675e9ba1356e3bf",
+      "usage": {
+        "input_tokens": 19677,
+        "cached_input_tokens": 422,
+        "output_tokens": 5500,
+        "reasoning_output_tokens": 4747
+      },
+      "native_items": {
+        "reasoning": 1,
+        "agent_message": 1
+      },
+      "native_notices": []
+    }
+  ]
+}

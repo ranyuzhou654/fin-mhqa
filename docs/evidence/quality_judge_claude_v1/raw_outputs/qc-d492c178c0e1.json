@@ -1,0 +1,54 @@
+{
+ "labels": {
+  "numeric_grounding": "supported",
+  "unit_applicability": "supported",
+  "period": "supported",
+  "scope": "supported",
+  "citation_coverage": "supported",
+  "precision": "supported",
+  "abstention": "not_applicable"
+ },
+ "rationale": {
+  "numeric_grounding": "海尔智家归母净利润12,032,995,820.27元见f9fc65ea4a8e9c9c839a86e4与19ec2aedc83338def1a54732；亿纬锂能1,605,171,455.77元见48ebe748b4c384f137b8fa95与02303e31707f42c88a770880。合计13,638,167,276.04元，即136.3816727604亿元，四舍五入为136.38，计算正确。",
+  "unit_applicability": "f9fc65ea4a8e9c9c839a86e4与48ebe748b4c384f137b8fa95单位未标注，但同一数值分别在19ec2aedc83338def1a54732（单位：元）与02303e31707f42c88a770880（单位：元）中显式列出，单位为元有直接证据。",
+  "period": "海尔数值位于19ec2aedc83338def1a54732“本报告期（1－6月）”列；亿纬数值位于02303e31707f42c88a770880“本期”列（上期为2,137,249,689.22），均为2025年上半年本期。",
+  "scope": "取的是“归属于母公司股东的净利润”而非净利润（海尔净利润12,485,115,799.44、亿纬1,743,083,921.22未被误用）。亿纬数值位于“3、合并利润表”及“七、合并财务报表项目注释 > 60、未分配利润”；海尔数值所在利润表含少数股东损益行，并与合并财务报表项目注释47（a3e3d97d1743dd5b489644c8）一致，为合并口径。",
+  "citation_coverage": "四个引用均为真实观测ID，分别覆盖两家的数值及其单位、期间（19ec2aedc83338def1a54732、02303e31707f42c88a770880）与合并利润表来源（f9fc65ea4a8e9c9c839a86e4、48ebe748b4c384f137b8fa95），必要前提已覆盖。",
+  "precision": "使用原表精确到分的元值求和，最终换算亿元后四舍五入保留两位小数，精度处理正确。",
+  "abstention": "回答样本，非拒答，abstention不适用。"
+ },
+ "evidence_ids": {
+  "numeric_grounding": [
+   "f9fc65ea4a8e9c9c839a86e4",
+   "19ec2aedc83338def1a54732",
+   "48ebe748b4c384f137b8fa95",
+   "02303e31707f42c88a770880"
+  ],
+  "unit_applicability": [
+   "19ec2aedc83338def1a54732",
+   "02303e31707f42c88a770880"
+  ],
+  "period": [
+   "19ec2aedc83338def1a54732",
+   "02303e31707f42c88a770880"
+  ],
+  "scope": [
+   "f9fc65ea4a8e9c9c839a86e4",
+   "48ebe748b4c384f137b8fa95",
+   "02303e31707f42c88a770880",
+   "a3e3d97d1743dd5b489644c8"
+  ],
+  "citation_coverage": [
+   "f9fc65ea4a8e9c9c839a86e4",
+   "19ec2aedc83338def1a54732",
+   "48ebe748b4c384f137b8fa95",
+   "02303e31707f42c88a770880"
+  ],
+  "precision": [
+   "f9fc65ea4a8e9c9c839a86e4",
+   "48ebe748b4c384f137b8fa95"
+  ],
+  "abstention": []
+ },
+ "notes": "答案各维度均有观测支持。"
+}

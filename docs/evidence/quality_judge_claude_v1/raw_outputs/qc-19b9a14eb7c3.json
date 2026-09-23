@@ -1,0 +1,30 @@
+{
+ "labels": {
+  "numeric_grounding": "supported",
+  "unit_applicability": "supported",
+  "period": "supported",
+  "scope": "supported",
+  "citation_coverage": "missing",
+  "precision": "contradicted",
+  "abstention": "not_applicable"
+ },
+ "rationale": {
+  "numeric_grounding": "美的集团合并口径2025年半年度经营活动产生的现金流量净额37,281,015千元见541efa4968594bc1d06afe03，即372.81015亿元；贵州茅台13,119,061,031.33元见9ed667801a10ec1a0e66cc11，并与c1690dd0d44ad7bbf920ee06、8317e2f39c9971a11e3d4276一致，即131.1906…亿元。两者之和504.0007…亿元，舍入后504.00与答案一致。",
+  "unit_applicability": "美的表显式标注单位千元，答案按千元换算正确。茅台引用的9ed667801a10ec1a0e66cc11单位“未标注”，a4ee97ba53023666d5a3eb91虽标注元但属不同parent表且不含该数值，不能自动继承；不过观测中c1690dd0d44ad7bbf920ee06与8317e2f39c9971a11e3d4276明确以“元”列示同一数值13,119,061,031.33，单位“元”有实际观测支持。",
+  "period": "美的数值取自表头明确为“2025 年半年度/合并”的列。茅台9ed667801a10ec1a0e66cc11列名未识别，但同一数值在c1690dd0d44ad7bbf920ee06“本报告期（1－6月）”列和8317e2f39c9971a11e3d4276“本期数”列出现，上年同期为36,621,833,812.63，可确认为2025年上半年。",
+  "scope": "美的取自“合并”列而非“公司”列（公司列为34,159,720），口径正确。茅台同一数值出现在“合并财务报表项目注释 > 58、现金流量表补充资料”（7dd70ef4bbf8d728775ca835），支持其为合并口径。",
+  "citation_coverage": "引用541efa4968594bc1d06afe03覆盖美的数值、单位、期间与口径；但茅台仅引用了单位与表头缺失的9ed667801a10ec1a0e66cc11和不含目标数值的a4ee97ba53023666d5a3eb91，确证茅台单位、本期及合并口径所需的c1690dd0d44ad7bbf920ee06、8317e2f39c9971a11e3d4276、7dd70ef4bbf8d728775ca835等均未被引用，必要前提覆盖不全。",
+  "precision": "答案明确先将两家金额分别舍入为372.81和131.19亿元再相加，属于中间舍入，违反“采用原表原始精度并最终舍入”的要求；虽然用原始精度计算（372.81015+131.1906103≈504.0008）最终仍为504.00，但过程不合规。",
+  "abstention": "本样本为回答样本，拒答维度不适用。"
+ },
+ "evidence_ids": {
+  "numeric_grounding": ["541efa4968594bc1d06afe03", "9ed667801a10ec1a0e66cc11", "c1690dd0d44ad7bbf920ee06", "8317e2f39c9971a11e3d4276"],
+  "unit_applicability": ["541efa4968594bc1d06afe03", "9ed667801a10ec1a0e66cc11", "a4ee97ba53023666d5a3eb91", "c1690dd0d44ad7bbf920ee06", "8317e2f39c9971a11e3d4276"],
+  "period": ["541efa4968594bc1d06afe03", "c1690dd0d44ad7bbf920ee06", "8317e2f39c9971a11e3d4276"],
+  "scope": ["541efa4968594bc1d06afe03", "7dd70ef4bbf8d728775ca835"],
+  "citation_coverage": ["541efa4968594bc1d06afe03", "9ed667801a10ec1a0e66cc11", "a4ee97ba53023666d5a3eb91", "c1690dd0d44ad7bbf920ee06", "7dd70ef4bbf8d728775ca835"],
+  "precision": ["541efa4968594bc1d06afe03", "9ed667801a10ec1a0e66cc11"],
+  "abstention": []
+ },
+ "notes": "最终数值504.00正确，但采用了中间舍入且茅台数值的引用未覆盖单位/期间/口径的确证分块。"
+}

@@ -1,0 +1,390 @@
+{
+  "scope": "model-only comparison on 18 frozen Dev cases; no human reference, no accuracy or false-pass rate",
+  "judges": [
+    "sol",
+    "deepseek",
+    "claude"
+  ],
+  "complete_in_all": 17,
+  "pairwise_agreement": {
+    "sol~deepseek": {
+      "agree": 78,
+      "total": 92,
+      "rate": 0.8478
+    },
+    "sol~claude": {
+      "agree": 74,
+      "total": 92,
+      "rate": 0.8043
+    },
+    "deepseek~claude": {
+      "agree": 71,
+      "total": 92,
+      "rate": 0.7717
+    }
+  },
+  "unanimous_dimensions": 67,
+  "disputed_dimensions": [
+    {
+      "id": "qc-19b9a14eb7c3",
+      "dimension": "citation_coverage",
+      "sol": "missing",
+      "deepseek": "supported",
+      "claude": "missing"
+    },
+    {
+      "id": "qc-19b9a14eb7c3",
+      "dimension": "precision",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "contradicted"
+    },
+    {
+      "id": "qc-1eafc7a669d4",
+      "dimension": "unit_applicability",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-1eafc7a669d4",
+      "dimension": "period",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-1eafc7a669d4",
+      "dimension": "citation_coverage",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-45df6728c7dd",
+      "dimension": "period",
+      "sol": "missing",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-45df6728c7dd",
+      "dimension": "citation_coverage",
+      "sol": "missing",
+      "deepseek": "supported",
+      "claude": "supported"
+    },
+    {
+      "id": "qc-64533eeb4921",
+      "dimension": "unit_applicability",
+      "sol": "uncertain",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-64533eeb4921",
+      "dimension": "period",
+      "sol": "uncertain",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-64533eeb4921",
+      "dimension": "citation_coverage",
+      "sol": "uncertain",
+      "deepseek": "supported",
+      "claude": "contradicted"
+    },
+    {
+      "id": "qc-67bf73499d78",
+      "dimension": "unit_applicability",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-67bf73499d78",
+      "dimension": "period",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-71f13982ee6c",
+      "dimension": "unit_applicability",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-71f13982ee6c",
+      "dimension": "period",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-71f13982ee6c",
+      "dimension": "citation_coverage",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-7bcb561d44d7",
+      "dimension": "unit_applicability",
+      "sol": "supported",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-7bcb561d44d7",
+      "dimension": "period",
+      "sol": "contradicted",
+      "deepseek": "supported",
+      "claude": "contradicted"
+    },
+    {
+      "id": "qc-96a8a15f7df3",
+      "dimension": "unit_applicability",
+      "sol": "missing",
+      "deepseek": "supported",
+      "claude": "supported"
+    },
+    {
+      "id": "qc-96a8a15f7df3",
+      "dimension": "citation_coverage",
+      "sol": "missing",
+      "deepseek": "supported",
+      "claude": "missing"
+    },
+    {
+      "id": "qc-c74d75706a3b",
+      "dimension": "unit_applicability",
+      "sol": "missing",
+      "deepseek": "missing",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-c74d75706a3b",
+      "dimension": "period",
+      "sol": "uncertain",
+      "deepseek": "supported",
+      "claude": "uncertain"
+    },
+    {
+      "id": "qc-db06987d484d",
+      "dimension": "unit_applicability",
+      "sol": "uncertain",
+      "deepseek": "missing",
+      "claude": "supported"
+    },
+    {
+      "id": "qc-db06987d484d",
+      "dimension": "period",
+      "sol": "uncertain",
+      "deepseek": "supported",
+      "claude": "supported"
+    },
+    {
+      "id": "qc-db06987d484d",
+      "dimension": "scope",
+      "sol": "supported",
+      "deepseek": "uncertain",
+      "claude": "supported"
+    },
+    {
+      "id": "qc-db06987d484d",
+      "dimension": "citation_coverage",
+      "sol": "uncertain",
+      "deepseek": "missing",
+      "claude": "missing"
+    }
+  ],
+  "per_judge": {
+    "sol": {
+      "labels": {
+        "supported": 74,
+        "missing": 7,
+        "contradicted": 5,
+        "uncertain": 7
+      },
+      "answered_all_supported": 6,
+      "answered_flagged_any": 7,
+      "completed": 18
+    },
+    "deepseek": {
+      "labels": {
+        "supported": 83,
+        "contradicted": 4,
+        "missing": 4,
+        "uncertain": 1
+      },
+      "answered_all_supported": 11,
+      "answered_flagged_any": 4,
+      "completed": 17
+    },
+    "claude": {
+      "labels": {
+        "supported": 68,
+        "missing": 4,
+        "contradicted": 7,
+        "uncertain": 14
+      },
+      "answered_all_supported": 5,
+      "answered_flagged_any": 8,
+      "completed": 18
+    }
+  },
+  "controlled_edits": {
+    "note": "edit type is construction intent, not a verified label",
+    "items": [
+      {
+        "id": "qc-67bf73499d78",
+        "edit": "unsupported_number",
+        "target_dimension": "numeric_grounding",
+        "sol": "contradicted",
+        "deepseek": "contradicted",
+        "claude": "contradicted"
+      },
+      {
+        "id": "qc-c74d75706a3b",
+        "edit": "missing_header_citation",
+        "target_dimension": "citation_coverage",
+        "sol": "missing",
+        "deepseek": "missing",
+        "claude": "missing"
+      },
+      {
+        "id": "qc-7bcb561d44d7",
+        "edit": "wrong_period",
+        "target_dimension": "period",
+        "sol": "contradicted",
+        "deepseek": "supported",
+        "claude": "contradicted"
+      },
+      {
+        "id": "qc-1eafc7a669d4",
+        "edit": "wrong_scope",
+        "target_dimension": "scope",
+        "sol": "contradicted",
+        "deepseek": "contradicted",
+        "claude": "contradicted"
+      },
+      {
+        "id": "qc-64533eeb4921",
+        "edit": "unseen_citation",
+        "target_dimension": "citation_coverage",
+        "sol": "uncertain",
+        "deepseek": "supported",
+        "claude": "contradicted"
+      },
+      {
+        "id": "qc-19b9a14eb7c3",
+        "edit": "premature_rounding",
+        "target_dimension": "precision",
+        "sol": "supported",
+        "deepseek": "supported",
+        "claude": "contradicted"
+      }
+    ],
+    "target_flagged_missing_or_contradicted": {
+      "sol": 4,
+      "deepseek": 3,
+      "claude": 6
+    },
+    "total": 6
+  },
+  "partial_flags_on_answered": [
+    {
+      "id": "qc-19b9a14eb7c3",
+      "dimension": "citation_coverage",
+      "flagged_by": [
+        "sol",
+        "claude"
+      ]
+    },
+    {
+      "id": "qc-19b9a14eb7c3",
+      "dimension": "precision",
+      "flagged_by": [
+        "claude"
+      ]
+    },
+    {
+      "id": "qc-45df6728c7dd",
+      "dimension": "period",
+      "flagged_by": [
+        "sol"
+      ]
+    },
+    {
+      "id": "qc-45df6728c7dd",
+      "dimension": "citation_coverage",
+      "flagged_by": [
+        "sol"
+      ]
+    },
+    {
+      "id": "qc-64533eeb4921",
+      "dimension": "citation_coverage",
+      "flagged_by": [
+        "claude"
+      ]
+    },
+    {
+      "id": "qc-7bcb561d44d7",
+      "dimension": "period",
+      "flagged_by": [
+        "sol",
+        "claude"
+      ]
+    },
+    {
+      "id": "qc-96a8a15f7df3",
+      "dimension": "unit_applicability",
+      "flagged_by": [
+        "sol"
+      ]
+    },
+    {
+      "id": "qc-96a8a15f7df3",
+      "dimension": "citation_coverage",
+      "flagged_by": [
+        "sol",
+        "claude"
+      ]
+    },
+    {
+      "id": "qc-c74d75706a3b",
+      "dimension": "unit_applicability",
+      "flagged_by": [
+        "sol",
+        "deepseek"
+      ]
+    },
+    {
+      "id": "qc-db06987d484d",
+      "dimension": "unit_applicability",
+      "flagged_by": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "qc-db06987d484d",
+      "dimension": "citation_coverage",
+      "flagged_by": [
+        "deepseek",
+        "claude"
+      ]
+    }
+  ],
+  "deterministic_rule_hits": [
+    {
+      "id": "qc-64533eeb4921",
+      "unseen_citations": [
+        "unobserved-control-evidence"
+      ]
+    }
+  ]
+}

@@ -55,3 +55,19 @@ def test_native_event_and_input_audit(tmp_path,tamper):
     if tamper=='none':assert audit_case(c,tmp_path,'rubric')['status']=='AUDIT_PASSED'
     else:
         with pytest.raises(ValueError):audit_case(c,tmp_path,'rubric')
+
+
+def test_model_only_judge_comparison_counts_edits_and_rule_hits():
+    import sys
+    from pathlib import Path
+    sys.path.insert(0,str(Path(__file__).parents[1]/'scripts'))
+    from compare_judges import compare,unseen_citations
+    from finmhqa.qa.calibration import blank_review
+    case={'id':'x','question':'q','final':{'status':'answered','citations':['a','ghost']},
+          'observations':[{'response':{'results':[{'chunk_id':'a'}]}}]}
+    def review(label):
+        r=blank_review(case);r['labels']={d:label for d in r['labels']};r['labels']['abstention']='not_applicable';return r
+    report=compare([case],{'x':{'variant':'unseen_citation'}},{'j1':[review('supported')],'j2':[review('missing')]})
+    assert unseen_citations(case)==['ghost'] and report['deterministic_rule_hits'][0]['id']=='x'
+    assert report['controlled_edits']['target_flagged_missing_or_contradicted']=={'j1':0,'j2':1}
+    assert report['pairwise_agreement']['j1~j2']['agree']==0 and len(report['disputed_dimensions'])==6

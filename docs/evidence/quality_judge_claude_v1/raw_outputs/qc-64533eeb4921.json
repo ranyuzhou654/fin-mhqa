@@ -1,0 +1,57 @@
+{
+ "labels": {
+  "numeric_grounding": "supported",
+  "unit_applicability": "uncertain",
+  "period": "uncertain",
+  "scope": "supported",
+  "citation_coverage": "contradicted",
+  "precision": "supported",
+  "abstention": "not_applicable"
+ },
+ "rationale": {
+  "numeric_grounding": "五粮液营业收入52,770,984,383.52与亿纬锂能28,169,564,043.41均与合并利润表观测一致，差额246.01亿元计算正确，据此选择五粮液成立；经营活动产生的现金流量净额31,136,736,628.58与观测一致（流入小计70,247,350,082.19减流出小计39,110,613,453.61亦吻合），按元换算为311.37亿元计算无误。",
+  "unit_applicability": "两家营业收入所在合并利润表均显式标注单位为元，适用。但现金流量净额所在表块e65f385eaac83f299736117b（及同表db11b1b2be14e9de589fd37f）单位为“未标注”，答案所引fa37907a92ff3f3d7ef3124a虽标注元，却属于另一parent_table（上一页表块），按规则不能自动继承到目标表，因此现金流量净额的“元”单位缺乏直接证据，无法确认。",
+  "period": "营业收入取自“2025年半年度”列，期间正确。但现金流量净额所在表块列名未识别（“2列（列名未识别）”），仅能从相邻的另一表块fa37907a92ff3f3d7ef3124a表头推测第2列为2025年半年度，按规则不得猜测缺失表头，目标列期间无法确认。",
+  "scope": "营业收入均来自“3、合并利润表”，现金流量净额来自“5、合并现金流量表”章节路径，均为合并口径，符合题意。",
+  "citation_coverage": "最终引用包含“unobserved-control-evidence”，该ID在观测中不存在，属于无法核验的虚假引用；此外，已引用的e65f385eaac83f299736117b无单位和列名，引用的fa37907a92ff3f3d7ef3124a为不同表块，无法为现金流量净额补足单位和期间前提。两家营业收入的引用cad29d5ea24462e1a71bf255、85fe6d961927ba26380060b3覆盖充分。",
+  "precision": "计算均使用原表精确到分的元值，仅在最终换算为亿元后四舍五入保留两位小数，精度处理正确。",
+  "abstention": "回答样本，非拒答，abstention不适用。"
+ },
+ "evidence_ids": {
+  "numeric_grounding": [
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3",
+   "e65f385eaac83f299736117b"
+  ],
+  "unit_applicability": [
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3",
+   "e65f385eaac83f299736117b",
+   "fa37907a92ff3f3d7ef3124a"
+  ],
+  "period": [
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3",
+   "e65f385eaac83f299736117b",
+   "fa37907a92ff3f3d7ef3124a"
+  ],
+  "scope": [
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3",
+   "e65f385eaac83f299736117b"
+  ],
+  "citation_coverage": [
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3",
+   "e65f385eaac83f299736117b",
+   "fa37907a92ff3f3d7ef3124a"
+  ],
+  "precision": [
+   "cad29d5ea24462e1a71bf255",
+   "85fe6d961927ba26380060b3",
+   "e65f385eaac83f299736117b"
+  ],
+  "abstention": []
+ },
+ "notes": "答案数值在“单位为元、第2列为本期”的假设下正确，但现金流量净额所在表块单位与列名缺失，且引用列表含观测中不存在的ID“unobserved-control-evidence”。"
+}

@@ -1,0 +1,2045 @@
+{
+  "scope": "assistant-authored, overlapping source facts, single-run Dev; not independent Test or independent Faithfulness",
+  "arms": {
+    "structured": {
+      "correct": 19,
+      "total": 20,
+      "completed": 20,
+      "errors": 0,
+      "tool_calls": 101,
+      "mean_tools": 5.05,
+      "search_calls": 53,
+      "model_calls": 125,
+      "mean_seconds": 186.1797366688974,
+      "p95_seconds": 293.16204899997683,
+      "audits_passed": 20,
+      "token_usage": {
+        "input_tokens": 3525317,
+        "cached_input_tokens": 1072768,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 61201,
+        "reasoning_output_tokens": 5861
+      },
+      "semantic_verifier_rejections": 2,
+      "runtime_gate": "PASSED",
+      "replan_observation": "OBSERVED",
+      "results": [
+        {
+          "id": "agent-dev-001",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "260.14",
+            "answer_unit": "亿元",
+            "selected_company": "美的集团",
+            "citations": [
+              "407d90148388cf7072a341ab",
+              "858fb75185f7e9db4dfc04ce",
+              "4b28ba1999c0652b8e5498b3"
+            ],
+            "explanation": "2025年上半年合并口径营业收入：美的集团为251,123,714千元，即2,511.24亿元；宁德时代为178,886,253千元，即1,788.86亿元。美的集团高出722.37亿元，因此选择美的集团。其归属于母公司股东的净利润为26,013,690千元，换算并四舍五入保留两位小数为260.14亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 245.13462233397877,
+          "search_calls": 3,
+          "tool_calls": 7,
+          "decision_calls": 8,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15738,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 398,
+              "reasoning_output_tokens": 28
+            },
+            {
+              "input_tokens": 24000,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 460,
+              "reasoning_output_tokens": 56
+            },
+            {
+              "input_tokens": 24639,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 499,
+              "reasoning_output_tokens": 19
+            },
+            {
+              "input_tokens": 29612,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 571,
+              "reasoning_output_tokens": 68
+            },
+            {
+              "input_tokens": 30305,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 637,
+              "reasoning_output_tokens": 127
+            },
+            {
+              "input_tokens": 30966,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 589,
+              "reasoning_output_tokens": 75
+            },
+            {
+              "input_tokens": 31633,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 801,
+              "reasoning_output_tokens": 56
+            },
+            {
+              "input_tokens": 31615,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 208,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-001",
+            "status": "AUDIT_PASSED",
+            "search_responses": 3,
+            "calculation_responses": 4,
+            "native_items": {
+              "error": 1,
+              "agent_message": 8
+            },
+            "usage": {
+              "input_tokens": 218508,
+              "cached_input_tokens": 27392,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 4163,
+              "reasoning_output_tokens": 429
+            },
+            "run_error": null,
+            "trajectory_sha256": "f200acf8b6cd4b67af2fab228473dc99d2252fbec4422ddb6d4a0cc1a22a3f4e"
+          },
+          "hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-002",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "111.39",
+            "answer_unit": "亿元",
+            "selected_company": "海尔智家",
+            "citations": [
+              "50b0b59b197f1ae4f88f72fa",
+              "b3a051f7ba17e3e9c1c543cd",
+              "7a2cda920ccc22ecd70e37fa",
+              "d92aaae07fe06e4105dfabdb",
+              "54ed32eab7163fe4e0d93e4c"
+            ],
+            "explanation": "2025年上半年合并营业收入中，海尔智家为156,494,034,448.85元，伊利股份为61,776,746,682.68元，海尔智家高947.17亿元，因此选择海尔智家。海尔智家同期经营活动产生的现金流量净额为11,139,045,781.34元，换算为亿元并四舍五入保留两位小数为111.39亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 347.56075733399484,
+          "search_calls": 4,
+          "tool_calls": 7,
+          "decision_calls": 10,
+          "replan_count": 1,
+          "usage": [
+            {
+              "input_tokens": 15744,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 407,
+              "reasoning_output_tokens": 42
+            },
+            {
+              "input_tokens": 25030,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 463,
+              "reasoning_output_tokens": 35
+            },
+            {
+              "input_tokens": 25915,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 530,
+              "reasoning_output_tokens": 24
+            },
+            {
+              "input_tokens": 32189,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 581,
+              "reasoning_output_tokens": 88
+            },
+            {
+              "input_tokens": 35141,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 587,
+              "reasoning_output_tokens": 20
+            },
+            {
+              "input_tokens": 35919,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 770,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 35936,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 799,
+              "reasoning_output_tokens": 372
+            },
+            {
+              "input_tokens": 37550,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 599,
+              "reasoning_output_tokens": 45
+            },
+            {
+              "input_tokens": 42792,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 912,
+              "reasoning_output_tokens": 103
+            },
+            {
+              "input_tokens": 42895,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 151,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-002",
+            "status": "AUDIT_PASSED",
+            "search_responses": 4,
+            "calculation_responses": 2,
+            "native_items": {
+              "error": 2,
+              "agent_message": 10
+            },
+            "usage": {
+              "input_tokens": 329111,
+              "cached_input_tokens": 56192,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 5799,
+              "reasoning_output_tokens": 729
+            },
+            "run_error": null,
+            "trajectory_sha256": "339ee55d87a4010c3a3153c2bbcefb30236f25c7867eca3c33a528bb54082dc1"
+          },
+          "hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 1,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-003",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "304.85",
+            "answer_unit": "亿元",
+            "selected_company": "宁德时代",
+            "citations": [
+              "5763c0ce1bff9f5bfe81f3cd",
+              "df365d166ef42c1b092f0ef9",
+              "858fb75185f7e9db4dfc04ce",
+              "e55d85df8f44a5ca90f9fa36",
+              "d0c6da2b2488fd0eb4907946",
+              "522acc923ac5b4c29fba8344"
+            ],
+            "explanation": "2025年上半年，比亚迪营业收入为371,280,948,000.00元，宁德时代合并口径营业收入为178,886,253千元；前者比后者高1923.95亿元，因此选择宁德时代。宁德时代同期归属于母公司股东的净利润为30,485,139千元，换算并四舍五入至两位小数为304.85亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 206.08469645900186,
+          "search_calls": 3,
+          "tool_calls": 5,
+          "decision_calls": 6,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15738,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 350,
+              "reasoning_output_tokens": 25
+            },
+            {
+              "input_tokens": 27093,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 568,
+              "reasoning_output_tokens": 153
+            },
+            {
+              "input_tokens": 27774,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 568,
+              "reasoning_output_tokens": 42
+            },
+            {
+              "input_tokens": 34417,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 547,
+              "reasoning_output_tokens": 22
+            },
+            {
+              "input_tokens": 35107,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 766,
+              "reasoning_output_tokens": 39
+            },
+            {
+              "input_tokens": 35050,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 327,
+              "reasoning_output_tokens": 95
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-003",
+            "status": "AUDIT_PASSED",
+            "search_responses": 3,
+            "calculation_responses": 2,
+            "native_items": {
+              "error": 1,
+              "agent_message": 6
+            },
+            "usage": {
+              "input_tokens": 175179,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 3126,
+              "reasoning_output_tokens": 376
+            },
+            "run_error": null,
+            "trajectory_sha256": "385bfa83418cb90febf3cc12e9422e49896f180d6d8005f15d3d1c4faa1136d9"
+          },
+          "hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-004",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "283.29",
+            "answer_unit": "亿元",
+            "selected_company": "格力电器",
+            "citations": [
+              "cad29d5ea24462e1a71bf255",
+              "9fed1d6f14909619a834c5f3",
+              "161a8dfe589064c6a415a280"
+            ],
+            "explanation": "五粮液与格力电器2025年上半年合并口径营业收入分别为52,770,984,383.52元和97,324,925,988.20元；差额计算显示格力电器高445.54亿元，因此选择格力电器。其合并现金流量表列示经营活动产生的现金流量净额为28,328,562,187.20元，换算并四舍五入至两位小数为283.29亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 221.86442387499847,
+          "search_calls": 3,
+          "tool_calls": 5,
+          "decision_calls": 6,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15744,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 406,
+              "reasoning_output_tokens": 37
+            },
+            {
+              "input_tokens": 29887,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 471,
+              "reasoning_output_tokens": 47
+            },
+            {
+              "input_tokens": 30558,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 534,
+              "reasoning_output_tokens": 28
+            },
+            {
+              "input_tokens": 35610,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 554,
+              "reasoning_output_tokens": 17
+            },
+            {
+              "input_tokens": 36546,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 698,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 36434,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 230,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-004",
+            "status": "AUDIT_PASSED",
+            "search_responses": 3,
+            "calculation_responses": 2,
+            "native_items": {
+              "error": 1,
+              "agent_message": 6
+            },
+            "usage": {
+              "input_tokens": 184779,
+              "cached_input_tokens": 28800,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2893,
+              "reasoning_output_tokens": 129
+            },
+            "run_error": null,
+            "trajectory_sha256": "e5ebdb44425fa66f1456eeae9a1988aac97d09a2dd23f61acdde94636a1a68a3"
+          },
+          "hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-005",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "16.05",
+            "answer_unit": "亿元",
+            "selected_company": "亿纬锂能",
+            "citations": [
+              "b3a051f7ba17e3e9c1c543cd",
+              "85fe6d961927ba26380060b3",
+              "02303e31707f42c88a770880"
+            ],
+            "explanation": "2025年上半年合并口径下，伊利股份营业收入为61,776,746,682.68元，亿纬锂能为28,169,564,043.41元，后者较低。亿纬锂能合并财务报表项目注释列示本期归属于母公司所有者的净利润为1,605,171,455.77元，换算并四舍五入保留两位小数为16.05亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 293.16204899997683,
+          "search_calls": 4,
+          "tool_calls": 7,
+          "decision_calls": 10,
+          "replan_count": 1,
+          "usage": [
+            {
+              "input_tokens": 15622,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 386,
+              "reasoning_output_tokens": 21
+            },
+            {
+              "input_tokens": 25171,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 460,
+              "reasoning_output_tokens": 61
+            },
+            {
+              "input_tokens": 25805,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 553,
+              "reasoning_output_tokens": 59
+            },
+            {
+              "input_tokens": 31542,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 495,
+              "reasoning_output_tokens": 27
+            },
+            {
+              "input_tokens": 33996,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 686,
+              "reasoning_output_tokens": 110
+            },
+            {
+              "input_tokens": 34792,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 856,
+              "reasoning_output_tokens": 92
+            },
+            {
+              "input_tokens": 34792,
+              "cached_input_tokens": 13312,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 573,
+              "reasoning_output_tokens": 146
+            },
+            {
+              "input_tokens": 36332,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 582,
+              "reasoning_output_tokens": 30
+            },
+            {
+              "input_tokens": 40013,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 742,
+              "reasoning_output_tokens": 39
+            },
+            {
+              "input_tokens": 39910,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 215,
+              "reasoning_output_tokens": 56
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-005",
+            "status": "AUDIT_PASSED",
+            "search_responses": 4,
+            "calculation_responses": 2,
+            "native_items": {
+              "agent_message": 10
+            },
+            "usage": {
+              "input_tokens": 317975,
+              "cached_input_tokens": 103040,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 5548,
+              "reasoning_output_tokens": 641
+            },
+            "run_error": null,
+            "trajectory_sha256": "25b9ef6d67faa7d1cfb4ddb71c7da8efed421e4ead98e3d839205557df4306b6"
+          },
+          "hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 1,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-006",
+          "arm": "structured",
+          "final": {
+            "status": "insufficient",
+            "answer_value": "",
+            "answer_unit": "",
+            "selected_company": null,
+            "citations": [],
+            "explanation": "证据或运行预算不足：INSUFFICIENT"
+          },
+          "error": null,
+          "terminal_reason": "INSUFFICIENT",
+          "seconds": 293.08641816698946,
+          "search_calls": 4,
+          "tool_calls": 8,
+          "decision_calls": 9,
+          "replan_count": 1,
+          "usage": [
+            {
+              "input_tokens": 15629,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 389,
+              "reasoning_output_tokens": 18
+            },
+            {
+              "input_tokens": 24935,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 449,
+              "reasoning_output_tokens": 56
+            },
+            {
+              "input_tokens": 27060,
+              "cached_input_tokens": 13440,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 617,
+              "reasoning_output_tokens": 190
+            },
+            {
+              "input_tokens": 33463,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 519,
+              "reasoning_output_tokens": 56
+            },
+            {
+              "input_tokens": 34381,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 592,
+              "reasoning_output_tokens": 30
+            },
+            {
+              "input_tokens": 38342,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 574,
+              "reasoning_output_tokens": 31
+            },
+            {
+              "input_tokens": 39550,
+              "cached_input_tokens": 13440,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 626,
+              "reasoning_output_tokens": 83
+            },
+            {
+              "input_tokens": 42643,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1126,
+              "reasoning_output_tokens": 214
+            },
+            {
+              "input_tokens": 44786,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 877,
+              "reasoning_output_tokens": 80
+            }
+          ],
+          "correct": false,
+          "audit": {
+            "id": "agent-dev-006",
+            "status": "AUDIT_PASSED",
+            "search_responses": 4,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 9,
+              "error": 1
+            },
+            "usage": {
+              "input_tokens": 300789,
+              "cached_input_tokens": 110464,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 5769,
+              "reasoning_output_tokens": 758
+            },
+            "run_error": null,
+            "trajectory_sha256": "b1453119813c174e216f6a7b47ad258aea819faf6456ab5026d128beffa449fc"
+          },
+          "hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            false,
+            false,
+            false
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "insufficient"
+        },
+        {
+          "id": "agent-dev-007",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "155.11",
+            "answer_unit": "亿元",
+            "selected_company": "比亚迪",
+            "citations": [
+              "3ee8f4c84b299767459ac5e4",
+              "52e388a1787b91755b534281",
+              "50b0b59b197f1ae4f88f72fa",
+              "dfcac71cb623204d6f6d239d",
+              "ed8a1463462cd90a3ffcf505"
+            ],
+            "explanation": "2025年上半年，比亚迪合并口径营业收入为3712.81亿元，海尔智家为1564.94亿元；差额为2147.87亿元，因此选择比亚迪。比亚迪合并利润表列示归属于母公司所有者的净利润为15,510,533千元，换算为亿元并四舍五入保留两位小数为155.11亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 195.99953095801175,
+          "search_calls": 3,
+          "tool_calls": 6,
+          "decision_calls": 7,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15621,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 415,
+              "reasoning_output_tokens": 35
+            },
+            {
+              "input_tokens": 27389,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 521,
+              "reasoning_output_tokens": 65
+            },
+            {
+              "input_tokens": 28132,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 575,
+              "reasoning_output_tokens": 26
+            },
+            {
+              "input_tokens": 34824,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 581,
+              "reasoning_output_tokens": 17
+            },
+            {
+              "input_tokens": 36968,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 623,
+              "reasoning_output_tokens": 25
+            },
+            {
+              "input_tokens": 37733,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 808,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 37780,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 165,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-007",
+            "status": "AUDIT_PASSED",
+            "search_responses": 3,
+            "calculation_responses": 2,
+            "native_items": {
+              "agent_message": 7
+            },
+            "usage": {
+              "input_tokens": 218447,
+              "cached_input_tokens": 68480,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 3688,
+              "reasoning_output_tokens": 168
+            },
+            "run_error": null,
+            "trajectory_sha256": "8b80457493733b9bdddcb03a4e9cfa06c9aee581765cf44574eabbcb8780cbcc"
+          },
+          "hop_anchor_hits": [
+            true,
+            true,
+            false
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true,
+            false
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-008",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "311.37",
+            "answer_unit": "亿元",
+            "selected_company": "五粮液",
+            "citations": [
+              "cad29d5ea24462e1a71bf255",
+              "85fe6d961927ba26380060b3",
+              "fa37907a92ff3f3d7ef3124a",
+              "e65f385eaac83f299736117b"
+            ],
+            "explanation": "2025年上半年合并口径下，五粮液营业收入为52,770,984,383.52元，亿纬锂能为28,169,564,043.41元，五粮液高出246.01亿元，因此选择五粮液。其合并现金流量表中经营活动产生的现金流量净额为31,136,736,628.58元；表头确认单位为元、首列为2025年半年度。换算并四舍五入至两位小数为311.37亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 194.6998073750001,
+          "search_calls": 3,
+          "tool_calls": 6,
+          "decision_calls": 7,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15627,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 414,
+              "reasoning_output_tokens": 44
+            },
+            {
+              "input_tokens": 26327,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 464,
+              "reasoning_output_tokens": 43
+            },
+            {
+              "input_tokens": 26993,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 512,
+              "reasoning_output_tokens": 25
+            },
+            {
+              "input_tokens": 32246,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 516,
+              "reasoning_output_tokens": 57
+            },
+            {
+              "input_tokens": 34682,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 597,
+              "reasoning_output_tokens": 24
+            },
+            {
+              "input_tokens": 35483,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 757,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 35591,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 156,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-008",
+            "status": "AUDIT_PASSED",
+            "search_responses": 3,
+            "calculation_responses": 2,
+            "native_items": {
+              "agent_message": 7,
+              "error": 1
+            },
+            "usage": {
+              "input_tokens": 206949,
+              "cached_input_tokens": 68480,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 3416,
+              "reasoning_output_tokens": 193
+            },
+            "run_error": null,
+            "trajectory_sha256": "021f4455aa2570efa14e986374c72bd7ffb73bc69ae8ad2b4bcdacfa3852b51a"
+          },
+          "hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-009",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "+44.71",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "d0c6da2b2488fd0eb4907946",
+              "ceadff47d3a2bab869ffa86c",
+              "4b28ba1999c0652b8e5498b3"
+            ],
+            "explanation": "宁德时代归母净利润30,485,139千元减去美的集团26,013,690千元，差额为4,471,449千元，即44.71449亿元；四舍五入保留两位小数为+44.71亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 107.75773804099299,
+          "search_calls": 2,
+          "tool_calls": 3,
+          "decision_calls": 4,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15407,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 377,
+              "reasoning_output_tokens": 42
+            },
+            {
+              "input_tokens": 26302,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 571,
+              "reasoning_output_tokens": 125
+            },
+            {
+              "input_tokens": 27027,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 582,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 26563,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 227,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-009",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 4
+            },
+            "usage": {
+              "input_tokens": 95299,
+              "cached_input_tokens": 21248,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1757,
+              "reasoning_output_tokens": 167
+            },
+            "run_error": null,
+            "trajectory_sha256": "50d1bdbf19c81eb78c363b4458d9a134a8ecbcc4391ae6c6b7a065a524ad871d"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-010",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "+48.33",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "95186a8d525131f8c5bf39c1",
+              "a3e3d97d1743dd5b489644c8",
+              "d39ea6b4b90afbbfbb35ddea",
+              "207c91474e8ee3b9f15ea6b3"
+            ],
+            "explanation": "海尔智家归母净利润为12,032,995,820.27元，伊利股份为7,200,477,611.91元；海尔智家减伊利股份为4,832,518,208.36元，换算并四舍五入为+48.33亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 161.99968841701047,
+          "search_calls": 3,
+          "tool_calls": 4,
+          "decision_calls": 5,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15615,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 359,
+              "reasoning_output_tokens": 37
+            },
+            {
+              "input_tokens": 25955,
+              "cached_input_tokens": 13440,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 556,
+              "reasoning_output_tokens": 78
+            },
+            {
+              "input_tokens": 30588,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 635,
+              "reasoning_output_tokens": 120
+            },
+            {
+              "input_tokens": 31069,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 674,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 31167,
+              "cached_input_tokens": 13312,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 147,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-010",
+            "status": "AUDIT_PASSED",
+            "search_responses": 3,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 5
+            },
+            "usage": {
+              "input_tokens": 134394,
+              "cached_input_tokens": 40448,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2371,
+              "reasoning_output_tokens": 235
+            },
+            "run_error": null,
+            "trajectory_sha256": "ebfeebec4bcdea5861b1f1e275cbdda7e79af7de7a47c9e64d303e2085d246f5"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-011",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "139.05",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "dfcac71cb623204d6f6d239d",
+              "ed8a1463462cd90a3ffcf505",
+              "48ebe748b4c384f137b8fa95",
+              "02303e31707f42c88a770880"
+            ],
+            "explanation": "比亚迪归母净利润为15,510,533千元（即155.10533亿元），亿纬锂能归母净利润为1,605,171,455.77元（即16.0517145577亿元）；前者减后者为139.0536154423亿元，四舍五入保留两位小数为+139.05亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 136.33644112499314,
+          "search_calls": 2,
+          "tool_calls": 4,
+          "decision_calls": 5,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15617,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 363,
+              "reasoning_output_tokens": 25
+            },
+            {
+              "input_tokens": 26460,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 462,
+              "reasoning_output_tokens": 81
+            },
+            {
+              "input_tokens": 28245,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 490,
+              "reasoning_output_tokens": 69
+            },
+            {
+              "input_tokens": 29030,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 596,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 28819,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 362,
+              "reasoning_output_tokens": 109
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-011",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 5
+            },
+            "usage": {
+              "input_tokens": 128171,
+              "cached_input_tokens": 34944,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2273,
+              "reasoning_output_tokens": 284
+            },
+            "run_error": null,
+            "trajectory_sha256": "b71fd02dfaa17b71eff76b2c3d1a5ecad18aafd3826dfe41449afc46e1a689f7"
+          },
+          "hop_anchor_hits": [
+            false,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            false,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-012",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "89.52",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "541efa4968594bc1d06afe03",
+              "868438af95d020b901399ff4"
+            ],
+            "explanation": "美的集团为37,281,015千元（即372.81015亿元），格力电器为28,328,562,187.20元（即283.285621872亿元）；美的集团减格力电器为89.524528128亿元，四舍五入保留两位小数得+89.52亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 125.79416650001076,
+          "search_calls": 2,
+          "tool_calls": 3,
+          "decision_calls": 4,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15621,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 415,
+              "reasoning_output_tokens": 38
+            },
+            {
+              "input_tokens": 26189,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 483,
+              "reasoning_output_tokens": 51
+            },
+            {
+              "input_tokens": 26865,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 588,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 26640,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 187,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-012",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 4
+            },
+            "usage": {
+              "input_tokens": 95315,
+              "cached_input_tokens": 27392,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1673,
+              "reasoning_output_tokens": 89
+            },
+            "run_error": null,
+            "trajectory_sha256": "cddda35eb2175fd1296b50669ac19979f66f4d9a73710584465dc51f2e808139"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-013",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "-19.80",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "7a2cda920ccc22ecd70e37fa",
+              "d92aaae07fe06e4105dfabdb",
+              "83fdb8cad5bf3cef4d817c1a",
+              "7dd70ef4bbf8d728775ca835"
+            ],
+            "explanation": "海尔智家为11,139,045,781.34元，贵州茅台为13,119,061,031.33元；海尔智家减贵州茅台为-1,980,015,249.99元，换算为亿元并四舍五入保留两位小数为-19.80亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 179.29400420899037,
+          "search_calls": 2,
+          "tool_calls": 5,
+          "decision_calls": 6,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15621,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 374,
+              "reasoning_output_tokens": 45
+            },
+            {
+              "input_tokens": 23395,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 397,
+              "reasoning_output_tokens": 75
+            },
+            {
+              "input_tokens": 26216,
+              "cached_input_tokens": 13440,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 478,
+              "reasoning_output_tokens": 97
+            },
+            {
+              "input_tokens": 28452,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 515,
+              "reasoning_output_tokens": 44
+            },
+            {
+              "input_tokens": 29148,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 639,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 28978,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 292,
+              "reasoning_output_tokens": 194
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-013",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 6
+            },
+            "usage": {
+              "input_tokens": 151810,
+              "cached_input_tokens": 40832,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2695,
+              "reasoning_output_tokens": 455
+            },
+            "run_error": null,
+            "trajectory_sha256": "217f037fd03d0a97f811e9cb3aaa9d31dcda9b91561f884b5d4e7e16b4bba1d0"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-014",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "+250.72",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "fa37907a92ff3f3d7ef3124a",
+              "e65f385eaac83f299736117b",
+              "b23ba719abc1ec4c16b2d0bf",
+              "59ac0482f3fe18a0f0c2537a",
+              "57808b7534b9bbe1cd482625"
+            ],
+            "explanation": "五粮液为31,136,736,628.58元，泸州老窖为6,064,470,030.15元；前者减后者并换算为亿元： (31,136,736,628.58－6,064,470,030.15)÷100,000,000＝+250.72亿元（四舍五入保留两位小数）。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 108.86951904199668,
+          "search_calls": 2,
+          "tool_calls": 3,
+          "decision_calls": 4,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15623,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 366,
+              "reasoning_output_tokens": 29
+            },
+            {
+              "input_tokens": 25560,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 495,
+              "reasoning_output_tokens": 54
+            },
+            {
+              "input_tokens": 26085,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 647,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 26183,
+              "cached_input_tokens": 13184,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 186,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-014",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 4
+            },
+            "usage": {
+              "input_tokens": 93451,
+              "cached_input_tokens": 48128,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1694,
+              "reasoning_output_tokens": 83
+            },
+            "run_error": null,
+            "trajectory_sha256": "48f2767044e0281214d8b2d50e8c4a2a3dfe95de5396dcba7119873215758a42"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-015",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "+223.92",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "858fb75185f7e9db4dfc04ce",
+              "50b0b59b197f1ae4f88f72fa"
+            ],
+            "explanation": "宁德时代营业收入178,886,253千元（即1,788.86253亿元），减去海尔智家营业收入156,494,034,448.85元（即1,564.9403444885亿元），差额为+223.92亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 101.64024999999674,
+          "search_calls": 2,
+          "tool_calls": 3,
+          "decision_calls": 4,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15614,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 319,
+              "reasoning_output_tokens": 14
+            },
+            {
+              "input_tokens": 22331,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 473,
+              "reasoning_output_tokens": 93
+            },
+            {
+              "input_tokens": 23145,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 482,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 22741,
+              "cached_input_tokens": 13312,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 171,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-015",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 4
+            },
+            "usage": {
+              "input_tokens": 83831,
+              "cached_input_tokens": 48256,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1445,
+              "reasoning_output_tokens": 107
+            },
+            "run_error": null,
+            "trajectory_sha256": "001532270353af12b4a9f8f10658ec0c5cba6aab43f4796cb847e4c013ee988b"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-016",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "+336.07",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "b3a051f7ba17e3e9c1c543cd",
+              "85fe6d961927ba26380060b3"
+            ],
+            "explanation": "伊利股份营业收入61,776,746,682.68元，减去亿纬锂能营业收入28,169,564,043.41元，差额为33,607,182,639.27元，即+336.07亿元（四舍五入保留两位小数）。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 105.73824000000604,
+          "search_calls": 2,
+          "tool_calls": 3,
+          "decision_calls": 4,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15615,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 341,
+              "reasoning_output_tokens": 31
+            },
+            {
+              "input_tokens": 24998,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 412,
+              "reasoning_output_tokens": 31
+            },
+            {
+              "input_tokens": 25606,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 481,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 24995,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 163,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-016",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 4
+            },
+            "usage": {
+              "input_tokens": 91214,
+              "cached_input_tokens": 41088,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1397,
+              "reasoning_output_tokens": 62
+            },
+            "run_error": null,
+            "trajectory_sha256": "dc545c9a48880694daea702b35354e6b476431034676a07defe2e13419714bf7"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-017",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "332.14",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "4b28ba1999c0652b8e5498b3",
+              "d39ea6b4b90afbbfbb35ddea",
+              "207c91474e8ee3b9f15ea6b3"
+            ],
+            "explanation": "美的集团归母净利润为26,013,690千元（即260.1369亿元），伊利股份归母净利润为7,200,477,611.91元（即72.0047761191亿元）；合计332.1416761191亿元，四舍五入保留两位小数为332.14亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 114.14464904199122,
+          "search_calls": 2,
+          "tool_calls": 3,
+          "decision_calls": 4,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15604,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 320,
+              "reasoning_output_tokens": 16
+            },
+            {
+              "input_tokens": 27126,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 446,
+              "reasoning_output_tokens": 36
+            },
+            {
+              "input_tokens": 27929,
+              "cached_input_tokens": 7552,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 557,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 27536,
+              "cached_input_tokens": 13312,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 275,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-017",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 4,
+              "error": 1
+            },
+            "usage": {
+              "input_tokens": 98195,
+              "cached_input_tokens": 48256,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1598,
+              "reasoning_output_tokens": 52
+            },
+            "run_error": null,
+            "trajectory_sha256": "8aa6bab1f8ed458b3d5ec0ee7194a804bfc32c3bc4c87d02ac113e75c3a58aeb"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-018",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "136.38",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "f9fc65ea4a8e9c9c839a86e4",
+              "19ec2aedc83338def1a54732",
+              "48ebe748b4c384f137b8fa95",
+              "02303e31707f42c88a770880"
+            ],
+            "explanation": "海尔智家归母净利润为12,032,995,820.27元，亿纬锂能为1,605,171,455.77元；合计13,638,167,276.04元，换算为亿元并四舍五入保留两位小数为136.38亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 175.49827824998647,
+          "search_calls": 3,
+          "tool_calls": 6,
+          "decision_calls": 7,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15607,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 341,
+              "reasoning_output_tokens": 34
+            },
+            {
+              "input_tokens": 24216,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 445,
+              "reasoning_output_tokens": 67
+            },
+            {
+              "input_tokens": 26387,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 421,
+              "reasoning_output_tokens": 34
+            },
+            {
+              "input_tokens": 29274,
+              "cached_input_tokens": 13440,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 489,
+              "reasoning_output_tokens": 55
+            },
+            {
+              "input_tokens": 34076,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 468,
+              "reasoning_output_tokens": 46
+            },
+            {
+              "input_tokens": 34642,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 586,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 34412,
+              "cached_input_tokens": 13312,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 214,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-018",
+            "status": "AUDIT_PASSED",
+            "search_responses": 3,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 7
+            },
+            "usage": {
+              "input_tokens": 198614,
+              "cached_input_tokens": 95232,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2964,
+              "reasoning_output_tokens": 236
+            },
+            "run_error": null,
+            "trajectory_sha256": "d90d39b5b655eb0fd109b955f0d4ccd9a35e5b638536bc8ec57c7d9e65b0ab15"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-019",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "504.00",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "541efa4968594bc1d06afe03",
+              "a4ee97ba53023666d5a3eb91",
+              "9ed667801a10ec1a0e66cc11"
+            ],
+            "explanation": "美的集团2025年上半年合并经营活动产生的现金流量净额为37,281,015千元，即372.810150亿元；贵州茅台为13,119,061,031.33元，即131.190610亿元。合计372.810150+131.190610=504.000760亿元，四舍五入保留两位小数为504.00亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 244.40268541601836,
+          "search_calls": 2,
+          "tool_calls": 8,
+          "decision_calls": 9,
+          "replan_count": 1,
+          "usage": [
+            {
+              "input_tokens": 15610,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 369,
+              "reasoning_output_tokens": 14
+            },
+            {
+              "input_tokens": 24555,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 431,
+              "reasoning_output_tokens": 68
+            },
+            {
+              "input_tokens": 25610,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 376,
+              "reasoning_output_tokens": 19
+            },
+            {
+              "input_tokens": 28503,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 498,
+              "reasoning_output_tokens": 44
+            },
+            {
+              "input_tokens": 29177,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 489,
+              "reasoning_output_tokens": 20
+            },
+            {
+              "input_tokens": 30288,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 551,
+              "reasoning_output_tokens": 35
+            },
+            {
+              "input_tokens": 30298,
+              "cached_input_tokens": 13440,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 521,
+              "reasoning_output_tokens": 17
+            },
+            {
+              "input_tokens": 31153,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 697,
+              "reasoning_output_tokens": 30
+            },
+            {
+              "input_tokens": 30994,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 501,
+              "reasoning_output_tokens": 257
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-019",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 4,
+            "native_items": {
+              "agent_message": 9
+            },
+            "usage": {
+              "input_tokens": 246188,
+              "cached_input_tokens": 109312,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 4433,
+              "reasoning_output_tokens": 504
+            },
+            "run_error": null,
+            "trajectory_sha256": "bc77eb72c0fa4e6a05313e21304e90da56970626b52841ab5e10bf7043e1b695"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 1,
+          "status": "answered"
+        },
+        {
+          "id": "agent-dev-020",
+          "arm": "structured",
+          "final": {
+            "status": "answered",
+            "answer_value": "422.76",
+            "answer_unit": "亿元",
+            "selected_company": null,
+            "citations": [
+              "b23ba719abc1ec4c16b2d0bf",
+              "7a2cda920ccc22ecd70e37fa",
+              "d92aaae07fe06e4105dfabdb",
+              "d31b8452261147b1c7f92bec"
+            ],
+            "explanation": "五粮液为31,136,736,628.58元，海尔智家为11,139,045,781.34元；合计42,275,782,409.92元，换算为422.7578240992亿元，四舍五入保留两位小数为422.76亿元。"
+          },
+          "error": null,
+          "terminal_reason": "ANSWERED",
+          "seconds": 164.52676783400238,
+          "search_calls": 2,
+          "tool_calls": 5,
+          "decision_calls": 6,
+          "replan_count": 0,
+          "usage": [
+            {
+              "input_tokens": 15609,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 359,
+              "reasoning_output_tokens": 36
+            },
+            {
+              "input_tokens": 25464,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 449,
+              "reasoning_output_tokens": 71
+            },
+            {
+              "input_tokens": 26582,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 377,
+              "reasoning_output_tokens": 20
+            },
+            {
+              "input_tokens": 29376,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 535,
+              "reasoning_output_tokens": 37
+            },
+            {
+              "input_tokens": 30117,
+              "cached_input_tokens": 13696,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 643,
+              "reasoning_output_tokens": 0
+            },
+            {
+              "input_tokens": 29950,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 136,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "correct": true,
+          "audit": {
+            "id": "agent-dev-020",
+            "status": "AUDIT_PASSED",
+            "search_responses": 2,
+            "calculation_responses": 1,
+            "native_items": {
+              "agent_message": 6
+            },
+            "usage": {
+              "input_tokens": 157098,
+              "cached_input_tokens": 54784,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2499,
+              "reasoning_output_tokens": 164
+            },
+            "run_error": null,
+            "trajectory_sha256": "7662190cdc8785f2a9d52d5c7347f2d9a1f78f4f5c0840d8a8e13d200f0dfbb1"
+          },
+          "hop_anchor_hits": [
+            true,
+            true
+          ],
+          "cited_hop_anchor_hits": [
+            true,
+            true
+          ],
+          "semantic_verifier_rejections": 0,
+          "recoverable_tool_errors": 0,
+          "status": "answered"
+        }
+      ]
+    }
+  },
+  "paired_correctness": [],
+  "limitations": [
+    "same-model verifier is not independent judge",
+    "string anchor misses equivalent units",
+    "single-run latency includes concurrent model load and serialized retrieval",
+    "no observed replans means feedback benefit is not established"
+  ],
+  "gold_sha256": "6d0dacb959e9f7e3d2ccfa4ac10ead00b4a881e69ca48a0461e75096dfd70ac3",
+  "questions_sha256": "63192165903e5bb41f664c9e8ddf8271d29b2a6817be5c40cc0c88599272e5d8"
+}
