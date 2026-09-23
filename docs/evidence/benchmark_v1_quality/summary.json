@@ -1,0 +1,43 @@
+{
+  "selected": {
+    "dev": 50,
+    "test": 100
+  },
+  "backfilled": {
+    "dev": 0,
+    "test": 5
+  },
+  "dropped": {
+    "test|T6|main": 5,
+    "test|T6|reserve": 4
+  },
+  "dropped_by_judge": {
+    "sol": 4,
+    "deepseek": 9
+  },
+  "waived_flags": {
+    "t6_fy2025": 4,
+    "t6_q3": 8,
+    "t6_2023": 3
+  },
+  "paraphrase_used": {
+    "dev": 49,
+    "test": 99
+  },
+  "retrieval_miss_items": {
+    "dev": 7,
+    "test": 21
+  },
+  "hard_location_share": {
+    "dev": 0.78,
+    "test": 0.69
+  },
+  "files_sha256": {
+    "dev_gold.jsonl": "0577d50bb86c2775188d41e1c336a2bc73d329a42ed2a20eca413b3303e9b9cc",
+    "dev_questions.jsonl": "0076d7cb942a22fc0ab037ea421fe5968815d9714d00ef1539e339531b122a85",
+    "dropped.jsonl": "9261c9e3dabe367317f95ffea285741660e2e4d1c3316c138b8074685abbb873",
+    "test_gold.jsonl": "1804558dd91a9ca55dac7302bca31358e92d4f6fdcb3110f98d2183732721a79",
+    "test_questions.jsonl": "212894bc3710aab466a26b4f4a9f9ed7682e53a83abb340645702d47fa17cb14",
+    "waived_flags.jsonl": "58ca9a6889b12da987893517c21a7b02d4e6bb86752750ca339b63aa9ff216cb"
+  }
+}

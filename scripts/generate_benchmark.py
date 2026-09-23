@@ -90,7 +90,8 @@ def main():
             mismatches.append((c['id'], c['answer']['value'], again))
     if mismatches:
         raise ValueError(f'calculator recomputation differs: {mismatches[:5]}')
-    chosen = split(pool, QUOTAS, prior, SEED)
+    # S4 round 2 dropped more unanswerable items than the default 50% reserve could replace.
+    chosen = split(pool, QUOTAS, prior, SEED, reserve_overrides={'T6': 1.0})
     main_dev = [c for c in chosen['dev'] if not c['reserve']]
     main_test = [c for c in chosen['test'] if not c['reserve']]
     # Near-duplicate check between the main Test and Dev sets.

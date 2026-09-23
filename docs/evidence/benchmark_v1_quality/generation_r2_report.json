@@ -1,0 +1,141 @@
+{
+  "seed": 20260923,
+  "ledger_facts_sha256": "ea8655f3cd376037a9f398d34fbb76d5290121dbf4fcdbd4edac6e792820f385",
+  "pool_by_type": {
+    "T1": 262,
+    "T2": 1515,
+    "T3": 4760,
+    "T4": 181,
+    "T5": 6822,
+    "T6": 240
+  },
+  "pool_by_template": {
+    "t1_parent": 58,
+    "t1_prior": 120,
+    "t1_unit": 84,
+    "t2_difference": 1010,
+    "t2_sum": 505,
+    "t3_bridge": 4760,
+    "t4_ratio": 70,
+    "t4_growth": 111,
+    "t5_rank_ratio": 4046,
+    "t5_share": 564,
+    "t5_bridge_growth": 2212,
+    "t6_q3": 30,
+    "t6_2023": 30,
+    "t6_fy2025": 30,
+    "t6_outside": 150
+  },
+  "calculator_recomputation": "13540 answered candidates match",
+  "prior_facts": 22,
+  "main": {
+    "dev": {
+      "total": 50,
+      "by_type": {
+        "T1": 8,
+        "T2": 8,
+        "T3": 8,
+        "T4": 8,
+        "T5": 12,
+        "T6": 6
+      },
+      "by_template": {
+        "t1_unit": 4,
+        "t1_prior": 2,
+        "t1_parent": 2,
+        "t2_difference": 5,
+        "t2_sum": 3,
+        "t3_bridge": 8,
+        "t4_growth": 8,
+        "t5_share": 7,
+        "t5_rank_ratio": 3,
+        "t5_bridge_growth": 2,
+        "t6_outside": 3,
+        "t6_fy2025": 1,
+        "t6_2023": 1,
+        "t6_q3": 1
+      },
+      "tags": {
+        "hard_location": 39,
+        "prior_period": 2,
+        "unit_conversion": 25,
+        "parent_scope": 2,
+        "unanswerable": 6
+      },
+      "hard_location_share": 0.78,
+      "companies": {
+        "贵州茅台": 13,
+        "比亚迪": 15,
+        "宁德时代": 16,
+        "泸州老窖": 7,
+        "亿纬锂能": 10,
+        "美的集团": 12,
+        "伊利股份": 9,
+        "格力电器": 8,
+        "海尔智家": 12,
+        "五粮液": 6,
+        "(none)": 6
+      }
+    },
+    "test": {
+      "total": 100,
+      "by_type": {
+        "T1": 16,
+        "T2": 14,
+        "T3": 14,
+        "T4": 18,
+        "T5": 26,
+        "T6": 12
+      },
+      "by_template": {
+        "t1_parent": 6,
+        "t1_prior": 6,
+        "t1_unit": 4,
+        "t2_sum": 7,
+        "t2_difference": 7,
+        "t3_bridge": 14,
+        "t4_growth": 9,
+        "t4_ratio": 9,
+        "t5_bridge_growth": 11,
+        "t5_rank_ratio": 10,
+        "t5_share": 5,
+        "t6_2023": 3,
+        "t6_fy2025": 3,
+        "t6_outside": 3,
+        "t6_q3": 3
+      },
+      "tags": {
+        "hard_location": 69,
+        "parent_scope": 6,
+        "unit_conversion": 43,
+        "prior_period": 6,
+        "unanswerable": 12
+      },
+      "hard_location_share": 0.69,
+      "companies": {
+        "比亚迪": 27,
+        "海尔智家": 33,
+        "泸州老窖": 18,
+        "五粮液": 11,
+        "伊利股份": 23,
+        "美的集团": 25,
+        "贵州茅台": 29,
+        "宁德时代": 25,
+        "格力电器": 18,
+        "亿纬锂能": 22,
+        "(none)": 12
+      }
+    }
+  },
+  "reserves": {
+    "dev": 28,
+    "test": 56
+  },
+  "test_items_with_new_fact": 100,
+  "test_dev_group_overlap": 0,
+  "near_duplicates_over_0.8": [],
+  "code_sha256": {
+    "src/finmhqa/bench/generate.py": "abef747bd4ecac887fbcec14b44a3de6efb353e530742a930f8530949c260a64",
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/generate_benchmark.py": "dbb22a6c2af3619c289e436df5af3d1df3bc199bee8fedcbeb6fbe1494ee4d2a"
+  }
+}

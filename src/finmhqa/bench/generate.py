@@ -24,7 +24,7 @@ RATIOS = {
     'rd_ratio': ('rd_expense', 'revenue', '研发费用率', '研发费用率=研发费用÷营业收入'),
     'debt_ratio': ('total_liabilities', 'total_assets', '资产负债率', '资产负债率=负债合计÷资产总计'),
     'cash_ratio': ('cash', 'total_assets', '货币资金占总资产比例', '货币资金占总资产比例=货币资金÷资产总计'),
-    'cfo_to_np': ('cfo_net', 'net_profit', '经营现金流与净利润之比', '经营现金流与净利润之比=经营活动产生的现金流量净额÷净利润'),
+    'cfo_to_np': ('cfo_net', 'net_profit', '经营现金流与净利润之比', '经营现金流与净利润之比=经营活动产生的现金流量净额÷净利润（含少数股东损益）'),
     'gross_margin': (('revenue', 'cost_of_revenue'), 'revenue', '毛利率', '毛利率=(营业收入−营业成本)÷营业收入'),
 }
 STATEMENT = {'revenue': 'IS', 'cost_of_revenue': 'IS', 'selling_expense': 'IS', 'admin_expense': 'IS', 'rd_expense': 'IS',
@@ -43,8 +43,18 @@ def pct(v):
     return (v * 100).quantize(CENT, rounding=ROUND_HALF_UP)
 
 
+# S4 round 1: both judges read a bare consolidated 净利润 as possibly 归母净利润; name the line item explicitly.
+# The parent-company statement has no minority interest, so its 净利润 stays unqualified.
+CONSOLIDATED_LABEL = {'net_profit': '净利润（含少数股东损益）'}
+
+
+def label(fact):
+    return CONSOLIDATED_LABEL.get(fact['metric'], fact['metric_label']) if fact['scope'] == 'consolidated' else fact['metric_label']
+
+
 class Ledger:
     def __init__(self, facts):
+        facts = [dict(f, metric_label=label(f)) for f in facts]
         self.by_key = {(f['company'], f['scope'], f['metric'], f['period']): f for f in facts}
         self.companies = sorted({f['company'] for f in facts})
 
@@ -227,7 +237,7 @@ def t5(ledger):
 def t6(ledger):
     """Unanswerable: premises verified absent from the corpus (see BENCHMARK_S3 notes)."""
     out = []
-    labels = {'revenue': '营业收入', 'net_profit': '净利润', 'cfo_net': '经营活动产生的现金流量净额'}
+    labels = {'revenue': '营业收入', 'net_profit': CONSOLIDATED_LABEL['net_profit'], 'cfo_net': '经营活动产生的现金流量净额'}
     none = {'status': 'insufficient', 'value': '', 'unit': '', 'round_digits': None}
     for c in ledger.companies:
         for metric, label in labels.items():
@@ -240,7 +250,7 @@ def t6(ledger):
                             'answer': {**none, 'selected_company': None}, 'facts': [], 'derivation': f'unanswerable:{template}',
                             'tags': ['unanswerable'], 'group': f'{template}|{c}'})
             for outside in OUTSIDE:
-                q = f"根据半年报，{c}与{outside}2025年上半年合并口径{label}的差额是多少？{AMOUNT}"
+                q = f"根据半年报，{c}2025年上半年合并口径{label}减去{outside}同期同一指标，差额是多少？保留正负号，{AMOUNT}"
                 out.append({'id': 'b1-' + hashlib.sha256(q.encode()).hexdigest()[:10], 'type': 'T6', 'template': 't6_outside', 'question': q,
                             'answer': {**none, 'selected_company': None}, 'facts': [], 'derivation': f'unanswerable:outside:{outside}',
                             'tags': ['unanswerable'], 'group': f't6_outside|{c}|{outside}'})
@@ -259,7 +269,7 @@ def jaccard(a, b):
     return len(a & b) / len(a | b) if a | b else 0.0
 
 
-def split(candidates, quotas, prior_facts, seed, reserve_ratio=0.5, fact_cap=5, max_jaccard=0.8):
+def split(candidates, quotas, prior_facts, seed, reserve_ratio=0.5, fact_cap=5, max_jaccard=0.8, reserve_overrides=None):
     """Assign candidates to test/dev (+ ordered reserves) by fact-set group.
 
     Test items need at least one fact never used by earlier development questions. A fact-set
@@ -282,7 +292,7 @@ def split(candidates, quotas, prior_facts, seed, reserve_ratio=0.5, fact_cap=5, 
                 if templates[t]:
                     order.append(templates[t].pop())
         for part, need in (('test', n_test), ('dev', n_dev)):
-            limit = need + int(round(need * reserve_ratio))
+            limit = need + int(round(need * (reserve_overrides or {}).get(qtype, reserve_ratio)))
             taken = 0
             for c in order:
                 if taken >= limit:

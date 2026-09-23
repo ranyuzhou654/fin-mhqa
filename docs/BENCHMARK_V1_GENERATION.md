@@ -1,5 +1,7 @@
 # benchmark_v1 题目生成（S3）
 
+> **修订说明**：S4 第一轮歧义检查后，本步在冻结前修订为 r2。合并口径的「净利润」改写为「净利润（含少数股东损益）」；语料外公司题改为「A 减去 B」；T6 后备比例提高到 100%。Test 正式题的事实组合与划分不变。当前使用 `data/bench/generated_v1r2`，见 [S4 报告](BENCHMARK_V1_QUALITY.md) 和 [r2 生成报告](evidence/benchmark_v1_quality/generation_r2_report.json)。下文数字为最初生成时的记录。
+
 2026-09-23。所有题目都由 [事实台账](FACT_LEDGER_V1.md) 中的 298 条已核验事实，按模板确定性组合生成。答案由程序用 Decimal 计算，**没有调用任何模型**。本步产出的是候选划分；S4 质量检查之后，S5 才冻结。
 
 ## 规模与构成

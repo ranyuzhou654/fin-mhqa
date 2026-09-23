@@ -99,7 +99,7 @@
 | S1 | 计算器增加 ratio 和 growth 运算，并补测试（已完成：版本化为 calculator v2，配置中声明 `"calculator": "v2"` 才启用；v1 的提示词与 schema 保持不变） |
 | S2 | 抽取事实台账，运行四类核验；生成未通过事实的复核页（已完成：340 条候选准入 298 条，见 [FACT_LEDGER_V1](FACT_LEDGER_V1.md)） |
 | S3 | 题型模板、题目生成器、划分与防泄漏检查（已完成：Dev 50 / Test 100 及后备题，见 [BENCHMARK_V1_GENERATION](BENCHMARK_V1_GENERATION.md)） |
-| S4 | 质量关：规则检查、歧义 Judge、可达性诊断 |
+| S4 | 质量关：规则检查、歧义 Judge、可达性诊断（已完成，待用户抽查：见 [BENCHMARK_V1_QUALITY](BENCHMARK_V1_QUALITY.md)） |
 | S5 | 冻结评测集；运行器增加评测集模式和 Test 保护；评分脚本支持拒答和比率题 |
 | S6 | 在 Dev 上跑 B0–B3，每个配置 3 次 |
 
