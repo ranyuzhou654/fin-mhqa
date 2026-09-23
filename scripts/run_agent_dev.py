@@ -14,10 +14,13 @@ from finmhqa.agent.openai_compat import OpenAICompatTeacher
 from finmhqa.agent.graph import AgentGraph
 from finmhqa.agent.evidence_context import EvidenceContext
 from finmhqa.agent.pilot_tools import request_json,search
+from finmhqa.bench.guard import load_questions, log_test_run
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--questions',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
+    p=argparse.ArgumentParser();p.add_argument('--questions',type=Path);p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--benchmark',choices=['dev','test'],help='frozen benchmark_v1 split instead of --questions')
+    p.add_argument('--final',action='store_true',help='required for the Test split; only registered configs')
     p.add_argument('--arms',nargs='+',choices=['structured','generic','flat'],default=['structured','generic','flat'])
     p.add_argument('--url',default='http://127.0.0.1:8100');p.add_argument('--workers',type=int,choices=[1,2,4],default=2)
     p.add_argument('--synthesis',choices=['model','verified'],default='verified')
@@ -33,7 +36,15 @@ def main():
         budgets=dict(config['budgets'],reserve_calculation=config.get('reserve_calculation',False),calculator=config.get('calculator','v1'))
     if (a.context_index or a.reserve_verifier) and ('flat' in a.arms or a.synthesis!='verified'):p.error('M3.1 requires graph arms and verified publication')
     if a.out.exists():raise FileExistsError(a.out)
-    rows=[json.loads(l) for l in a.questions.read_text().splitlines()]
+    if bool(a.questions)==bool(a.benchmark):p.error('give exactly one of --questions or --benchmark')
+    if a.final and a.benchmark!='test':p.error('--final only applies to --benchmark test')
+    bench=None
+    if a.benchmark:
+        if a.benchmark=='test' and a.only:p.error('Test runs cover the whole split; --only is not allowed')
+        rows,bench=load_questions(a.benchmark,final=a.final,config=a.config)
+        a.questions=Path('data/bench/benchmark_v1')/f'{a.benchmark}_questions.jsonl'
+    else:
+        rows=[json.loads(l) for l in a.questions.read_text().splitlines()]
     if any(set(r)!={'id','question'} for r in rows) or len({r['id'] for r in rows})!=len(rows):raise ValueError('unique question-only input required')
     if a.only:rows=[r for r in rows if r['id']==a.only]
     if not rows:raise ValueError('no cases')
@@ -53,10 +64,12 @@ def main():
         'langgraph':importlib.metadata.version('langgraph'),'health_before':health,'arms':a.arms,'workers':a.workers,
         'synthesis':a.synthesis,'context_index':str(a.context_index) if a.context_index else None,'reserve_verifier':a.reserve_verifier,**budgets,'context_version':context_version if a.context_index else None,
         'config':str(a.config) if a.config else None,'config_sha256':hashlib.sha256(a.config.read_bytes()).hexdigest() if a.config else None,'code_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
-        'scope':'development only; authored from previously reviewed facts; not independent Test',
+        'benchmark':bench,
+        'scope':f"benchmark_v1 {a.benchmark}" if bench else 'development only; authored from previously reviewed facts; not independent Test',
         'flat':'existing action policy with shared safety guards and budgets; no semantic verifier or synthesis model call',
         'generic':'same graph and verifier; only failure feedback to planner replaced with generic failure message'}
     (a.out/'manifest.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2))
+    if a.benchmark=='test':log_test_run('started',out=str(a.out),config=str(a.config),config_sha256=metadata['config_sha256'])
     lock=threading.Lock()
     def run(task):
         arm,row=task;folder=a.out/arm/row['id'];folder.mkdir(parents=True)
@@ -83,5 +96,6 @@ def main():
     after=request_json(a.url+'/health')
     if after!=health:raise ValueError('index changed')
     (a.out/'health_after.json').write_text(json.dumps(after,ensure_ascii=False,indent=2))
+    if a.benchmark=='test':log_test_run('finished',out=str(a.out),config=str(a.config),config_sha256=metadata['config_sha256'])
 
 if __name__=='__main__':main()

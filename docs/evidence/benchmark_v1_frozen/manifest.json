@@ -1,0 +1,61 @@
+{
+  "name": "benchmark_v1",
+  "frozen_at": "2026-09-23T12:10:11+00:00",
+  "counts": {
+    "dev": 50,
+    "test": 100
+  },
+  "files": {
+    "dev_questions.jsonl": "0076d7cb942a22fc0ab037ea421fe5968815d9714d00ef1539e339531b122a85",
+    "test_questions.jsonl": "212894bc3710aab466a26b4f4a9f9ed7682e53a83abb340645702d47fa17cb14"
+  },
+  "gold_sha256": {
+    "dev_gold.jsonl": "0577d50bb86c2775188d41e1c336a2bc73d329a42ed2a20eca413b3303e9b9cc",
+    "test_gold.jsonl": "1804558dd91a9ca55dac7302bca31358e92d4f6fdcb3110f98d2183732721a79"
+  },
+  "provenance_sha256": {
+    "ledger_facts": "ea8655f3cd376037a9f398d34fbb76d5290121dbf4fcdbd4edac6e792820f385",
+    "generation_report_r2": "d09f9196335f02185058831489382f66d56bfe92f89302b4dcc65a4aa5f91294",
+    "s4_summary": "05ae08ae54213071b0d20e91cbaedb88670b31f1e054d9a1bcbc22e8c79bf7cb",
+    "spot_check_page": "98fe74863710cc2e1dde50bb7da0399f53bcfbbf19085fd39026f75900f4d1b9",
+    "src/finmhqa/bench/ledger.py": "d932e6b685a44ff156f8647d60c1ffb965e6fd417ffb92cb45aee49ee13f56a2",
+    "src/finmhqa/bench/generate.py": "abef747bd4ecac887fbcec14b44a3de6efb353e530742a930f8530949c260a64",
+    "src/finmhqa/bench/quality.py": "46f34a586514e6afe5c40c7388e25d96290efb57382278b3be3f4b16fe2a348b",
+    "scripts/build_fact_ledger.py": "faecfaf522408cb55e41c1c746e69cf0b549c492bfe7026fc7b3d68551ee2fb8",
+    "scripts/generate_benchmark.py": "dbb22a6c2af3619c289e436df5af3d1df3bc199bee8fedcbeb6fbe1494ee4d2a",
+    "scripts/bench_quality.py": "2504882203c2544a19518a422141dd4837aed030393941c6b2989ed58aba5b61"
+  },
+  "spot_check": {
+    "reviewer": "user",
+    "items": 20,
+    "sample_seed": 20260923,
+    "result": "用户于 2026-09-23 抽查 20 道 Test 题（题面清晰度与答案正确性），全部通过",
+    "ids": [
+      "b1-71df5a95e4",
+      "b1-0737737b83",
+      "b1-7ed7f124c1",
+      "b1-ff044914bd",
+      "b1-706b6b8020",
+      "b1-ae59f3b806",
+      "b1-01fc4adfb1",
+      "b1-e9d83d57b1",
+      "b1-58a6cc75aa",
+      "b1-6eb7508002",
+      "b1-2794615cc6",
+      "b1-2a64bb9e5e",
+      "b1-943df141ad",
+      "b1-aa3a2b44cc",
+      "b1-7cdc455efe",
+      "b1-8de6d305ce",
+      "b1-ac00bbcdbe",
+      "b1-2ce95145a5",
+      "b1-6558a6693c",
+      "b1-8c586f9729"
+    ]
+  },
+  "rules": [
+    "Dev is for tuning and architecture choice; Test only for final registered configs",
+    "Test runs require --final and a config registered in configs/benchmark_v1_registry.json",
+    "every Test run is appended to test_runs.jsonl; errors and failures stay in denominators"
+  ]
+}

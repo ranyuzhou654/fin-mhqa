@@ -100,7 +100,7 @@
 | S2 | 抽取事实台账，运行四类核验；生成未通过事实的复核页（已完成：340 条候选准入 298 条，见 [FACT_LEDGER_V1](FACT_LEDGER_V1.md)） |
 | S3 | 题型模板、题目生成器、划分与防泄漏检查（已完成：Dev 50 / Test 100 及后备题，见 [BENCHMARK_V1_GENERATION](BENCHMARK_V1_GENERATION.md)） |
 | S4 | 质量关：规则检查、歧义 Judge、可达性诊断（已完成，待用户抽查：见 [BENCHMARK_V1_QUALITY](BENCHMARK_V1_QUALITY.md)） |
-| S5 | 冻结评测集；运行器增加评测集模式和 Test 保护；评分脚本支持拒答和比率题 |
+| S5 | 冻结评测集；运行器增加评测集模式和 Test 保护；评分脚本支持拒答和比率题（已完成，见 [BENCHMARK_V1_FROZEN](BENCHMARK_V1_FROZEN.md)） |
 | S6 | 在 Dev 上跑 B0–B3，每个配置 3 次 |
 
 成本估计：DeepSeek 跑一次 dev20 约用 134 万输入 token。按此推算，Dev 50 题 × 4 个配置 × 3 次，约需 4,000 万输入 token。

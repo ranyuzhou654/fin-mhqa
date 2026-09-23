@@ -1,0 +1,4 @@
+{
+  "note": "Configs allowed to run on the benchmark_v1 Test split. Register only final candidates chosen on Dev; add sha256 of the config file, date and reason.",
+  "registered": []
+}

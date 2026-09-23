@@ -58,7 +58,7 @@ def audit_run(run):
         context=EvidenceContext(manifest['context_index'],manifest['health_before']['admission']['dataset_sha256'],manifest.get('context_version',1))
     limits=(manifest.get('max_models',10),manifest.get('max_tools',8),manifest.get('max_searches',6))
     for arm in manifest['arms']:
-        for case in sorted((run/arm).glob('agent-dev-*')):
+        for case in sorted(c for c in (run/arm).iterdir() if (c/'trajectory.jsonl').exists()):
             try:report=audit_agent_case(case,context.read if context else None,limits)
             except Exception as e:report={'id':case.name,'status':'AUDIT_FAILED','error':str(e)}
             results.append({'arm':arm,**report})

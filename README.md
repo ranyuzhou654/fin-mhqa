@@ -13,7 +13,7 @@
 | Agent | LangGraph Planner–Executor–Verifier–Synthesizer，结构化重规划、预算控制、续表与单位说明的受控读取、确定性计算、原样发布已核验的答案。见[M3 设计](docs/AGENT_M3_DESIGN.md)、[M3.1 设计](docs/AGENT_M31_DESIGN.md) |
 | Agent 模型 | 现用 DeepSeek（deepseek-v4.1-flash，OpenAI 兼容接口），dev20 为 20/20；Sol 的 rc1 为 19/20。见[teacher_v1](docs/TEACHER_V1.md)、[DeepSeek](docs/TEACHER_V2_DEEPSEEK.md) |
 | 质量评判 | Sol、DeepSeek、Claude 三个模型的 Judge 对比，未经人工校准。见[对比](docs/JUDGE_COMPARISON_V1.md) |
-| 评测集 | **进行中**：dev20 已饱和（flat 基线也是 20/20），正在建设更难的冻结评测集。见[设计](docs/BENCHMARK_DESIGN.md) |
+| 评测集 | benchmark_v1 已冻结：Dev 50 / Test 100，答案由程序从 298 条已核验事实计算，Test 受登记配置和 `--final` 保护。见[冻结说明](docs/BENCHMARK_V1_FROZEN.md)、[设计](docs/BENCHMARK_DESIGN.md) |
 
 历史阶段、失败记录及所有数值的来源见[实施进度](docs/IMPLEMENTATION_STATUS.md)。
 
