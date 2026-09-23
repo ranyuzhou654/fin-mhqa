@@ -59,7 +59,8 @@ def audit_run(run):
     limits=(manifest.get('max_models',10),manifest.get('max_tools',8),manifest.get('max_searches',6))
     for arm in manifest['arms']:
         for case in sorted(c for c in (run/arm).iterdir() if (c/'trajectory.jsonl').exists()):
-            try:report=audit_agent_case(case,context.read if context else None,limits)
+            # B0/B1 baselines issue fixed searches without a policy decision: audit events, usage and citations only
+            try:report=audit_case(case) if arm in ('closed_book','single_retrieval') else audit_agent_case(case,context.read if context else None,limits)
             except Exception as e:report={'id':case.name,'status':'AUDIT_FAILED','error':str(e)}
             results.append({'arm':arm,**report})
     return {'results':results,'passed':sum(r['status']=='AUDIT_PASSED' for r in results),'total':len(results),

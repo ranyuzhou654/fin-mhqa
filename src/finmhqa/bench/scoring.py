@@ -2,6 +2,7 @@
 
 Errors and missing runs stay in every denominator. Nothing here calls a model.
 """
+from collections import Counter
 from decimal import Decimal, InvalidOperation
 import random
 import statistics
@@ -59,7 +60,7 @@ def score_item(gold, result, events, facts):
             if isinstance(v, int):
                 usage[k] = usage.get(k, 0) + v
     return {'id': gold['id'], 'type': gold['type'], 'tags': gold['tags'], 'correct': correct, 'error': error,
-            'status': status, 'expected_status': answer['status'],
+            'status': status, 'expected_status': answer['status'], 'terminal_reason': (result or {}).get('terminal_reason', 'NOT_RUN'),
             'citations_valid': set(citations) <= set(seen) if status == 'answered' else None,
             'hops_cited': hops, 'model_calls': (result or {}).get('decision_calls', 0), 'tool_calls': (result or {}).get('tool_calls', 0),
             'seconds': (result or {}).get('seconds'), 'usage': usage}
@@ -90,6 +91,9 @@ def summarize(scores):
         'by_type': {t: rate(s for s in scores if s['type'] == t) for t in sorted({s['type'] for s in scores})},
         'by_tag': {t: rate(s for s in scores if t in s['tags']) for t in tags},
         'abstention_recall': rate(unanswerable),
+        # a refusal reached by exhausting budgets is scored like a deliberate one; report them apart
+        'terminal_reasons': {'answerable': dict(Counter(s['terminal_reason'] for s in answerable)),
+                             'unanswerable': dict(Counter(s['terminal_reason'] for s in unanswerable))},
         'false_abstention': rate(answerable, key=lambda s: s['status'] == 'insufficient' and not s['error']),
         'errors': sum(bool(s['error']) for s in scores),
         'citation_validity': rate(answered, key=lambda s: bool(s['citations_valid'])),

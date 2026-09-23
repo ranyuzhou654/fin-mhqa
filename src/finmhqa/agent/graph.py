@@ -7,7 +7,7 @@ from typing import TypedDict
 from langgraph.graph import StateGraph, START, END
 from jsonschema import validate
 from .codex_teacher import SYSTEM, SCHEMA
-from .graph_contracts import PLAN_SCHEMA, VERIFY_SCHEMA, FINAL_SCHEMA, PLANNER, VERIFIER, SYNTHESIZER, CONTEXT_PLAN_SCHEMA, CONTEXT_PLANNER, CALCULATOR_V2_PROMPT, calculator_v2
+from .graph_contracts import PLAN_SCHEMA, VERIFY_SCHEMA, FINAL_SCHEMA, PLANNER, VERIFIER, SYNTHESIZER, CONTEXT_PLAN_SCHEMA, CONTEXT_PLANNER, CALCULATOR_V2_PROMPT, calculator_v2, CONTEXT_FLAT, CONTEXT_FLAT_SCHEMA
 from .pilot_tools import calculate, decimal
 
 
@@ -61,11 +61,9 @@ class AgentGraph:
         if synthesis not in ('model','verified'):raise ValueError('invalid synthesis mode')
         if reserve_verifier and (arm == 'flat' or synthesis != 'verified' or max_models < 2):
             raise ValueError('reserved verification requires structured/generic verified mode and >=2 calls')
-        if context_reader is not None and arm == 'flat':raise ValueError('context requires graph planner')
         self.context_reader=context_reader
         self.reserve_verifier=reserve_verifier
         # Keep the last tool call for the final unit conversion/arithmetic (M3.1 case 006 ran out after finding the value).
-        if reserve_calculation and arm == 'flat':raise ValueError('calculation reservation requires graph planner')
         self.reserve_calculation=reserve_calculation
         # v1 keeps the frozen teacher_v1/v2 prompt and schema byte-identical; v2 adds ratio/growth.
         if calculator not in ('v1','v2'):raise ValueError('invalid calculator version')
@@ -98,9 +96,10 @@ class AgentGraph:
         if self.arm!='flat':
             history.append({'plan':s['plan'],'feedback':s['feedback'],
                 'remaining_tools':self.max_tools-s['tool_calls'],'remaining_model_calls':self.max_models-s['model_calls']})
-        prompt = CONTEXT_PLANNER if self.context_reader is not None else PLANNER if self.arm!='flat' else SYSTEM
+        flat=self.arm=='flat';context=self.context_reader is not None
+        prompt = (CONTEXT_FLAT if context else SYSTEM) if flat else (CONTEXT_PLANNER if context else PLANNER)
         prompt = prompt.replace('合计最多10次', f'合计最多{self.max_models}次')
-        schema = deepcopy(CONTEXT_PLAN_SCHEMA if self.context_reader is not None else PLAN_SCHEMA if self.arm!='flat' else SCHEMA)
+        schema = deepcopy((CONTEXT_FLAT_SCHEMA if context else SCHEMA) if flat else (CONTEXT_PLAN_SCHEMA if context else PLAN_SCHEMA))
         if self.calculator=='v2':
             schema=calculator_v2(schema);prompt+=CALCULATOR_V2_PROMPT
         finalize = self.reserve_verifier and self.max_models-s['model_calls'] <= 2

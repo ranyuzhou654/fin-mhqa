@@ -32,13 +32,14 @@ CONTEXT_PLAN_SCHEMA['required'].append('context')
 CONTEXT_PLAN_SCHEMA['properties']['context']={'anyOf':[{'type':'null'},obj({
     'anchor_id':STRING,'scope':{'type':'string','enum':['table','table_continuation','page','previous_page','next_page','document_units']},
     'cursor':{'type':'integer','minimum':0}})]}
-CONTEXT_PLANNER=PLANNER+"""
+CONTEXT_TEXT="""
 另可调用read_evidence_context，context填写已看到的anchor_id、scope和cursor（首次为0）。
 scope=table读取同一parent_table的原表各分段，返回continuation_candidates>0表示下一页有同章节、未标注表头的表格；目标行不在原表时用table_continuation读取这些续表候选，续表关系未经证明，须结合行名、列数与原表表头判断，引用时同时引用原表表头；page读取锚点起始页；previous_page/next_page读取相邻物理页；document_units读取同一公司、同一源文件的单位说明候选，报告级明确声明（如“财务报表及附注的单位为”）及离锚点较近者排前。每次最多6条/24000文字，有next_cursor才可继续翻页，每次读取占1次工具预算。只返回已准入chunk，不保证整页完整；相邻页不保证同表，单位候选不代表自动适用。读取结果保留原chunk_id，答案应同时引用数值、表头及适用的单位说明。不要重复读取相同anchor/scope/cursor。
 有单位、期间、合并口径缺口时优先按锚点读取上下文，避免多次盲搜。表内明确单位优先于通用声明，不能用报告年份替代表格本期列；冲突必须核对，无法解决则拒答。
 计算应直接使用工具原文中最精确的本期金额，最后一步才按题目要求舍入；不要把已舍入摘要再换算为伪精确数。若只有舍入摘要可用，明确精度局限并补查原表。
 运行时budget字段给出实际剩余调用；finalize_only=true时只能finish，提交有依据的候选或insufficient，不得继续调用工具。未使用的context必须为null。
 """
+CONTEXT_PLANNER=PLANNER+CONTEXT_TEXT
 
 
 CALCULATOR_V2_PROMPT = """
@@ -52,3 +53,11 @@ def calculator_v2(schema):
     calc['operation']['enum'] = [*calc['operation']['enum'], 'ratio', 'growth']
     calc['output_unit']['enum'] = [*calc['output_unit']['enum'], '%']
     return schema
+
+
+# Flat (single-model) arm with the same context tool, so flat vs graph differs only in the roles.
+CONTEXT_FLAT_SCHEMA=deepcopy(SCHEMA)
+CONTEXT_FLAT_SCHEMA['properties']['action']['enum'].append('read_evidence_context')
+CONTEXT_FLAT_SCHEMA['required'].append('context')
+CONTEXT_FLAT_SCHEMA['properties']['context']=CONTEXT_PLAN_SCHEMA['properties']['context']
+CONTEXT_FLAT=SYSTEM+CONTEXT_TEXT

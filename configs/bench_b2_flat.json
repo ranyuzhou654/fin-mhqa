@@ -1,0 +1,28 @@
+{
+  "teacher": {
+    "backend": "openai",
+    "base_url": "https://opencode.ai/zen/v1",
+    "model": "deepseek-v4.1-flash"
+  },
+  "retrieval": {
+    "top_k": 5,
+    "n_cand": 30,
+    "corpus_count": 9322
+  },
+  "benchmark": "benchmark_v1",
+  "name": "B2 flat agent",
+  "arm": "flat",
+  "synthesis": "verified",
+  "context_index": "index",
+  "context_version": 2,
+  "reserve_verifier": false,
+  "reserve_calculation": true,
+  "calculator": "v2",
+  "budgets": {
+    "max_models": 12,
+    "max_tools": 8,
+    "max_searches": 6,
+    "max_replans": 2
+  },
+  "description": "single model looping over search/context/calculator; same tools, budgets and publication guards as B3"
+}

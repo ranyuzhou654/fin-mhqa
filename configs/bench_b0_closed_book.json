@@ -1,0 +1,25 @@
+{
+  "teacher": {
+    "backend": "openai",
+    "base_url": "https://opencode.ai/zen/v1",
+    "model": "deepseek-v4.1-flash"
+  },
+  "retrieval": {
+    "top_k": 5,
+    "n_cand": 30,
+    "corpus_count": 9322
+  },
+  "benchmark": "benchmark_v1",
+  "name": "B0 closed book",
+  "arm": "closed_book",
+  "synthesis": "verified",
+  "context_index": null,
+  "reserve_verifier": false,
+  "budgets": {
+    "max_models": 1,
+    "max_tools": 0,
+    "max_searches": 0,
+    "max_replans": 0
+  },
+  "description": "one model call, no retrieval, no tools; measures what the model answers from memory"
+}

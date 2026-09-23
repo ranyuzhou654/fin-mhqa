@@ -196,6 +196,15 @@ def test_last_tool_call_is_reserved_for_final_calculation():
         run([query('a'),query('b'),query('c')],max_tools=3,max_searches=6,synthesis='verified',reserve_calculation=True)
 
 
-def test_calculation_reservation_refused_for_flat_arm():
-    with pytest.raises(ValueError,match='graph planner'):
-        AgentGraph(lambda *a:None,lambda *a:None,lambda e:None,'flat',reserve_calculation=True)
+def test_flat_arm_can_read_context_and_reserve_calculation():
+    # benchmark B2: flat differs from the graph only in roles, not in tools or budget rules
+    anchor=dict(C,source_sha256='hash');extra=dict(anchor,chunk_id='units',text='单位：元')
+    f=dict(F,citations=['c1','units'])
+    flat=lambda a:{k:v for k,v in a.items() if k!='plan'}
+    steps=[flat(dict(a,context=a.get('context'))) for a in [query(),context_action(),calc(),finish(f)]]
+    prompts=[];m=Scripted(steps)
+    def model(q,payload,step,prompt,schema):
+        prompts.append((prompt,schema));return m(q,payload,step,prompt,schema)
+    state=AgentGraph(model,lambda _: {'results':[anchor]},lambda e:None,'flat',synthesis='verified',
+                     context_reader=lambda _: {'results':[extra]},reserve_calculation=True,calculator='v2').run('q')
+    assert state['final']==f and 'read_evidence_context' in prompts[0][0] and 'plan' not in prompts[0][1]['properties']
