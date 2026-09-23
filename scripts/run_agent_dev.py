@@ -30,7 +30,7 @@ def main():
         config=json.loads(a.config.read_text())
         a.arms=[config['arm']];a.synthesis=config['synthesis'];a.reserve_verifier=config['reserve_verifier']
         a.context_index=Path(config['context_index']) if config['context_index'] else None
-        budgets=dict(config['budgets'],reserve_calculation=config.get('reserve_calculation',False))
+        budgets=dict(config['budgets'],reserve_calculation=config.get('reserve_calculation',False),calculator=config.get('calculator','v1'))
     if (a.context_index or a.reserve_verifier) and ('flat' in a.arms or a.synthesis!='verified'):p.error('M3.1 requires graph arms and verified publication')
     if a.out.exists():raise FileExistsError(a.out)
     rows=[json.loads(l) for l in a.questions.read_text().splitlines()]

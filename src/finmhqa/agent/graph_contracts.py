@@ -39,3 +39,16 @@ scope=table读取同一parent_table的原表各分段，返回continuation_candi
 计算应直接使用工具原文中最精确的本期金额，最后一步才按题目要求舍入；不要把已舍入摘要再换算为伪精确数。若只有舍入摘要可用，明确精度局限并补查原表。
 运行时budget字段给出实际剩余调用；finalize_only=true时只能finish，提交有依据的候选或insufficient，不得继续调用工具。未使用的context必须为null。
 """
+
+
+CALCULATOR_V2_PROMPT = """
+计算器v2：另支持ratio与growth，恰好两个数，output_unit必须为%。ratio=第一个数/第二个数×100；growth=(本期−上期)/上期×100，values按[本期, 上期]顺序，上期须为正数。两数可用不同金额单位，工具先统一换算。比率题答案单位为%，round_digits遵从问题。金额运算（convert/sum/difference）不能输出%。"""
+
+
+def calculator_v2(schema):
+    """Copy of an action schema whose calculation also allows ratio/growth in percent."""
+    schema = deepcopy(schema)
+    calc = schema['properties']['calculation']['anyOf'][1]['properties']
+    calc['operation']['enum'] = [*calc['operation']['enum'], 'ratio', 'growth']
+    calc['output_unit']['enum'] = [*calc['output_unit']['enum'], '%']
+    return schema
