@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import threading
 import time
+import urllib.error
 from finmhqa.agent.codex_teacher import CodexTeacher
 from finmhqa.agent.openai_compat import OpenAICompatTeacher
 from finmhqa.agent.graph import AgentGraph
@@ -82,8 +83,16 @@ def main():
             record({'event':'question',**row,'arm':arm})
             def model(question,history,step,prompt,schema):
                 return teacher.decide(question,history,folder/f'step_{step:02}',system=prompt,output_schema=schema)
+            busy=[0]
             def retrieve(args):
-                with lock:return search(a.url,args,health['admission']['dataset_sha256'])
+                # The server has one inference slot and answers 503 when busy (e.g. another process is searching).
+                # Wait and retry at the infrastructure level so the agent never sees a false tool failure.
+                with lock:
+                    for attempt in range(60):
+                        try:return search(a.url,args,health['admission']['dataset_sha256'])
+                        except urllib.error.HTTPError as exc:
+                            if exc.code!=503 or attempt==59:raise
+                            busy[0]+=1;time.sleep(2)
             try:
                 if arm=='closed_book':agent=ClosedBook(model,record)
                 elif arm=='single_retrieval':agent=SingleRetrieval(model,retrieve,record)
@@ -93,7 +102,7 @@ def main():
         result={'id':row['id'],'arm':arm,'final':state.get('final'),'error':error,'terminal_reason':state.get('terminal_reason','ERROR'),
             'seconds':time.monotonic()-start,'search_calls':sum(e['event']=='tool_request' and e['tool']=='search' for e in logs),
             'tool_calls':sum(e['event']=='tool_request' for e in logs),'decision_calls':sum(e['event']=='teacher_decision' for e in logs),
-            'replan_count':state.get('replan_count'),'usage':[e['usage'] for e in logs if e['event']=='teacher_decision']}
+            'replan_count':state.get('replan_count'),'retrieval_busy_retries':busy[0],'usage':[e['usage'] for e in logs if e['event']=='teacher_decision']}
         (folder/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
         print(json.dumps({k:result[k] for k in ['id','arm','terminal_reason','search_calls','decision_calls','error']},ensure_ascii=False),flush=True)
     # Rotate order by question to reduce fixed arm/time ordering effects; not a randomised statistical trial.

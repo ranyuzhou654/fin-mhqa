@@ -54,6 +54,8 @@ def score_item(gold, result, events, facts):
     citations = final.get('citations') or []
     cited = [seen[c] for c in citations if c in seen]
     hops = [fact_cited(facts[f], cited) for f in gold['facts']] if status == 'answered' else []
+    tool_errors = sum(1 for e in events if e.get('event') == 'tool_response' and 'error' in e.get('response', {})
+                      and e.get('tool') == 'search')
     usage = {}
     for u in (result or {}).get('usage') or []:
         for k, v in (u or {}).items():
@@ -63,7 +65,8 @@ def score_item(gold, result, events, facts):
             'status': status, 'expected_status': answer['status'], 'terminal_reason': (result or {}).get('terminal_reason', 'NOT_RUN'),
             'citations_valid': set(citations) <= set(seen) if status == 'answered' else None,
             'hops_cited': hops, 'model_calls': (result or {}).get('decision_calls', 0), 'tool_calls': (result or {}).get('tool_calls', 0),
-            'seconds': (result or {}).get('seconds'), 'usage': usage}
+            'seconds': (result or {}).get('seconds'), 'usage': usage, 'search_errors': tool_errors,
+            'busy_retries': (result or {}).get('retrieval_busy_retries', 0)}
 
 
 def rate(items, key=lambda s: s['correct']):
@@ -96,6 +99,9 @@ def summarize(scores):
                              'unanswerable': dict(Counter(s['terminal_reason'] for s in unanswerable))},
         'false_abstention': rate(answerable, key=lambda s: s['status'] == 'insufficient' and not s['error']),
         'errors': sum(bool(s['error']) for s in scores),
+        # infrastructure health: failed searches reach the agent as tool errors and depress scores
+        'search_errors': sum(s.get('search_errors', 0) for s in scores),
+        'busy_retries': sum(s.get('busy_retries', 0) for s in scores),
         'citation_validity': rate(answered, key=lambda s: bool(s['citations_valid'])),
         'hop_citation_coverage': {'n': len(hops), 'value': round(sum(hops) / len(hops), 4) if hops else None},
         'mean_model_calls': round(statistics.mean(s['model_calls'] for s in scores), 3),

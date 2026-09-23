@@ -1,5 +1,6 @@
 #!/bin/zsh
-# S6: every baseline config three times on the frozen Dev split; B0/B1 first, then B2 and B3 streams in parallel.
+# S6: every baseline config three times on the frozen Dev split, strictly one run at a time.
+# (Running two processes in parallel overloads the single-slot retrieval server; see s6_driver.log.)
 set -u
 cd "$(dirname "$0")/.."
 run() {  # config, repetition
@@ -9,6 +10,4 @@ run() {  # config, repetition
   echo "done $out exit $?"
 }
 for r in 1 2 3; do run b0_closed_book $r; run b1_single_retrieval $r; done
-(for r in 1 2 3; do run b2_flat $r; done) &
-(for r in 1 2 3; do run b3_graph $r; done) &
-wait
+for r in 1 2 3; do run b2_flat $r; run b3_graph $r; done
