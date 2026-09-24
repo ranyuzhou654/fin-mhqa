@@ -1,7 +1,7 @@
 {
   "teacher": {
     "backend": "openai",
-    "base_url": "https://opencode.ai/zen/v1",
+    "base_url": "https://opencode.ai/zen/go/v1",
     "model": "deepseek-v4.1-flash"
   },
   "retrieval": {

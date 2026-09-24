@@ -1,4 +1,5 @@
 """OpenAI-compatible chat transport (e.g. OpenCode Zen). No tools are offered; the key never reaches disk."""
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -61,12 +62,15 @@ class OpenAICompatTeacher:
         self.max_attempts = max_attempts
         self.transport_retries, self.backoff = transport_retries, backoff
         self.transport_failures = []
+        self._custom_post = post is not None
         self.post = post or self._post
 
-    def _post(self, body, timeout):
-        request = urllib.request.Request(self.base_url + '/chat/completions', data=json.dumps(body).encode(),
-                                         headers={'Content-Type': 'application/json', 'User-Agent': 'fin-mhqa/0.1',
-                                                  'Authorization': 'Bearer ' + self._key})
+    def _post(self, body, timeout, session=None):
+        headers = {'Content-Type': 'application/json', 'User-Agent': 'fin-mhqa/0.1', 'Authorization': 'Bearer ' + self._key}
+        if session:
+            # OpenCode Go asks clients to send a stable per-conversation id for routing and prompt caching.
+            headers['x-opencode-session'] = session
+        request = urllib.request.Request(self.base_url + '/chat/completions', data=json.dumps(body).encode(), headers=headers)
         try:
             with urllib.request.urlopen(request, timeout=timeout) as response:
                 return json.loads(response.read())
@@ -75,11 +79,11 @@ class OpenAICompatTeacher:
             error.transient = exc.code == 429 or exc.code >= 500
             raise error from None
 
-    def _send(self, body, timeout, log):
+    def _send(self, body, timeout, log, session=None):
         # Network-level retry only (dropped connection, 429, 5xx); a model reply is never re-requested here.
         for attempt in range(self.transport_retries + 1):
             try:
-                return self.post(body, timeout)
+                return self.post(body, timeout) if self._custom_post else self._post(body, timeout, session)
             except (OSError, RuntimeError, ValueError) as exc:
                 transient = isinstance(exc, OSError) or getattr(exc, 'transient', False)
                 log.append({'attempt': attempt + 1, 'error': f'{type(exc).__name__}: {exc}'[:300], 'retried': transient and attempt < self.transport_retries})
@@ -97,7 +101,10 @@ class OpenAICompatTeacher:
                        + json.dumps(output_schema, ensure_ascii=False))
         body = {'model': self.model, 'temperature': 0, 'response_format': {'type': 'json_object'},
                 'messages': [{'role': 'system', 'content': instruction}, {'role': 'user', 'content': prompt}]}
-        (outdir / 'request.json').write_text(json.dumps(body, ensure_ascii=False, indent=2))
+        # One conversation = one question: every step_NN of the same question folder shares a session id.
+        anchor = outdir.parent if outdir.name.startswith('step_') else outdir
+        session = hashlib.sha256(str(anchor.resolve()).encode()).hexdigest()[:32]
+        (outdir / 'request.json').write_text(json.dumps({**body, 'x-opencode-session': session}, ensure_ascii=False, indent=2))
         # Every attempt is kept; only a malformed-JSON reply is retried, never a valid but unwelcome answer.
         failure = None;rejected_usage = [];transport_log = []
         for attempt in range(self.max_attempts):
@@ -105,7 +112,7 @@ class OpenAICompatTeacher:
             folder.mkdir(exist_ok=True)
             start = time.monotonic()
             try:
-                response = self._send(body, timeout, transport_log)
+                response = self._send(body, timeout, transport_log, session)
             finally:
                 if transport_log:
                     (outdir / 'transport_errors.json').write_text(json.dumps(transport_log, ensure_ascii=False, indent=2))

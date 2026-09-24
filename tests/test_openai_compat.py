@@ -100,3 +100,13 @@ def test_transport_errors_retried_and_logged_but_client_errors_not(tmp_path):
         e=RuntimeError('HTTP 403');e.transient=False;raise e
     with pytest.raises(RuntimeError,match='transport failed'):
         OpenAICompatTeacher('https://example.test/v1','m',api_key='k',post=forbidden,backoff=0).decide('问',[],tmp_path/'t',system='S',output_schema=SCHEMA)
+
+
+def test_session_header_is_stable_per_question_and_differs_across_questions(tmp_path, monkeypatch):
+    sent = []
+    t = OpenAICompatTeacher('https://example.test/v1', 'm', api_key='k')
+    monkeypatch.setattr(t, '_post', lambda body, timeout, session=None: sent.append(session) or reply(json.dumps(ACTION)))
+    for q, step in (('q1', 0), ('q1', 1), ('q2', 0)):
+        t.decide('问', [], tmp_path / q / f'step_{step:02}', system='S', output_schema=SCHEMA)
+    assert sent[0] == sent[1] != sent[2] and len(sent[0]) == 32
+    assert json.loads((tmp_path / 'q1' / 'step_00' / 'request.json').read_text())['x-opencode-session'] == sent[0]
