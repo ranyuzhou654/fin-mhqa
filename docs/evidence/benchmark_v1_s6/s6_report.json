@@ -1,0 +1,444 @@
+{
+  "split": "dev",
+  "configs": {
+    "B0": {
+      "config": "configs/bench_b0_closed_book.json",
+      "runs": 3,
+      "accuracy_per_run": [
+        0.22,
+        0.18,
+        0.16
+      ],
+      "accuracy_mean": 0.1867,
+      "accuracy_sd": 0.0306,
+      "items_always_correct": 4,
+      "items_never_correct": 35,
+      "items": 50,
+      "by_type_mean": {
+        "T1": 0.1667,
+        "T2": 0.125,
+        "T3": 0.125,
+        "T4": 0.0,
+        "T5": 0.1389,
+        "T6": 0.7222
+      },
+      "by_tag_mean": {
+        "hard_location": 0.1282,
+        "parent_scope": 0.0,
+        "prior_period": 0.5,
+        "retrieval_miss": 0.0,
+        "unanswerable": 0.7222,
+        "unit_conversion": 0.1467
+      },
+      "abstention_recall_mean": 0.7222,
+      "false_abstention_mean": 0.7576,
+      "errors_per_run": [
+        0,
+        0,
+        0
+      ],
+      "search_errors_per_run": [
+        0,
+        0,
+        0
+      ],
+      "busy_retries_per_run": [
+        0,
+        0,
+        0
+      ],
+      "citation_validity_mean": 1.0,
+      "hop_citation_coverage_mean": 0.0,
+      "model_calls_mean": 1,
+      "tool_calls_mean": 0,
+      "seconds_mean": 14.1367,
+      "p95_seconds_mean": 60.8564,
+      "input_tokens_per_run": [
+        19525,
+        19525,
+        19525
+      ],
+      "output_tokens_per_run": [
+        75276,
+        92393,
+        123018
+      ],
+      "terminal_reasons_per_run": [
+        {
+          "answerable": {
+            "INSUFFICIENT": 35,
+            "ANSWERED": 9
+          },
+          "unanswerable": {
+            "INSUFFICIENT": 5,
+            "ANSWERED": 1
+          }
+        },
+        {
+          "answerable": {
+            "INSUFFICIENT": 34,
+            "ANSWERED": 10
+          },
+          "unanswerable": {
+            "INSUFFICIENT": 5,
+            "ANSWERED": 1
+          }
+        },
+        {
+          "answerable": {
+            "ANSWERED": 13,
+            "INSUFFICIENT": 31
+          },
+          "unanswerable": {
+            "ANSWERED": 3,
+            "INSUFFICIENT": 3
+          }
+        }
+      ]
+    },
+    "B1": {
+      "config": "configs/bench_b1_single_retrieval.json",
+      "runs": 3,
+      "accuracy_per_run": [
+        0.62,
+        0.6,
+        0.62
+      ],
+      "accuracy_mean": 0.6133,
+      "accuracy_sd": 0.0115,
+      "items_always_correct": 30,
+      "items_never_correct": 19,
+      "items": 50,
+      "by_type_mean": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 0.125,
+        "T4": 0.625,
+        "T5": 0.2222,
+        "T6": 1.0
+      },
+      "by_tag_mean": {
+        "hard_location": 0.5812,
+        "parent_scope": 1.0,
+        "prior_period": 1.0,
+        "retrieval_miss": 0.1429,
+        "unanswerable": 1.0,
+        "unit_conversion": 0.5467
+      },
+      "abstention_recall_mean": 1.0,
+      "false_abstention_mean": 0.4015,
+      "errors_per_run": [
+        0,
+        0,
+        0
+      ],
+      "search_errors_per_run": [
+        0,
+        0,
+        0
+      ],
+      "busy_retries_per_run": [
+        0,
+        0,
+        0
+      ],
+      "citation_validity_mean": 0.9872,
+      "hop_citation_coverage_mean": 0.8649,
+      "model_calls_mean": 1,
+      "tool_calls_mean": 1.76,
+      "seconds_mean": 84.62,
+      "p95_seconds_mean": 171.7234,
+      "input_tokens_per_run": [
+        275482,
+        275435,
+        275482
+      ],
+      "output_tokens_per_run": [
+        100921,
+        95135,
+        98159
+      ],
+      "terminal_reasons_per_run": [
+        {
+          "answerable": {
+            "ANSWERED": 26,
+            "INSUFFICIENT": 18
+          },
+          "unanswerable": {
+            "INSUFFICIENT": 6
+          }
+        },
+        {
+          "answerable": {
+            "ANSWERED": 26,
+            "INSUFFICIENT": 18
+          },
+          "unanswerable": {
+            "INSUFFICIENT": 6
+          }
+        },
+        {
+          "answerable": {
+            "ANSWERED": 27,
+            "INSUFFICIENT": 17
+          },
+          "unanswerable": {
+            "INSUFFICIENT": 6
+          }
+        }
+      ]
+    },
+    "B2": {
+      "config": "configs/bench_b2_flat.json",
+      "runs": 3,
+      "accuracy_per_run": [
+        0.9,
+        0.92,
+        0.96
+      ],
+      "accuracy_mean": 0.9267,
+      "accuracy_sd": 0.0306,
+      "items_always_correct": 40,
+      "items_never_correct": 0,
+      "items": 50,
+      "by_type_mean": {
+        "T1": 1.0,
+        "T2": 0.9167,
+        "T3": 0.9167,
+        "T4": 1.0,
+        "T5": 0.8333,
+        "T6": 0.9444
+      },
+      "by_tag_mean": {
+        "hard_location": 0.9145,
+        "parent_scope": 1.0,
+        "prior_period": 1.0,
+        "retrieval_miss": 0.8095,
+        "unanswerable": 0.9444,
+        "unit_conversion": 0.8933
+      },
+      "abstention_recall_mean": 0.9444,
+      "false_abstention_mean": 0.0151,
+      "errors_per_run": [
+        4,
+        4,
+        1
+      ],
+      "search_errors_per_run": [
+        0,
+        0,
+        0
+      ],
+      "busy_retries_per_run": [
+        0,
+        0,
+        0
+      ],
+      "citation_validity_mean": 1.0,
+      "hop_citation_coverage_mean": 0.993,
+      "model_calls_mean": 4.2333,
+      "tool_calls_mean": 4.46,
+      "seconds_mean": 118.3867,
+      "p95_seconds_mean": 227.2879,
+      "input_tokens_per_run": [
+        2357745,
+        2726958,
+        2536423
+      ],
+      "output_tokens_per_run": [
+        214732,
+        217485,
+        201864
+      ],
+      "terminal_reasons_per_run": [
+        {
+          "answerable": {
+            "ANSWERED": 39,
+            "ERROR": 4,
+            "REPLAN_BUDGET": 1
+          },
+          "unanswerable": {
+            "REPLAN_BUDGET": 3,
+            "INSUFFICIENT": 2,
+            "TOOL_BUDGET": 1
+          }
+        },
+        {
+          "answerable": {
+            "ANSWERED": 41,
+            "ERROR": 3
+          },
+          "unanswerable": {
+            "REPLAN_BUDGET": 3,
+            "INSUFFICIENT": 2,
+            "ERROR": 1
+          }
+        },
+        {
+          "answerable": {
+            "ANSWERED": 42,
+            "REPLAN_BUDGET": 1,
+            "ERROR": 1
+          },
+          "unanswerable": {
+            "REPLAN_BUDGET": 4,
+            "INSUFFICIENT": 2
+          }
+        }
+      ]
+    },
+    "B3": {
+      "config": "configs/bench_b3_graph.json",
+      "runs": 3,
+      "accuracy_per_run": [
+        0.96,
+        0.96,
+        0.88
+      ],
+      "accuracy_mean": 0.9333,
+      "accuracy_sd": 0.0462,
+      "items_always_correct": 42,
+      "items_never_correct": 0,
+      "items": 50,
+      "by_type_mean": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 0.9167,
+        "T4": 1.0,
+        "T5": 0.7778,
+        "T6": 1.0
+      },
+      "by_tag_mean": {
+        "hard_location": 0.9231,
+        "parent_scope": 1.0,
+        "prior_period": 1.0,
+        "retrieval_miss": 0.8095,
+        "unanswerable": 1.0,
+        "unit_conversion": 0.92
+      },
+      "abstention_recall_mean": 1.0,
+      "false_abstention_mean": 0.0151,
+      "errors_per_run": [
+        1,
+        2,
+        5
+      ],
+      "search_errors_per_run": [
+        0,
+        0,
+        0
+      ],
+      "busy_retries_per_run": [
+        0,
+        0,
+        0
+      ],
+      "citation_validity_mean": 1.0,
+      "hop_citation_coverage_mean": 0.9902,
+      "model_calls_mean": 5.2133,
+      "tool_calls_mean": 4.4667,
+      "seconds_mean": 124.1867,
+      "p95_seconds_mean": 229.6823,
+      "input_tokens_per_run": [
+        3506640,
+        3676813,
+        3474802
+      ],
+      "output_tokens_per_run": [
+        449737,
+        452768,
+        421594
+      ],
+      "terminal_reasons_per_run": [
+        {
+          "answerable": {
+            "ANSWERED": 42,
+            "TOOL_BUDGET": 1,
+            "ERROR": 1
+          },
+          "unanswerable": {
+            "REPLAN_BUDGET": 3,
+            "INSUFFICIENT": 2,
+            "TOOL_BUDGET": 1
+          }
+        },
+        {
+          "answerable": {
+            "ANSWERED": 42,
+            "ERROR": 2
+          },
+          "unanswerable": {
+            "REPLAN_BUDGET": 3,
+            "INSUFFICIENT": 3
+          }
+        },
+        {
+          "answerable": {
+            "ANSWERED": 38,
+            "ERROR": 5,
+            "INSUFFICIENT": 1
+          },
+          "unanswerable": {
+            "REPLAN_BUDGET": 3,
+            "INSUFFICIENT": 2,
+            "TOOL_BUDGET": 1
+          }
+        }
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "baseline": "B0",
+      "candidate": "B1",
+      "question": "检索的作用",
+      "items": 50,
+      "difference": 0.4267,
+      "ci95": [
+        0.28,
+        0.5667
+      ],
+      "b_better_items": 27,
+      "a_better_items": 4
+    },
+    {
+      "baseline": "B1",
+      "candidate": "B2",
+      "question": "Agent 循环（多步检索 + 上下文 + 计算器）的作用",
+      "items": 50,
+      "difference": 0.3133,
+      "ci95": [
+        0.1867,
+        0.4467
+      ],
+      "b_better_items": 20,
+      "a_better_items": 4
+    },
+    {
+      "baseline": "B2",
+      "candidate": "B3",
+      "question": "多角色（规划 + 核验）的作用",
+      "items": 50,
+      "difference": 0.0067,
+      "ci95": [
+        -0.0533,
+        0.0667
+      ],
+      "b_better_items": 7,
+      "a_better_items": 6
+    },
+    {
+      "baseline": "B1",
+      "candidate": "B3",
+      "question": "完整 Agent 相对固定 RAG",
+      "items": 50,
+      "difference": 0.32,
+      "ci95": [
+        0.2,
+        0.4467
+      ],
+      "b_better_items": 19,
+      "a_better_items": 1
+    }
+  ]
+}

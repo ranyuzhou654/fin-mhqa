@@ -1,0 +1,1166 @@
+{
+  "results": [
+    {
+      "arm": "structured",
+      "id": "b1-02dac4ddaa",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 95474,
+        "cached_input_tokens": 51968,
+        "output_tokens": 6738,
+        "reasoning_output_tokens": 3683
+      },
+      "run_error": null,
+      "trajectory_sha256": "7f3c0ad062442a4f54f7129c52b652d3850cf347258b2c01439bb79b07d11040",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-04118b6c51",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 58705,
+        "cached_input_tokens": 29440,
+        "output_tokens": 6048,
+        "reasoning_output_tokens": 4199
+      },
+      "run_error": null,
+      "trajectory_sha256": "9c3e40f7352a4209322f6061c8274038118d61dcff2bcd652048907e20c4ae13",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-0485b0b725",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 7,
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 51729,
+        "cached_input_tokens": 22528,
+        "output_tokens": 15387,
+        "reasoning_output_tokens": 12507
+      },
+      "run_error": null,
+      "trajectory_sha256": "12c8ded818b1f1ec242ca9b48a2650dbafbc48eb491ca359e85b073457a2d98d",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-050c5e8189",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 65460,
+        "cached_input_tokens": 35328,
+        "output_tokens": 7196,
+        "reasoning_output_tokens": 4989
+      },
+      "run_error": null,
+      "trajectory_sha256": "d1af32a2077f426148425922e6c913a2660f4ace4deb63bb6bdbe6493fecfb32",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-0d5df828c4",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 31059,
+        "cached_input_tokens": 14720,
+        "output_tokens": 3429,
+        "reasoning_output_tokens": 1657
+      },
+      "run_error": "ValidationError: Additional properties are not allowed ('observations' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'type': 'object',\n     'additionalProperties': False,\n     'required': ['action',\n                  'reason',\n                  'searches',\n                  'calculation',\n                  'final',\n                  'plan',\n                  'context'],\n     'properties': {'action': {'type': 'string',\n                               'enum': ['search',\n                                        'calculate',\n                                        'finish',\n                                        'read_evidence_context']},\n                    'reason': {'type': 'string'},\n                    'searches': {'type': ['array', 'null'],\n                                 'items': {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['query',\n                                                        'company',\n                                                        'mode'],\n                                           'properties': {'query': {'type': 'string'},\n                                                          'company': {'type': 'string'},\n                                                          'mode': {'type': 'string',\n                                                                   'enum': ['dense',\n                                                                            'bm25',\n                                                                            'hybrid']}}}},\n                    'calculation': {'anyOf': [{'type': 'null'},\n                                              {'type': 'object',\n                                               'additionalProperties': False,\n                                               'required': ['operation',\n                                                            'values',\n                                                            'output_unit',\n                                                            'round_digits'],\n                                               'properties': {'operation': {'type': 'string',\n                                                                            'enum': ['convert',\n                                                                                     'sum',\n                                                                                     'difference',\n                                                                                     'ratio',\n                                                                                     'growth']},\n                                                              'values': {'type': 'array',\n                                                                         'items': {'type': 'object',\n                                                                                   'additionalProperties': False,\n                                                                                   'required': ['value',\n                                                                                                'unit'],\n                                                                                   'properties': {'value': {'type': 'string'},\n                                                                                                  'unit': {'type': 'string',\n                                                                                                           'enum': ['元',\n                                                                                                                    '千元',\n                                                                                                                    '万元',\n                                                                                                                    '亿元']}}}},\n                                                              'output_unit': {'type': 'string',\n                                                                              'enum': ['元',\n                                                                                       '千元',\n                                                                                       '万元',\n                                                                                       '亿元',\n                                                                                       '%']},\n                                                              'round_digits': {'type': 'integer'}}}]},\n                    'final': {'anyOf': [{'type': 'null'},\n                                        {'type': 'object',\n                                         'additionalProperties': False,\n                                         'required': ['status',\n                                                      'answer_value',\n                                                      'answer_unit',\n                                                      'selected_company',\n                                                      'citations',\n                                                      'explanation'],\n                                         'properties': {'status': {'type': 'string',\n                                                                   'enum': ['answered',\n                                                                            'insufficient']},\n                                                        'answer_value': {'type': 'string'},\n                                                        'answer_unit': {'type': 'string'},\n                                                        'selected_company': {'type': ['string',\n                                                                                      'null']},\n                                                        'citations': {'type': 'array',\n                                                                      'items': {'type': 'string'}},\n                                                        'explanation': {'type': 'string'}}}]},\n                    'plan': {'type': 'array',\n                             'items': {'type': 'object',\n                                       'additionalProperties': False,\n                                       'required': ['id',\n                                                    'question',\n                                                    'depends_on',\n                                                    'status',\n                                                    'conclusion',\n                                                    'evidence_ids'],\n                                       'properties': {'id': {'type': 'string'},\n                                                      'question': {'type': 'string'},\n                                                      'depends_on': {'type': 'array',\n                                                                     'items': {'type': 'string'}},\n                                                      'status': {'type': 'string',\n                                                                 'enum': ['pending',\n                                                                          'resolved',\n                                                                          'blocked']},\n                                                      'conclusion': {'type': 'string'},\n                                                      'evidence_ids': {'type': 'array',\n                                                                       'items': {'type': 'string'}}}}},\n                    'context': {'anyOf': [{'type': 'null'},\n                                          {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['anchor_id',\n                                                        'scope',\n                                                        'cursor'],\n                                           'properties': {'anchor_id': {'type': 'string'},\n                                                          'scope': {'type': 'string',\n                                                                    'enum': ['table',\n                                                                             'table_continuation',\n                                                                             'page',\n                                                                             'previous_page',\n                                                                             'next_page',\n                                                                             'document_units']},\n                                                          'cursor': {'type': 'integer',\n                                                                     'minimum': 0}}}]}}}\n\nOn instance:\n    {'action': {'action': 'search',\n                'reason': '三家2025H1合并口径经营活动产生的现金流量净额已齐：亿纬锂能2,372,565,711.61元，伊利股份2,964,215,363.27元，海尔智家11,139,045,781.34元，海尔智家最高。现针对选中公司海尔智家检索2025H1合并口径利润表中的营业收入与管理费用。',\n                'searches': [{'query': '海尔智家 2025年上半年 合并利润表 营业收入 管理费用 半年报',\n                              'company': '海尔智家',\n                              'mode': 'hybrid'},\n                             {'query': '海尔智家 2025年半年度 合并利润表 管理费用 营业总收入',\n                              'company': '海尔智家',\n                              'mode': 'bm25'}],\n                'calculation': None,\n                'final': None,\n                'plan': [{'id': 'p1',\n                          'question': '检索亿纬锂能2025年上半年合并口径经营活动产生的现金流量净额',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '亿纬锂能2025H1合并现金流量表中经营活动产生的现金流量净额为2,372,565,711.61元',\n                          'evidence_ids': ['a82e69dde70d48d352d34df9']},\n                         {'id': 'p2',\n                          'question': '检索伊利股份2025年上半年合并口径经营活动产生的现金流量净额',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '伊利股份2025H1合并现金流量表中经营活动产生的现金流量净额为2,964,215,363.27元',\n                          'evidence_ids': ['8f6041263240f6a69422479c',\n                                           '13c9fc9cdc127350a94dc3af']},\n                         {'id': 'p3',\n                          'question': '检索海尔智家2025年上半年合并口径经营活动产生的现金流量净额',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '海尔智家2025H1合并现金流量表补充资料显示经营活动产生的现金流量净额为11,139,045,781.34元（11.39亿元），亦与经营讨论中111.39亿元一致',\n                          'evidence_ids': ['d31b8452261147b1c7f92bec',\n                                           '8fda6705fd58d7c9948c31b7',\n                                           '47ad286c33d22b7e8a5e5905']},\n                         {'id': 'p4',\n                          'question': '比较三家公司2025年上半年合并口径经营活动产生的现金流量净额，选出最高公司',\n                          'depends_on': ['p1', 'p2', 'p3'],\n                          'status': 'resolved',\n                          'conclusion': '海尔智家11,139,045,781.34元 > '\n                                        '伊利股份2,964,215,363.27元 > '\n                                        '亿纬锂能2,372,565,711.61元，选中海尔智家',\n                          'evidence_ids': ['d31b8452261147b1c7f92bec',\n                                           '8f6041263240f6a69422479c',\n                                           'a82e69dde70d48d352d34df9']},\n                         {'id': 'p5',\n                          'question': '检索海尔智家2025年上半年合并口径管理费用和营业收入',\n                          'depends_on': ['p4'],\n                          'status': 'pending',\n                          'conclusion': '',\n                          'evidence_ids': []},\n                         {'id': 'p6',\n                          'question': '计算海尔智家2025年上半年管理费用率=管理费用÷营业收入×100%，保留两位小数',\n                          'depends_on': ['p5'],\n                          'status': 'pending',\n                          'conclusion': '',\n                          'evidence_ids': []}],\n                'context': None},\n     'observations': None}",
+      "trajectory_sha256": "5841ab81b2de39a61ca7c10bac1cc21745a01e54380133105a3768029ce41d27",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-14d42831a8",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 52870,
+        "cached_input_tokens": 26752,
+        "output_tokens": 5430,
+        "reasoning_output_tokens": 3810
+      },
+      "run_error": null,
+      "trajectory_sha256": "043870a9355dd03a8ff3669c21cf8c4a7c5ff95520701cea6758ee4963d88a4b",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-15e3fdcb07",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 88594,
+        "cached_input_tokens": 48384,
+        "output_tokens": 7372,
+        "reasoning_output_tokens": 5191
+      },
+      "run_error": null,
+      "trajectory_sha256": "c27f12b9caeecee37c8b20a3a3ae825fdfd26f895251986b510f5e5c3736c75d",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-17f917464b",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 42491,
+        "cached_input_tokens": 19840,
+        "output_tokens": 6403,
+        "reasoning_output_tokens": 4615
+      },
+      "run_error": null,
+      "trajectory_sha256": "988af404b30bd4f9a52fd68bc294acec07b227bb5f6c099c811ca29c3cf0be25",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-1a5a2c993c",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 7,
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 123043,
+        "cached_input_tokens": 75648,
+        "output_tokens": 10656,
+        "reasoning_output_tokens": 6864
+      },
+      "run_error": null,
+      "trajectory_sha256": "822300052f6395477c0f07cb748618362e3579b02323f7c8589997bbb212b312",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-1aa88e4538",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 7,
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 117494,
+        "cached_input_tokens": 70784,
+        "output_tokens": 10427,
+        "reasoning_output_tokens": 6624
+      },
+      "run_error": null,
+      "trajectory_sha256": "fd3b43d18748199ac421360213a5e8cc4a4928de6821a27fec6b22f1d0aa568b",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-2558f8836f",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 55818,
+        "cached_input_tokens": 20480,
+        "output_tokens": 7024,
+        "reasoning_output_tokens": 5009
+      },
+      "run_error": null,
+      "trajectory_sha256": "b48098d8848aac4e32e870422cf39f0b889cdf279b557565fc707dbdcbbf1376",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-25c2b03fa3",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 7,
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 131746,
+        "cached_input_tokens": 79872,
+        "output_tokens": 14705,
+        "reasoning_output_tokens": 10397
+      },
+      "run_error": null,
+      "trajectory_sha256": "97d8beff43530be789ba78a030144d263ddeb05782b7fb920e6b5c3aaf50cb43",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-3533831e37",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 9,
+        "agent_message": 9
+      },
+      "usage": {
+        "input_tokens": 243287,
+        "cached_input_tokens": 102016,
+        "output_tokens": 29825,
+        "reasoning_output_tokens": 23650
+      },
+      "run_error": null,
+      "trajectory_sha256": "60d3af11b126147b74b43f5a2b518543cdf736d48f859cd4babb51e23f72bd59",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-3ecd21d91e",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 8,
+        "agent_message": 8
+      },
+      "usage": {
+        "input_tokens": 159902,
+        "cached_input_tokens": 76672,
+        "output_tokens": 14253,
+        "reasoning_output_tokens": 9675
+      },
+      "run_error": null,
+      "trajectory_sha256": "47e22b37204ce5caebbcaf650889eb998eade598abd0f0ba5802fe3ab1c74772",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 3,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-3f5b26c19c",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 89481,
+        "cached_input_tokens": 45952,
+        "output_tokens": 6722,
+        "reasoning_output_tokens": 5400
+      },
+      "run_error": null,
+      "trajectory_sha256": "12957ea5115fa9fe74d2effbd3a3afe2c508038ac10f69b027654e63da964ae5",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-40f787f2b8",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 26618,
+        "cached_input_tokens": 11136,
+        "output_tokens": 6416,
+        "reasoning_output_tokens": 5160
+      },
+      "run_error": null,
+      "trajectory_sha256": "01f66174a866c24bac6731f0ade70da5fab50bd9d103a8827e2b9f6b9dde0e14",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-539a23f595",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 32179,
+        "cached_input_tokens": 13824,
+        "output_tokens": 3051,
+        "reasoning_output_tokens": 1604
+      },
+      "run_error": "ValidationError: 'reason' is a required property\n\nFailed validating 'required' in schema:\n    {'type': 'object',\n     'additionalProperties': False,\n     'required': ['action',\n                  'reason',\n                  'searches',\n                  'calculation',\n                  'final',\n                  'plan',\n                  'context'],\n     'properties': {'action': {'type': 'string',\n                               'enum': ['search',\n                                        'calculate',\n                                        'finish',\n                                        'read_evidence_context']},\n                    'reason': {'type': 'string'},\n                    'searches': {'type': ['array', 'null'],\n                                 'items': {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['query',\n                                                        'company',\n                                                        'mode'],\n                                           'properties': {'query': {'type': 'string'},\n                                                          'company': {'type': 'string'},\n                                                          'mode': {'type': 'string',\n                                                                   'enum': ['dense',\n                                                                            'bm25',\n                                                                            'hybrid']}}}},\n                    'calculation': {'anyOf': [{'type': 'null'},\n                                              {'type': 'object',\n                                               'additionalProperties': False,\n                                               'required': ['operation',\n                                                            'values',\n                                                            'output_unit',\n                                                            'round_digits'],\n                                               'properties': {'operation': {'type': 'string',\n                                                                            'enum': ['convert',\n                                                                                     'sum',\n                                                                                     'difference',\n                                                                                     'ratio',\n                                                                                     'growth']},\n                                                              'values': {'type': 'array',\n                                                                         'items': {'type': 'object',\n                                                                                   'additionalProperties': False,\n                                                                                   'required': ['value',\n                                                                                                'unit'],\n                                                                                   'properties': {'value': {'type': 'string'},\n                                                                                                  'unit': {'type': 'string',\n                                                                                                           'enum': ['元',\n                                                                                                                    '千元',\n                                                                                                                    '万元',\n                                                                                                                    '亿元']}}}},\n                                                              'output_unit': {'type': 'string',\n                                                                              'enum': ['元',\n                                                                                       '千元',\n                                                                                       '万元',\n                                                                                       '亿元',\n                                                                                       '%']},\n                                                              'round_digits': {'type': 'integer'}}}]},\n                    'final': {'anyOf': [{'type': 'null'},\n                                        {'type': 'object',\n                                         'additionalProperties': False,\n                                         'required': ['status',\n                                                      'answer_value',\n                                                      'answer_unit',\n                                                      'selected_company',\n                                                      'citations',\n                                                      'explanation'],\n                                         'properties': {'status': {'type': 'string',\n                                                                   'enum': ['answered',\n                                                                            'insufficient']},\n                                                        'answer_value': {'type': 'string'},\n                                                        'answer_unit': {'type': 'string'},\n                                                        'selected_company': {'type': ['string',\n                                                                                      'null']},\n                                                        'citations': {'type': 'array',\n                                                                      'items': {'type': 'string'}},\n                                                        'explanation': {'type': 'string'}}}]},\n                    'plan': {'type': 'array',\n                             'items': {'type': 'object',\n                                       'additionalProperties': False,\n                                       'required': ['id',\n                                                    'question',\n                                                    'depends_on',\n                                                    'status',\n                                                    'conclusion',\n                                                    'evidence_ids'],\n                                       'properties': {'id': {'type': 'string'},\n                                                      'question': {'type': 'string'},\n                                                      'depends_on': {'type': 'array',\n                                                                     'items': {'type': 'string'}},\n                                                      'status': {'type': 'string',\n                                                                 'enum': ['pending',\n                                                                          'resolved',\n                                                                          'blocked']},\n                                                      'conclusion': {'type': 'string'},\n                                                      'evidence_ids': {'type': 'array',\n                                                                       'items': {'type': 'string'}}}}},\n                    'context': {'anyOf': [{'type': 'null'},\n                                          {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['anchor_id',\n                                                        'scope',\n                                                        'cursor'],\n                                           'properties': {'anchor_id': {'type': 'string'},\n                                                          'scope': {'type': 'string',\n                                                                    'enum': ['table',\n                                                                             'table_continuation',\n                                                                             'page',\n                                                                             'previous_page',\n                                                                             'next_page',\n                                                                             'document_units']},\n                                                          'cursor': {'type': 'integer',\n                                                                     'minimum': 0}}}]}}}\n\nOn instance:\n    {'action': {'action': 'calculate',\n                'reason': 'S3宁德时代营业收入已由合并利润表确证为178,886,253千元，三家口径全部齐备；先用sum将不同单位统一为元并求三家公司合计，再进入ratio计算占比。',\n                'searches': None,\n                'calculation': {'operation': 'sum',\n                                'values': [{'value': '52770984383.52',\n                                            'unit': '元'},\n                                           {'value': '28169564043.41',\n                                            'unit': '元'},\n                                           {'value': '178886253',\n                                            'unit': '千元'}],\n                                'output_unit': '元',\n                                'round_digits': 2},\n                'final': None,\n                'plan': [{'id': 'S1',\n                          'question': '五粮液2025年上半年合并口径营业收入是多少？',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '五粮液合并利润表列示：2025年半年度营业收入52,770,984,383.52元（与营业总收入一致）。',\n                          'evidence_ids': ['cad29d5ea24462e1a71bf255',\n                                           'ae7186bdf65beef61fa58c30']},\n                         {'id': 'S2',\n                          'question': '亿纬锂能2025年上半年合并口径营业收入是多少？',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '亿纬锂能合并利润表列示：2025年半年度营业收入28,169,564,043.41元（与营业总收入一致）。',\n                          'evidence_ids': ['85fe6d961927ba26380060b3',\n                                           '34a674b579521b5b4aefe2de']},\n                         {'id': 'S3',\n                          'question': '宁德时代2025年上半年合并口径营业收入是多少？',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '宁德时代合并利润表列示：2025年半年度营业收入178,886,253千元（单位千元，与营业总收入一致）。',\n                          'evidence_ids': ['858fb75185f7e9db4dfc04ce',\n                                           'e55d85df8f44a5ca90f9fa36']},\n                         {'id': 'S4',\n                          'question': '三家公司2025年上半年合并口径营业收入合计是多少？',\n                          'depends_on': ['S1', 'S2', 'S3'],\n                          'status': 'pending',\n                          'conclusion': '',\n                          'evidence_ids': []},\n                         {'id': 'S5',\n                          'question': '五粮液营业收入占三家公司合计的比例（百分比，保留两位小数）是多少？',\n                          'depends_on': ['S1', 'S4'],\n                          'status': 'pending',\n                          'conclusion': '',\n                          'evidence_ids': []}],\n                'context': None}}",
+      "trajectory_sha256": "7e3df7ad5de666edd7ca85435f3f772537d31bfd09b0383a37c8ebeb219f8f76",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-5c29f1a3d4",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 9,
+        "agent_message": 9
+      },
+      "usage": {
+        "input_tokens": 93602,
+        "cached_input_tokens": 47616,
+        "output_tokens": 21814,
+        "reasoning_output_tokens": 17878
+      },
+      "run_error": null,
+      "trajectory_sha256": "724a6e3e251e4dc24afa4fcc67a65c16daca947e7f3984caf5ab621d553a3112",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-66e3c4fa5a",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 70729,
+        "cached_input_tokens": 36736,
+        "output_tokens": 7825,
+        "reasoning_output_tokens": 5286
+      },
+      "run_error": null,
+      "trajectory_sha256": "44b939d1c068999945f19cf7dbd212f3937497cdd8e8ffe7ceaa4cfc1d7d723f",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-672dd7d344",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 14084,
+        "cached_input_tokens": 8064,
+        "output_tokens": 3763,
+        "reasoning_output_tokens": 2740
+      },
+      "run_error": null,
+      "trajectory_sha256": "52ed725c88f1c080d05e018191b87a1ce12f9e9daf82200839fd4b2d1bbcada1",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-6b7c5795db",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 26747,
+        "cached_input_tokens": 11008,
+        "output_tokens": 4835,
+        "reasoning_output_tokens": 3336
+      },
+      "run_error": null,
+      "trajectory_sha256": "a1938af242afa5450974c0c1804f3c26aabc73f4c0608b9ba8b945ceccd8b815",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-6e0f0c30e0",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 17685,
+        "cached_input_tokens": 9984,
+        "output_tokens": 2795,
+        "reasoning_output_tokens": 1769
+      },
+      "run_error": null,
+      "trajectory_sha256": "81e015fc71e99b50c61b2b4a73cde14662b41733693b044ca188d7bb892ce918",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-71681bd7b7",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 59071,
+        "cached_input_tokens": 29440,
+        "output_tokens": 6911,
+        "reasoning_output_tokens": 4731
+      },
+      "run_error": null,
+      "trajectory_sha256": "1e031cb1c5701281b9cccd16be53e03521f56f84aa0ceabb0e12c563ecacf1fa",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-7c0e27c720",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 2,
+        "agent_message": 2
+      },
+      "usage": {
+        "input_tokens": 15705,
+        "cached_input_tokens": 3328,
+        "output_tokens": 2359,
+        "reasoning_output_tokens": 1171
+      },
+      "run_error": "ValidationError: 'reason' is a required property\n\nFailed validating 'required' in schema:\n    {'type': 'object',\n     'additionalProperties': False,\n     'required': ['action',\n                  'reason',\n                  'searches',\n                  'calculation',\n                  'final',\n                  'plan',\n                  'context'],\n     'properties': {'action': {'type': 'string',\n                               'enum': ['search',\n                                        'calculate',\n                                        'finish',\n                                        'read_evidence_context']},\n                    'reason': {'type': 'string'},\n                    'searches': {'type': ['array', 'null'],\n                                 'items': {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['query',\n                                                        'company',\n                                                        'mode'],\n                                           'properties': {'query': {'type': 'string'},\n                                                          'company': {'type': 'string'},\n                                                          'mode': {'type': 'string',\n                                                                   'enum': ['dense',\n                                                                            'bm25',\n                                                                            'hybrid']}}}},\n                    'calculation': {'anyOf': [{'type': 'null'},\n                                              {'type': 'object',\n                                               'additionalProperties': False,\n                                               'required': ['operation',\n                                                            'values',\n                                                            'output_unit',\n                                                            'round_digits'],\n                                               'properties': {'operation': {'type': 'string',\n                                                                            'enum': ['convert',\n                                                                                     'sum',\n                                                                                     'difference',\n                                                                                     'ratio',\n                                                                                     'growth']},\n                                                              'values': {'type': 'array',\n                                                                         'items': {'type': 'object',\n                                                                                   'additionalProperties': False,\n                                                                                   'required': ['value',\n                                                                                                'unit'],\n                                                                                   'properties': {'value': {'type': 'string'},\n                                                                                                  'unit': {'type': 'string',\n                                                                                                           'enum': ['元',\n                                                                                                                    '千元',\n                                                                                                                    '万元',\n                                                                                                                    '亿元']}}}},\n                                                              'output_unit': {'type': 'string',\n                                                                              'enum': ['元',\n                                                                                       '千元',\n                                                                                       '万元',\n                                                                                       '亿元',\n                                                                                       '%']},\n                                                              'round_digits': {'type': 'integer'}}}]},\n                    'final': {'anyOf': [{'type': 'null'},\n                                        {'type': 'object',\n                                         'additionalProperties': False,\n                                         'required': ['status',\n                                                      'answer_value',\n                                                      'answer_unit',\n                                                      'selected_company',\n                                                      'citations',\n                                                      'explanation'],\n                                         'properties': {'status': {'type': 'string',\n                                                                   'enum': ['answered',\n                                                                            'insufficient']},\n                                                        'answer_value': {'type': 'string'},\n                                                        'answer_unit': {'type': 'string'},\n                                                        'selected_company': {'type': ['string',\n                                                                                      'null']},\n                                                        'citations': {'type': 'array',\n                                                                      'items': {'type': 'string'}},\n                                                        'explanation': {'type': 'string'}}}]},\n                    'plan': {'type': 'array',\n                             'items': {'type': 'object',\n                                       'additionalProperties': False,\n                                       'required': ['id',\n                                                    'question',\n                                                    'depends_on',\n                                                    'status',\n                                                    'conclusion',\n                                                    'evidence_ids'],\n                                       'properties': {'id': {'type': 'string'},\n                                                      'question': {'type': 'string'},\n                                                      'depends_on': {'type': 'array',\n                                                                     'items': {'type': 'string'}},\n                                                      'status': {'type': 'string',\n                                                                 'enum': ['pending',\n                                                                          'resolved',\n                                                                          'blocked']},\n                                                      'conclusion': {'type': 'string'},\n                                                      'evidence_ids': {'type': 'array',\n                                                                       'items': {'type': 'string'}}}}},\n                    'context': {'anyOf': [{'type': 'null'},\n                                          {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['anchor_id',\n                                                        'scope',\n                                                        'cursor'],\n                                           'properties': {'anchor_id': {'type': 'string'},\n                                                          'scope': {'type': 'string',\n                                                                    'enum': ['table',\n                                                                             'table_continuation',\n                                                                             'page',\n                                                                             'previous_page',\n                                                                             'next_page',\n                                                                             'document_units']},\n                                                          'cursor': {'type': 'integer',\n                                                                     'minimum': 0}}}]}}}\n\nOn instance:\n    {'action': {'action': 'search',\n                'reason': '亿纬锂能、比亚迪2025H1合并营业收入已从合并利润表取得（亿纬28,169,564,043.41元；比亚迪371,280,948，单位待确认）。下一步检索尚未取得的贵州茅台2025年上半年合并口径营业收入。',\n                'searches': [{'query': '贵州茅台 2025年上半年 合并利润表 营业收入',\n                              'company': '贵州茅台',\n                              'mode': 'hybrid'}],\n                'calculation': None,\n                'final': None,\n                'plan': [{'id': 'p1',\n                          'question': '亿纬锂能2025年上半年合并口径营业收入是多少？',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '28,169,564,043.41元（2025年半年度合并利润表，营业收入=营业总收入）',\n                          'evidence_ids': ['85fe6d961927ba26380060b3',\n                                           '34a674b579521b5b4aefe2de']},\n                         {'id': 'p2',\n                          'question': '比亚迪2025年上半年合并口径营业收入是多少？',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '371,280,948（2025年6月30日止6个月合并利润表营业收入；单位待上下文确认）',\n                          'evidence_ids': ['3ee8f4c84b299767459ac5e4',\n                                           '5763c0ce1bff9f5bfe81f3cd']},\n                         {'id': 'p3',\n                          'question': '贵州茅台2025年上半年合并口径营业收入是多少？',\n                          'depends_on': [],\n                          'status': 'pending',\n                          'conclusion': '',\n                          'evidence_ids': []},\n                         {'id': 'p4',\n                          'question': '三家公司2025年上半年合并口径营业收入的合计是多少？',\n                          'depends_on': ['p1', 'p2', 'p3'],\n                          'status': 'pending',\n                          'conclusion': '',\n                          'evidence_ids': []},\n                         {'id': 'p5',\n                          'question': '亿纬锂能营业收入占三家公司合计的比例（百分比，保留两位小数）是多少？',\n                          'depends_on': ['p1', 'p4'],\n                          'status': 'pending',\n                          'conclusion': '',\n                          'evidence_ids': []}],\n                'context': None},\n     'calculation': None,\n     'final': None,\n     'plan': [{'id': 'p1',\n               'question': '亿纬锂能2025年上半年合并口径营业收入是多少？',\n               'depends_on': [],\n               'status': 'resolved',\n               'conclusion': '28,169,564,043.41元',\n               'evidence_ids': ['85fe6d961927ba26380060b3',\n                                '34a674b579521b5b4aefe2de']},\n              {'id': 'p2',\n               'question': '比亚迪2025年上半年合并口径营业收入是多少？',\n               'depends_on': [],\n               'status': 'resolved',\n               'conclusion': '371,280,948（单位待确认）',\n               'evidence_ids': ['3ee8f4c84b299767459ac5e4',\n                                '5763c0ce1bff9f5bfe81f3cd']},\n              {'id': 'p3',\n               'question': '贵州茅台2025年上半年合并口径营业收入是多少？',\n               'depends_on': [],\n               'status': 'pending',\n               'conclusion': '',\n               'evidence_ids': []},\n              {'id': 'p4',\n               'question': '三家公司2025年上半年合并口径营业收入的合计是多少？',\n               'depends_on': ['p1', 'p2', 'p3'],\n               'status': 'pending',\n               'conclusion': '',\n               'evidence_ids': []},\n              {'id': 'p5',\n               'question': '亿纬锂能营业收入占三家公司合计的比例（百分比，保留两位小数）是多少？',\n               'depends_on': ['p1', 'p4'],\n               'status': 'pending',\n               'conclusion': '',\n               'evidence_ids': []}],\n     'context': None}",
+      "trajectory_sha256": "9053e2a9ab05358fd730f93da1fcc59eb6d0a1750366af305ebd5563e743232c",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-7eebf1487c",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 2,
+        "agent_message": 2
+      },
+      "usage": {
+        "input_tokens": 13683,
+        "cached_input_tokens": 3072,
+        "output_tokens": 4838,
+        "reasoning_output_tokens": 3699
+      },
+      "run_error": null,
+      "trajectory_sha256": "73356ad877743aaad56e254f934a83fa2fdc4c10ad856cec001efe8a35899f40",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-8471a4bf8b",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 52284,
+        "cached_input_tokens": 28800,
+        "output_tokens": 11814,
+        "reasoning_output_tokens": 9635
+      },
+      "run_error": null,
+      "trajectory_sha256": "70443e08098a3c1c69c3fdaaaccab346842ca44d934732ce1c9ff3802cf051ca",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-8498f69a2e",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 35729,
+        "cached_input_tokens": 14592,
+        "output_tokens": 5763,
+        "reasoning_output_tokens": 3997
+      },
+      "run_error": "ValidationError: 'reason' is a required property\n\nFailed validating 'required' in schema:\n    {'type': 'object',\n     'additionalProperties': False,\n     'required': ['action',\n                  'reason',\n                  'searches',\n                  'calculation',\n                  'final',\n                  'plan',\n                  'context'],\n     'properties': {'action': {'type': 'string',\n                               'enum': ['search',\n                                        'calculate',\n                                        'finish',\n                                        'read_evidence_context']},\n                    'reason': {'type': 'string'},\n                    'searches': {'type': ['array', 'null'],\n                                 'items': {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['query',\n                                                        'company',\n                                                        'mode'],\n                                           'properties': {'query': {'type': 'string'},\n                                                          'company': {'type': 'string'},\n                                                          'mode': {'type': 'string',\n                                                                   'enum': ['dense',\n                                                                            'bm25',\n                                                                            'hybrid']}}}},\n                    'calculation': {'anyOf': [{'type': 'null'},\n                                              {'type': 'object',\n                                               'additionalProperties': False,\n                                               'required': ['operation',\n                                                            'values',\n                                                            'output_unit',\n                                                            'round_digits'],\n                                               'properties': {'operation': {'type': 'string',\n                                                                            'enum': ['convert',\n                                                                                     'sum',\n                                                                                     'difference',\n                                                                                     'ratio',\n                                                                                     'growth']},\n                                                              'values': {'type': 'array',\n                                                                         'items': {'type': 'object',\n                                                                                   'additionalProperties': False,\n                                                                                   'required': ['value',\n                                                                                                'unit'],\n                                                                                   'properties': {'value': {'type': 'string'},\n                                                                                                  'unit': {'type': 'string',\n                                                                                                           'enum': ['元',\n                                                                                                                    '千元',\n                                                                                                                    '万元',\n                                                                                                                    '亿元']}}}},\n                                                              'output_unit': {'type': 'string',\n                                                                              'enum': ['元',\n                                                                                       '千元',\n                                                                                       '万元',\n                                                                                       '亿元',\n                                                                                       '%']},\n                                                              'round_digits': {'type': 'integer'}}}]},\n                    'final': {'anyOf': [{'type': 'null'},\n                                        {'type': 'object',\n                                         'additionalProperties': False,\n                                         'required': ['status',\n                                                      'answer_value',\n                                                      'answer_unit',\n                                                      'selected_company',\n                                                      'citations',\n                                                      'explanation'],\n                                         'properties': {'status': {'type': 'string',\n                                                                   'enum': ['answered',\n                                                                            'insufficient']},\n                                                        'answer_value': {'type': 'string'},\n                                                        'answer_unit': {'type': 'string'},\n                                                        'selected_company': {'type': ['string',\n                                                                                      'null']},\n                                                        'citations': {'type': 'array',\n                                                                      'items': {'type': 'string'}},\n                                                        'explanation': {'type': 'string'}}}]},\n                    'plan': {'type': 'array',\n                             'items': {'type': 'object',\n                                       'additionalProperties': False,\n                                       'required': ['id',\n                                                    'question',\n                                                    'depends_on',\n                                                    'status',\n                                                    'conclusion',\n                                                    'evidence_ids'],\n                                       'properties': {'id': {'type': 'string'},\n                                                      'question': {'type': 'string'},\n                                                      'depends_on': {'type': 'array',\n                                                                     'items': {'type': 'string'}},\n                                                      'status': {'type': 'string',\n                                                                 'enum': ['pending',\n                                                                          'resolved',\n                                                                          'blocked']},\n                                                      'conclusion': {'type': 'string'},\n                                                      'evidence_ids': {'type': 'array',\n                                                                       'items': {'type': 'string'}}}}},\n                    'context': {'anyOf': [{'type': 'null'},\n                                          {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['anchor_id',\n                                                        'scope',\n                                                        'cursor'],\n                                           'properties': {'anchor_id': {'type': 'string'},\n                                                          'scope': {'type': 'string',\n                                                                    'enum': ['table',\n                                                                             'table_continuation',\n                                                                             'page',\n                                                                             'previous_page',\n                                                                             'next_page',\n                                                                             'document_units']},\n                                                          'cursor': {'type': 'integer',\n                                                                     'minimum': 0}}}]}}}\n\nOn instance:\n    {'action': {'action': 'calculate',\n                'reason': '三家公司2025H1合并净利润已全部取得：伊利7,235,443,552.61元、宁德时代32,365,447千元、泸州老窖7,683,660,159.62元，最高为宁德时代。现用其经营活动现金流量净额58,687,066千元与净利润32,365,447千元计算比值（同单位千元，ratio直接输出%）。',\n                'searches': None,\n                'calculation': {'operation': 'ratio',\n                                'values': [{'value': '58687066',\n                                            'unit': '千元'},\n                                           {'value': '32365447',\n                                            'unit': '千元'}],\n                                'output_unit': '%',\n                                'round_digits': 2},\n                'final': None,\n                'plan': [{'id': 'q1',\n                          'question': '获取伊利股份2025年上半年合并利润表净利润（含少数股东损益）',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '合并利润表净利润（含少数股东损益）为7,235,443,552.61元，约72.35亿元',\n                          'evidence_ids': ['207c91474e8ee3b9f15ea6b3']},\n                         {'id': 'q2',\n                          'question': '获取宁德时代2025年上半年合并利润表净利润（含少数股东损益）',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '合并利润表净利润（含少数股东损益）为32,365,447千元，约323.65亿元',\n                          'evidence_ids': ['d0c6da2b2488fd0eb4907946',\n                                           '8401eb1ed05b6989eb1beb8f']},\n                         {'id': 'q3',\n                          'question': '获取泸州老窖2025年上半年合并利润表净利润（含少数股东损益）',\n                          'depends_on': [],\n                          'status': 'resolved',\n                          'conclusion': '合并利润表净利润（含少数股东损益）为7,683,660,159.62元，约76.84亿元',\n                          'evidence_ids': ['acb125deb1be4b94707e7e7e',\n                                           '8bad69d2ecec516159d95629']},\n                         {'id': 'q4',\n                          'question': '比较三家2025年上半年合并口径净利润，确定最高公司',\n                          'depends_on': ['q1', 'q2', 'q3'],\n                          'status': 'resolved',\n                          'conclusion': '宁德时代323.65亿元 > 泸州老窖76.84亿元 > '\n                                        '伊利72.35亿元，选中宁德时代',\n                          'evidence_ids': ['207c91474e8ee3b9f15ea6b3',\n                                           'd0c6da2b2488fd0eb4907946',\n                                           'acb125deb1be4b94707e7e7e']},\n                         {'id': 'q5',\n                          'question': '获取宁德时代2025年上半年合并现金流量表经营活动产生的现金流量净额',\n                          'depends_on': ['q4'],\n                          'status': 'resolved',\n                          'conclusion': '经营活动产生的现金流量净额为58,687,066千元（原表与补充资料一致）',\n                          'evidence_ids': ['5fc55ae3c85e21344dcba02d',\n                                           'f3580707faaf0041b84b80d3',\n                                           '266c534ea9b5920db8c5c1f7']},\n                         {'id': 'q6',\n                          'question': '计算宁德时代2025年上半年经营现金流与净利润之比，以百分比保留两位小数',\n                          'depends_on': ['q4', 'q5'],\n                          'status': 'pending',\n                          'conclusion': '',\n                          'evidence_ids': []}],\n                'context': None}}",
+      "trajectory_sha256": "e9bd68e7728d10265b05f1f8497cde2ac21236a6a7e2e6c849e1ef25a903a339",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-85535f8b5d",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 51204,
+        "cached_input_tokens": 24192,
+        "output_tokens": 5767,
+        "reasoning_output_tokens": 3802
+      },
+      "run_error": null,
+      "trajectory_sha256": "21409abbb1596e65b8b8ad324ccaf4c7c68e48c76be379641e310c9fd7c32e39",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-8b9ad6753d",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 104240,
+        "cached_input_tokens": 57728,
+        "output_tokens": 9123,
+        "reasoning_output_tokens": 6014
+      },
+      "run_error": null,
+      "trajectory_sha256": "2e1ce1e206c45ea6e41e247166d757a923f2518051c4e95852da50a24f5deab8",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-8bf3ab6bc6",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 42644,
+        "cached_input_tokens": 20864,
+        "output_tokens": 9159,
+        "reasoning_output_tokens": 6885
+      },
+      "run_error": null,
+      "trajectory_sha256": "d2dddb74f2ffb7c30c0c3c7779fafa548e22471acb64c640872728ed9c08e11f",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-982a7255cb",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 69159,
+        "cached_input_tokens": 32000,
+        "output_tokens": 8308,
+        "reasoning_output_tokens": 5696
+      },
+      "run_error": null,
+      "trajectory_sha256": "1346c6288f62f36fbd0d514adcf26b206ea543174b4753239f467390d68e4c07",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-98edd5e16f",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 7,
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 137914,
+        "cached_input_tokens": 56064,
+        "output_tokens": 11300,
+        "reasoning_output_tokens": 7047
+      },
+      "run_error": null,
+      "trajectory_sha256": "f1b66a9a8a00e948bdab91e9fe4467043596a8fa33ae543713271a22acb3e625",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-993d07c922",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 8,
+        "agent_message": 8
+      },
+      "usage": {
+        "input_tokens": 165594,
+        "cached_input_tokens": 61696,
+        "output_tokens": 16011,
+        "reasoning_output_tokens": 11879
+      },
+      "run_error": null,
+      "trajectory_sha256": "b542898876bdffc70e9a86de50d10986c056f33d2678cf64ba7e917b7fbebcf1",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-99ec054c41",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 7,
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 133313,
+        "cached_input_tokens": 82048,
+        "output_tokens": 11319,
+        "reasoning_output_tokens": 7537
+      },
+      "run_error": null,
+      "trajectory_sha256": "44eac66be72e32019a6ba5ce2a17222c21cd8958f675f15861aba4baefe15ae1",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-9a4d3197ae",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 28302,
+        "cached_input_tokens": 11392,
+        "output_tokens": 5909,
+        "reasoning_output_tokens": 3887
+      },
+      "run_error": null,
+      "trajectory_sha256": "358c07ccd1980b405071d8c92153c1bb11191e98b51d61b9f3652f59c7041095",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-b20ecf8cb3",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 7,
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 162152,
+        "cached_input_tokens": 61312,
+        "output_tokens": 14910,
+        "reasoning_output_tokens": 10626
+      },
+      "run_error": null,
+      "trajectory_sha256": "a6284e875871b24b40a0f36395616b17ca5852a34ba7191edad2c30107e625e7",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-b88d7cb24a",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 16450,
+        "cached_input_tokens": 7936,
+        "output_tokens": 2828,
+        "reasoning_output_tokens": 1757
+      },
+      "run_error": null,
+      "trajectory_sha256": "30588bf5e715ca8fb8c63a62e6fcd72f9d88ce64bc9ff256fe6e0ab4360aff10",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-c247e54218",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 21970,
+        "cached_input_tokens": 9728,
+        "output_tokens": 5987,
+        "reasoning_output_tokens": 4506
+      },
+      "run_error": null,
+      "trajectory_sha256": "3547a1ed7f89a40ed53ffc600b2ad53915c31e4ddb6262b5363676034f5ed6a1",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-c5a1c2c483",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 21514,
+        "cached_input_tokens": 5888,
+        "output_tokens": 4719,
+        "reasoning_output_tokens": 3417
+      },
+      "run_error": null,
+      "trajectory_sha256": "f17a1b907a11f2cc160ee091f595bf665785d86a2cdb56c67c5d6398536a92f3",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-c6de112849",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 7,
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 108012,
+        "cached_input_tokens": 66176,
+        "output_tokens": 10257,
+        "reasoning_output_tokens": 6241
+      },
+      "run_error": "ValidationError: Additional properties are not allowed ('answer_note' was unexpected)\n\nFailed validating 'additionalProperties' in schema[1]:\n    {'type': 'object',\n     'additionalProperties': False,\n     'required': ['status',\n                  'answer_value',\n                  'answer_unit',\n                  'selected_company',\n                  'citations',\n                  'explanation'],\n     'properties': {'status': {'type': 'string',\n                               'enum': ['answered', 'insufficient']},\n                    'answer_value': {'type': 'string'},\n                    'answer_unit': {'type': 'string'},\n                    'selected_company': {'type': ['string', 'null']},\n                    'citations': {'type': 'array',\n                                  'items': {'type': 'string'}},\n                    'explanation': {'type': 'string'}}}\n\nOn instance:\n    {'status': 'answered',\n     'answer_value': '53.87',\n     'answer_unit': '%',\n     'selected_company': '格力电器',\n     'citations': ['868438af95d020b901399ff4',\n                   '161a8dfe589064c6a415a280',\n                   'f1de93ad828e9fcc003bce9e',\n                   'd31b8452261147b1c7f92bec',\n                   '8fda6705fd58d7c9948c31b7',\n                   '47ad286c33d22b7e8a5e5905',\n                   '9ed667801a10ec1a0e66cc11',\n                   'a4ee97ba53023666d5a3eb91',\n                   '7dd70ef4bbf8d728775ca835'],\n     'explanation': '格力电器2025年半年度合并现金流量表“经营活动产生的现金流量净额”本期数为28,328,562,187.20元（单位：元，chunk '\n                    '868438af95d020b901399ff4/161a8dfe589064c6a415a280/f1de93ad828e9fcc003bce9e）；海尔智家2025年上半年合并口径经营活动产生的现金流量净额为11,139,045,781.34元（现金流量表补充资料本期金额，与管理层讨论100亿元口径一致，chunk '\n                    'd31b8452261147b1c7f92bec/8fda6705fd58d7c9948c31b7/47ad286c33d22b7e8a5e5905）；贵州茅台合并现金流量表中“经营活动产生的现金流量净额”本期数为13,119,061,031.33元（chunk '\n                    '9ed667801a10ec1a0e66cc11，衔接原表表头chunk '\n                    'a4ee97ba53023666d5a3eb91，并与补充资料chunk '\n                    '7dd70ef4bbf8d728775ca835一致）。三家合计=28,328,562,187.20+11,139,045,781.34+13,119,061,031.33=52,586,668,999.87元（计算工具sum）。占比=28,328,562,187.20÷52,586,668,999.87×100%=53.87%（计算工具ratio，round_digits=2）。',\n     'answer_note': '所有数值均取合并口径、2025年半年度本期列，单位与表内标注（元）一致；贵州茅台目标行位于原表下一页续段，已结合原表表头（单位：元）与补充资料交叉核对。'}",
+      "trajectory_sha256": "a7fa3fb8ef344ef3a70b2c7337413ea0a09e7c1adb30c9dc61b7ef54b0e429ab",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-c85bdaf5d1",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 29570,
+        "cached_input_tokens": 10368,
+        "output_tokens": 8999,
+        "reasoning_output_tokens": 7554
+      },
+      "run_error": null,
+      "trajectory_sha256": "7b1b44d2a97b456cbbf3f42061ccb7ba8e45c8022d80f6fbf6102e000263a616",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-c95aaf2d5f",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 64734,
+        "cached_input_tokens": 34944,
+        "output_tokens": 9316,
+        "reasoning_output_tokens": 7207
+      },
+      "run_error": null,
+      "trajectory_sha256": "d7295cfb43e8f6853191df52d0562db3409be70bd457886338c245d887069cfb",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-d0f3751700",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 52536,
+        "cached_input_tokens": 24704,
+        "output_tokens": 7131,
+        "reasoning_output_tokens": 5061
+      },
+      "run_error": null,
+      "trajectory_sha256": "231b0472c7a517a041cba884c6e4e0a7882ad03b3338cf26e32b8c94c00fdc67",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-d7e1687e85",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 42273,
+        "cached_input_tokens": 12928,
+        "output_tokens": 4879,
+        "reasoning_output_tokens": 3614
+      },
+      "run_error": null,
+      "trajectory_sha256": "7fa4cdf5b687d933eab8b51935f0df0c3304b7d32c7a5c2f2908fed2d74b11fe",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-dad9a3dc2a",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 60294,
+        "cached_input_tokens": 33152,
+        "output_tokens": 6515,
+        "reasoning_output_tokens": 4220
+      },
+      "run_error": null,
+      "trajectory_sha256": "bc4f76768a40aa7212aa1417433bb9b34c363b4ba932007426bd27ce38712d96",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-db3e19ff7c",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 88477,
+        "cached_input_tokens": 48000,
+        "output_tokens": 10382,
+        "reasoning_output_tokens": 7142
+      },
+      "run_error": null,
+      "trajectory_sha256": "c8bff7b93fd4b0fcc82a0c7912dfea9af260a8007763c0802e072dd06385bac2",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-dceb506d4f",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 33696,
+        "cached_input_tokens": 15360,
+        "output_tokens": 4468,
+        "reasoning_output_tokens": 2700
+      },
+      "run_error": null,
+      "trajectory_sha256": "a66526361b54ccb5e08d36e710cd99e2361e92b82dbff231747c7e2585ee3ab5",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-deacecf885",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 30220,
+        "cached_input_tokens": 10368,
+        "output_tokens": 5288,
+        "reasoning_output_tokens": 3615
+      },
+      "run_error": null,
+      "trajectory_sha256": "7e95e38f9201e5bacdeb62f26cfedfaee516655ed1603e5d00c181c5d7dff294",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-e3026148c3",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 69943,
+        "cached_input_tokens": 32768,
+        "output_tokens": 6043,
+        "reasoning_output_tokens": 3645
+      },
+      "run_error": null,
+      "trajectory_sha256": "8270692c6015d2947bbb1e0e029d643aad30fe48b50a658d541a3f3a7766bc9d",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "structured",
+      "id": "b1-eabcd9e690",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 75322,
+        "cached_input_tokens": 38016,
+        "output_tokens": 9177,
+        "reasoning_output_tokens": 7428
+      },
+      "run_error": null,
+      "trajectory_sha256": "e01365f14df5e5fff07e446895c2d194f401e76291031df4f2a5b7bb9affaae3",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    }
+  ],
+  "passed": 50,
+  "total": 50,
+  "current_execution_code_matches_run": {
+    "src/finmhqa/agent/baselines.py": true,
+    "src/finmhqa/agent/codex_teacher.py": true,
+    "src/finmhqa/agent/openai_compat.py": true,
+    "src/finmhqa/agent/graph.py": true,
+    "src/finmhqa/agent/graph_contracts.py": true,
+    "src/finmhqa/agent/pilot_tools.py": true,
+    "src/finmhqa/agent/evidence_context.py": true,
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/run_agent_dev.py": true
+  }
+}

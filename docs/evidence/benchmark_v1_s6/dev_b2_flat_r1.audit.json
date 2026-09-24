@@ -1,0 +1,1166 @@
+{
+  "results": [
+    {
+      "arm": "flat",
+      "id": "b1-02dac4ddaa",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 5630,
+        "cached_input_tokens": 4096,
+        "output_tokens": 1289,
+        "reasoning_output_tokens": 900
+      },
+      "run_error": null,
+      "trajectory_sha256": "40768472e0542fa870b12799edba5d98bd3f836460fc8bfb0eea54a199c0b525",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-04118b6c51",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 41925,
+        "cached_input_tokens": 28928,
+        "output_tokens": 3692,
+        "reasoning_output_tokens": 3085
+      },
+      "run_error": null,
+      "trajectory_sha256": "10d2140b9b723c4e6004e79f8f4df28dfcc9e9e0062631c421d1636286207c3b",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-0485b0b725",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 21726,
+        "cached_input_tokens": 12800,
+        "output_tokens": 1818,
+        "reasoning_output_tokens": 1190
+      },
+      "run_error": null,
+      "trajectory_sha256": "3c3b93e4dc626ec159aaf65d7a25347497da73317725b8fd7ce9f07a0c69917a",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-050c5e8189",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 24099,
+        "cached_input_tokens": 12288,
+        "output_tokens": 2641,
+        "reasoning_output_tokens": 2048
+      },
+      "run_error": null,
+      "trajectory_sha256": "ff12919d2ac713246b9d4bc3273fa89684d195ac9a6aa9f10d32416c13e9b9a5",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-0d5df828c4",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 65497,
+        "cached_input_tokens": 46720,
+        "output_tokens": 3027,
+        "reasoning_output_tokens": 2049
+      },
+      "run_error": null,
+      "trajectory_sha256": "eacefa13c67863df2f4e54fca678e0b06401ad2404eaa77c1e90edb95fb10faa",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-14d42831a8",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 39309,
+        "cached_input_tokens": 25728,
+        "output_tokens": 3666,
+        "reasoning_output_tokens": 3132
+      },
+      "run_error": null,
+      "trajectory_sha256": "56af0cc1ce869030403757083b1b2d3250d2edc249a8347dff0d3caca51490c2",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-15e3fdcb07",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 64220,
+        "cached_input_tokens": 45824,
+        "output_tokens": 4162,
+        "reasoning_output_tokens": 3333
+      },
+      "run_error": null,
+      "trajectory_sha256": "ce98168298fb78d29b39d9a6334cbd11c6f0844c2e0f61c318a6f5d5ad226a8c",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-17f917464b",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 40098,
+        "cached_input_tokens": 26112,
+        "output_tokens": 3357,
+        "reasoning_output_tokens": 2747
+      },
+      "run_error": null,
+      "trajectory_sha256": "78f1e368949eedc9d78f18eb81946a8472596cc3e4d50e4b891f6eba030d0e00",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-1a5a2c993c",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 79458,
+        "cached_input_tokens": 38016,
+        "output_tokens": 5882,
+        "reasoning_output_tokens": 4872
+      },
+      "run_error": null,
+      "trajectory_sha256": "493154355a18ff0e65cea965a95eaaa3f150bad7bf18ec180e7b2d5937fc4856",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-1aa88e4538",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 110868,
+        "cached_input_tokens": 15616,
+        "output_tokens": 7571,
+        "reasoning_output_tokens": 6621
+      },
+      "run_error": null,
+      "trajectory_sha256": "8159fc62b8a01d58fda1ccb81caa5461dd09ba1c3f766bbfa56a61ac7472964e",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-2558f8836f",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 52956,
+        "cached_input_tokens": 35200,
+        "output_tokens": 1973,
+        "reasoning_output_tokens": 1301
+      },
+      "run_error": null,
+      "trajectory_sha256": "230ee4fc320dbc0752a408f3541669bcf8b5567cf2fac1f6cf1c4d6d53f2ae8f",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-25c2b03fa3",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 2,
+        "agent_message": 2
+      },
+      "usage": {
+        "input_tokens": 14625,
+        "cached_input_tokens": 2688,
+        "output_tokens": 2027,
+        "reasoning_output_tokens": 1774
+      },
+      "run_error": "ValidationError: 'reason' is a required property\n\nFailed validating 'required' in schema:\n    {'type': 'object',\n     'additionalProperties': False,\n     'required': ['action',\n                  'reason',\n                  'searches',\n                  'calculation',\n                  'final',\n                  'context'],\n     'properties': {'action': {'type': 'string',\n                               'enum': ['search',\n                                        'calculate',\n                                        'finish',\n                                        'read_evidence_context']},\n                    'reason': {'type': 'string'},\n                    'searches': {'type': ['array', 'null'],\n                                 'items': {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['query',\n                                                        'company',\n                                                        'mode'],\n                                           'properties': {'query': {'type': 'string'},\n                                                          'company': {'type': 'string'},\n                                                          'mode': {'type': 'string',\n                                                                   'enum': ['dense',\n                                                                            'bm25',\n                                                                            'hybrid']}}}},\n                    'calculation': {'anyOf': [{'type': 'null'},\n                                              {'type': 'object',\n                                               'additionalProperties': False,\n                                               'required': ['operation',\n                                                            'values',\n                                                            'output_unit',\n                                                            'round_digits'],\n                                               'properties': {'operation': {'type': 'string',\n                                                                            'enum': ['convert',\n                                                                                     'sum',\n                                                                                     'difference',\n                                                                                     'ratio',\n                                                                                     'growth']},\n                                                              'values': {'type': 'array',\n                                                                         'items': {'type': 'object',\n                                                                                   'additionalProperties': False,\n                                                                                   'required': ['value',\n                                                                                                'unit'],\n                                                                                   'properties': {'value': {'type': 'string'},\n                                                                                                  'unit': {'type': 'string',\n                                                                                                           'enum': ['元',\n                                                                                                                    '千元',\n                                                                                                                    '万元',\n                                                                                                                    '亿元']}}}},\n                                                              'output_unit': {'type': 'string',\n                                                                              'enum': ['元',\n                                                                                       '千元',\n                                                                                       '万元',\n                                                                                       '亿元',\n                                                                                       '%']},\n                                                              'round_digits': {'type': 'integer'}}}]},\n                    'final': {'anyOf': [{'type': 'null'},\n                                        {'type': 'object',\n                                         'additionalProperties': False,\n                                         'required': ['status',\n                                                      'answer_value',\n                                                      'answer_unit',\n                                                      'selected_company',\n                                                      'citations',\n                                                      'explanation'],\n                                         'properties': {'status': {'type': 'string',\n                                                                   'enum': ['answered',\n                                                                            'insufficient']},\n                                                        'answer_value': {'type': 'string'},\n                                                        'answer_unit': {'type': 'string'},\n                                                        'selected_company': {'type': ['string',\n                                                                                      'null']},\n                                                        'citations': {'type': 'array',\n                                                                      'items': {'type': 'string'}},\n                                                        'explanation': {'type': 'string'}}}]},\n                    'context': {'anyOf': [{'type': 'null'},\n                                          {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['anchor_id',\n                                                        'scope',\n                                                        'cursor'],\n                                           'properties': {'anchor_id': {'type': 'string'},\n                                                          'scope': {'type': 'string',\n                                                                    'enum': ['table',\n                                                                             'table_continuation',\n                                                                             'page',\n                                                                             'previous_page',\n                                                                             'next_page',\n                                                                             'document_units']},\n                                                          'cursor': {'type': 'integer',\n                                                                     'minimum': 0}}}]}}}\n\nOn instance:\n    {'action': {'action': 'search',\n                'reason': '美的集团合并资产总计已从chunk '\n                          '467ee69a95c000e27bb56c37取得为638,033,509千元；尚缺贵州茅台合并口径资产总计，需再检索其合并资产负债表资产总计行以完成两家对比。',\n                'searches': [{'query': '贵州茅台 2025年半年度报告 合并资产负债表 资产总计',\n                              'company': '贵州茅台',\n                              'mode': 'hybrid'}],\n                'calculation': None,\n                'final': None,\n                'context': None}}",
+      "trajectory_sha256": "953186fcce5baa341d3d1e22a29b9f1055c219c2c8bd0d457753b4edd735ab68",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-3533831e37",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 89835,
+        "cached_input_tokens": 63360,
+        "output_tokens": 5096,
+        "reasoning_output_tokens": 3659
+      },
+      "run_error": "ValidationError: 'context' is a required property\n\nFailed validating 'required' in schema:\n    {'type': 'object',\n     'additionalProperties': False,\n     'required': ['action',\n                  'reason',\n                  'searches',\n                  'calculation',\n                  'final',\n                  'context'],\n     'properties': {'action': {'type': 'string',\n                               'enum': ['search',\n                                        'calculate',\n                                        'finish',\n                                        'read_evidence_context']},\n                    'reason': {'type': 'string'},\n                    'searches': {'type': ['array', 'null'],\n                                 'items': {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['query',\n                                                        'company',\n                                                        'mode'],\n                                           'properties': {'query': {'type': 'string'},\n                                                          'company': {'type': 'string'},\n                                                          'mode': {'type': 'string',\n                                                                   'enum': ['dense',\n                                                                            'bm25',\n                                                                            'hybrid']}}}},\n                    'calculation': {'anyOf': [{'type': 'null'},\n                                              {'type': 'object',\n                                               'additionalProperties': False,\n                                               'required': ['operation',\n                                                            'values',\n                                                            'output_unit',\n                                                            'round_digits'],\n                                               'properties': {'operation': {'type': 'string',\n                                                                            'enum': ['convert',\n                                                                                     'sum',\n                                                                                     'difference',\n                                                                                     'ratio',\n                                                                                     'growth']},\n                                                              'values': {'type': 'array',\n                                                                         'items': {'type': 'object',\n                                                                                   'additionalProperties': False,\n                                                                                   'required': ['value',\n                                                                                                'unit'],\n                                                                                   'properties': {'value': {'type': 'string'},\n                                                                                                  'unit': {'type': 'string',\n                                                                                                           'enum': ['元',\n                                                                                                                    '千元',\n                                                                                                                    '万元',\n                                                                                                                    '亿元']}}}},\n                                                              'output_unit': {'type': 'string',\n                                                                              'enum': ['元',\n                                                                                       '千元',\n                                                                                       '万元',\n                                                                                       '亿元',\n                                                                                       '%']},\n                                                              'round_digits': {'type': 'integer'}}}]},\n                    'final': {'anyOf': [{'type': 'null'},\n                                        {'type': 'object',\n                                         'additionalProperties': False,\n                                         'required': ['status',\n                                                      'answer_value',\n                                                      'answer_unit',\n                                                      'selected_company',\n                                                      'citations',\n                                                      'explanation'],\n                                         'properties': {'status': {'type': 'string',\n                                                                   'enum': ['answered',\n                                                                            'insufficient']},\n                                                        'answer_value': {'type': 'string'},\n                                                        'answer_unit': {'type': 'string'},\n                                                        'selected_company': {'type': ['string',\n                                                                                      'null']},\n                                                        'citations': {'type': 'array',\n                                                                      'items': {'type': 'string'}},\n                                                        'explanation': {'type': 'string'}}}]},\n                    'context': {'anyOf': [{'type': 'null'},\n                                          {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['anchor_id',\n                                                        'scope',\n                                                        'cursor'],\n                                           'properties': {'anchor_id': {'type': 'string'},\n                                                          'scope': {'type': 'string',\n                                                                    'enum': ['table',\n                                                                             'table_continuation',\n                                                                             'page',\n                                                                             'previous_page',\n                                                                             'next_page',\n                                                                             'document_units']},\n                                                          'cursor': {'type': 'integer',\n                                                                     'minimum': 0}}}]}}}\n\nOn instance:\n    {'action': 'finish',\n     'reason': '条件桥接已完成：亿纬锂能2025-06-30合并资产总计110,693,660,018.39元，贵州茅台292,257,789,095.51元，较高者为贵州茅台。再用贵州茅台合并利润表‘五、净利润’（含少数股东损益）本期46,986,681,449.24元与上期43,176,914,345.12元，经growth计算得8.82%。',\n     'searches': None,\n     'calculation': None,\n     'final': {'status': 'answered',\n               'answer_value': '8.82',\n               'answer_unit': '%',\n               'selected_company': '贵州茅台',\n               'citations': ['29af98fa53b9d2249b5347d6',\n                             'dbe1ea032829f3776d628a0c',\n                             'c1690dd0d44ad7bbf920ee06',\n                             'ae3cc820f7cf5ba2526e519a',\n                             '07a4b67951b791246cd6320c',\n                             '2e1d407c863d696f303d4a84',\n                             'a3a68746e69a13fec8546059',\n                             'bc233e6941b22d4f03c01373',\n                             '43565903297c7d7dff85d6b8'],\n               'explanation': '第一步比较合并口径资产总计（2025年6月30日）：亿纬锂能合并资产负债表‘资产总计/负债和所有者权益总计’为110,693,660,018.39元（chunk '\n                              '29af98fa53b9d2249b5347d6、dbe1ea032829f3776d628a0c）；贵州茅台合并资产负债表‘负债和所有者权益（或股东权益）总计’为292,257,789,095.51元，且与‘主要会计数据’中合并总资产292,257,789,095.51元一致（chunk '\n                              'ae3cc820f7cf5ba2526e519a、07a4b67951b791246cd6320c、c1690dd0d44ad7bbf920ee06）。差额约181.56亿元，故选定中间公司为贵州茅台。第二步取贵州茅台合并利润表（单位：元，币种：人民币）‘五、净利润（净亏损以‘－’号填列）’：2025年半年度46,986,681,449.24元、2024年半年度43,176,914,345.12元（chunk '\n                              'bc233e6941b22d4f03c01373；表头单位见2e1d407c863d696f303d4a84、a3a68746e69a13fec8546059），该行等于归属于母公司股东的净利润45,402,962,298.10元加少数股东损益1,583,719,151.14元（chunk '\n                              '43565903297c7d7dff85d6b8），符合‘含少数股东损益’要求。第三步计算同比增长率=(46,986,681,449.24−43,176,914,345.12)÷43,176,914,345.12×100%=8.82%（工具growth结果）。'}}",
+      "trajectory_sha256": "1d8623261d4f413363e529bbd2fadb501070b51102375d2d7ac18528689d4aa4",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-3ecd21d91e",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 113322,
+        "cached_input_tokens": 16384,
+        "output_tokens": 9801,
+        "reasoning_output_tokens": 8730
+      },
+      "run_error": null,
+      "trajectory_sha256": "e5915854775fc6c080c71a811fd1080519e2f508c902bc6ef3e48f77bc423692",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-3f5b26c19c",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 80310,
+        "cached_input_tokens": 43392,
+        "output_tokens": 2058,
+        "reasoning_output_tokens": 1471
+      },
+      "run_error": null,
+      "trajectory_sha256": "58ed3518e2fc7ee612b887fd665428a4d75b3cf40103f0346c8f1395e4924128",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-40f787f2b8",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 27154,
+        "cached_input_tokens": 15488,
+        "output_tokens": 1635,
+        "reasoning_output_tokens": 1041
+      },
+      "run_error": null,
+      "trajectory_sha256": "d1f6b9492f06691b2578a4fdc76c1430ed4736ca795054886b099c5f1cf5aae4",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-539a23f595",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 59211,
+        "cached_input_tokens": 44032,
+        "output_tokens": 3732,
+        "reasoning_output_tokens": 2921
+      },
+      "run_error": null,
+      "trajectory_sha256": "739cd01d978a68752e91b8b4e41f8ffaa307c39f7e87d069a79ef1c0cd2fddf2",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-5c29f1a3d4",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 33421,
+        "cached_input_tokens": 22144,
+        "output_tokens": 4203,
+        "reasoning_output_tokens": 3348
+      },
+      "run_error": null,
+      "trajectory_sha256": "d1efd93fa621380528c57ff4f432676334aa77548aa864d778b00a46b3ccaf98",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-66e3c4fa5a",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 21410,
+        "cached_input_tokens": 1408,
+        "output_tokens": 2245,
+        "reasoning_output_tokens": 1640
+      },
+      "run_error": null,
+      "trajectory_sha256": "cba8ce4ebe5fd8da2589d51744a8c9cef23e2a263abe02627aa7524779e107e8",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-672dd7d344",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 14092,
+        "cached_input_tokens": 8832,
+        "output_tokens": 693,
+        "reasoning_output_tokens": 306
+      },
+      "run_error": null,
+      "trajectory_sha256": "e2f1c29da430b819e8cbd100a5dc09b6dd46623f31ffcac51922b6fb8bece156",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-6b7c5795db",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 15840,
+        "cached_input_tokens": 9856,
+        "output_tokens": 3834,
+        "reasoning_output_tokens": 3330
+      },
+      "run_error": null,
+      "trajectory_sha256": "ee286572b30c5c446ab1e6ab2d9e344b07a8e10e83ec5ae388e0270ddc73fa06",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-6e0f0c30e0",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 14544,
+        "cached_input_tokens": 9088,
+        "output_tokens": 812,
+        "reasoning_output_tokens": 458
+      },
+      "run_error": null,
+      "trajectory_sha256": "b0cd39f1a42f9f8b1573f7cc7c9032d4c7b9d3de42e52cb8aa6f2f46eb53eaff",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-71681bd7b7",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 40027,
+        "cached_input_tokens": 27392,
+        "output_tokens": 4227,
+        "reasoning_output_tokens": 3611
+      },
+      "run_error": null,
+      "trajectory_sha256": "93edf0b231c97672be077ecd5576a028edb7e8fd3ea5767c619e1f6e7b131951",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-7c0e27c720",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 61373,
+        "cached_input_tokens": 31360,
+        "output_tokens": 4405,
+        "reasoning_output_tokens": 3476
+      },
+      "run_error": null,
+      "trajectory_sha256": "e154a637a8c17ea5c175a4db64b80a19f0427abaa8c0c4e916f0a3633be45608",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-7eebf1487c",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 2,
+        "agent_message": 2
+      },
+      "usage": {
+        "input_tokens": 7665,
+        "cached_input_tokens": 2688,
+        "output_tokens": 1356,
+        "reasoning_output_tokens": 946
+      },
+      "run_error": null,
+      "trajectory_sha256": "af4d02cdb7cb71a30bb1deaeb177ac7ef42a46de7ee35c6535ea9ef4791e3ba6",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-8471a4bf8b",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 22056,
+        "cached_input_tokens": 12928,
+        "output_tokens": 2029,
+        "reasoning_output_tokens": 1454
+      },
+      "run_error": null,
+      "trajectory_sha256": "d1a1dd6ac5a14b45ef8e8bb3518aea5706858535112826ab9eea037a5ed01e27",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-8498f69a2e",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 61487,
+        "cached_input_tokens": 38784,
+        "output_tokens": 3757,
+        "reasoning_output_tokens": 2812
+      },
+      "run_error": null,
+      "trajectory_sha256": "d6a00fa5a2fa3e31607851246ace998011506885d0326ca880b217ffd48b0e4e",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-85535f8b5d",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 24759,
+        "cached_input_tokens": 17664,
+        "output_tokens": 4515,
+        "reasoning_output_tokens": 3907
+      },
+      "run_error": null,
+      "trajectory_sha256": "cc84daf4f60469f37b9d60f999270d75d5b5bf156d6366b520ec0f0ad4efe533",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-8b9ad6753d",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 94201,
+        "cached_input_tokens": 68224,
+        "output_tokens": 6741,
+        "reasoning_output_tokens": 5700
+      },
+      "run_error": null,
+      "trajectory_sha256": "a3ded4e6732c9861c56912163c81f0b9d2e232d8bf035adfe42df919acd291c0",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-8bf3ab6bc6",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 22129,
+        "cached_input_tokens": 15872,
+        "output_tokens": 2879,
+        "reasoning_output_tokens": 2345
+      },
+      "run_error": null,
+      "trajectory_sha256": "1a3d5c8ab347e9676cb67ce2af78e76d70515ade4f3d11723ebc9a28a6265683",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-982a7255cb",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 45002,
+        "cached_input_tokens": 28288,
+        "output_tokens": 2751,
+        "reasoning_output_tokens": 1987
+      },
+      "run_error": null,
+      "trajectory_sha256": "33c14e2961f2553bbf468acd33597bb35ad7d5875de32dc733315305e8788ad7",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-98edd5e16f",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 74727,
+        "cached_input_tokens": 37504,
+        "output_tokens": 4284,
+        "reasoning_output_tokens": 3402
+      },
+      "run_error": null,
+      "trajectory_sha256": "7d906f7d54ab9d7162cb63be1c4c2c21fc7a8473f28f4ecaa448673cc2c940bd",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-993d07c922",
+      "status": "AUDIT_PASSED",
+      "search_responses": 5,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 7,
+        "agent_message": 7
+      },
+      "usage": {
+        "input_tokens": 138771,
+        "cached_input_tokens": 63872,
+        "output_tokens": 13912,
+        "reasoning_output_tokens": 12552
+      },
+      "run_error": null,
+      "trajectory_sha256": "c1f35a631d489087cce51553e36a37c715ce0d43faf8cce805c1d96cb233598b",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-99ec054c41",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 68928,
+        "cached_input_tokens": 49792,
+        "output_tokens": 6132,
+        "reasoning_output_tokens": 5333
+      },
+      "run_error": null,
+      "trajectory_sha256": "5808f5e3c9d9b97aac3fc11b62803efdb93d5aff59a73342dfc08c700e917f9c",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-9a4d3197ae",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 20180,
+        "cached_input_tokens": 11904,
+        "output_tokens": 1584,
+        "reasoning_output_tokens": 943
+      },
+      "run_error": null,
+      "trajectory_sha256": "73896a1160d5cbf4897655c486c4d22f1b3391f85f86455e21aa66a68f4be606",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-b20ecf8cb3",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 28981,
+        "cached_input_tokens": 11520,
+        "output_tokens": 19074,
+        "reasoning_output_tokens": 18687
+      },
+      "run_error": "RuntimeError: teacher transport failed: Remote end closed connection without response",
+      "trajectory_sha256": "6711127857840aeda3c7b319b83bd60511195b7359ed8ae3bccf8a640d70493d",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-b88d7cb24a",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 17017,
+        "cached_input_tokens": 10240,
+        "output_tokens": 1956,
+        "reasoning_output_tokens": 1543
+      },
+      "run_error": null,
+      "trajectory_sha256": "f293766a586c9420b2194407e16fc8df03fc2ac73898da93d2d8358b9431f88e",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-c247e54218",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 24103,
+        "cached_input_tokens": 13952,
+        "output_tokens": 1226,
+        "reasoning_output_tokens": 709
+      },
+      "run_error": null,
+      "trajectory_sha256": "2ec69eff1e7f5f0e7fbf55006496e8a055f0fb558d7d6df30039d9f8cbb38cc7",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-c5a1c2c483",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 22948,
+        "cached_input_tokens": 13312,
+        "output_tokens": 3113,
+        "reasoning_output_tokens": 2607
+      },
+      "run_error": null,
+      "trajectory_sha256": "9940fca74b8be7574fad9f12e5d26ab0f73b53b5fef2e9ec65192c3a15f8f07b",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-c6de112849",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 6,
+        "agent_message": 6
+      },
+      "usage": {
+        "input_tokens": 90424,
+        "cached_input_tokens": 51584,
+        "output_tokens": 8269,
+        "reasoning_output_tokens": 7295
+      },
+      "run_error": null,
+      "trajectory_sha256": "aae486211e5fba18c55b79f1a25c23f07a52b939ff37f6d517b4c0e07c20bc5d",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-c85bdaf5d1",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 18464,
+        "cached_input_tokens": 11136,
+        "output_tokens": 1560,
+        "reasoning_output_tokens": 1100
+      },
+      "run_error": null,
+      "trajectory_sha256": "fcb51948b3fe8592594b20575b7255e5b27ed0f5e37e586fb6a49498f849e1b4",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-c95aaf2d5f",
+      "status": "AUDIT_PASSED",
+      "search_responses": 6,
+      "calculation_responses": 0,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 64790,
+        "cached_input_tokens": 34688,
+        "output_tokens": 17628,
+        "reasoning_output_tokens": 16724
+      },
+      "run_error": null,
+      "trajectory_sha256": "bc4fe5f8a74c849800f03977e44cebacb4a6d15bb46a9e1fbf80426f4fcd50bb",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-d0f3751700",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 39617,
+        "cached_input_tokens": 27392,
+        "output_tokens": 1691,
+        "reasoning_output_tokens": 970
+      },
+      "run_error": "ValidationError: 'context' is a required property\n\nFailed validating 'required' in schema:\n    {'type': 'object',\n     'additionalProperties': False,\n     'required': ['action',\n                  'reason',\n                  'searches',\n                  'calculation',\n                  'final',\n                  'context'],\n     'properties': {'action': {'type': 'string',\n                               'enum': ['search',\n                                        'calculate',\n                                        'finish',\n                                        'read_evidence_context']},\n                    'reason': {'type': 'string'},\n                    'searches': {'type': ['array', 'null'],\n                                 'items': {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['query',\n                                                        'company',\n                                                        'mode'],\n                                           'properties': {'query': {'type': 'string'},\n                                                          'company': {'type': 'string'},\n                                                          'mode': {'type': 'string',\n                                                                   'enum': ['dense',\n                                                                            'bm25',\n                                                                            'hybrid']}}}},\n                    'calculation': {'anyOf': [{'type': 'null'},\n                                              {'type': 'object',\n                                               'additionalProperties': False,\n                                               'required': ['operation',\n                                                            'values',\n                                                            'output_unit',\n                                                            'round_digits'],\n                                               'properties': {'operation': {'type': 'string',\n                                                                            'enum': ['convert',\n                                                                                     'sum',\n                                                                                     'difference',\n                                                                                     'ratio',\n                                                                                     'growth']},\n                                                              'values': {'type': 'array',\n                                                                         'items': {'type': 'object',\n                                                                                   'additionalProperties': False,\n                                                                                   'required': ['value',\n                                                                                                'unit'],\n                                                                                   'properties': {'value': {'type': 'string'},\n                                                                                                  'unit': {'type': 'string',\n                                                                                                           'enum': ['元',\n                                                                                                                    '千元',\n                                                                                                                    '万元',\n                                                                                                                    '亿元']}}}},\n                                                              'output_unit': {'type': 'string',\n                                                                              'enum': ['元',\n                                                                                       '千元',\n                                                                                       '万元',\n                                                                                       '亿元',\n                                                                                       '%']},\n                                                              'round_digits': {'type': 'integer'}}}]},\n                    'final': {'anyOf': [{'type': 'null'},\n                                        {'type': 'object',\n                                         'additionalProperties': False,\n                                         'required': ['status',\n                                                      'answer_value',\n                                                      'answer_unit',\n                                                      'selected_company',\n                                                      'citations',\n                                                      'explanation'],\n                                         'properties': {'status': {'type': 'string',\n                                                                   'enum': ['answered',\n                                                                            'insufficient']},\n                                                        'answer_value': {'type': 'string'},\n                                                        'answer_unit': {'type': 'string'},\n                                                        'selected_company': {'type': ['string',\n                                                                                      'null']},\n                                                        'citations': {'type': 'array',\n                                                                      'items': {'type': 'string'}},\n                                                        'explanation': {'type': 'string'}}}]},\n                    'context': {'anyOf': [{'type': 'null'},\n                                          {'type': 'object',\n                                           'additionalProperties': False,\n                                           'required': ['anchor_id',\n                                                        'scope',\n                                                        'cursor'],\n                                           'properties': {'anchor_id': {'type': 'string'},\n                                                          'scope': {'type': 'string',\n                                                                    'enum': ['table',\n                                                                             'table_continuation',\n                                                                             'page',\n                                                                             'previous_page',\n                                                                             'next_page',\n                                                                             'document_units']},\n                                                          'cursor': {'type': 'integer',\n                                                                     'minimum': 0}}}]}}}\n\nOn instance:\n    {'action': 'finish',\n     'reason': '美的与比亚迪2025年上半年合并归母净利润均已取得原始表内数值，单位经同源单位说明确认为千元，差额已用计算工具验证并换算为亿元、保留两位小数。',\n     'searches': None,\n     'calculation': None,\n     'final': {'status': 'answered',\n               'answer_value': '105.03',\n               'answer_unit': '亿元',\n               'selected_company': None,\n               'citations': ['02d06c60f057cf82577528a7',\n                             '4b28ba1999c0652b8e5498b3',\n                             'dfcac71cb623204d6f6d239d',\n                             'ed8a1463462cd90a3ffcf505'],\n               'explanation': '美的集团2025年半年度合并及公司利润表（单位：千元）显示，2025年半年度/合并的“归属于母公司股东的净利润”为26,013,690千元。比亚迪2025年半年度合并利润表（未经审计）显示，“归属于母公司所有者的净利润”为15,510,533；同源文件“第八节财务报告 '\n                              '> '\n                              '二、财务报表”明确“财务报表及附注的单位为：千元”，故为15,510,533千元。差额=26,013,690−15,510,533=10,503,157千元=105.03157亿元，按题目要求以亿元保留两位小数为105.03亿元（正号表示美的高于比亚迪105.03亿元）。'}}",
+      "trajectory_sha256": "ecf67541d9ef983049d43b8072aa51800c9302fdb74f226eed2c2881e0edd856",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 1,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-d7e1687e85",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 25909,
+        "cached_input_tokens": 14848,
+        "output_tokens": 1895,
+        "reasoning_output_tokens": 1348
+      },
+      "run_error": null,
+      "trajectory_sha256": "ed318716673599931b327f0ea57574008e5734879cc3ac125f5050854638d5ec",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-dad9a3dc2a",
+      "status": "AUDIT_PASSED",
+      "search_responses": 2,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 61133,
+        "cached_input_tokens": 45440,
+        "output_tokens": 3059,
+        "reasoning_output_tokens": 2190
+      },
+      "run_error": null,
+      "trajectory_sha256": "7b5170212ddf84542c1b3ae5c8f9a72c1b0ad6c2fbdedacf6f793e8f03210b39",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 2,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-db3e19ff7c",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 2,
+      "native_items": {
+        "reasoning": 5,
+        "agent_message": 5
+      },
+      "usage": {
+        "input_tokens": 78355,
+        "cached_input_tokens": 57088,
+        "output_tokens": 6270,
+        "reasoning_output_tokens": 5088
+      },
+      "run_error": null,
+      "trajectory_sha256": "d6ef3f09f0ae22c27a0f07d4f6438b18ff114ddbd69332e2418b78d6d16e7994",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-dceb506d4f",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 12735,
+        "cached_input_tokens": 2816,
+        "output_tokens": 3687,
+        "reasoning_output_tokens": 3281
+      },
+      "run_error": null,
+      "trajectory_sha256": "7ca281f8b882772a0455f03472b9482994c4ad46813f099344e86313d2f9b5e5",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-deacecf885",
+      "status": "AUDIT_PASSED",
+      "search_responses": 1,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 3,
+        "agent_message": 3
+      },
+      "usage": {
+        "input_tokens": 18171,
+        "cached_input_tokens": 8960,
+        "output_tokens": 2077,
+        "reasoning_output_tokens": 1460
+      },
+      "run_error": null,
+      "trajectory_sha256": "4bce2c36f02724bbc1de1e96211fc792152d841e10eb04b1472bc0da2ddbdd11",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-e3026148c3",
+      "status": "AUDIT_PASSED",
+      "search_responses": 4,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 60220,
+        "cached_input_tokens": 38784,
+        "output_tokens": 2283,
+        "reasoning_output_tokens": 1563
+      },
+      "run_error": null,
+      "trajectory_sha256": "a3651073571d211ac01a1e3fa6e6c02182332abd1501cc24c20346e6c7b287f0",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    },
+    {
+      "arm": "flat",
+      "id": "b1-eabcd9e690",
+      "status": "AUDIT_PASSED",
+      "search_responses": 3,
+      "calculation_responses": 1,
+      "native_items": {
+        "reasoning": 4,
+        "agent_message": 4
+      },
+      "usage": {
+        "input_tokens": 84023,
+        "cached_input_tokens": 54272,
+        "output_tokens": 7158,
+        "reasoning_output_tokens": 6045
+      },
+      "run_error": null,
+      "trajectory_sha256": "ea3ddb5a3a6e58bd1a78e570b4dae67e196f25a68a1c907ae50a75426f38ae52",
+      "policy_tool_correspondence": "PASSED",
+      "calculation_replay": "PASSED",
+      "context_reads": 0,
+      "context_replay": "PASSED"
+    }
+  ],
+  "passed": 50,
+  "total": 50,
+  "current_execution_code_matches_run": {
+    "src/finmhqa/agent/baselines.py": true,
+    "src/finmhqa/agent/codex_teacher.py": true,
+    "src/finmhqa/agent/openai_compat.py": true,
+    "src/finmhqa/agent/graph.py": true,
+    "src/finmhqa/agent/graph_contracts.py": true,
+    "src/finmhqa/agent/pilot_tools.py": true,
+    "src/finmhqa/agent/evidence_context.py": true,
+    "/Users/Zhuanz/Documents/GitHub/fin-mhqa/scripts/run_agent_dev.py": true
+  }
+}

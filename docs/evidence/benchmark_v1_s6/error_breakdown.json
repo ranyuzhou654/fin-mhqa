@@ -1,0 +1,11 @@
+{
+ "b0_closed_book": {},
+ "b1_single_retrieval": {},
+ "b2_flat": {
+  "format (schema)": 8,
+  "transport": 1
+ },
+ "b3_graph": {
+  "format (schema)": 8
+ }
+}

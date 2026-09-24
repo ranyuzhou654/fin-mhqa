@@ -11,6 +11,7 @@
 | 数据底座 | Docling 解析得到 9,322 条可追溯证据块（正文、表格 Markdown、表格键值）。见[全量结果](docs/DOCLING_CORPUS_RESULTS.md) |
 | 混合检索 | FAISS + BM25 + RRF + BGE 重排，本地 HTTP 服务。30 题开发集 hybrid Hit@5 为 29/30（v2 标签，v1 失败结果保留）。见[v2 验收](docs/M2_V2_RESULTS.md) |
 | Agent | LangGraph Planner–Executor–Verifier–Synthesizer，结构化重规划、预算控制、续表与单位说明的受控读取、确定性计算、原样发布已核验的答案。见[M3 设计](docs/AGENT_M3_DESIGN.md)、[M3.1 设计](docs/AGENT_M31_DESIGN.md) |
+| Dev 基线 | 闭卷 18.7%，固定 RAG 61.3%，单模型 Agent 92.7%，四角色 Agent 93.3%（各 3 次）。检索和 Agent 循环的收益显著；多角色在 Dev 上没有可测量的收益。见[S6 基线](docs/BENCHMARK_V1_S6_BASELINES.md) |
 | Agent 模型 | 现用 DeepSeek（deepseek-v4.1-flash，OpenAI 兼容接口），dev20 为 20/20；Sol 的 rc1 为 19/20。见[teacher_v1](docs/TEACHER_V1.md)、[DeepSeek](docs/TEACHER_V2_DEEPSEEK.md) |
 | 质量评判 | Sol、DeepSeek、Claude 三个模型的 Judge 对比，未经人工校准。见[对比](docs/JUDGE_COMPARISON_V1.md) |
 | 评测集 | benchmark_v1 已冻结：Dev 50 / Test 100，答案由程序从 298 条已核验事实计算，Test 受登记配置和 `--final` 保护。见[冻结说明](docs/BENCHMARK_V1_FROZEN.md)、[设计](docs/BENCHMARK_DESIGN.md) |

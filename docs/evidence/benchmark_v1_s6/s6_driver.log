@@ -1,0 +1,32 @@
+done data/bench/runs/dev_b0_closed_book_r1 exit 0
+done data/bench/runs/dev_b1_single_retrieval_r1 exit 0
+done data/bench/runs/dev_b0_closed_book_r2 exit 0
+paused 2026-09-23 21:02:18: B1 r2 interrupted by user request, moved to aborted_*
+resumed 2026-09-24 00:02:16
+skip data/bench/runs/dev_b0_closed_book_r1
+skip data/bench/runs/dev_b1_single_retrieval_r1
+skip data/bench/runs/dev_b0_closed_book_r2
+done data/bench/runs/dev_b1_single_retrieval_r2 exit 0
+done data/bench/runs/dev_b0_closed_book_r3 exit 0
+done data/bench/runs/dev_b1_single_retrieval_r3 exit 0
+done data/bench/runs/dev_b3_graph_r1 exit 0
+done data/bench/runs/dev_b2_flat_r1 exit 0
+done data/bench/runs/dev_b2_flat_r2 exit 0
+done data/bench/runs/dev_b2_flat_r3 exit 0
+done data/bench/runs/dev_b3_graph_r2 exit 0
+done data/bench/runs/dev_b3_graph_r3 exit 0
+invalidated 2026-09-24 01:18:31: B2/B3 runs hit 924 retrieval 503 (two parallel processes vs single-slot server) and B3 r3 hit DeepSeek 402 insufficient funds; moved to invalid_*
+superseded 2026-09-24 10:13:22: B0/B1 runs used the Zen pay-as-you-go endpoint; all 12 rerun on the OpenCode Go endpoint (same model id) for consistency
+rerun started 2026-09-24 10:13:31 on Go endpoint, sequential
+done data/bench/runs/dev_b0_closed_book_r1 exit 0
+done data/bench/runs/dev_b1_single_retrieval_r1 exit 0
+done data/bench/runs/dev_b0_closed_book_r2 exit 0
+done data/bench/runs/dev_b1_single_retrieval_r2 exit 0
+done data/bench/runs/dev_b0_closed_book_r3 exit 0
+done data/bench/runs/dev_b1_single_retrieval_r3 exit 0
+done data/bench/runs/dev_b2_flat_r1 exit 0
+done data/bench/runs/dev_b3_graph_r1 exit 0
+done data/bench/runs/dev_b2_flat_r2 exit 0
+done data/bench/runs/dev_b3_graph_r2 exit 0
+done data/bench/runs/dev_b2_flat_r3 exit 0
+done data/bench/runs/dev_b3_graph_r3 exit 0
