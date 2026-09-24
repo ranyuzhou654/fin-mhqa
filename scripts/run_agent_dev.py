@@ -54,7 +54,9 @@ def main():
     a.out.mkdir(parents=True)
     spec=config['teacher'] if config else 'gpt-5.6-sol'
     if isinstance(spec,dict) and spec['backend']=='openai':
-        teacher=OpenAICompatTeacher(spec['base_url'],spec['model']);teacher_name=f"{spec['model']} via {spec['base_url']}"
+        repair=bool(config.get('format_repair',False))
+        teacher=OpenAICompatTeacher(spec['base_url'],spec['model'],repair=repair)
+        teacher_name=f"{spec['model']} via {spec['base_url']}"+(' +format_repair' if repair else '')
     elif spec=='gpt-5.6-sol':
         teacher=CodexTeacher('/Applications/ChatGPT.app/Contents/Resources/codex',a.out/'empty_teacher_cwd');teacher_name=spec
     else:raise ValueError('unknown teacher spec')

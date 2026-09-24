@@ -66,7 +66,8 @@ def score_item(gold, result, events, facts):
             'citations_valid': set(citations) <= set(seen) if status == 'answered' else None,
             'hops_cited': hops, 'model_calls': (result or {}).get('decision_calls', 0), 'tool_calls': (result or {}).get('tool_calls', 0),
             'seconds': (result or {}).get('seconds'), 'usage': usage, 'search_errors': tool_errors,
-            'busy_retries': (result or {}).get('retrieval_busy_retries', 0)}
+            'busy_retries': (result or {}).get('retrieval_busy_retries', 0),
+            'format_repairs': (result or {}).get('format_repairs', 0)}
 
 
 def rate(items, key=lambda s: s['correct']):
@@ -102,6 +103,7 @@ def summarize(scores):
         # infrastructure health: failed searches reach the agent as tool errors and depress scores
         'search_errors': sum(s.get('search_errors', 0) for s in scores),
         'busy_retries': sum(s.get('busy_retries', 0) for s in scores),
+        'format_repairs': sum(s.get('format_repairs', 0) for s in scores),
         'citation_validity': rate(answered, key=lambda s: bool(s['citations_valid'])),
         'hop_citation_coverage': {'n': len(hops), 'value': round(sum(hops) / len(hops), 4) if hops else None},
         'mean_model_calls': round(statistics.mean(s['model_calls'] for s in scores), 3),

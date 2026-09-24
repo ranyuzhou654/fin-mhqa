@@ -43,7 +43,7 @@ def test_malformed_json_retried_once_and_all_attempts_kept(tmp_path):
     assert action==ACTION and json.loads((root/'response.json').read_text())['id']=='good'
     assert json.loads((root/'rejected_response.json').read_text())['id']=='bad'
     assert json.loads((root/'attempts.json').read_text())['rejected_usage'][0]['input_tokens']==100
-    with pytest.raises(RuntimeError,match='invalid JSON'):
+    with pytest.raises(RuntimeError,match='invalid output'):
         teacher([reply('x'),reply('y')]).decide('问',[],tmp_path/'t',system='S',output_schema=SCHEMA)
 
 
@@ -110,3 +110,33 @@ def test_session_header_is_stable_per_question_and_differs_across_questions(tmp_
         t.decide('问', [], tmp_path / q / f'step_{step:02}', system='S', output_schema=SCHEMA)
     assert sent[0] == sent[1] != sent[2] and len(sent[0]) == 32
     assert json.loads((tmp_path / 'q1' / 'step_00' / 'request.json').read_text())['x-opencode-session'] == sent[0]
+
+
+def test_format_repair_sends_validation_error_back_once_and_keeps_every_attempt(tmp_path):
+    bad = dict(ACTION, answer_unit_note='多余字段')
+    sent = []
+    t = teacher([reply(json.dumps(bad), 'bad'), reply(json.dumps(ACTION), 'good')], sent)
+    t.repair = True
+    action, usage = t.decide('问', [], tmp_path / 's', system='S', output_schema=SCHEMA)
+    assert action == ACTION and len(sent) == 2
+    assert sent[1]['messages'][2] == {'role': 'assistant', 'content': json.dumps(bad)}
+    assert 'answer_unit_note' in sent[1]['messages'][3]['content'] and '不变' in sent[1]['messages'][3]['content']
+    record = json.loads((tmp_path / 's' / 'attempts.json').read_text())
+    assert record['attempts'] == 2 and record['repairs'][0]['attempt'] == 1 and record['rejected_usage']
+    assert json.loads((tmp_path / 's' / 'rejected_response.json').read_text())['id'] == 'bad'
+    assert json.loads((tmp_path / 's' / 'retry_1' / 'request.json').read_text())['messages'][3]['role'] == 'user'
+
+
+def test_without_repair_schema_violations_pass_through_unchanged(tmp_path):
+    bad = dict(ACTION, answer_unit_note='多余字段')
+    sent = []
+    action, _ = teacher([reply(json.dumps(bad))], sent).decide('问', [], tmp_path / 's', system='S', output_schema=SCHEMA)
+    assert action == bad and len(sent) == 1     # the graph's own validation then fails the case, as in S6
+
+
+def test_repair_gives_up_after_one_attempt(tmp_path):
+    bad = dict(ACTION, reason=None)
+    t = teacher([reply(json.dumps(bad)), reply(json.dumps(bad))])
+    t.repair = True
+    with pytest.raises(RuntimeError, match='invalid output on attempt 2'):
+        t.decide('问', [], tmp_path / 's', system='S', output_schema=SCHEMA)

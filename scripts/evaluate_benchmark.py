@@ -24,6 +24,11 @@ def load_run(run, facts):
     for g in gold:   # every frozen item is scored; a missing folder is NOT_RUN and counts as wrong
         folder = run / arm / g['id']
         result = json.loads((folder / 'result.json').read_text()) if (folder / 'result.json').exists() else None
+        if result is not None:
+            # rejected (malformed or repaired) model replies cost tokens too; count them and the repairs
+            attempts = [json.loads(p.read_text()) for p in sorted(folder.glob('step_*/attempts.json'))]
+            result = dict(result, usage=(result.get('usage') or []) + [u for x in attempts for u in x.get('rejected_usage', [])],
+                          format_repairs=sum(len(x.get('repairs', [])) for x in attempts))
         events = [json.loads(l) for l in (folder / 'trajectory.jsonl').read_text().splitlines()] if (folder / 'trajectory.jsonl').exists() else []
         scores.append(score_item(g, result, events, facts))
     return split, manifest.get('config_sha256'), scores

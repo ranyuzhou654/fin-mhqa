@@ -6,6 +6,10 @@ from pathlib import Path
 import time
 import urllib.error
 import urllib.request
+from jsonschema import ValidationError, validate
+
+REPAIR_PROMPT = ('你上一条输出不符合要求：{error}。请保持你原来的决定和内容不变，只修正格式，'
+                 '重新输出一个完整、符合JSON Schema的JSON对象，不要任何其它文字。')
 
 
 def load_env(path=Path('.env')):
@@ -50,7 +54,8 @@ def strip_fence(text):
 
 
 class OpenAICompatTeacher:
-    def __init__(self, base_url=None, model=None, api_key=None, max_attempts=2, post=None, transport_retries=2, backoff=5):
+    def __init__(self, base_url=None, model=None, api_key=None, max_attempts=2, post=None, transport_retries=2, backoff=5,
+                 repair=False):
         load_env()
         self.base_url = (base_url or os.environ.get('LLM_BASE_URL', '')).rstrip('/')
         self.model = model or os.environ.get('LLM_MODEL_NAME', '')
@@ -60,6 +65,9 @@ class OpenAICompatTeacher:
         if not self._key and post is None:
             raise ValueError('LLM_API_KEY is not set')
         self.max_attempts = max_attempts
+        # repair=True: validate against the output schema and send the validation error back once (format only).
+        # repair=False keeps the original behaviour: resend the identical request only when the reply is not JSON.
+        self.repair = repair
         self.transport_retries, self.backoff = transport_retries, backoff
         self.transport_failures = []
         self._custom_post = post is not None
@@ -105,11 +113,13 @@ class OpenAICompatTeacher:
         anchor = outdir.parent if outdir.name.startswith('step_') else outdir
         session = hashlib.sha256(str(anchor.resolve()).encode()).hexdigest()[:32]
         (outdir / 'request.json').write_text(json.dumps({**body, 'x-opencode-session': session}, ensure_ascii=False, indent=2))
-        # Every attempt is kept; only a malformed-JSON reply is retried, never a valid but unwelcome answer.
-        failure = None;rejected_usage = [];transport_log = []
+        # Every attempt is kept; only a malformed reply is retried, never a valid but unwelcome answer.
+        failure = None;rejected_usage = [];transport_log = [];repairs = []
         for attempt in range(self.max_attempts):
             folder = outdir if attempt == 0 else outdir / f'retry_{attempt}'
             folder.mkdir(exist_ok=True)
+            if attempt:
+                (folder / 'request.json').write_text(json.dumps({**body, 'x-opencode-session': session}, ensure_ascii=False, indent=2))
             start = time.monotonic()
             try:
                 response = self._send(body, timeout, transport_log, session)
@@ -123,16 +133,26 @@ class OpenAICompatTeacher:
             if any(e.get('item', {}).get('type') == 'tool_call' for e in events):
                 raise RuntimeError('unapproved native item: tool_call')
             usage = events[-1]['usage']
+            text = events[-2]['item']['text']
             try:
-                action = json.loads(events[-2]['item']['text'])
-            except json.JSONDecodeError as exc:
+                action = json.loads(text)
+                if self.repair:
+                    validate(action, output_schema)
+            except (json.JSONDecodeError, ValidationError) as exc:
                 rejected_usage.append(usage)
-                failure = f'invalid JSON on attempt {attempt + 1}: {exc}'
+                detail = exc.message if isinstance(exc, ValidationError) else f'不是合法JSON（{exc}）'
+                failure = f'invalid output on attempt {attempt + 1}: {detail}'
+                if self.repair:
+                    where = '/'.join(map(str, exc.absolute_path)) if isinstance(exc, ValidationError) else ''
+                    repairs.append({'attempt': attempt + 1, 'error': detail[:300], 'path': where})
+                    body = {**body, 'messages': body['messages'][:2] + [
+                        {'role': 'assistant', 'content': text},
+                        {'role': 'user', 'content': REPAIR_PROMPT.format(error=(f'{where}: ' if where else '') + detail[:300])}]}
                 continue
             (outdir / 'decision.json').write_text(json.dumps(action, ensure_ascii=False, indent=2))
             (outdir / 'usage.json').write_text(json.dumps(usage))
             (outdir / 'attempts.json').write_text(json.dumps({'attempts': attempt + 1, 'rejected_usage': rejected_usage,
-                                                                'seconds': time.monotonic() - start}))
+                                                                'repairs': repairs, 'seconds': time.monotonic() - start}))
             if attempt:
                 # Audits read the accepted attempt at the step root; earlier malformed replies stay in place.
                 for name in ('response.json', 'events.jsonl'):
