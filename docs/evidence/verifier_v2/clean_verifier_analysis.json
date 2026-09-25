@@ -1,0 +1,72 @@
+{
+  "data/bench/runs/dev_b3_graph_repair_verifier_v2_r?": {
+    "decisions": 177,
+    "outcomes": {
+      "accept_correct": 126,
+      "reject_correct": 51
+    },
+    "by_type": {
+      "T1": {
+        "reject_correct": 15,
+        "accept_correct": 24
+      },
+      "T2": {
+        "accept_correct": 24,
+        "reject_correct": 6
+      },
+      "T3": {
+        "reject_correct": 12,
+        "accept_correct": 20
+      },
+      "T4": {
+        "accept_correct": 24,
+        "reject_correct": 6
+      },
+      "T5": {
+        "reject_correct": 12,
+        "accept_correct": 34
+      }
+    },
+    "false_rejection_issue_codes": {
+      "UNIT_MISSING": 9,
+      "NEEDS_CROSS_CHECK": 59,
+      "SCOPE_MISMATCH": 1,
+      "MISSING_EVIDENCE": 2,
+      "UNSUPPORTED_CLAIM": 1
+    },
+    "items_with_false_rejection": 30
+  },
+  "data/bench/runs/dev_b3_graph_repair_r?": {
+    "decisions": 137,
+    "outcomes": {
+      "accept_correct": 127,
+      "reject_correct": 10
+    },
+    "by_type": {
+      "T1": {
+        "accept_correct": 24
+      },
+      "T2": {
+        "accept_correct": 24,
+        "reject_correct": 1
+      },
+      "T3": {
+        "accept_correct": 23,
+        "reject_correct": 3
+      },
+      "T4": {
+        "accept_correct": 24
+      },
+      "T5": {
+        "accept_correct": 32,
+        "reject_correct": 6
+      }
+    },
+    "false_rejection_issue_codes": {
+      "UNIT_MISSING": 12,
+      "MISSING_EVIDENCE": 2,
+      "WRONG_CALCULATION": 1
+    },
+    "items_with_false_rejection": 6
+  }
+}

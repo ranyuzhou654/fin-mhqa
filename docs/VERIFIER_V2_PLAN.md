@@ -1,5 +1,7 @@
 # 核验角色 v2：设计与事先登记
 
+结果见 [VERIFIER_V2_RESULTS.md](VERIFIER_V2_RESULTS.md)。
+
 2026-09-25，在任何 v2 运行之前写定。
 
 ## 起因

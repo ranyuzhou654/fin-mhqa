@@ -14,6 +14,7 @@
 | Dev 基线 | 闭卷 18.7%，固定 RAG 61.3%，单模型 Agent 92.7%，四角色 Agent 93.3%（各 3 次）。检索和 Agent 循环的收益显著；多角色在 Dev 上没有可测量的收益。见[S6 基线](docs/BENCHMARK_V1_S6_BASELINES.md) |
 | 格式修复 | 带校验反馈的一次修复消除全部 JSON 格式报错：单模型 Agent 92.7% → 98.7%（+6.0，95% 区间 [+2.7, +10.0]），四角色 93.3% → 96.7%（不显著）。见[评估](docs/FORMAT_REPAIR_V1.md) |
 | 故障注入 | 盲注入三类证据错误（单位标错、列错位、冲突摘要表）：列错位让准确率下降 26–37 个百分点。核验角色在列错位下纠正 5 题、无损害，但在冲突摘要表下把 6 个正确答案拖成拒答；按登记标准无净收益。见[结果](docs/FAULT_INJECTION_V1_RESULTS.md) |
+| 核验角色 v2 | 加入来源优先级、期间列核对、单一来源交叉核对、不重复拒绝。故障条件下纠正从 6 题升到 15 题，列错位被误导率 27.3% → 9.1%。列错位下四角色首次显著优于单模型（准确率 +20.5 [+4.5, +36.4]），无故障 Dev 不显著下降。v2 是看过 Dev 故障结果后设计的，结果偏乐观。见[结果](docs/VERIFIER_V2_RESULTS.md) |
 | Agent 模型 | 现用 DeepSeek（deepseek-v4.1-flash，OpenAI 兼容接口），dev20 为 20/20；Sol 的 rc1 为 19/20。见[teacher_v1](docs/TEACHER_V1.md)、[DeepSeek](docs/TEACHER_V2_DEEPSEEK.md) |
 | 质量评判 | Sol、DeepSeek、Claude 三个模型的 Judge 对比，未经人工校准。见[对比](docs/JUDGE_COMPARISON_V1.md) |
 | 评测集 | benchmark_v1 已冻结：Dev 50 / Test 100，答案由程序从 298 条已核验事实计算，Test 受登记配置和 `--final` 保护。见[冻结说明](docs/BENCHMARK_V1_FROZEN.md)、[设计](docs/BENCHMARK_DESIGN.md) |

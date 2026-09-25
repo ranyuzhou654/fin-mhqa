@@ -1,0 +1,43 @@
+{
+  "fault_F1_b3_graph_repair_verifier_v2_r1": {
+    "first_candidate_to_published": {
+      "correct -> correct": 43,
+      "misled -> misled": 1
+    },
+    "items_by_rejection_count": {
+      "0": 31,
+      "1": 13
+    }
+  },
+  "fault_F2_b3_graph_repair_verifier_v2_r1": {
+    "first_candidate_to_published": {
+      "correct -> correct": 24,
+      "correct -> error": 1,
+      "correct -> misled": 1,
+      "misled -> correct": 12,
+      "misled -> misled": 3,
+      "misled -> refused": 1,
+      "no_candidate -> error": 1,
+      "no_candidate -> refused": 1
+    },
+    "items_by_rejection_count": {
+      "0": 20,
+      "1": 22,
+      "2": 1,
+      "3": 1
+    }
+  },
+  "fault_F3_b3_graph_repair_verifier_v2_r1": {
+    "first_candidate_to_published": {
+      "correct -> correct": 37,
+      "misled -> correct": 3,
+      "misled -> misled": 2,
+      "refused -> refused": 2
+    },
+    "items_by_rejection_count": {
+      "0": 36,
+      "1": 7,
+      "2": 1
+    }
+  }
+}

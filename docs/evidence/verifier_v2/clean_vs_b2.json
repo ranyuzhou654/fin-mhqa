@@ -1,0 +1,353 @@
+{
+  "split": "dev",
+  "config_sha256": "71e709f408f3685476d3ef02bbe5a757679693c49a49ad025d9d3733dd049282",
+  "runs": [
+    "data/bench/runs/dev_b3_graph_repair_verifier_v2_r1",
+    "data/bench/runs/dev_b3_graph_repair_verifier_v2_r2",
+    "data/bench/runs/dev_b3_graph_repair_verifier_v2_r3"
+  ],
+  "per_run": [
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 0.94
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 0.625
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 1.0
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 0.9487
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 0.8571
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 0.88
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 41,
+          "ERROR": 2,
+          "INSUFFICIENT": 1
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 2,
+          "TOOL_BUDGET": 1
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0227
+      },
+      "errors": 2,
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 2,
+      "citation_validity": {
+        "n": 41,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 99,
+        "value": 0.9697
+      },
+      "mean_model_calls": 6.26,
+      "mean_tool_calls": 5.1,
+      "mean_seconds": 162.93,
+      "p95_seconds": 347.4125652079965,
+      "tokens": {
+        "input_tokens": 4943223,
+        "cached_input_tokens": 2117376,
+        "output_tokens": 643760,
+        "reasoning_output_tokens": 482071
+      }
+    },
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 0.98
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 0.9167
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 0.9744
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 0.8571
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 0.96
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 43,
+          "ERROR": 1
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0
+      },
+      "errors": 1,
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 0,
+      "citation_validity": {
+        "n": 43,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 104,
+        "value": 1.0
+      },
+      "mean_model_calls": 6.08,
+      "mean_tool_calls": 4.74,
+      "mean_seconds": 170.75,
+      "p95_seconds": 394.81491887501033,
+      "tokens": {
+        "input_tokens": 4650126,
+        "cached_input_tokens": 2186368,
+        "output_tokens": 645048,
+        "reasoning_output_tokens": 489336
+      }
+    },
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 0.96
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 0.875
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 0.9167
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 0.9487
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 0.8571
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 0.92
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 42,
+          "INSUFFICIENT": 1,
+          "TOOL_BUDGET": 1
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0455
+      },
+      "errors": 0,
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 5,
+      "citation_validity": {
+        "n": 42,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 100,
+        "value": 1.0
+      },
+      "mean_model_calls": 6.1,
+      "mean_tool_calls": 4.84,
+      "mean_seconds": 175.15,
+      "p95_seconds": 353.852403375,
+      "tokens": {
+        "input_tokens": 4606004,
+        "cached_input_tokens": 2176128,
+        "output_tokens": 636095,
+        "reasoning_output_tokens": 479011
+      }
+    }
+  ],
+  "across_runs": {
+    "runs": 3,
+    "accuracy_per_run": [
+      0.94,
+      0.98,
+      0.96
+    ],
+    "accuracy_mean": 0.96,
+    "accuracy_sd": 0.02,
+    "items_always_correct": 45,
+    "items_never_correct": 0,
+    "items": 50
+  },
+  "scope": "program-scored against frozen gold; errors and missing items count as wrong",
+  "baseline": {
+    "runs": [
+      "data/bench/runs/dev_b2_flat_repair_r1",
+      "data/bench/runs/dev_b2_flat_repair_r2",
+      "data/bench/runs/dev_b2_flat_repair_r3"
+    ],
+    "config_sha256": "0e1da59ffdf39290a960e16666acebdd2ac978f6e8cb5a5c0ecb12b68e55e033",
+    "across_runs": {
+      "runs": 3,
+      "accuracy_per_run": [
+        1.0,
+        1.0,
+        0.96
+      ],
+      "accuracy_mean": 0.9867,
+      "accuracy_sd": 0.0231,
+      "items_always_correct": 48,
+      "items_never_correct": 0,
+      "items": 50
+    },
+    "paired_difference_vs_baseline": {
+      "items": 50,
+      "difference": -0.0267,
+      "ci95": [
+        -0.0667,
+        0.0067
+      ],
+      "b_better_items": 1,
+      "a_better_items": 4
+    }
+  }
+}
