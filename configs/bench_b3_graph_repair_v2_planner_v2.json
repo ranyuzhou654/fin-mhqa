@@ -1,0 +1,32 @@
+{
+  "teacher": {
+    "backend": "openai",
+    "base_url": "https://opencode.ai/zen/go/v1",
+    "model": "deepseek-v4.1-flash"
+  },
+  "retrieval": {
+    "top_k": 5,
+    "n_cand": 30,
+    "corpus_count": 9322
+  },
+  "benchmark": "benchmark_v1",
+  "name": "B3 four-role graph + format repair + verifier v2 + planner v2",
+  "arm": "structured",
+  "synthesis": "verified",
+  "context_index": "index",
+  "context_version": 2,
+  "reserve_verifier": true,
+  "reserve_calculation": true,
+  "calculator": "v2",
+  "budgets": {
+    "max_models": 12,
+    "max_tools": 8,
+    "max_searches": 6,
+    "max_replans": 2
+  },
+  "description": "B3v2 plus planner v2: plan array capped at 6 in the schema (format repair can fix it), cross-checks merged into existing subquestions, invalid plan dependencies returned as INVALID_PLAN feedback instead of crashing",
+  "format_repair": true,
+  "ablation_of": "configs/bench_b3_graph_repair_verifier_v2.json",
+  "verifier": "v2",
+  "planner": "v2"
+}

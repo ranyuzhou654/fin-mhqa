@@ -73,3 +73,17 @@ VERIFIER_V2=VERIFIER+'''
 2. 期间列核对：对每个关键数值，核对它所在列（或键值中的列名）的期间表头是否与问题要求的期间一致（本期/上期、期末/期初、具体年份）。若同一指标在另一张带期间标签的已观测表格中出现，核对同期数值一致；发现该数值在另一来源中属于另一期间，报PERIOD_MISMATCH。
 3. 单一来源交叉核对：关键数值只来自一张表、尚无任何其他已观测来源佐证，且budget显示剩余工具调用不少于2次、此前未就该数值提出过交叉核对时，报NEEDS_CROSS_CHECK，建议检索同一报告「主要会计数据」或附注中同一指标的同期数值。剩余预算不足或已核对过时，不得以此拒绝。
 4. 不重复拒绝：previous_rejections列出此前的拒绝。若同一问题已经提出过，而规划者已补查或已说明，新证据无法进一步消除时，按第1条的来源优先级直接裁决：候选符合优先级则接受，否则指出应采用的来源。不得以相同理由再次拒绝。'''
+
+
+# Planner v2 (verifier v2 results): cross-check feedback made the planner append subquestions past the
+# 6-item limit, and one plan referenced a later subquestion; both crashed the run. v1 stays frozen.
+PLAN_MAX_ITEMS=6
+PLANNER_V2_NOTE='''
+plan最多6项。收到交叉核对或补充核对要求时，把核对并入被核对的原子问题（更新其conclusion与evidence_ids），不要新增子问题；需要腾出位置时合并已解决的子问题。depends_on只能引用排在它前面的子问题。'''
+
+
+def planner_v2(schema):
+    """Copy of a planning schema whose plan array is capped, so format repair can fix an overlong plan."""
+    schema=deepcopy(schema)
+    schema['properties']['plan'].update(minItems=1,maxItems=PLAN_MAX_ITEMS)
+    return schema

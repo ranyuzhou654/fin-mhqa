@@ -227,3 +227,34 @@ def test_verifier_v2_sees_budget_and_previous_rejections_and_v1_payload_is_uncha
 def test_verifier_v2_schema_allows_cross_check_code():
     state,_,m=run([query(),calc(),finish(),reject('NEEDS_CROSS_CHECK'),query('主要会计数据','bm25'),finish(),PASS],synthesis='verified',verifier='v2')
     assert state['terminal_reason']=='ANSWERED' and m.inputs[4][-1]['feedback']['issues'][0]['code']=='NEEDS_CROSS_CHECK'
+
+
+def long_plan(n=7):
+    return [{'id':f'q{i}','question':'核对','depends_on':[],'status':'pending','conclusion':'','evidence_ids':[]} for i in range(n)]
+
+
+def test_planner_v2_turns_invalid_dependencies_into_feedback_and_caps_size_by_schema():
+    from jsonschema import ValidationError
+    from finmhqa.agent.graph_contracts import PLANNER_V2_NOTE
+    forward={**query(),'plan':[{**P[0],'depends_on':['q2']}]}
+    state,events,m=run([forward,query(),calc(),finish(),PASS],synthesis='verified',planner='v2',verifier='v2')
+    assert state['terminal_reason']=='ANSWERED' and state['replan_count']==1
+    assert [e['problem'] for e in events if e['event']=='invalid_plan']==['invalid plan dependencies']
+    assert sum(e['event']=='tool_request' for e in events)==2   # the invalid step's search was not executed
+    assert m.inputs[1][-1]['feedback']['issues'][0]['code']=='INVALID_PLAN'
+    with pytest.raises(ValueError,match='invalid plan dependencies'):
+        run([forward],synthesis='verified')                    # v1 behaviour unchanged
+    with pytest.raises(ValidationError,match='too long'):      # v2: the schema itself rejects >6 items (format repair fixes it)
+        run([{**query(),'plan':long_plan()}],synthesis='verified',planner='v2')
+    with pytest.raises(ValueError,match='planner v2 needs a graph arm'):
+        AgentGraph(m,None,print,'flat',planner='v2')
+    assert '最多6项' in PLANNER_V2_NOTE
+
+
+def test_planner_v2_schema_is_repairable_by_validation():
+    from jsonschema import validate, ValidationError
+    from finmhqa.agent.graph_contracts import CONTEXT_PLAN_SCHEMA, planner_v2
+    schema=planner_v2(CONTEXT_PLAN_SCHEMA)
+    assert 'maxItems' not in CONTEXT_PLAN_SCHEMA['properties']['plan']
+    with pytest.raises(ValidationError,match='too long'):
+        validate({**query(),'context':None,'plan':long_plan()},schema)

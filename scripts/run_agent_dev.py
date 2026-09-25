@@ -38,7 +38,7 @@ def main():
         config=json.loads(a.config.read_text())
         a.arms=[config['arm']];a.synthesis=config['synthesis'];a.reserve_verifier=config['reserve_verifier']
         a.context_index=Path(config['context_index']) if config['context_index'] else None
-        budgets=dict(config['budgets'],reserve_calculation=config.get('reserve_calculation',False),calculator=config.get('calculator','v1'),**({'verifier':config['verifier']} if 'verifier' in config else {}))
+        budgets=dict(config['budgets'],reserve_calculation=config.get('reserve_calculation',False),calculator=config.get('calculator','v1'),**{k:config[k] for k in ('verifier','planner') if k in config})
     if a.reserve_verifier and ('flat' in a.arms or a.synthesis!='verified'):p.error('verifier reservation requires graph arms and verified publication')
     if a.context_index and a.synthesis!='verified':p.error('context reading requires verified publication')
     if a.out.exists():raise FileExistsError(a.out)

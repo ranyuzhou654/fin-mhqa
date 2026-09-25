@@ -7,7 +7,7 @@ from typing import TypedDict
 from langgraph.graph import StateGraph, START, END
 from jsonschema import validate
 from .codex_teacher import SYSTEM, SCHEMA
-from .graph_contracts import PLAN_SCHEMA, VERIFY_SCHEMA, VERIFY_SCHEMA_V2, FINAL_SCHEMA, PLANNER, VERIFIER, VERIFIER_V2, SYNTHESIZER, CONTEXT_PLAN_SCHEMA, CONTEXT_PLANNER, CALCULATOR_V2_PROMPT, calculator_v2, CONTEXT_FLAT, CONTEXT_FLAT_SCHEMA
+from .graph_contracts import PLAN_SCHEMA, VERIFY_SCHEMA, VERIFY_SCHEMA_V2, FINAL_SCHEMA, PLANNER, VERIFIER, VERIFIER_V2, SYNTHESIZER, CONTEXT_PLAN_SCHEMA, CONTEXT_PLANNER, CALCULATOR_V2_PROMPT, calculator_v2, CONTEXT_FLAT, CONTEXT_FLAT_SCHEMA, PLANNER_V2_NOTE, planner_v2
 from .pilot_tools import calculate, decimal
 
 
@@ -56,7 +56,7 @@ def final_checks(final,state):
 
 
 class AgentGraph:
-    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model',context_reader=None,reserve_verifier=False,reserve_calculation=False,calculator='v1',verifier='v1'):
+    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model',context_reader=None,reserve_verifier=False,reserve_calculation=False,calculator='v1',verifier='v1',planner='v1'):
         if arm not in ('structured','generic','flat'):raise ValueError('invalid arm')
         self.model,self.search,self.record=model,search,record
         if synthesis not in ('model','verified'):raise ValueError('invalid synthesis mode')
@@ -72,6 +72,10 @@ class AgentGraph:
         # v1 keeps the frozen verifier contract; v2 adds source precedence, period checks and no repeated rejection.
         if verifier not in ('v1','v2'):raise ValueError('invalid verifier version')
         self.verifier_version=verifier
+        # planner v2: capped plan schema (repairable), merge cross-checks, invalid plans become feedback instead of crashing.
+        if planner not in ('v1','v2'):raise ValueError('invalid planner version')
+        if planner=='v2' and arm=='flat':raise ValueError('planner v2 needs a graph arm')
+        self.planner_version=planner
         self.synthesis=synthesis
         self.arm=arm;self.max_models=max_models;self.max_tools=max_tools
         self.max_searches=max_searches;self.max_replans=max_replans
@@ -106,6 +110,8 @@ class AgentGraph:
         schema = deepcopy((CONTEXT_FLAT_SCHEMA if context else SCHEMA) if flat else (CONTEXT_PLAN_SCHEMA if context else PLAN_SCHEMA))
         if self.calculator=='v2':
             schema=calculator_v2(schema);prompt+=CALCULATOR_V2_PROMPT
+        if self.planner_version=='v2':
+            schema=planner_v2(schema);prompt+=PLANNER_V2_NOTE
         finalize = self.reserve_verifier and self.max_models-s['model_calls'] <= 2
         if self.reserve_verifier:
             history.append({'budget': {'finalize_only': finalize, 'reserved_verifier_calls': 1,
@@ -123,18 +129,29 @@ class AgentGraph:
         action=self.call(s,'planner',history,prompt,schema)
         s['action']=action;s['feedback']={};s['verified']=False
         if self.arm!='flat':
-            plan=action['plan'];ids=set()
-            if not 1<=len(plan)<=6:raise ValueError('plan size')
+            plan=action['plan'];ids=set();problem=None
+            if not 1<=len(plan)<=6:problem='plan size'
             for task in plan:
-                if task['id'] in ids or not set(task['depends_on']).issubset(ids):raise ValueError('invalid plan dependencies')
-                if not set(task['evidence_ids']).issubset(s['evidence']):raise ValueError('unseen plan evidence')
+                if problem:break
+                if task['id'] in ids or not set(task['depends_on']).issubset(ids):problem='invalid plan dependencies'
+                elif not set(task['evidence_ids']).issubset(s['evidence']):problem='unseen plan evidence'
                 ids.add(task['id'])
+            if problem and self.planner_version=='v2':
+                # The action is not executed; the planner gets structured feedback and one replan is consumed.
+                self.record({'event':'invalid_plan','problem':problem,'items':len(plan)})
+                s['action']={'action':'invalid_plan','problem':problem};return s
+            if problem:raise ValueError(problem)
             s['plan']=plan
         return s
 
     def executor(self,s):
         self.record({'event':'node','name':'executor'})
         action=s['action'];observations=[];problems=[]
+        if action['action']=='invalid_plan':
+            detail={'plan size':'plan超过6项或为空。','invalid plan dependencies':'依赖引用了后面或不存在的子问题，或子问题ID重复。',
+                    'unseen plan evidence':'plan引用了未观测的证据ID。'}[action['problem']]
+            s['feedback']={'issues':[issue('INVALID_PLAN',detail+'本步动作未执行。','合并已解决的子问题，把核对并入原子问题，保持最多6项且依赖只引用前面的子问题，然后重新选择动作。')]}
+            return s
         def tool(name,args,fn):
             step=s['model_calls']-1
             s['tool_calls']+=1
