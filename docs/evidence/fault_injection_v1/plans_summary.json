@@ -1,0 +1,45 @@
+{
+  "plans_sha256": "ea43b08201088e77595c60c8d5b0a61994f214bcc8827cd8ccc67f2c74f9149b",
+  "dataset_sha256": "729608cf7488364acbe3646f218f8e156cd6df3f64031223fe8929f5cf7368e2",
+  "gold_sha256": "0577d50bb86c2775188d41e1c336a2bc73d329a42ed2a20eca413b3303e9b9cc",
+  "items": 44,
+  "plans": 132,
+  "skipped": [],
+  "per_fault": {
+    "F1": {
+      "plans": 44,
+      "effective": 34,
+      "misled_undefined": 0,
+      "effective_by_type": {
+        "T1": 8,
+        "T2": 8,
+        "T3": 8,
+        "T5": 10
+      }
+    },
+    "F2": {
+      "plans": 44,
+      "effective": 44,
+      "misled_undefined": 0,
+      "effective_by_type": {
+        "T1": 8,
+        "T2": 8,
+        "T3": 8,
+        "T4": 8,
+        "T5": 12
+      }
+    },
+    "F3": {
+      "plans": 44,
+      "effective": 44,
+      "misled_undefined": 0,
+      "effective_by_type": {
+        "T1": 8,
+        "T2": 8,
+        "T3": 8,
+        "T4": 8,
+        "T5": 12
+      }
+    }
+  }
+}

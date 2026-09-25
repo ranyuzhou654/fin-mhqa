@@ -17,6 +17,7 @@ from finmhqa.agent.baselines import ClosedBook, SingleRetrieval
 from finmhqa.agent.evidence_context import EvidenceContext
 from finmhqa.agent.pilot_tools import request_json,search
 from finmhqa.bench.guard import load_questions, log_test_run
+from finmhqa.bench.faults import FAULTS, FaultInjector
 
 
 def main():
@@ -29,6 +30,8 @@ def main():
     p.add_argument('--context-index',type=Path)
     p.add_argument('--reserve-verifier',action='store_true')
     p.add_argument('--config',type=Path,help='frozen teacher config; overrides arms/synthesis/context/budgets')
+    p.add_argument('--fault',choices=FAULTS,help='blind fault injection on Dev (docs/FAULT_INJECTION_V1_PLAN.md)')
+    p.add_argument('--plans',type=Path,default=Path('data/bench/fault_v1/plans.jsonl'))
     p.add_argument('--only');a=p.parse_args()
     budgets=dict(max_models=10,max_tools=8,max_searches=6,max_replans=2);config=None
     if a.config:
@@ -49,6 +52,12 @@ def main():
     else:
         rows=[json.loads(l) for l in a.questions.read_text().splitlines()]
     if any(set(r)!={'id','question'} for r in rows) or len({r['id'] for r in rows})!=len(rows):raise ValueError('unique question-only input required')
+    plans=None
+    if a.fault:
+        if a.benchmark!='dev' or not a.config:p.error('--fault needs --benchmark dev and --config')
+        # Plans are built from Dev gold; they stay inside the runner and never reach the model.
+        plans={q['id']:q for q in map(json.loads,a.plans.read_text().splitlines()) if q['fault']==a.fault}
+        rows=[r for r in rows if r['id'] in plans]
     if a.only:rows=[r for r in rows if r['id']==a.only]
     if not rows:raise ValueError('no cases')
     a.out.mkdir(parents=True)
@@ -64,12 +73,15 @@ def main():
     if health['count']!=9322 or health['admission']['status']!='ACCEPTED':raise ValueError('wrong corpus/admission')
     context_version=config.get('context_version',2) if config else 1
     context=EvidenceContext(a.context_index,health['admission']['dataset_sha256'],context_version) if a.context_index else None
-    files=[Path('src/finmhqa/agent')/f for f in ['baselines.py','codex_teacher.py','openai_compat.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py']]+[Path(__file__)]
+    if plans is not None and (context is None or any(q['dataset_sha256']!=health['admission']['dataset_sha256'] for q in plans.values())):
+        raise ValueError('fault plans need the context reader on the same admitted dataset')
+    files=[Path('src/finmhqa/agent')/f for f in ['baselines.py','codex_teacher.py','openai_compat.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py']]+[Path('src/finmhqa/bench/faults.py'),Path(__file__)]
     metadata={'questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),'teacher':teacher_name,
         'langgraph':importlib.metadata.version('langgraph'),'health_before':health,'arms':a.arms,'workers':a.workers,
         'synthesis':a.synthesis,'context_index':str(a.context_index) if a.context_index else None,'reserve_verifier':a.reserve_verifier,**budgets,'context_version':context_version if a.context_index else None,
         'config':str(a.config) if a.config else None,'config_sha256':hashlib.sha256(a.config.read_bytes()).hexdigest() if a.config else None,'code_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
         'benchmark':bench,
+        'fault':{'type':a.fault,'plans':str(a.plans),'plans_sha256':hashlib.sha256(a.plans.read_bytes()).hexdigest(),'items':len(rows)} if a.fault else None,
         'scope':f"benchmark_v1 {a.benchmark}" if bench else 'development only; authored from previously reviewed facts; not independent Test',
         'flat':'existing action policy with shared safety guards and budgets; no semantic verifier or synthesis model call',
         'generic':'same graph and verifier; only failure feedback to planner replaced with generic failure message'}
@@ -98,7 +110,12 @@ def main():
             try:
                 if arm=='closed_book':agent=ClosedBook(model,record)
                 elif arm=='single_retrieval':agent=SingleRetrieval(model,retrieve,record)
-                else:agent=AgentGraph(model,retrieve,record,arm,synthesis=a.synthesis,context_reader=context.read if context else None,reserve_verifier=a.reserve_verifier,**budgets)
+                else:
+                    search_fn,read_fn=retrieve,context.read if context else None
+                    if plans is not None:
+                        injector=FaultInjector(plans[row['id']],context.by_id,retrieve,context.read,folder/'fault_log.jsonl')
+                        search_fn,read_fn=injector.search,injector.read
+                    agent=AgentGraph(model,search_fn,record,arm,synthesis=a.synthesis,context_reader=read_fn,reserve_verifier=a.reserve_verifier,**budgets)
                 state=agent.run(row['question'])
             except Exception as exc:error=f'{type(exc).__name__}: {exc}';record({'event':'error','message':error})
         result={'id':row['id'],'arm':arm,'final':state.get('final'),'error':error,'terminal_reason':state.get('terminal_reason','ERROR'),

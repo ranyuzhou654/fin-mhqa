@@ -7,7 +7,7 @@ from finmhqa.agent.pilot_tools import calculate
 from audit_teacher_trajectory import audit_case
 
 
-def audit_agent_case(folder,context_reader=None,limits=(10,8,6)):
+def audit_agent_case(folder,context_reader=None,limits=(10,8,6),fault_replay=None):
     base=audit_case(folder)
     events=[json.loads(l) for l in (folder/'trajectory.jsonl').read_text().splitlines()]
     result=json.loads((folder/'result.json').read_text());policy=None;pending=None;remaining=[];models=0;tools=0;searches=0;model_final=None;tried=[];seen={};context_reads=0
@@ -35,9 +35,12 @@ def audit_agent_case(folder,context_reader=None,limits=(10,8,6)):
                 if anchor is None:raise ValueError('unobserved context anchor')
                 if any(any(c[k]!=anchor[k] for k in ('company','source_sha256')) for c in e['response']['results']):
                     raise ValueError('context escaped document')
-                if context_reader is not None and context_reader(pending['args'])!=e['response']:
+                # fault runs: the observed response must equal transform(raw) and raw must replay from the index
+                if fault_replay is None and context_reader is not None and context_reader(pending['args'])!=e['response']:
                     raise ValueError('context replay mismatch')
                 context_reads+=1
+            if fault_replay is not None and e['tool'] in ('search','read_evidence_context') and 'error' not in e['response']:
+                fault_replay.check(e['tool'],pending['args'],e['response'])
             if e['tool'] in ('search','read_evidence_context'):
                 seen.update({c['chunk_id']:c for c in e['response'].get('results',[])})
             if e['tool']=='calculate' and 'error' not in e['response'] and calculate(pending['args'])!=e['response']:raise ValueError('calculation replay mismatch')
@@ -47,7 +50,8 @@ def audit_agent_case(folder,context_reader=None,limits=(10,8,6)):
             if e['response']!=expected:raise ValueError('published answer differs from actual teacher candidate/output')
     if models!=result['decision_calls'] or tools!=result['tool_calls'] or searches!=result['search_calls']:raise ValueError('result counts mismatch')
     if models>limits[0] or tools>limits[1] or searches>limits[2]:raise ValueError('budget exceeded')
-    return {**base,'policy_tool_correspondence':'PASSED','calculation_replay':'PASSED','context_reads':context_reads,'context_replay':'PASSED' if context_reader is not None else 'NOT_REQUESTED'}
+    fault={'fault_replay':'PASSED',**fault_replay.finish()} if fault_replay is not None else {}
+    return {**base,'policy_tool_correspondence':'PASSED','calculation_replay':'PASSED','context_reads':context_reads,'context_replay':'PASSED' if context_reader is not None else 'NOT_REQUESTED',**fault}
 
 
 def audit_run(run):
@@ -57,10 +61,17 @@ def audit_run(run):
         from finmhqa.agent.evidence_context import EvidenceContext
         context=EvidenceContext(manifest['context_index'],manifest['health_before']['admission']['dataset_sha256'],manifest.get('context_version',1))
     limits=(manifest.get('max_models',10),manifest.get('max_tools',8),manifest.get('max_searches',6))
+    plans=None
+    if manifest.get('fault'):
+        from finmhqa.bench.faults import FaultReplay
+        path=Path(manifest['fault']['plans'])
+        if hashlib.sha256(path.read_bytes()).hexdigest()!=manifest['fault']['plans_sha256']:raise ValueError('fault plans changed since the run')
+        plans={q['id']:q for q in map(json.loads,path.read_text().splitlines()) if q['fault']==manifest['fault']['type']}
     for arm in manifest['arms']:
         for case in sorted(c for c in (run/arm).iterdir() if (c/'trajectory.jsonl').exists()):
             # B0/B1 baselines issue fixed searches without a policy decision: audit events, usage and citations only
-            try:report=audit_case(case) if arm in ('closed_book','single_retrieval') else audit_agent_case(case,context.read if context else None,limits)
+            replay=FaultReplay(plans[case.name],context,case/'fault_log.jsonl') if plans is not None else None
+            try:report=audit_case(case) if arm in ('closed_book','single_retrieval') else audit_agent_case(case,context.read if context else None,limits,replay)
             except Exception as e:report={'id':case.name,'status':'AUDIT_FAILED','error':str(e)}
             results.append({'arm':arm,**report})
     return {'results':results,'passed':sum(r['status']=='AUDIT_PASSED' for r in results),'total':len(results),
