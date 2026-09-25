@@ -1,0 +1,348 @@
+{
+  "split": "dev",
+  "config_sha256": "0e1da59ffdf39290a960e16666acebdd2ac978f6e8cb5a5c0ecb12b68e55e033",
+  "runs": [
+    "data/bench/runs/dev_b2_flat_repair_r1",
+    "data/bench/runs/dev_b2_flat_repair_r2",
+    "data/bench/runs/dev_b2_flat_repair_r3"
+  ],
+  "per_run": [
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 1.0
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 1.0
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 1.0
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 1.0
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 1.0
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 44
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0
+      },
+      "errors": 0,
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 1,
+      "citation_validity": {
+        "n": 44,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 108,
+        "value": 1.0
+      },
+      "mean_model_calls": 4.28,
+      "mean_tool_calls": 4.4,
+      "mean_seconds": 99.18,
+      "p95_seconds": 183.86596804200235,
+      "tokens": {
+        "input_tokens": 2546582,
+        "cached_input_tokens": 1466240,
+        "output_tokens": 228799,
+        "reasoning_output_tokens": 190503
+      }
+    },
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 1.0
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 1.0
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 1.0
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 1.0
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 1.0
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 44
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0
+      },
+      "errors": 0,
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 3,
+      "citation_validity": {
+        "n": 44,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 108,
+        "value": 0.963
+      },
+      "mean_model_calls": 4.38,
+      "mean_tool_calls": 4.46,
+      "mean_seconds": 100.96,
+      "p95_seconds": 201.54725079199852,
+      "tokens": {
+        "input_tokens": 2682614,
+        "cached_input_tokens": 1564160,
+        "output_tokens": 241193,
+        "reasoning_output_tokens": 199562
+      }
+    },
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 0.96
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 0.8333
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 0.9487
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 0.8571
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 0.96
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 42,
+          "REPLAN_BUDGET": 2
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0455
+      },
+      "errors": 0,
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 7,
+      "citation_validity": {
+        "n": 42,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 99,
+        "value": 0.9899
+      },
+      "mean_model_calls": 4.38,
+      "mean_tool_calls": 4.7,
+      "mean_seconds": 108.06,
+      "p95_seconds": 198.38995437500125,
+      "tokens": {
+        "input_tokens": 2883590,
+        "cached_input_tokens": 1637120,
+        "output_tokens": 230647,
+        "reasoning_output_tokens": 189228
+      }
+    }
+  ],
+  "across_runs": {
+    "runs": 3,
+    "accuracy_per_run": [
+      1.0,
+      1.0,
+      0.96
+    ],
+    "accuracy_mean": 0.9867,
+    "accuracy_sd": 0.0231,
+    "items_always_correct": 48,
+    "items_never_correct": 0,
+    "items": 50
+  },
+  "scope": "program-scored against frozen gold; errors and missing items count as wrong",
+  "baseline": {
+    "runs": [
+      "data/bench/runs/dev_b2_flat_r1",
+      "data/bench/runs/dev_b2_flat_r2",
+      "data/bench/runs/dev_b2_flat_r3"
+    ],
+    "config_sha256": "1c4760d09b2b4695ca599392c06cd4a208bdb39af0482de9ed30d3b41dcbf0ba",
+    "across_runs": {
+      "runs": 3,
+      "accuracy_per_run": [
+        0.9,
+        0.92,
+        0.96
+      ],
+      "accuracy_mean": 0.9267,
+      "accuracy_sd": 0.0306,
+      "items_always_correct": 40,
+      "items_never_correct": 0,
+      "items": 50
+    },
+    "paired_difference_vs_baseline": {
+      "items": 50,
+      "difference": 0.06,
+      "ci95": [
+        0.0267,
+        0.1
+      ],
+      "b_better_items": 9,
+      "a_better_items": 0
+    }
+  }
+}
