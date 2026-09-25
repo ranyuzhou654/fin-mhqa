@@ -1,0 +1,41 @@
+{
+  "fault_F1_b3_graph_repair_r1": {
+    "first_candidate_to_published": {
+      "correct -> correct": 41,
+      "correct -> refused": 1,
+      "misled -> correct": 1,
+      "misled -> misled": 1
+    },
+    "items_by_rejection_count": {
+      "0": 40,
+      "1": 3,
+      "2": 1
+    }
+  },
+  "fault_F2_b3_graph_repair_r1": {
+    "first_candidate_to_published": {
+      "correct -> correct": 26,
+      "misled -> correct": 5,
+      "misled -> misled": 12,
+      "no_candidate -> refused": 1
+    },
+    "items_by_rejection_count": {
+      "0": 35,
+      "1": 8,
+      "2": 1
+    }
+  },
+  "fault_F3_b3_graph_repair_r1": {
+    "first_candidate_to_published": {
+      "correct -> correct": 35,
+      "correct -> refused": 6,
+      "misled -> misled": 3
+    },
+    "items_by_rejection_count": {
+      "0": 24,
+      "1": 13,
+      "2": 3,
+      "3": 4
+    }
+  }
+}
