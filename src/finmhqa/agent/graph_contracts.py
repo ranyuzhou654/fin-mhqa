@@ -61,3 +61,15 @@ CONTEXT_FLAT_SCHEMA['properties']['action']['enum'].append('read_evidence_contex
 CONTEXT_FLAT_SCHEMA['required'].append('context')
 CONTEXT_FLAT_SCHEMA['properties']['context']=CONTEXT_PLAN_SCHEMA['properties']['context']
 CONTEXT_FLAT=SYSTEM+CONTEXT_TEXT
+
+
+# Verifier v2 (fault injection v1 diagnosis): v1 rejected correct statement values forever when a summary
+# table disagreed (no source precedence) and never checked period columns. v1 above stays frozen.
+VERIFY_SCHEMA_V2=deepcopy(VERIFY_SCHEMA)
+VERIFY_SCHEMA_V2['properties']['issues']['items']['properties']['code']['enum'].append('NEEDS_CROSS_CHECK')
+VERIFIER_V2=VERIFIER+'''
+补充审核规则（v2）：
+1. 来源优先级：财务报告中的正式报表（合并/母公司资产负债表、利润表、现金流量表）及其附注，高于「主要会计数据」等摘要表，摘要表高于管理层讨论等叙述。候选采用正式报表数值、且该值与附注或另一张表一致时，即使某张摘要表给出不同数值，只要候选在explanation中指出了这一冲突并说明采用正式报表，就视为冲突已解决，不得要求解释摘要表差异的原因。只有正式报表之间互相矛盾，或候选采用了摘要表而正式报表给出不同值时，才报CONFLICT。
+2. 期间列核对：对每个关键数值，核对它所在列（或键值中的列名）的期间表头是否与问题要求的期间一致（本期/上期、期末/期初、具体年份）。若同一指标在另一张带期间标签的已观测表格中出现，核对同期数值一致；发现该数值在另一来源中属于另一期间，报PERIOD_MISMATCH。
+3. 单一来源交叉核对：关键数值只来自一张表、尚无任何其他已观测来源佐证，且budget显示剩余工具调用不少于2次、此前未就该数值提出过交叉核对时，报NEEDS_CROSS_CHECK，建议检索同一报告「主要会计数据」或附注中同一指标的同期数值。剩余预算不足或已核对过时，不得以此拒绝。
+4. 不重复拒绝：previous_rejections列出此前的拒绝。若同一问题已经提出过，而规划者已补查或已说明，新证据无法进一步消除时，按第1条的来源优先级直接裁决：候选符合优先级则接受，否则指出应采用的来源。不得以相同理由再次拒绝。'''

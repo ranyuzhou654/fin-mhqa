@@ -11,4 +11,5 @@ run() {
   echo "done $out exit $?"
   PYTHONPATH=src:scripts .venv/bin/python scripts/audit_agent_run.py --run $out --out $out.audit.json
 }
-for f in F1 F2 F3; do run $f b2_flat_repair; run $f b3_graph_repair; done
+CONFIGS=(${=CONFIGS:-b2_flat_repair b3_graph_repair})
+for f in F1 F2 F3; do for c in $CONFIGS; do run $f $c; done; done

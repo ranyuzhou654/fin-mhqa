@@ -7,7 +7,7 @@ from typing import TypedDict
 from langgraph.graph import StateGraph, START, END
 from jsonschema import validate
 from .codex_teacher import SYSTEM, SCHEMA
-from .graph_contracts import PLAN_SCHEMA, VERIFY_SCHEMA, FINAL_SCHEMA, PLANNER, VERIFIER, SYNTHESIZER, CONTEXT_PLAN_SCHEMA, CONTEXT_PLANNER, CALCULATOR_V2_PROMPT, calculator_v2, CONTEXT_FLAT, CONTEXT_FLAT_SCHEMA
+from .graph_contracts import PLAN_SCHEMA, VERIFY_SCHEMA, VERIFY_SCHEMA_V2, FINAL_SCHEMA, PLANNER, VERIFIER, VERIFIER_V2, SYNTHESIZER, CONTEXT_PLAN_SCHEMA, CONTEXT_PLANNER, CALCULATOR_V2_PROMPT, calculator_v2, CONTEXT_FLAT, CONTEXT_FLAT_SCHEMA
 from .pilot_tools import calculate, decimal
 
 
@@ -19,6 +19,7 @@ class AgentState(TypedDict, total=False):
     tried: list
     calculations: list
     feedback: dict
+    rejections: list
     action: dict
     candidate: dict
     final: dict
@@ -55,7 +56,7 @@ def final_checks(final,state):
 
 
 class AgentGraph:
-    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model',context_reader=None,reserve_verifier=False,reserve_calculation=False,calculator='v1'):
+    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model',context_reader=None,reserve_verifier=False,reserve_calculation=False,calculator='v1',verifier='v1'):
         if arm not in ('structured','generic','flat'):raise ValueError('invalid arm')
         self.model,self.search,self.record=model,search,record
         if synthesis not in ('model','verified'):raise ValueError('invalid synthesis mode')
@@ -68,6 +69,9 @@ class AgentGraph:
         # v1 keeps the frozen teacher_v1/v2 prompt and schema byte-identical; v2 adds ratio/growth.
         if calculator not in ('v1','v2'):raise ValueError('invalid calculator version')
         self.calculator=calculator
+        # v1 keeps the frozen verifier contract; v2 adds source precedence, period checks and no repeated rejection.
+        if verifier not in ('v1','v2'):raise ValueError('invalid verifier version')
+        self.verifier_version=verifier
         self.synthesis=synthesis
         self.arm=arm;self.max_models=max_models;self.max_tools=max_tools
         self.max_searches=max_searches;self.max_replans=max_replans
@@ -209,8 +213,17 @@ class AgentGraph:
             s.update(halt=True,terminal_reason='INSUFFICIENT');return s
         if self.arm=='flat':s['verified']=True;return s
         if s['model_calls']>=self.max_models:s.update(halt=True,terminal_reason='MODEL_BUDGET');return s
-        check=self.call(s,'verifier',{'plan':s['plan'],'candidate':s['candidate'],'history':s['history']},VERIFIER,VERIFY_SCHEMA)
+        payload={'plan':s['plan'],'candidate':s['candidate'],'history':s['history']}
+        prompt,schema=VERIFIER,VERIFY_SCHEMA
+        if self.verifier_version=='v2':
+            payload.update(previous_rejections=s.get('rejections',[]),
+                           budget={'remaining_tools':self.max_tools-s['tool_calls'],'remaining_searches':self.max_searches-s['search_calls'],
+                                   'remaining_model_calls':self.max_models-s['model_calls']-1,'remaining_replans':self.max_replans-s['replan_count']})
+            prompt,schema=VERIFIER_V2,VERIFY_SCHEMA_V2
+        check=self.call(s,'verifier',payload,prompt,schema)
         if not check['sufficient'] or check['issues']:
+            if self.verifier_version=='v2':
+                s['rejections']=s.get('rejections',[])+[{'candidate':s['candidate'],'issues':check['issues']}]
             return self.reject(s,{**check,'tried':s['tried']})
         self.record({'event':'verification','sufficient':True,'feedback':check})
         s['verified']=True;return s

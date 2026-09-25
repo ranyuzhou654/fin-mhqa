@@ -1,0 +1,31 @@
+{
+  "teacher": {
+    "backend": "openai",
+    "base_url": "https://opencode.ai/zen/go/v1",
+    "model": "deepseek-v4.1-flash"
+  },
+  "retrieval": {
+    "top_k": 5,
+    "n_cand": 30,
+    "corpus_count": 9322
+  },
+  "benchmark": "benchmark_v1",
+  "name": "B3 four-role graph + format repair + verifier v2",
+  "arm": "structured",
+  "synthesis": "verified",
+  "context_index": "index",
+  "context_version": 2,
+  "reserve_verifier": true,
+  "reserve_calculation": true,
+  "calculator": "v2",
+  "budgets": {
+    "max_models": 12,
+    "max_tools": 8,
+    "max_searches": 6,
+    "max_replans": 2
+  },
+  "description": "B3+repair with verifier v2: source precedence for conflicts (statements > summary tables), period-column checks, bounded single-source cross-check request, no repeated rejection for the same issue",
+  "format_repair": true,
+  "ablation_of": "configs/bench_b3_graph_repair.json",
+  "verifier": "v2"
+}

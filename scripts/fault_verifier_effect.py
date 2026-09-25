@@ -28,12 +28,13 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--runs-dir', type=Path, default=Path('data/bench/runs'))
     p.add_argument('--plans', type=Path, default=Path('data/bench/fault_v1/plans.jsonl'))
+    p.add_argument('--config', default='b3_graph_repair', help='config stem of graph-arm fault runs')
     p.add_argument('--out', type=Path, required=True)
     a = p.parse_args()
     gold = {g['id']: g for g in map(json.loads, (GOLD / 'dev_gold.jsonl').read_text().splitlines())}
     plans = {(q['fault'], q['id']): q for q in map(json.loads, a.plans.read_text().splitlines())}
     report = {}
-    for run in sorted(a.runs_dir.glob('fault_F?_b3_graph_repair_r[0-9]')):
+    for run in sorted(a.runs_dir.glob(f'fault_F?_{a.config}_r[0-9]')):
         fault = json.loads((run / 'manifest.json').read_text())['fault']['type']
         transitions, rejections = Counter(), Counter()
         for case in sorted((run / 'structured').iterdir()):

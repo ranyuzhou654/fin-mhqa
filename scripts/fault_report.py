@@ -14,7 +14,7 @@ from finmhqa.bench.faults import FAULTS
 from finmhqa.bench.guard import GOLD
 from finmhqa.bench.scoring import norm_unit, paired_bootstrap, same_number, score_item, summarize
 
-CONFIGS = {'B2': 'b2_flat_repair', 'B3': 'b3_graph_repair'}
+DEFAULT_CONFIGS = ['B2=b2_flat_repair', 'B3=b3_graph_repair']
 
 
 def load_case(folder):
@@ -77,8 +77,12 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--runs-dir', type=Path, default=Path('data/bench/runs'))
     p.add_argument('--plans', type=Path, default=Path('data/bench/fault_v1/plans.jsonl'))
+    p.add_argument('--configs', nargs='+', default=DEFAULT_CONFIGS, help='NAME=config stem')
+    p.add_argument('--pairs', nargs='+', default=['B2:B3'], help='BASE:CANDIDATE, difference = candidate - base')
     p.add_argument('--out', type=Path, required=True)
     a = p.parse_args()
+    configs = dict(c.split('=', 1) for c in a.configs)
+    pairs = [tuple(x.split(':')) for x in a.pairs]
     if a.out.exists():
         raise FileExistsError(a.out)
     plans = [json.loads(l) for l in a.plans.read_text().splitlines()]
@@ -87,7 +91,7 @@ def main():
     answerable = {p['id'] for p in plans}
     report = {'plans_sha256': hashlib.sha256(a.plans.read_bytes()).hexdigest(), 'configs': {}, 'pairs': {}, 'clean_vs_fault': {}}
     scored = {}
-    for name, cfg in CONFIGS.items():
+    for name, cfg in configs.items():
         clean = []
         for d in sorted(a.runs_dir.glob(f'dev_{cfg}_r[0-9]')):
             m = json.loads((d / 'manifest.json').read_text())
@@ -105,29 +109,32 @@ def main():
             runs = [rows for _, _, rows in loaded]
             scored[name][fault] = runs
             entry = {'runs_dirs': [str(d) for d in dirs], **block(runs)}
-            if name == 'B3':
+            if cfg.startswith('b3'):
                 entry['verifier'] = analyze(str(a.runs_dir / f'fault_{fault}_{cfg}_r[0-9]'), gold)
             report['configs'][name][fault] = entry
     for fault in FAULTS:
-        if not all(fault in scored[n] for n in CONFIGS):
-            continue
         eff = {p['id'] for p in plans if p['fault'] == fault and p['effective']}
-        b2, b3 = scored['B2'][fault], scored['B3'][fault]
-        report['pairs'][fault] = {
-            'accuracy_effective_B3_minus_B2': paired_bootstrap(as_correct(b2, lambda r: r['correct'], eff), as_correct(b3, lambda r: r['correct'], eff)),
-            'misled_effective_B3_minus_B2': paired_bootstrap(as_correct(b2, lambda r: r['misled'], eff), as_correct(b3, lambda r: r['misled'], eff)),
-            'refusal_all_B3_minus_B2': paired_bootstrap(as_correct(b2, lambda r: r['status'] == 'insufficient', answerable),
-                                                        as_correct(b3, lambda r: r['status'] == 'insufficient', answerable))}
+        for base, cand in pairs:
+            if fault not in scored[base] or fault not in scored[cand]:
+                continue
+            x, y = scored[base][fault], scored[cand][fault]
+            report['pairs'].setdefault(f'{cand}-{base}', {})[fault] = {
+                'accuracy_effective': paired_bootstrap(as_correct(x, lambda r: r['correct'], eff), as_correct(y, lambda r: r['correct'], eff)),
+                'misled_effective': paired_bootstrap(as_correct(x, lambda r: r['misled'], eff), as_correct(y, lambda r: r['misled'], eff)),
+                'refusal_all': paired_bootstrap(as_correct(x, lambda r: r['status'] == 'insufficient', answerable),
+                                                as_correct(y, lambda r: r['status'] == 'insufficient', answerable))}
         report['clean_vs_fault'][fault] = {n: paired_bootstrap(as_correct(scored[n]['clean'], lambda r: r['correct'], eff),
-                                                                as_correct(scored[n][fault], lambda r: r['correct'], eff)) for n in CONFIGS}
+                                                                as_correct(scored[n][fault], lambda r: r['correct'], eff))
+                                           for n in configs if fault in scored[n] and scored[n]['clean']}
     a.out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     for name, c in report['configs'].items():
         for fault in FAULTS:
             if fault in c:
                 print(name, fault, 'acc_eff', c[fault]['accuracy_effective'], 'misled', c[fault]['misled_effective'],
                       'refusal', c[fault]['refusal_all'], 'errors', c[fault]['errors'])
-    for fault, pr in report['pairs'].items():
-        print(fault, {k: (v['difference'], v['ci95']) for k, v in pr.items()})
+    for pair, by_fault in report['pairs'].items():
+        for fault, pr in by_fault.items():
+            print(pair, fault, {k: (v['difference'], v['ci95']) for k, v in pr.items()})
 
 
 if __name__ == '__main__':

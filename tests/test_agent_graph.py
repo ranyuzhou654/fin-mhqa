@@ -208,3 +208,22 @@ def test_flat_arm_can_read_context_and_reserve_calculation():
     state=AgentGraph(model,lambda _: {'results':[anchor]},lambda e:None,'flat',synthesis='verified',
                      context_reader=lambda _: {'results':[extra]},reserve_calculation=True,calculator='v2').run('q')
     assert state['final']==f and 'read_evidence_context' in prompts[0][0] and 'plan' not in prompts[0][1]['properties']
+
+
+def test_verifier_v2_sees_budget_and_previous_rejections_and_v1_payload_is_unchanged():
+    from finmhqa.agent.graph_contracts import VERIFIER, VERIFIER_V2
+    steps=[query(),calc(),finish(),reject('CONFLICT'),finish(),PASS]
+    state,_,m=run(deepcopy(steps),synthesis='verified',verifier='v2')
+    assert state['terminal_reason']=='ANSWERED'
+    first,second=m.inputs[3],m.inputs[5]
+    assert first['previous_rejections']==[] and first['budget']['remaining_tools']==6 and first['budget']['remaining_replans']==2
+    assert second['previous_rejections'][0]['issues'][0]['code']=='CONFLICT' and second['budget']['remaining_replans']==1
+    _,_,m1=run(deepcopy(steps),synthesis='verified')
+    assert set(m1.inputs[3])=={'plan','candidate','history'} and VERIFIER_V2.startswith(VERIFIER)
+    with pytest.raises(ValueError,match='verifier version'):
+        AgentGraph(m1,None,print,verifier='v3')
+
+
+def test_verifier_v2_schema_allows_cross_check_code():
+    state,_,m=run([query(),calc(),finish(),reject('NEEDS_CROSS_CHECK'),query('主要会计数据','bm25'),finish(),PASS],synthesis='verified',verifier='v2')
+    assert state['terminal_reason']=='ANSWERED' and m.inputs[4][-1]['feedback']['issues'][0]['code']=='NEEDS_CROSS_CHECK'
