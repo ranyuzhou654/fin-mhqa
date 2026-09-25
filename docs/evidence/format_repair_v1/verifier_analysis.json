@@ -1,0 +1,67 @@
+{
+  "data/bench/runs/dev_b3_graph_r?": {
+    "decisions": 129,
+    "outcomes": {
+      "accept_correct": 122,
+      "reject_correct": 7
+    },
+    "by_type": {
+      "T1": {
+        "accept_correct": 24,
+        "reject_correct": 3
+      },
+      "T2": {
+        "accept_correct": 24
+      },
+      "T3": {
+        "accept_correct": 22,
+        "reject_correct": 2
+      },
+      "T4": {
+        "accept_correct": 24
+      },
+      "T5": {
+        "accept_correct": 28,
+        "reject_correct": 2
+      }
+    },
+    "false_rejection_issue_codes": {
+      "UNIT_MISSING": 12,
+      "MISSING_EVIDENCE": 2
+    },
+    "items_with_false_rejection": 5
+  },
+  "data/bench/runs/dev_b3_graph_repair_r?": {
+    "decisions": 137,
+    "outcomes": {
+      "accept_correct": 127,
+      "reject_correct": 10
+    },
+    "by_type": {
+      "T1": {
+        "accept_correct": 24
+      },
+      "T2": {
+        "accept_correct": 24,
+        "reject_correct": 1
+      },
+      "T3": {
+        "accept_correct": 23,
+        "reject_correct": 3
+      },
+      "T4": {
+        "accept_correct": 24
+      },
+      "T5": {
+        "accept_correct": 32,
+        "reject_correct": 6
+      }
+    },
+    "false_rejection_issue_codes": {
+      "UNIT_MISSING": 12,
+      "MISSING_EVIDENCE": 2,
+      "WRONG_CALCULATION": 1
+    },
+    "items_with_false_rejection": 6
+  }
+}
