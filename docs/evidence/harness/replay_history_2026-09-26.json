@@ -1,0 +1,164 @@
+{
+  "data/bench/runs/dev_b2_flat_r1": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b2_flat_r2": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b2_flat_r3": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b2_flat_repair_r1": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b2_flat_repair_r2": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b2_flat_repair_r3": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b3_graph_r1": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b3_graph_r2": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b3_graph_r3": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b3_graph_repair_r1": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b3_graph_repair_r2": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b3_graph_repair_r3": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b3_graph_repair_verifier_v2_r1": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b3_graph_repair_verifier_v2_r2": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/dev_b3_graph_repair_verifier_v2_r3": {
+    "counts": {
+      "IDENTICAL": 50
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F1_b2_flat_repair_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F1_b3_graph_repair_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F1_b3_graph_repair_v2_planner_v2_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F1_b3_graph_repair_verifier_v2_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F2_b2_flat_repair_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F2_b3_graph_repair_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F2_b3_graph_repair_v2_planner_v2_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F2_b3_graph_repair_verifier_v2_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F3_b2_flat_repair_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F3_b3_graph_repair_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F3_b3_graph_repair_v2_planner_v2_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  },
+  "data/bench/runs/fault_F3_b3_graph_repair_verifier_v2_r1": {
+    "counts": {
+      "IDENTICAL": 44
+    },
+    "diverged": []
+  }
+}

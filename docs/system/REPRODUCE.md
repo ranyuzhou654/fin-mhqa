@@ -18,6 +18,7 @@
 | 基线 B0–B3，各 3 次 | `./scripts/run_s6_baselines.sh`，然后 `PYTHONPATH=src:scripts .venv/bin/python scripts/s6_report.py --out <新路径>` |
 | 格式修复消融 | `./scripts/run_format_repair.sh` |
 | 任意配置跑一次 Dev | `PYTHONPATH=src .venv/bin/python scripts/run_agent_dev.py --benchmark dev --config configs/<配置>.json --out <新目录> --workers 4` |
+| 重放回归（不调用模型） | `PYTHONPATH=src .venv/bin/python scripts/replay_check.py --runs <运行目录…>` |
 | 审计一次运行 | `PYTHONPATH=src:scripts .venv/bin/python scripts/audit_agent_run.py --run <运行目录> --out <新路径>` |
 | 评分与配对比较 | `PYTHONPATH=src:scripts .venv/bin/python scripts/evaluate_benchmark.py --runs <运行…> --baseline <基线运行…> --out <新路径>` |
 | 故障注入：计划 → 运行 → 报告 | `scripts/build_fault_plans.py`；`./scripts/run_fault_injection.sh`；`scripts/fault_report.py`；`scripts/fault_verifier_effect.py` |
