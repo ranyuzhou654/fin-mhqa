@@ -9,6 +9,7 @@ from jsonschema import validate
 from .codex_teacher import SYSTEM, SCHEMA
 from .graph_contracts import PLAN_SCHEMA, VERIFY_SCHEMA, VERIFY_SCHEMA_V2, FINAL_SCHEMA, PLANNER, VERIFIER, VERIFIER_V2, SYNTHESIZER, CONTEXT_PLAN_SCHEMA, CONTEXT_PLANNER, CALCULATOR_V2_PROMPT, calculator_v2, CONTEXT_FLAT, CONTEXT_FLAT_SCHEMA, PLANNER_V2_NOTE, planner_v2
 from .pilot_tools import calculate, decimal
+from .context_policy import POLICY_NOTE, compact_history
 
 
 class AgentState(TypedDict, total=False):
@@ -56,7 +57,7 @@ def final_checks(final,state):
 
 
 class AgentGraph:
-    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model',context_reader=None,reserve_verifier=False,reserve_calculation=False,calculator='v1',verifier='v1',planner='v1'):
+    def __init__(self,model,search,record,arm='structured',max_models=10,max_tools=8,max_searches=6,max_replans=2,synthesis='model',context_reader=None,reserve_verifier=False,reserve_calculation=False,calculator='v1',verifier='v1',planner='v1',context_policy='full'):
         if arm not in ('structured','generic','flat'):raise ValueError('invalid arm')
         self.model,self.search,self.record=model,search,record
         if synthesis not in ('model','verified'):raise ValueError('invalid synthesis mode')
@@ -76,6 +77,9 @@ class AgentGraph:
         if planner not in ('v1','v2'):raise ValueError('invalid planner version')
         if planner=='v2' and arm=='flat':raise ValueError('planner v2 needs a graph arm')
         self.planner_version=planner
+        # 'full' keeps the frozen model inputs; 'compact_v1' shows the model a lossless compacted tool history.
+        if context_policy not in ('full','compact_v1'):raise ValueError('invalid context policy')
+        self.context_policy=context_policy
         self.synthesis=synthesis
         self.arm=arm;self.max_models=max_models;self.max_tools=max_tools
         self.max_searches=max_searches;self.max_replans=max_replans
@@ -100,13 +104,14 @@ class AgentGraph:
         self.record({'event':'node','name':'planner','replan_count':s['replan_count']})
         if s['model_calls']>=self.max_models - int(self.reserve_verifier):
             s.update(halt=True,terminal_reason='MODEL_BUDGET');return s
-        history=list(s['history'])
+        history=list(s['history']) if self.context_policy=='full' else compact_history(s['history'])
         if self.arm!='flat':
             history.append({'plan':s['plan'],'feedback':s['feedback'],
                 'remaining_tools':self.max_tools-s['tool_calls'],'remaining_model_calls':self.max_models-s['model_calls']})
         flat=self.arm=='flat';context=self.context_reader is not None
         prompt = (CONTEXT_FLAT if context else SYSTEM) if flat else (CONTEXT_PLANNER if context else PLANNER)
         prompt = prompt.replace('合计最多10次', f'合计最多{self.max_models}次')
+        if self.context_policy=='compact_v1':prompt+=POLICY_NOTE
         schema = deepcopy((CONTEXT_FLAT_SCHEMA if context else SCHEMA) if flat else (CONTEXT_PLAN_SCHEMA if context else PLAN_SCHEMA))
         if self.calculator=='v2':
             schema=calculator_v2(schema);prompt+=CALCULATOR_V2_PROMPT
@@ -230,13 +235,14 @@ class AgentGraph:
             s.update(halt=True,terminal_reason='INSUFFICIENT');return s
         if self.arm=='flat':s['verified']=True;return s
         if s['model_calls']>=self.max_models:s.update(halt=True,terminal_reason='MODEL_BUDGET');return s
-        payload={'plan':s['plan'],'candidate':s['candidate'],'history':s['history']}
+        payload={'plan':s['plan'],'candidate':s['candidate'],'history':s['history'] if self.context_policy=='full' else compact_history(s['history'])}
         prompt,schema=VERIFIER,VERIFY_SCHEMA
         if self.verifier_version=='v2':
             payload.update(previous_rejections=s.get('rejections',[]),
                            budget={'remaining_tools':self.max_tools-s['tool_calls'],'remaining_searches':self.max_searches-s['search_calls'],
                                    'remaining_model_calls':self.max_models-s['model_calls']-1,'remaining_replans':self.max_replans-s['replan_count']})
             prompt,schema=VERIFIER_V2,VERIFY_SCHEMA_V2
+        if self.context_policy=='compact_v1':prompt+=POLICY_NOTE
         check=self.call(s,'verifier',payload,prompt,schema)
         if not check['sufficient'] or check['issues']:
             if self.verifier_version=='v2':

@@ -1,0 +1,214 @@
+{
+  "data/bench/runs/dev_b3_graph_repair_verifier_v2_r?": {
+    "model_inputs": 922,
+    "tokens_per_char": 0.506,
+    "strategies": {
+      "S0": {
+        "estimated_input_tokens": 14069777,
+        "reduction_vs_S0": 0.0,
+        "late_step_reduction": 0.0,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S1": {
+        "estimated_input_tokens": 9370211,
+        "reduction_vs_S0": 0.334,
+        "late_step_reduction": 0.328,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S2": {
+        "estimated_input_tokens": 8858123,
+        "reduction_vs_S0": 0.37,
+        "late_step_reduction": 0.371,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S3": {
+        "estimated_input_tokens": 6666481,
+        "reduction_vs_S0": 0.526,
+        "late_step_reduction": 0.547,
+        "inputs_with_hidden_reference": 65,
+        "hidden_references": 81
+      },
+      "S4": {
+        "estimated_input_tokens": 6993781,
+        "reduction_vs_S0": 0.503,
+        "late_step_reduction": 0.494,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      }
+    },
+    "referenced_chunks_total": 3137,
+    "by_role": {
+      "planner": {
+        "S1": 0.338,
+        "S2": 0.375,
+        "S3": 0.525,
+        "S4": 0.511
+      },
+      "verifier": {
+        "S1": 0.322,
+        "S2": 0.358,
+        "S3": 0.529,
+        "S4": 0.481
+      }
+    }
+  },
+  "data/bench/runs/fault_F?_b3_graph_repair_verifier_v2_r1": {
+    "model_inputs": 928,
+    "tokens_per_char": 0.503,
+    "strategies": {
+      "S0": {
+        "estimated_input_tokens": 15671428,
+        "reduction_vs_S0": 0.0,
+        "late_step_reduction": 0.0,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S1": {
+        "estimated_input_tokens": 10443179,
+        "reduction_vs_S0": 0.334,
+        "late_step_reduction": 0.324,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S2": {
+        "estimated_input_tokens": 9815820,
+        "reduction_vs_S0": 0.374,
+        "late_step_reduction": 0.37,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S3": {
+        "estimated_input_tokens": 7408276,
+        "reduction_vs_S0": 0.527,
+        "late_step_reduction": 0.542,
+        "inputs_with_hidden_reference": 100,
+        "hidden_references": 144
+      },
+      "S4": {
+        "estimated_input_tokens": 7818890,
+        "reduction_vs_S0": 0.501,
+        "late_step_reduction": 0.492,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      }
+    },
+    "referenced_chunks_total": 3800,
+    "by_role": {
+      "planner": {
+        "S1": 0.339,
+        "S2": 0.378,
+        "S3": 0.527,
+        "S4": 0.509
+      },
+      "verifier": {
+        "S1": 0.317,
+        "S2": 0.36,
+        "S3": 0.527,
+        "S4": 0.476
+      }
+    }
+  },
+  "data/bench/runs/dev_b2_flat_repair_r?": {
+    "model_inputs": 652,
+    "tokens_per_char": 0.517,
+    "strategies": {
+      "S0": {
+        "estimated_input_tokens": 7859611,
+        "reduction_vs_S0": 0.0,
+        "late_step_reduction": 0.0,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S1": {
+        "estimated_input_tokens": 4885902,
+        "reduction_vs_S0": 0.378,
+        "late_step_reduction": 0.383,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S2": {
+        "estimated_input_tokens": 4512594,
+        "reduction_vs_S0": 0.426,
+        "late_step_reduction": 0.443,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S3": {
+        "estimated_input_tokens": 2568320,
+        "reduction_vs_S0": 0.673,
+        "late_step_reduction": 0.786,
+        "inputs_with_hidden_reference": 169,
+        "hidden_references": 651
+      },
+      "S4": {
+        "estimated_input_tokens": 3326370,
+        "reduction_vs_S0": 0.577,
+        "late_step_reduction": 0.58,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      }
+    },
+    "referenced_chunks_total": 747,
+    "by_role": {
+      "planner": {
+        "S1": 0.378,
+        "S2": 0.426,
+        "S3": 0.673,
+        "S4": 0.577
+      }
+    }
+  },
+  "data/bench/runs/fault_F?_b2_flat_repair_r1": {
+    "model_inputs": 629,
+    "tokens_per_char": 0.513,
+    "strategies": {
+      "S0": {
+        "estimated_input_tokens": 7948161,
+        "reduction_vs_S0": 0.0,
+        "late_step_reduction": 0.0,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S1": {
+        "estimated_input_tokens": 4842091,
+        "reduction_vs_S0": 0.391,
+        "late_step_reduction": 0.398,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S2": {
+        "estimated_input_tokens": 4506528,
+        "reduction_vs_S0": 0.433,
+        "late_step_reduction": 0.463,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      },
+      "S3": {
+        "estimated_input_tokens": 2542111,
+        "reduction_vs_S0": 0.68,
+        "late_step_reduction": 0.77,
+        "inputs_with_hidden_reference": 169,
+        "hidden_references": 698
+      },
+      "S4": {
+        "estimated_input_tokens": 3346344,
+        "reduction_vs_S0": 0.579,
+        "late_step_reduction": 0.59,
+        "inputs_with_hidden_reference": 0,
+        "hidden_references": 0
+      }
+    },
+    "referenced_chunks_total": 806,
+    "by_role": {
+      "planner": {
+        "S1": 0.391,
+        "S2": 0.433,
+        "S3": 0.68,
+        "S4": 0.579
+      }
+    }
+  }
+}

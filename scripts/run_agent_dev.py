@@ -40,7 +40,7 @@ def main():
         config=json.loads(a.config.read_text())
         a.arms=[config['arm']];a.synthesis=config['synthesis'];a.reserve_verifier=config['reserve_verifier']
         a.context_index=Path(config['context_index']) if config['context_index'] else None
-        budgets=dict(config['budgets'],reserve_calculation=config.get('reserve_calculation',False),calculator=config.get('calculator','v1'),**{k:config[k] for k in ('verifier','planner') if k in config})
+        budgets=dict(config['budgets'],reserve_calculation=config.get('reserve_calculation',False),calculator=config.get('calculator','v1'),**{k:config[k] for k in ('verifier','planner','context_policy') if k in config})
     if a.reserve_verifier and ('flat' in a.arms or a.synthesis!='verified'):p.error('verifier reservation requires graph arms and verified publication')
     if a.context_index and a.synthesis!='verified':p.error('context reading requires verified publication')
     if a.out.exists() and not a.resume:raise FileExistsError(a.out)
@@ -78,7 +78,7 @@ def main():
     context=EvidenceContext(a.context_index,health['admission']['dataset_sha256'],context_version) if a.context_index else None
     if plans is not None and (context is None or any(q['dataset_sha256']!=health['admission']['dataset_sha256'] for q in plans.values())):
         raise ValueError('fault plans need the context reader on the same admitted dataset')
-    files=[Path('src/finmhqa/agent')/f for f in ['baselines.py','codex_teacher.py','openai_compat.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py']]+[Path('src/finmhqa/bench/faults.py'),Path('src/finmhqa/harness/runs.py'),Path('src/finmhqa/harness/provenance.py'),Path(__file__)]
+    files=[Path('src/finmhqa/agent')/f for f in ['baselines.py','codex_teacher.py','openai_compat.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py','context_policy.py']]+[Path('src/finmhqa/bench/faults.py'),Path('src/finmhqa/harness/runs.py'),Path('src/finmhqa/harness/provenance.py'),Path(__file__)]
     metadata={'questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),'teacher':teacher_name,
         'langgraph':importlib.metadata.version('langgraph'),'health_before':health,'arms':a.arms,'workers':a.workers,
         'synthesis':a.synthesis,'context_index':str(a.context_index) if a.context_index else None,'reserve_verifier':a.reserve_verifier,**budgets,'context_version':context_version if a.context_index else None,

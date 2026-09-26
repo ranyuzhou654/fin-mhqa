@@ -14,7 +14,7 @@ from pathlib import Path
 from finmhqa.agent.graph import AgentGraph
 
 GRAPH_ARMS = ('structured', 'generic', 'flat')
-BUDGET_KEYS = ('max_models', 'max_tools', 'max_searches', 'max_replans', 'reserve_calculation', 'calculator', 'verifier', 'planner')
+BUDGET_KEYS = ('max_models', 'max_tools', 'max_searches', 'max_replans', 'reserve_calculation', 'calculator', 'verifier', 'planner', 'context_policy')
 
 
 class Divergence(Exception):

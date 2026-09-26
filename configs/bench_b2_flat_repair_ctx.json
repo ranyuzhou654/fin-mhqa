@@ -1,0 +1,31 @@
+{
+  "teacher": {
+    "backend": "openai",
+    "base_url": "https://opencode.ai/zen/go/v1",
+    "model": "deepseek-v4.1-flash"
+  },
+  "retrieval": {
+    "top_k": 5,
+    "n_cand": 30,
+    "corpus_count": 9322
+  },
+  "benchmark": "benchmark_v1",
+  "name": "B2 flat agent + format repair + context compact_v1",
+  "arm": "flat",
+  "synthesis": "verified",
+  "context_index": "index",
+  "context_version": 2,
+  "reserve_verifier": false,
+  "reserve_calculation": true,
+  "calculator": "v2",
+  "budgets": {
+    "max_models": 12,
+    "max_tools": 8,
+    "max_searches": 6,
+    "max_replans": 2
+  },
+  "description": "B2+repair with the lossless compacted tool history (secondary; run only if quota allows)",
+  "format_repair": true,
+  "ablation_of": "configs/bench_b2_flat_repair.json",
+  "context_policy": "compact_v1"
+}

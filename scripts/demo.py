@@ -133,7 +133,7 @@ def live(question, config_path, url, outdir, out):
     dataset = health['admission']['dataset_sha256']
     context = EvidenceContext(config['context_index'], dataset, config.get('context_version', 2)) if config.get('context_index') else None
     budgets = dict(config['budgets'], reserve_calculation=config.get('reserve_calculation', False), calculator=config.get('calculator', 'v1'),
-                   **{k: config[k] for k in ('verifier', 'planner') if k in config})
+                   **{k: config[k] for k in ('verifier', 'planner', 'context_policy') if k in config})
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=False)
     events = []
