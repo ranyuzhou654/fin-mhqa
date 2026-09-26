@@ -84,6 +84,12 @@ def create_app(store, scheduler, metrics, heartbeat=15.0, log=None):
         return {'status': 'ok', 'workers': scheduler.workers, 'queue_depth': scheduler.queue_depth(),
                 'executing': scheduler.running_count()}
 
+    @app.get('/examples')
+    def examples():
+        """Example questions the current agent can answer (for cassette replay: questions that have a recording)."""
+        fn = getattr(scheduler.factory, 'examples', None)
+        return {'examples': fn() if fn else []}
+
     @app.get('/metrics', response_class=PlainTextResponse)
     def get_metrics(user=Depends(user_of)):
         if not user['is_admin']:

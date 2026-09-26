@@ -268,3 +268,17 @@ def test_graph_agent_sends_trace_to_events_but_not_to_the_agent():
     agent.dataset = 'other'
     with pytest.raises(ValueError, match='dataset'):
         agent.traced_search(args, events.append, request=fake_request)
+
+
+def test_examples_come_from_recorded_questions_by_type(tmp_path):
+    cases = []
+    for i, (t, rej) in enumerate([('T1', 0), ('T1', 2), ('T3', 0), ('T6', 0)]):
+        c = cassette(tmp_path, f'c{i}', f'问题{i}是什么？', [0.0])
+        (c / 'meta.json').write_text(json.dumps({'id': f'c{i}', 'type': t, 'verifier_rejections': rej}))
+        cases.append(c)
+    app, store, _ = service(CassetteAgent(cases, speed=0))
+    with TestClient(app) as c:
+        ex = c.get('/examples').json()['examples']
+        # one per type, the T1 pick is the one whose verifier caught something
+        assert [(e['tag'], e['question']) for e in ex] == [('单跳', '问题1是什么？'), ('条件桥接', '问题2是什么？'), ('无法回答', '问题3是什么？')]
+        assert ex[0]['note'] == '核验曾拒绝并纠正'

@@ -245,11 +245,17 @@ async function api(path, opts = {}) {
 }
 $('key').addEventListener('change', () => { try { sessionStorage.setItem('finmhqa_key', key()); } catch (e) {} S.session = null; loadHistory(); });
 
-// ---------- examples ----------
-for (const e of EXAMPLES) {
-  const c = document.createElement('span'); c.className = 'chip'; c.innerHTML = `<b>${esc(e.tag)}</b>${esc(e.q.slice(0, 22))}…`;
-  c.title = e.q; c.onclick = () => { $('question').value = e.q; $('question').focus(); }; $('examples').append(c);
+// ---------- examples: from the server (in replay mode: questions that have a recording), else built-in ----------
+async function loadExamples() {
+  let list = EXAMPLES;
+  try { const r = await fetch('/examples'); const got = (await r.json()).examples; if (got.length) list = got.map((e) => ({ tag: e.tag, q: e.question, note: e.note })); } catch (e) {}
+  $('examples').innerHTML = '';
+  for (const e of list) {
+    const c = document.createElement('span'); c.className = 'chip'; c.innerHTML = `<b>${esc(e.tag)}</b>${esc(e.q.slice(0, 20))}…`;
+    c.title = e.q + (e.note ? `\n（${e.note}）` : ''); c.onclick = () => { $('question').value = e.q; $('question').focus(); }; $('examples').append(c);
+  }
 }
+loadExamples();
 
 // ---------- history ----------
 async function loadHistory() {

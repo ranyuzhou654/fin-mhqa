@@ -62,6 +62,7 @@ PYTHONPATH=src .venv/bin/python scripts/demo.py --question "贵州茅台2025年�
 ```bash
 PYTHONPATH=src .venv/bin/python scripts/service_admin.py --name alice          # 生成 API key，只显示一次
 PYTHONPATH=src .venv/bin/python scripts/serve.py --agent "cassette:docs/examples/*" --speed 0.2   # 重放录制轨迹，不调用模型
+# 本地有 Dev 运行数据时，可以换成全部 50 道题的轨迹库：先运行 scripts/build_cassette_library.py，再把 --agent 改为 "cassette:data/service/cassettes/*"
 # 或者运行真实 Agent：--agent graph:configs/bench_b3_graph_repair_v2_planner_v2_ctx.json
 ```
 
