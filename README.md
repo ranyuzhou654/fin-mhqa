@@ -40,7 +40,7 @@ flowchart LR
 
 ```bash
 uv venv --python 3.11
-uv pip install --python .venv/bin/python -r requirements-m1.lock.txt -r requirements-agent.lock.txt
+uv pip install --python .venv/bin/python -r requirements-m1.lock.txt -r requirements-agent.lock.txt -r requirements-service.lock.txt
 uv pip install --python .venv/bin/python --no-deps -e .
 .venv/bin/python -m pytest -q
 ```
@@ -57,6 +57,16 @@ PYTHONPATH=src .venv/bin/python scripts/demo.py --replay docs/examples/f2_column
 PYTHONPATH=src .venv/bin/python scripts/demo.py --question "贵州茅台2025年上半年合并口径营业收入是多少？金额以亿元表示，四舍五入保留两位小数。"
 ```
 
+## 作为服务运行（多用户 + SSE）
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/service_admin.py --name alice          # 生成 API key，只显示一次
+PYTHONPATH=src .venv/bin/python scripts/serve.py --agent "cassette:docs/examples/*" --speed 0.2   # 重放录制轨迹，不调用模型
+# 或者运行真实 Agent：--agent graph:configs/bench_b3_graph_repair_v2_planner_v2_ctx.json
+```
+
+然后打开 http://127.0.0.1:8200/ ，输入 API key 后提问，规划、检索、核验和答案会通过 SSE 实时显示。接口、协议、多用户设计和压测结果见 [Agent 服务](docs/system/SERVICE.md)。
+
 ## 目录
 
 | 路径 | 内容 |
@@ -64,6 +74,7 @@ PYTHONPATH=src .venv/bin/python scripts/demo.py --question "贵州茅台2025年�
 | `src/finmhqa/ingest`、`retrieval` | PDF 解析与切块、混合检索服务 |
 | `src/finmhqa/agent` | 四角色图、工具、上下文读取器、模型接口、基线 |
 | `src/finmhqa/bench` | 事实台账、题目生成、质检、Test 保护、评分、故障注入 |
+| `src/finmhqa/service` | 多用户 API、SSE、调度器、限流、持久化、前端 |
 | `src/finmhqa/harness` | 错误分类、额度止损、逐题续跑、录制—重放、来源记录、检索锁 |
 | `configs/` | 冻结的实验配置（`bench_*.json`）与 Test 登记表 |
 | `scripts/` | 运行、审计、评分、报告、演示 |
@@ -73,7 +84,7 @@ PYTHONPATH=src .venv/bin/python scripts/demo.py --question "贵州茅台2025年�
 
 ## 状态
 
-- **已完成**：语料、检索、Agent、冻结的评测集、基线、格式修复、故障注入、核验角色 v2、运行 harness（额度用完即停、逐题续跑、录制—重放回归、金丝雀、运行登记表、CI），见[运行 harness](docs/system/HARNESS.md)。
+- **已完成**：语料、检索、Agent、冻结的评测集、基线、格式修复、故障注入、核验角色 v2、运行 harness（额度用完即停、逐题续跑、录制—重放回归、金丝雀、运行登记表、CI），见[运行 harness](docs/system/HARNESS.md)；多用户服务（SSE、公平调度、限流、取消），见[Agent 服务](docs/system/SERVICE.md)。
 - **进行中**：规划者 v2 的无故障 Dev 运行因 API 额度用完，等待补跑。
 - **下一步**：登记最终配置，在 Test 上做一次无偏验证。
 

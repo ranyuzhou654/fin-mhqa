@@ -33,6 +33,7 @@
 | [Agent 设计 M3](system/AGENT_M3_DESIGN.md) · [M3.1](system/AGENT_M31_DESIGN.md) | 四角色状态、反馈契约、上下文工具与核验预算 |
 | [模型选型](system/TEACHER_V2_DEEPSEEK.md) | 用 DeepSeek 替代 Sol 的依据和门槛 |
 | [复现指南](system/REPRODUCE.md) | 从 PDF 到实验的全部命令 |
+| [Agent 服务](system/SERVICE.md) | 多用户 API、SSE 流式推送、公平调度、限流、取消与超时、压测 |
 | [运行 harness](system/HARNESS.md) | 错误分类、额度用完即停、逐题续跑、未完成运行不评分、录制—重放回归测试 |
 
 ## 示例与项目管理

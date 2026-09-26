@@ -1,0 +1,8 @@
+# Service layer (roadmap P3); install on top of requirements-m1.lock.txt and requirements-agent.lock.txt.
+# Versions match requirements-retrieval.lock.txt, which already serves the retrieval index with them.
+annotated-doc==0.0.5
+click==8.5.0
+fastapi==0.141.1
+h11==0.16.0
+starlette==1.6.0
+uvicorn==0.52.4

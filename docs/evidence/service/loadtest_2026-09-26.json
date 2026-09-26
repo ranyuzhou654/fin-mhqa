@@ -1,0 +1,80 @@
+{
+  "cassettes": 48,
+  "speed": 0.05,
+  "workers": 4,
+  "replayed_run_seconds_mean": 8.04,
+  "scope": "service layer only: recorded trajectories replayed at recorded timing x speed; no model or retrieval calls",
+  "load": {
+    "runs": 24,
+    "succeeded": 24,
+    "rejected": 0,
+    "events_lost_or_duplicated": 0,
+    "reconnected_runs": 8,
+    "submit_to_first_event_p50": 0.039,
+    "submit_to_first_event_p95": 0.045,
+    "queue_wait_p50": 22.812,
+    "queue_wait_p95": 42.134,
+    "submit_to_end_p50": 33.657,
+    "submit_to_end_p95": 53.428,
+    "wall_seconds": 56.98,
+    "throughput_runs_per_min": 25.3,
+    "users": 8,
+    "runs_per_user": 3
+  },
+  "fairness_fair": {
+    "heavy": {
+      "runs": 16,
+      "succeeded": 16,
+      "rejected": 0,
+      "events_lost_or_duplicated": 0,
+      "reconnected_runs": 0,
+      "submit_to_first_event_p50": 0.027,
+      "submit_to_first_event_p95": 0.031,
+      "queue_wait_p50": 38.986,
+      "queue_wait_p95": 81.216,
+      "submit_to_end_p50": 57.065,
+      "submit_to_end_p95": 93.705
+    },
+    "light": {
+      "runs": 8,
+      "succeeded": 8,
+      "rejected": 0,
+      "events_lost_or_duplicated": 0,
+      "reconnected_runs": 0,
+      "submit_to_first_event_p50": 0.021,
+      "submit_to_first_event_p95": 0.025,
+      "queue_wait_p50": 10.622,
+      "queue_wait_p95": 26.741,
+      "submit_to_end_p50": 28.695,
+      "submit_to_end_p95": 42.464
+    }
+  },
+  "fairness_fifo": {
+    "heavy": {
+      "runs": 16,
+      "succeeded": 16,
+      "rejected": 0,
+      "events_lost_or_duplicated": 0,
+      "reconnected_runs": 0,
+      "submit_to_first_event_p50": 0.03,
+      "submit_to_first_event_p95": 0.035,
+      "queue_wait_p50": 8.694,
+      "queue_wait_p95": 24.281,
+      "submit_to_end_p50": 21.331,
+      "submit_to_end_p95": 38.713
+    },
+    "light": {
+      "runs": 8,
+      "succeeded": 8,
+      "rejected": 0,
+      "events_lost_or_duplicated": 0,
+      "reconnected_runs": 0,
+      "submit_to_first_event_p50": 0.019,
+      "submit_to_first_event_p95": 0.02,
+      "queue_wait_p50": 47.507,
+      "queue_wait_p95": 59.443,
+      "submit_to_end_p50": 61.987,
+      "submit_to_end_p95": 71.138
+    }
+  }
+}
