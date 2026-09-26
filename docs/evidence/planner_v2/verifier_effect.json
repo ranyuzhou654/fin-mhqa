@@ -1,0 +1,42 @@
+{
+  "fault_F1_b3_graph_repair_v2_planner_v2_r1": {
+    "first_candidate_to_published": {
+      "correct -> correct": 41,
+      "correct -> refused": 1,
+      "misled -> correct": 1,
+      "misled -> misled": 1
+    },
+    "items_by_rejection_count": {
+      "0": 28,
+      "1": 15,
+      "2": 1
+    }
+  },
+  "fault_F2_b3_graph_repair_v2_planner_v2_r1": {
+    "first_candidate_to_published": {
+      "correct -> correct": 26,
+      "misled -> correct": 10,
+      "misled -> error": 1,
+      "misled -> misled": 5,
+      "misled -> refused": 2
+    },
+    "items_by_rejection_count": {
+      "0": 21,
+      "1": 20,
+      "2": 1,
+      "3": 2
+    }
+  },
+  "fault_F3_b3_graph_repair_v2_planner_v2_r1": {
+    "first_candidate_to_published": {
+      "correct -> correct": 41,
+      "misled -> correct": 1,
+      "no_candidate -> error": 1,
+      "refused -> refused": 1
+    },
+    "items_by_rejection_count": {
+      "0": 36,
+      "1": 8
+    }
+  }
+}
