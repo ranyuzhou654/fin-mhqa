@@ -1,0 +1,6 @@
+{
+  "source_run": "data/bench/runs/dev_b3_graph_repair_verifier_v2_r3",
+  "config": "configs/bench_b3_graph_repair_verifier_v2.json",
+  "fault": null,
+  "note": "同一道 Dev 题目在无故障条件下的轨迹，用来对照"
+}

@@ -1,0 +1,74 @@
+{
+  "id": "b1-0485b0b725",
+  "arm": "structured",
+  "final": {
+    "status": "answered",
+    "answer_value": "80.28",
+    "answer_unit": "亿元",
+    "selected_company": "泸州老窖",
+    "citations": [
+      "8bad69d2ecec516159d95629",
+      "acb125deb1be4b94707e7e7e",
+      "4c6ec76547e4a299681476d4"
+    ],
+    "explanation": "泸州老窖2025年半年度报告合并利润表显示：2025H1净利润7,683,660,159.62元、少数股东损益20,752,346.64元，故2025H1归母净利润=7,662,907,812.98元；2024H1净利润8,046,259,026.39元、少数股东损益18,720,861.08元，故2024H1归母净利润=8,027,538,165.31元。报表单位说明确认为元，8,027,538,165.31元换算为亿元并四舍五入保留两位小数为80.28亿元。"
+  },
+  "error": null,
+  "terminal_reason": "ANSWERED",
+  "seconds": 250.85569108399795,
+  "search_calls": 1,
+  "tool_calls": 4,
+  "decision_calls": 8,
+  "replan_count": 1,
+  "retrieval_busy_retries": 0,
+  "usage": [
+    {
+      "input_tokens": 1847,
+      "cached_input_tokens": 1792,
+      "output_tokens": 461,
+      "reasoning_output_tokens": 253
+    },
+    {
+      "input_tokens": 6549,
+      "cached_input_tokens": 0,
+      "output_tokens": 1944,
+      "reasoning_output_tokens": 1630
+    },
+    {
+      "input_tokens": 8880,
+      "cached_input_tokens": 6144,
+      "output_tokens": 709,
+      "reasoning_output_tokens": 386
+    },
+    {
+      "input_tokens": 9335,
+      "cached_input_tokens": 8576,
+      "output_tokens": 833,
+      "reasoning_output_tokens": 316
+    },
+    {
+      "input_tokens": 9238,
+      "cached_input_tokens": 0,
+      "output_tokens": 10847,
+      "reasoning_output_tokens": 10264
+    },
+    {
+      "input_tokens": 10636,
+      "cached_input_tokens": 8960,
+      "output_tokens": 2173,
+      "reasoning_output_tokens": 1736
+    },
+    {
+      "input_tokens": 10518,
+      "cached_input_tokens": 8192,
+      "output_tokens": 8234,
+      "reasoning_output_tokens": 7588
+    },
+    {
+      "input_tokens": 11356,
+      "cached_input_tokens": 0,
+      "output_tokens": 8993,
+      "reasoning_output_tokens": 8905
+    }
+  ]
+}

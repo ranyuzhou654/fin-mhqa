@@ -1,0 +1,6 @@
+{
+  "source_run": "data/bench/runs/fault_F2_b3_graph_repair_verifier_v2_r1",
+  "config": "configs/bench_b3_graph_repair_verifier_v2.json",
+  "fault": "F2 列错位：合并利润表中「归属于母公司股东的净利润」一行的本期与上期数值被对调（整张表的 md 与键值块同步），模型未得到任何提示",
+  "note": "Dev 题目；核验角色 v2 用「净利润 = 归母净利润 + 少数股东损益」的勾稽关系发现列错位，规划者据此改用正确数值"
+}
