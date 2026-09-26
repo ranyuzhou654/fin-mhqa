@@ -227,3 +227,20 @@ def test_api_keys_are_stored_hashed(tmp_path):
     store = Store(tmp_path / 's.db')
     _, key = store.create_user('alice')
     assert key.startswith('fmq_') and key.encode() not in (tmp_path / 's.db').read_bytes()
+
+
+def test_history_lists_only_own_runs_newest_first():
+    app, store, _ = service(CassetteAgent([EXAMPLE], speed=0))
+    _, alice = store.create_user('alice')
+    _, bob = store.create_user('bob')
+    with TestClient(app) as c:
+        ids = []
+        for q in ('第一个问题是什么？', '第二个问题是什么？'):
+            _, r = ask(c, alice, q)
+            ids.append(r.json()['run_id'])
+            read_sse(c, ids[-1], alice)
+        ask(c, bob, 'bob 的问题是什么？')
+        runs = c.get('/runs', headers=auth(alice)).json()['runs']
+        assert [r['id'] for r in runs] == ids[::-1] and runs[0]['question'] == '第二个问题是什么？'
+        assert runs[0]['status'] == 'succeeded' and runs[0]['final']['answer_value'] == '80.28'
+        assert len(c.get('/runs?limit=1', headers=auth(alice)).json()['runs']) == 1

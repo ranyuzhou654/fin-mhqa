@@ -89,6 +89,11 @@ class Store:
                    rid, session_id, user_id, question, 'queued', time.time())
         return rid
 
+    def user_runs(self, user_id, limit=30):
+        rows = self._all('SELECT id, session_id, question, status, created, finished, final, error FROM runs '
+                         'WHERE user_id=? ORDER BY created DESC LIMIT ?', user_id, limit)
+        return [self._public_run(r) for r in rows]
+
     def run(self, rid):
         r = self._one('SELECT * FROM runs WHERE id=?', rid)
         return self._public_run(r) if r else None

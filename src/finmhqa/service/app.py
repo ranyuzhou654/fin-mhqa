@@ -124,6 +124,11 @@ def create_app(store, scheduler, metrics, heartbeat=15.0, log=None):
         return JSONResponse({'run_id': rid, 'status': 'queued', 'events': f'/runs/{rid}/events'}, status_code=202,
                             headers={'Location': f'/runs/{rid}'})
 
+    @app.get('/runs')
+    def list_runs(limit: int = 30, user=Depends(user_of)):
+        """The caller's most recent runs, newest first (history sidebar)."""
+        return {'runs': store.user_runs(user['id'], max(1, min(limit, 100)))}
+
     @app.get('/runs/{rid}')
     def get_run(rid: str, user=Depends(user_of)):
         return owned_run(rid, user)
