@@ -8,6 +8,7 @@ import time
 import urllib.error
 import urllib.request
 from jsonschema import ValidationError, validate
+from finmhqa.harness.runs import QuotaExhausted, is_quota_response
 
 REPAIR_PROMPT = ('你上一条输出不符合要求：{error}。请保持你原来的决定和内容不变，只修正格式，'
                  '重新输出一个完整、符合JSON Schema的JSON对象，不要任何其它文字。')
@@ -84,7 +85,10 @@ class OpenAICompatTeacher:
             with urllib.request.urlopen(request, timeout=timeout) as response:
                 return json.loads(response.read())
         except urllib.error.HTTPError as exc:
-            error = RuntimeError(f'HTTP {exc.code}: {exc.read().decode(errors="replace")[:500]}')
+            body = exc.read().decode(errors="replace")[:500]
+            if is_quota_response(exc.code, body):
+                raise QuotaExhausted(f'HTTP {exc.code}: {body}') from None
+            error = RuntimeError(f'HTTP {exc.code}: {body}')
             error.transient = exc.code == 429 or exc.code >= 500
             raise error from None
 
@@ -93,6 +97,10 @@ class OpenAICompatTeacher:
         for attempt in range(self.transport_retries + 1):
             try:
                 return self.post(body, timeout) if self._custom_post else self._post(body, timeout, session)
+            except QuotaExhausted as exc:
+                # Billing/quota refusals are final: no retry, and the type survives so the runner can stop the batch.
+                log.append({'attempt': attempt + 1, 'error': f'QuotaExhausted: {exc}'[:300], 'retried': False})
+                raise
             except (OSError, http.client.HTTPException, RuntimeError, ValueError) as exc:
                 # IncompleteRead (connection cut mid-body) is an HTTPException, not an OSError: retry it too.
                 transient = isinstance(exc, (OSError, http.client.HTTPException)) or getattr(exc, 'transient', False)

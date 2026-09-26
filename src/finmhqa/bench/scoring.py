@@ -6,6 +6,7 @@ from collections import Counter
 from decimal import Decimal, InvalidOperation
 import random
 import statistics
+from finmhqa.harness.runs import classify_error
 
 UNIT_ALIASES = {'％': '%', '百分比': '%', '百分点': '%'}
 
@@ -62,6 +63,7 @@ def score_item(gold, result, events, facts):
             if isinstance(v, int):
                 usage[k] = usage.get(k, 0) + v
     return {'id': gold['id'], 'type': gold['type'], 'tags': gold['tags'], 'correct': correct, 'error': error,
+            'error_class': 'not_run' if error == 'NOT_RUN' else classify_error(error),
             'status': status, 'expected_status': answer['status'], 'terminal_reason': (result or {}).get('terminal_reason', 'NOT_RUN'),
             'citations_valid': set(citations) <= set(seen) if status == 'answered' else None,
             'hops_cited': hops, 'model_calls': (result or {}).get('decision_calls', 0), 'tool_calls': (result or {}).get('tool_calls', 0),
@@ -100,6 +102,8 @@ def summarize(scores):
                              'unanswerable': dict(Counter(s['terminal_reason'] for s in unanswerable))},
         'false_abstention': rate(answerable, key=lambda s: s['status'] == 'insufficient' and not s['error']),
         'errors': sum(bool(s['error']) for s in scores),
+        # infrastructure failures (quota, transport, not run) are separated from agent failures; all stay wrong
+        'errors_by_class': dict(Counter(s.get('error_class') for s in scores if s['error'])),
         # infrastructure health: failed searches reach the agent as tool errors and depress scores
         'search_errors': sum(s.get('search_errors', 0) for s in scores),
         'busy_retries': sum(s.get('busy_retries', 0) for s in scores),

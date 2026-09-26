@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 import statistics
 from analyze_verifier import analyze
-from evaluate_benchmark import LEDGER
+from evaluate_benchmark import LEDGER, run_status
 from finmhqa.bench.faults import FAULTS
 from finmhqa.bench.guard import GOLD
 from finmhqa.bench.scoring import norm_unit, paired_bootstrap, same_number, score_item, summarize
@@ -35,6 +35,8 @@ def misled(plan, result):
 
 
 def score_run(run, plans, gold, facts):
+    if run_status(run) == 'INCOMPLETE':
+        raise ValueError(f'{run} is INCOMPLETE; resume it before reporting')
     manifest = json.loads((run / 'manifest.json').read_text())
     fault = manifest.get('fault') or {}
     if fault.get('plans_sha256') != hashlib.sha256(Path(fault['plans']).read_bytes()).hexdigest():

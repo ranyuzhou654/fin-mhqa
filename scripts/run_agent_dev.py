@@ -1,7 +1,6 @@
 """Run frozen question-only cases; never opens gold. All arms share tools/budgets."""
 import argparse
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import importlib.metadata
 import json
@@ -18,6 +17,7 @@ from finmhqa.agent.evidence_context import EvidenceContext
 from finmhqa.agent.pilot_tools import request_json,search
 from finmhqa.bench.guard import load_questions, log_test_run
 from finmhqa.bench.faults import FAULTS, FaultInjector
+from finmhqa.harness.runs import EXIT_INCOMPLETE, EXIT_OK, EXIT_QUOTA, classify_error, execute, plan_resume, summarize_run, write_status
 
 
 def main():
@@ -32,6 +32,7 @@ def main():
     p.add_argument('--config',type=Path,help='frozen teacher config; overrides arms/synthesis/context/budgets')
     p.add_argument('--fault',choices=FAULTS,help='blind fault injection on Dev (docs/FAULT_INJECTION_V1_PLAN.md)')
     p.add_argument('--plans',type=Path,default=Path('data/bench/fault_v1/plans.jsonl'))
+    p.add_argument('--resume',action='store_true',help='continue an existing run folder: rerun only missing, partial or infrastructure-failed items')
     p.add_argument('--only');a=p.parse_args()
     budgets=dict(max_models=10,max_tools=8,max_searches=6,max_replans=2);config=None
     if a.config:
@@ -41,7 +42,8 @@ def main():
         budgets=dict(config['budgets'],reserve_calculation=config.get('reserve_calculation',False),calculator=config.get('calculator','v1'),**{k:config[k] for k in ('verifier','planner') if k in config})
     if a.reserve_verifier and ('flat' in a.arms or a.synthesis!='verified'):p.error('verifier reservation requires graph arms and verified publication')
     if a.context_index and a.synthesis!='verified':p.error('context reading requires verified publication')
-    if a.out.exists():raise FileExistsError(a.out)
+    if a.out.exists() and not a.resume:raise FileExistsError(a.out)
+    if a.resume and not (a.out/'manifest.json').exists():p.error('--resume needs an existing run folder with a manifest')
     if bool(a.questions)==bool(a.benchmark):p.error('give exactly one of --questions or --benchmark')
     if a.final and a.benchmark!='test':p.error('--final only applies to --benchmark test')
     bench=None
@@ -60,7 +62,7 @@ def main():
         rows=[r for r in rows if r['id'] in plans]
     if a.only:rows=[r for r in rows if r['id']==a.only]
     if not rows:raise ValueError('no cases')
-    a.out.mkdir(parents=True)
+    if not a.resume:a.out.mkdir(parents=True)
     spec=config['teacher'] if config else 'gpt-5.6-sol'
     if isinstance(spec,dict) and spec['backend']=='openai':
         repair=bool(config.get('format_repair',False))
@@ -75,7 +77,7 @@ def main():
     context=EvidenceContext(a.context_index,health['admission']['dataset_sha256'],context_version) if a.context_index else None
     if plans is not None and (context is None or any(q['dataset_sha256']!=health['admission']['dataset_sha256'] for q in plans.values())):
         raise ValueError('fault plans need the context reader on the same admitted dataset')
-    files=[Path('src/finmhqa/agent')/f for f in ['baselines.py','codex_teacher.py','openai_compat.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py']]+[Path('src/finmhqa/bench/faults.py'),Path(__file__)]
+    files=[Path('src/finmhqa/agent')/f for f in ['baselines.py','codex_teacher.py','openai_compat.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py']]+[Path('src/finmhqa/bench/faults.py'),Path('src/finmhqa/harness/runs.py'),Path(__file__)]
     metadata={'questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),'teacher':teacher_name,
         'langgraph':importlib.metadata.version('langgraph'),'health_before':health,'arms':a.arms,'workers':a.workers,
         'synthesis':a.synthesis,'context_index':str(a.context_index) if a.context_index else None,'reserve_verifier':a.reserve_verifier,**budgets,'context_version':context_version if a.context_index else None,
@@ -85,8 +87,13 @@ def main():
         'scope':f"benchmark_v1 {a.benchmark}" if bench else 'development only; authored from previously reviewed facts; not independent Test',
         'flat':'existing action policy with shared safety guards and budgets; no semantic verifier or synthesis model call',
         'generic':'same graph and verifier; only failure feedback to planner replaced with generic failure message'}
-    (a.out/'manifest.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2))
-    if a.benchmark=='test':log_test_run('started',out=str(a.out),config=str(a.config),config_sha256=metadata['config_sha256'])
+    if a.resume:
+        # Resuming must not mix configurations, code, inputs or index versions inside one run.
+        old=json.loads((a.out/'manifest.json').read_text())
+        for key in ('questions_sha256','config_sha256','code_sha256','teacher','arms','fault','benchmark','health_before'):
+            if old.get(key)!=metadata.get(key):raise ValueError(f'cannot resume: {key} differs from the original run; start a new run folder')
+    else:(a.out/'manifest.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2))
+    if a.benchmark=='test':log_test_run('resumed' if a.resume else 'started',out=str(a.out),config=str(a.config),config_sha256=metadata['config_sha256'])
     lock=threading.Lock()
     def run(task):
         arm,row=task;folder=a.out/arm/row['id'];folder.mkdir(parents=True)
@@ -117,19 +124,25 @@ def main():
                         search_fn,read_fn=injector.search,injector.read
                     agent=AgentGraph(model,search_fn,record,arm,synthesis=a.synthesis,context_reader=read_fn,reserve_verifier=a.reserve_verifier,**budgets)
                 state=agent.run(row['question'])
-            except Exception as exc:error=f'{type(exc).__name__}: {exc}';record({'event':'error','message':error})
+            except Exception as exc:error=f'{type(exc).__name__}: {exc}';record({'event':'error','message':error,'error_class':classify_error(error)})
         result={'id':row['id'],'arm':arm,'final':state.get('final'),'error':error,'terminal_reason':state.get('terminal_reason','ERROR'),
             'seconds':time.monotonic()-start,'search_calls':sum(e['event']=='tool_request' and e['tool']=='search' for e in logs),
             'tool_calls':sum(e['event']=='tool_request' for e in logs),'decision_calls':sum(e['event']=='teacher_decision' for e in logs),
             'replan_count':state.get('replan_count'),'retrieval_busy_retries':busy[0],'usage':[e['usage'] for e in logs if e['event']=='teacher_decision']}
         (folder/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
         print(json.dumps({k:result[k] for k in ['id','arm','terminal_reason','search_calls','decision_calls','error']},ensure_ascii=False),flush=True)
+        return classify_error(error)
     # Rotate order by question to reduce fixed arm/time ordering effects; not a randomised statistical trial.
     tasks=[(a.arms[(i+j)%len(a.arms)],row) for i,row in enumerate(rows) for j in range(len(a.arms))]
-    with ThreadPoolExecutor(max_workers=a.workers) as pool:list(pool.map(run,tasks))
+    todo,moved=plan_resume(a.out,tasks) if a.resume else (tasks,[])
+    # A quota/billing refusal stops the batch: unstarted items stay missing instead of failing one by one.
+    started,quota=execute(todo,run,a.workers)
     after=request_json(a.url+'/health')
     if after!=health:raise ValueError('index changed')
     (a.out/'health_after.json').write_text(json.dumps(after,ensure_ascii=False,indent=2))
-    if a.benchmark=='test':log_test_run('finished',out=str(a.out),config=str(a.config),config_sha256=metadata['config_sha256'])
+    status=write_status(a.out,summarize_run(a.out,tasks),resumed=a.resume,superseded=moved,started=len(started),stopped_by_quota=quota)
+    print(json.dumps({k:status[k] for k in ('status','counts','stopped_by_quota')},ensure_ascii=False),flush=True)
+    if a.benchmark=='test':log_test_run('finished' if status['status']=='COMPLETE' else 'incomplete',out=str(a.out),config=str(a.config),config_sha256=metadata['config_sha256'])
+    return EXIT_QUOTA if quota else EXIT_OK if status['status']=='COMPLETE' else EXIT_INCOMPLETE
 
-if __name__=='__main__':main()
+if __name__=='__main__':raise SystemExit(main())
