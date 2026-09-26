@@ -40,7 +40,7 @@ flowchart LR
 
 ```bash
 uv venv --python 3.11
-uv pip install --python .venv/bin/python -r requirements-m1.lock.txt
+uv pip install --python .venv/bin/python -r requirements-m1.lock.txt -r requirements-agent.lock.txt
 uv pip install --python .venv/bin/python --no-deps -e .
 .venv/bin/python -m pytest -q
 ```
@@ -64,6 +64,7 @@ PYTHONPATH=src .venv/bin/python scripts/demo.py --question "贵州茅台2025年�
 | `src/finmhqa/ingest`、`retrieval` | PDF 解析与切块、混合检索服务 |
 | `src/finmhqa/agent` | 四角色图、工具、上下文读取器、模型接口、基线 |
 | `src/finmhqa/bench` | 事实台账、题目生成、质检、Test 保护、评分、故障注入 |
+| `src/finmhqa/harness` | 错误分类、额度止损、逐题续跑、录制—重放、来源记录、检索锁 |
 | `configs/` | 冻结的实验配置（`bench_*.json`）与 Test 登记表 |
 | `scripts/` | 运行、审计、评分、报告、演示 |
 | `docs/` | [文档索引](docs/README.md)：报告、实验、评测集、系统、归档 |
