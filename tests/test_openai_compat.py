@@ -102,6 +102,18 @@ def test_transport_errors_retried_and_logged_but_client_errors_not(tmp_path):
         OpenAICompatTeacher('https://example.test/v1','m',api_key='k',post=forbidden,backoff=0).decide('问',[],tmp_path/'t',system='S',output_schema=SCHEMA)
 
 
+def test_incomplete_read_is_retried_as_transport_error(tmp_path):
+    import http.client
+    calls=[]
+    def truncated(body,timeout):
+        calls.append(1)
+        if len(calls)==1:raise http.client.IncompleteRead(b'x'*10,20)
+        return reply(json.dumps(ACTION))
+    action,_=OpenAICompatTeacher('https://example.test/v1','m',api_key='k',post=truncated,backoff=0).decide('问',[],tmp_path/'s',system='S',output_schema=SCHEMA)
+    assert action==ACTION and len(calls)==2
+    assert 'IncompleteRead' in json.loads((tmp_path/'s'/'transport_errors.json').read_text())[0]['error']
+
+
 def test_session_header_is_stable_per_question_and_differs_across_questions(tmp_path, monkeypatch):
     sent = []
     t = OpenAICompatTeacher('https://example.test/v1', 'm', api_key='k')

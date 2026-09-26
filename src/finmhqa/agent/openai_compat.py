@@ -1,5 +1,6 @@
 """OpenAI-compatible chat transport (e.g. OpenCode Zen). No tools are offered; the key never reaches disk."""
 import hashlib
+import http.client
 import json
 import os
 from pathlib import Path
@@ -92,8 +93,9 @@ class OpenAICompatTeacher:
         for attempt in range(self.transport_retries + 1):
             try:
                 return self.post(body, timeout) if self._custom_post else self._post(body, timeout, session)
-            except (OSError, RuntimeError, ValueError) as exc:
-                transient = isinstance(exc, OSError) or getattr(exc, 'transient', False)
+            except (OSError, http.client.HTTPException, RuntimeError, ValueError) as exc:
+                # IncompleteRead (connection cut mid-body) is an HTTPException, not an OSError: retry it too.
+                transient = isinstance(exc, (OSError, http.client.HTTPException)) or getattr(exc, 'transient', False)
                 log.append({'attempt': attempt + 1, 'error': f'{type(exc).__name__}: {exc}'[:300], 'retried': transient and attempt < self.transport_retries})
                 if not transient or attempt == self.transport_retries:
                     raise RuntimeError(f'teacher transport failed: {exc}') from None
