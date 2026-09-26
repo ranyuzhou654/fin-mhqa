@@ -82,7 +82,12 @@ def test_full_flow_streams_ordered_events_and_final_answer():
         assert events[0]['event'] == 'status' and events[-1]['event'] == 'end' and events[-1]['data']['status'] == 'succeeded'
         assert events[-1]['data']['final']['answer_value'] == '80.28'
         kinds = {e['event'] for e in events}
-        assert {'teacher_decision', 'tool_request', 'tool_response', 'verification', 'final'} <= kinds
+        assert {'teacher_decision', 'tool_request', 'tool_response', 'verification', 'final', 'retrieval_trace'} <= kinds
+        trace = next(e for e in events if e['event'] == 'retrieval_trace')
+        request = max(e['id'] for e in events if e['event'] == 'tool_request' and e['id'] < trace['id'])
+        response = min(e['id'] for e in events if e['event'] == 'tool_response' and e['id'] > trace['id'])
+        assert request < trace['id'] < response and trace['data']['recomputed'] is True   # sits between its search request and response
+        assert trace['data']['trace']['summary']['overlap'] == 13 and len(trace['data']['trace']['dense']) == 30
         summary = next(e for e in events if e['event'] == 'tool_response' and 'results' in e['data']['response'])
         assert all('text' not in ch for ch in summary['data']['response']['results'])   # summary detail: labels only
         run = c.get(f'/runs/{rid}', headers=auth(key)).json()
@@ -244,3 +249,22 @@ def test_history_lists_only_own_runs_newest_first():
         assert [r['id'] for r in runs] == ids[::-1] and runs[0]['question'] == '第二个问题是什么？'
         assert runs[0]['status'] == 'succeeded' and runs[0]['final']['answer_value'] == '80.28'
         assert len(c.get('/runs?limit=1', headers=auth(alice)).json()['runs']) == 1
+
+
+def test_graph_agent_sends_trace_to_events_but_not_to_the_agent():
+    from finmhqa.service.agents import GraphAgent
+    agent = GraphAgent.__new__(GraphAgent)
+    agent.url, agent.dataset = 'http://retrieval', 'sha'
+    sent, events = [], []
+
+    def fake_request(url, payload):
+        sent.append(payload)
+        return {'results': [{'chunk_id': 'c1'}], 'dataset_sha256': 'sha', 'index_admission': 'ACCEPTED', 'trace': {'summary': {}}}
+    args = {'query': 'q', 'company': '甲', 'mode': 'hybrid'}
+    body = agent.traced_search(args, events.append, request=fake_request)
+    assert 'trace' not in body and body['results'] == [{'chunk_id': 'c1'}]
+    assert sent == [{**args, 'top_k': 5, 'n_cand': 30, 'expand_parent': True, 'trace': True}]
+    assert events == [{'event': 'retrieval_trace', 'args': args, 'trace': {'summary': {}}}]
+    agent.dataset = 'other'
+    with pytest.raises(ValueError, match='dataset'):
+        agent.traced_search(args, events.append, request=fake_request)

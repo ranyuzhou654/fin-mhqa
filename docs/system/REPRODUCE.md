@@ -22,6 +22,7 @@
 | 成本估算 | `PYTHONPATH=src .venv/bin/python scripts/cost_estimate.py --config configs/<配置>.json --items <题次>` |
 | 金丝雀 | `PYTHONPATH=src .venv/bin/python scripts/canary.py --config configs/<配置>.json` |
 | 继续未完成的运行 | 同一条 `run_agent_dev.py` 命令加 `--resume`；驱动脚本会自动续跑 |
+| 为录制轨迹补算检索细节 | `PYTHONPATH=src .venv/bin/python scripts/backfill_retrieval_traces.py --cases "docs/examples/*"`（需要检索服务） |
 | 重放回归（不调用模型） | `PYTHONPATH=src .venv/bin/python scripts/replay_check.py --runs <运行目录…>` |
 | 审计一次运行 | `PYTHONPATH=src:scripts .venv/bin/python scripts/audit_agent_run.py --run <运行目录> --out <新路径>` |
 | 评分与配对比较 | `PYTHONPATH=src:scripts .venv/bin/python scripts/evaluate_benchmark.py --runs <运行…> --baseline <基线运行…> --out <新路径>` |

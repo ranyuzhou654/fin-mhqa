@@ -15,6 +15,7 @@ class Query(BaseModel):
     company:str|None=Field(default=None,min_length=1,max_length=80)
     expand_parent:bool=True
     n_cand:int=Field(default=30,ge=1,le=100)
+    trace:bool=False   # diagnostic: recall channels, RRF and rerank; never requested by the agent
 
     @model_validator(mode='after')
     def bounds(self):
@@ -55,10 +56,12 @@ def create_app(retriever=None):
         if r is None or not getattr(r.models,'alive',True):raise HTTPException(503,'Index or inference worker not ready')
         if not capacity.acquire(blocking=False):raise HTTPException(503,'Inference busy; retry later')
         try:
-            results=r.search(**request.model_dump())
-            return dict(results=results,index_admission=r.manifest['admission']['status'],
-                        dataset_sha256=r.manifest['admission']['dataset_sha256'],
-                        primary_count=sum(not item['attached'] for item in results))
+            args=request.model_dump();trace=args.pop('trace')
+            results,detail=r.search(**args,trace=True) if trace else (r.search(**args),None)
+            body=dict(results=results,index_admission=r.manifest['admission']['status'],
+                      dataset_sha256=r.manifest['admission']['dataset_sha256'],
+                      primary_count=sum(not item['attached'] for item in results))
+            return dict(body,trace=detail) if trace else body
         except ValueError as exc:raise HTTPException(422,str(exc)) from exc
         finally:capacity.release()
     return app

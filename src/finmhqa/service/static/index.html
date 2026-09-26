@@ -132,6 +132,28 @@ details.plan li.pending::marker { content: "○  "; color: var(--muted); }
 mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 2px; font-weight: 700; }
 .empty { color: var(--muted); font-size: 13px; }
 .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+details.rtrace { margin-top: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+details.rtrace > summary { cursor: pointer; padding: 7px 10px; font-size: 12px; color: var(--fg-2); list-style: none; }
+details.rtrace > summary::before { content: "▸ "; color: var(--muted); }
+details.rtrace[open] > summary::before { content: "▾ "; }
+details.rtrace > summary b { color: var(--fg); font-weight: 600; }
+.rgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px; padding: 0 10px 10px; }
+.rcol h4 { margin: 4px 0 6px; font-size: 12px; font-weight: 600; color: var(--fg-2); display: flex; justify-content: space-between; }
+.rcol h4 span { color: var(--muted); font-weight: 400; }
+.rcol ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.rcol ol[hidden] { display: none; }
+.rcol ol + ol { margin-top: 2px; }
+.rrow { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 6px; align-items: center; font-size: 12px; padding: 3px 6px; border-radius: 5px; border-left: 3px solid transparent; }
+.rrow .rk { color: var(--muted); font-family: var(--mono); text-align: right; }
+.rrow .tt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rrow .sc { font-family: var(--mono); color: var(--muted); font-size: 11px; }
+.rrow.final { border-left-color: var(--accent); background: var(--panel-2); font-weight: 600; }
+.rrow.hl { background: var(--plan-bg); outline: 1px solid var(--plan); }
+.rrow .src { font-size: 10px; padding: 0 4px; border-radius: 3px; margin-left: 4px; font-weight: 600; }
+.src.both { background: var(--ok-bg); color: var(--ok); } .src.dense { background: var(--plan-bg); color: var(--plan); } .src.bm25 { background: var(--tool-bg); color: var(--tool); }
+.rmore { font-size: 11px; color: var(--muted); cursor: pointer; margin-top: 4px; background: none; border: none; padding: 0; }
+.rnote { font-size: 11px; color: var(--muted); padding: 0 10px 8px; }
 @media (max-width: 1100px) {
   .app { grid-template-columns: 220px minmax(0, 1fr); }
   .right { grid-column: 2; border-left: none; border-top: 1px solid var(--line); }
@@ -266,8 +288,11 @@ function renderStats() {
   $('s-rej').textContent = st.rej; $('s-tok').textContent = st.tok >= 1000 ? (st.tok / 1000).toFixed(1) + 'K' : st.tok;
 }
 function card(cls, html) {
+  const main = document.querySelector('main');
+  const scroller = getComputedStyle(main).overflowY === 'auto' ? main : document.scrollingElement;
+  const follow = scroller.scrollHeight - scroller.scrollTop - scroller.clientHeight < 240;   // only follow if the reader is at the end
   const el = document.createElement('div'); el.className = 'card ' + cls; el.innerHTML = html; $('timeline').append(el);
-  el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); return el;
+  if (follow) el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); return el;
 }
 function meta(d) { const u = d.usage || {}; return `${(d.seconds || 0).toFixed(1)}s · ${((u.input_tokens || 0) / 1000).toFixed(1)}K tok`; }
 
@@ -305,10 +330,15 @@ function onEvent(kind, d) {
   if (kind === 'tool_response' && S.lastTool) {
     const r = d.response || {};
     if (r.error) S.lastTool.insertAdjacentHTML('beforeend', `<div class="body" style="color:var(--bad)">错误：${esc(r.detail || r.error)}</div>`);
-    else if (r.results) S.lastTool.insertAdjacentHTML('beforeend', `<div class="results">${r.results.map((c) => `<span>${esc(c.table_title || c.chunk_type)} · p.${esc(c.page_start)}</span>`).join('')}</div>`);
+    else if (r.results) {
+      const chips = `<div class="results">${r.results.map((c) => `<span>${esc(c.table_title || c.chunk_type)} · p.${esc(c.page_start)}</span>`).join('')}</div>`;
+      const tr = S.lastTool.querySelector('details.rtrace');
+      tr ? tr.insertAdjacentHTML('beforebegin', chips) : S.lastTool.insertAdjacentHTML('beforeend', chips);
+    }
     else if (r.value !== undefined) { const res = S.lastTool.querySelector('.res'); if (res) res.innerHTML = `= <span class="eq">${esc(r.value)} ${esc(r.unit)}</span>`; }
     return;
   }
+  if (kind === 'retrieval_trace') { if (S.lastTool && d.trace) S.lastTool.append(renderTrace(d.trace, d.recomputed)); return; }
   if (kind === 'final') { S.final = d.response; return; }
   if (kind === 'end') {
     st.end = performance.now(); if (!st.start) st.start = st.end; clearInterval(S.timer); renderStats();
@@ -336,6 +366,40 @@ function showAnswer(f) {
   if ((f.citations || []).length) showEvidence(f.citations[0]);
 }
 
+
+// ---------- retrieval trace: both recall channels, RRF fusion, rerank ----------
+const SRC = { both: '两路', dense: '向量', bm25: 'BM25' };
+function traceColumn(title, note, rows, score, finalIds, extra) {
+  if (!rows) return '';
+  const item = (x) => `<li class="rrow ${finalIds.has(x.chunk_id) ? 'final' : ''}" data-cid="${esc(x.chunk_id)}" title="${esc(x.chunk_id)} · ${esc(x.chunk_type)} · p.${esc(x.page_start)}">
+      <span class="rk">${x.rank}</span><span class="tt">${esc(x.title || x.chunk_type)} · p.${esc(x.page_start)}${extra ? extra(x) : ''}</span><span class="sc">${score(x)}</span></li>`;
+  const head = rows.slice(0, 8).map(item).join(''), rest = rows.slice(8).map(item).join('');
+  return `<div class="rcol"><h4>${title}<span>${note}</span></h4><ol>${head}</ol>${rest ? `<ol hidden>${rest}</ol><button class="rmore">展开其余 ${rows.length - 8} 条</button>` : ''}</div>`;
+}
+function renderTrace(t, recomputed) {
+  const finalIds = new Set(t.reranked.filter((x) => x.selected).map((x) => x.chunk_id));
+  const sm = t.summary, from = sm.final_from;
+  const fromText = from ? `两路 ${from.both} / 仅向量 ${from.dense} / 仅 BM25 ${from.bm25}` : '';
+  const cols = [
+    traceColumn('向量召回', 'bge-m3 · 余弦', t.dense, (x) => x.score.toFixed(3), finalIds),
+    traceColumn('BM25 召回', 'jieba 分词', t.bm25, (x) => x.score.toFixed(2), finalIds),
+    traceColumn('RRF 融合', 'k=60', t.fused, (x) => (x.rrf_score * 1000).toFixed(1), finalIds,
+      (x) => ` <span class="sc">(${x.dense_rank ?? '—'}/${x.bm25_rank ?? '—'})</span>`),
+    traceColumn('重排序 · 最终', 'bge-reranker', t.reranked, (x) => x.rerank_score.toFixed(5), finalIds,
+      (x) => (x.source ? `<span class="src ${x.source}">${SRC[x.source]}</span>` : '') + (x.candidate_rank && x.candidate_rank !== x.rank ? ` <span class="sc">←${x.candidate_rank}</span>` : '')),
+  ].join('');
+  const el = document.createElement('details'); el.className = 'rtrace'; el.open = true;
+  el.innerHTML = `<summary>召回细节 · 向量 <b>${sm.dense_hits}</b> · BM25 <b>${sm.bm25_hits}</b> · 两路重合 <b>${sm.overlap}</b> · 最终 <b>${finalIds.size}</b> 条${fromText ? `（${fromText}）` : ''}${sm.final_promoted_by_reranker ? ` · 重排提拔 <b>${sm.final_promoted_by_reranker}</b> 条` : ''}</summary>
+    <div class="rgrid">${cols}</div>
+    <div class="rnote">金色标记 = 最终返回给 Agent 的证据；RRF 列括号内为（向量名次/BM25 名次）；重排列 ←N 为融合后的候选名次。悬停可跨列定位同一证据块。${recomputed ? '本条为录制轨迹用相同参数离线重算的检索细节，结果与录制时一致。' : ''}</div>`;
+  el.querySelectorAll('.rmore').forEach((b) => b.onclick = () => { b.previousElementSibling.hidden = false; b.remove(); });
+  el.addEventListener('mouseover', (e) => {
+    const row = e.target.closest('.rrow'); el.querySelectorAll('.rrow.hl').forEach((r) => r.classList.remove('hl'));
+    if (row) el.querySelectorAll(`.rrow[data-cid="${CSS.escape(row.dataset.cid)}"]`).forEach((r) => r.classList.add('hl'));
+  });
+  el.addEventListener('mouseleave', () => el.querySelectorAll('.rrow.hl').forEach((r) => r.classList.remove('hl')));
+  return el;
+}
 // ---------- evidence ----------
 function numberVariants() {
   const out = new Set();
@@ -392,7 +456,9 @@ async function stream(run, last = 0) {
           if (line.startsWith('id: ')) id = +line.slice(4); else if (line.startsWith('event: ')) kind = line.slice(7); else if (line.startsWith('data: ')) data += line.slice(6);
         }
         if (!data || run !== S.run) continue;
-        last = id || last; onEvent(kind, JSON.parse(data)); if (kind === 'end') ended = true;
+        last = id || last;
+        try { onEvent(kind, JSON.parse(data)); } catch (err) { console.error('render failed for event', id, kind, err); }   // one bad render must not drop the stream
+        if (kind === 'end') ended = true;
       }
     }
   } catch (e) { if (e.name === 'AbortError') return; }

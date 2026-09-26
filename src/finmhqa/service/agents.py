@@ -21,10 +21,14 @@ def interruptible_sleep(seconds, cancelled, step=0.05):
 class CassetteAgent:
     def __init__(self, cases, speed=1.0, max_delay=None):
         """cases: folders with trajectory.jsonl (+ result.json). speed: 0.1 = ten times faster than recorded."""
-        self.cases = []
+        self.cases, self.traces = [], {}
         for folder in cases:
             events = [json.loads(l) for l in (Path(folder) / 'trajectory.jsonl').read_text().splitlines()]
             self.cases.append(events)
+            # retrieval traces recomputed offline for recorded searches (scripts/backfill_retrieval_traces.py)
+            traces = Path(folder) / 'retrieval_traces.jsonl'
+            if traces.exists():
+                self.traces[id(events)] = [json.loads(l) for l in traces.read_text().splitlines()]
         if not self.cases:
             raise ValueError('no cassettes')
         self.by_question = {c[0]['question']: c for c in self.cases}
@@ -41,11 +45,18 @@ class CassetteAgent:
         return case
 
     def run(self, question, emit, cancelled, run_id):
-        final = None
-        for e in self.pick(question)[1:]:     # the service publishes its own question/status events
+        final, searches = None, 0
+        case = self.pick(question)
+        traces = self.traces.get(id(case), [])
+        for e in case[1:]:     # the service publishes its own question/status events
             delay = (e.get('seconds') or 0) * self.speed
             interruptible_sleep(min(delay, self.max_delay) if self.max_delay is not None else delay, cancelled)
             emit(e)
+            if e['event'] == 'tool_request' and e['tool'] == 'search':
+                if searches < len(traces) and traces[searches]['args'] == e['args']:
+                    t = traces[searches]
+                    emit({'event': 'retrieval_trace', 'args': t['args'], 'trace': t['trace'], 'recomputed': True})
+                searches += 1
             if e['event'] == 'final':
                 final = e['response']
             if e['event'] == 'error':
@@ -69,10 +80,22 @@ class GraphAgent:
                             calculator=self.config.get('calculator', 'v1'),
                             **{k: self.config[k] for k in ('verifier', 'planner', 'context_policy') if k in self.config})
 
+    def traced_search(self, args, emit, request=None):
+        """The agent's search plus the diagnostic trace. The trace goes to the event stream only; the agent receives
+        exactly the untraced response (identical results, see tests/test_retrieval.py)."""
+        from finmhqa.agent.pilot_tools import request_json, search
+        from finmhqa.harness.provenance import retrieval_lock
+        if set(args) != {'query', 'company', 'mode'}:
+            return search(self.url, args, self.dataset)   # let the tool's own validation reject it
+        with retrieval_lock():
+            body = (request or request_json)(self.url + '/search', dict(args, top_k=5, n_cand=30, expand_parent=True, trace=True))
+        if body['dataset_sha256'] != self.dataset or body['index_admission'] != 'ACCEPTED':
+            raise ValueError('retrieval dataset/admission changed')
+        emit({'event': 'retrieval_trace', 'args': args, 'trace': body.pop('trace')})
+        return body
+
     def run(self, question, emit, cancelled, run_id):
         from finmhqa.agent.graph import AgentGraph
-        from finmhqa.agent.pilot_tools import search
-        from finmhqa.harness.provenance import retrieval_lock
         folder = self.workdir / run_id
         folder.mkdir(parents=True, exist_ok=False)
 
@@ -82,8 +105,7 @@ class GraphAgent:
             return self.teacher.decide(q, history, folder / f'step_{step:02}', system=prompt, output_schema=schema)
 
         def locked_search(args):
-            with retrieval_lock():
-                return search(self.url, args, self.dataset)
+            return self.traced_search(args, emit)
         state = AgentGraph(model, locked_search, emit, self.config['arm'], synthesis=self.config['synthesis'],
                            context_reader=self.context.read if self.context else None,
                            reserve_verifier=self.config['reserve_verifier'], **self.budgets).run(question)

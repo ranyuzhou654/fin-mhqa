@@ -101,6 +101,38 @@ def test_http_validation_and_real_indexes(indexed):
         assert response.json()['results'][1]['attached']
 
 
+def test_trace_explains_channels_fusion_and_rerank_without_changing_results(indexed):
+    _,out,models=indexed
+    r=HybridRetriever(out,models,allow_experimental=True)
+    for mode in ('hybrid','dense','bm25'):
+        plain=r.search('收益 稀有',mode=mode,top_k=2,n_cand=8,company='稀有公司')
+        results,trace=r.search('收益 稀有',mode=mode,top_k=2,n_cand=8,company='稀有公司',trace=True)
+        assert results==plain   # tracing never changes what the agent receives
+        primary=[c['chunk_id'] for c in results if not c['attached']]
+        assert [x['chunk_id'] for x in trace['reranked'] if x['selected']]==primary
+        assert [c['chunk_id'] for c in results if c['attached']]==[x['chunk_id'] for x in trace['attached_parents']]
+        assert (trace['fused'] is None)==(mode!='hybrid') and (trace['dense'] is None)==(mode=='bm25') and (trace['bm25'] is None)==(mode=='dense')
+    _,trace=r.search('收益 稀有',top_k=2,n_cand=8,company='稀有公司',trace=True)
+    dense_rank={x['chunk_id']:x['rank'] for x in trace['dense']};bm25_rank={x['chunk_id']:x['rank'] for x in trace['bm25']}
+    for x in trace['fused']:
+        assert x['dense_rank']==dense_rank.get(x['chunk_id']) and x['bm25_rank']==bm25_rank.get(x['chunk_id'])
+        assert abs(x['rrf_score']-sum(1/(60+k) for k in (x['dense_rank'],x['bm25_rank']) if k))<1e-6
+    assert trace['summary']['overlap']==len(set(dense_rank)&set(bm25_rank))
+    assert sum(trace['summary']['final_from'].values())==2
+    assert r.search('收益',company='不存在',trace=True)[0]==[]
+
+
+def test_http_trace_is_opt_in(indexed):
+    from fastapi.testclient import TestClient
+    from finmhqa.retrieval.server import create_app
+    _,out,models=indexed
+    with TestClient(create_app(HybridRetriever(out,models,allow_experimental=True))) as client:
+        body={'query':'收益','company':'稀有公司','top_k':1,'n_cand':8}
+        plain=client.post('/search',json=body).json()
+        traced=client.post('/search',json={**body,'trace':True}).json()
+        assert 'trace' not in plain and traced['results']==plain['results'] and traced['trace']['reranked'][0]['selected']
+
+
 def test_native_libraries_in_separate_processes():
     import subprocess,sys
     import faiss

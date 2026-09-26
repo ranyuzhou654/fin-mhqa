@@ -7,6 +7,7 @@ import faiss
 import bm25s
 from .artifacts import read_chunks, sha256
 from .sparse import ChineseTokenizer
+from .trace import build_trace
 
 
 def parent_key(chunk):
@@ -89,29 +90,36 @@ class HybridRetriever:
                     attached=attached,embedding_truncated=c['chunk_id'] in self.truncated,
                     reranker_truncated=reranker_truncated,index_admission=self.manifest['admission']['status'])
 
-    def search(self,query,mode='hybrid',top_k=5,company=None,expand_parent=True,n_cand=30):
+    def search(self,query,mode='hybrid',top_k=5,company=None,expand_parent=True,n_cand=30,trace=False):
+        """Results as before; with trace=True returns (results, trace) describing both recall channels, RRF and rerank."""
         if not isinstance(query,str) or not query.strip() or len(query)>2000:raise ValueError('Query must contain 1–2000 characters')
         if mode not in ('dense','bm25','hybrid'):raise ValueError('Unsupported retrieval mode')
         if type(top_k) is not int or type(n_cand) is not int or not 1<=top_k<=20 or not top_k<=n_cand<=100:
             raise ValueError('Require 1 <= top_k <= 20 and top_k <= n_cand <= 100')
         with self.lock:
-            if not self._eligible(company):return []
-            if mode=='dense':candidates=self.dense(query,n_cand,company)
-            elif mode=='bm25':candidates=self.sparse(query,n_cand,company)
-            else:candidates=self.rrf([self.dense(query,n_cand,company),self.sparse(query,n_cand,company)])[:n_cand]
-            if not candidates:return []
+            empty=([],build_trace(self.chunks,mode,n_cand,top_k)) if trace else []
+            if not self._eligible(company):return empty
+            dense=sparse=fused=None
+            if mode=='dense':candidates=dense=self.dense(query,n_cand,company)
+            elif mode=='bm25':candidates=sparse=self.sparse(query,n_cand,company)
+            else:
+                dense,sparse=self.dense(query,n_cand,company),self.sparse(query,n_cand,company)
+                candidates=fused=self.rrf([dense,sparse])[:n_cand]
+            if not candidates:return empty
             ids=[i for i,_ in candidates]
             scores=self.models.score(query,[self.chunks[i]['text'] for i in ids])
             if len(scores)!=len(ids) or not np.isfinite(scores).all():raise ValueError('Invalid reranker output')
             truncated={ids[j] for j in self.models.last_rerank_truncated}
-            ranked=sorted(zip(ids,scores),key=lambda x:(-x[1],x[0]))[:top_k]
+            ordered=sorted(zip(ids,scores),key=lambda x:(-x[1],x[0]))
+            ranked=ordered[:top_k]
             results=[self._fmt(i,s,reranker_truncated=i in truncated) for i,s in ranked]
-            have={r['chunk_id'] for r in results}
+            have={r['chunk_id'] for r in results};attached=[]
             if expand_parent:
                 for i,score in ranked:
                     c=self.chunks[i]
                     if c['chunk_type']=='table_kv':
                         for j in self.parents.get(parent_key(c),[]):
                             if self.chunks[j]['chunk_id'] not in have:
-                                results.append(self._fmt(j,score,attached=True));have.add(self.chunks[j]['chunk_id'])
+                                results.append(self._fmt(j,score,attached=True));have.add(self.chunks[j]['chunk_id']);attached.append(j)
+            if trace:return results,build_trace(self.chunks,mode,n_cand,top_k,dense,sparse,fused,ordered,attached)
             return results
