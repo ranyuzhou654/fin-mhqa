@@ -72,7 +72,7 @@ PYTHONPATH=src .venv/bin/python scripts/demo.py --question "贵州茅台2025年�
 
 ## 状态
 
-- **已完成**：语料、检索、Agent、冻结的评测集、基线、格式修复、故障注入、核验角色 v2。
+- **已完成**：语料、检索、Agent、冻结的评测集、基线、格式修复、故障注入、核验角色 v2、运行 harness（额度用完即停、逐题续跑、录制—重放回归、金丝雀、运行登记表、CI），见[运行 harness](docs/system/HARNESS.md)。
 - **进行中**：规划者 v2 的无故障 Dev 运行因 API 额度用完，等待补跑。
 - **下一步**：登记最终配置，在 Test 上做一次无偏验证。
 

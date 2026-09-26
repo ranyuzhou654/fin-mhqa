@@ -17,6 +17,7 @@ from finmhqa.agent.evidence_context import EvidenceContext
 from finmhqa.agent.pilot_tools import request_json,search
 from finmhqa.bench.guard import load_questions, log_test_run
 from finmhqa.bench.faults import FAULTS, FaultInjector
+from finmhqa.harness.provenance import git_state, retrieval_lock
 from finmhqa.harness.runs import EXIT_INCOMPLETE, EXIT_OK, EXIT_QUOTA, classify_error, execute, plan_resume, summarize_run, write_status
 
 
@@ -77,12 +78,12 @@ def main():
     context=EvidenceContext(a.context_index,health['admission']['dataset_sha256'],context_version) if a.context_index else None
     if plans is not None and (context is None or any(q['dataset_sha256']!=health['admission']['dataset_sha256'] for q in plans.values())):
         raise ValueError('fault plans need the context reader on the same admitted dataset')
-    files=[Path('src/finmhqa/agent')/f for f in ['baselines.py','codex_teacher.py','openai_compat.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py']]+[Path('src/finmhqa/bench/faults.py'),Path('src/finmhqa/harness/runs.py'),Path(__file__)]
+    files=[Path('src/finmhqa/agent')/f for f in ['baselines.py','codex_teacher.py','openai_compat.py','graph.py','graph_contracts.py','pilot_tools.py','evidence_context.py']]+[Path('src/finmhqa/bench/faults.py'),Path('src/finmhqa/harness/runs.py'),Path('src/finmhqa/harness/provenance.py'),Path(__file__)]
     metadata={'questions_sha256':hashlib.sha256(a.questions.read_bytes()).hexdigest(),'teacher':teacher_name,
         'langgraph':importlib.metadata.version('langgraph'),'health_before':health,'arms':a.arms,'workers':a.workers,
         'synthesis':a.synthesis,'context_index':str(a.context_index) if a.context_index else None,'reserve_verifier':a.reserve_verifier,**budgets,'context_version':context_version if a.context_index else None,
         'config':str(a.config) if a.config else None,'config_sha256':hashlib.sha256(a.config.read_bytes()).hexdigest() if a.config else None,'code_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
-        'benchmark':bench,
+        'benchmark':bench,'git':git_state(),
         'fault':{'type':a.fault,'plans':str(a.plans),'plans_sha256':hashlib.sha256(a.plans.read_bytes()).hexdigest(),'items':len(rows)} if a.fault else None,
         'scope':f"benchmark_v1 {a.benchmark}" if bench else 'development only; authored from previously reviewed facts; not independent Test',
         'flat':'existing action policy with shared safety guards and budgets; no semantic verifier or synthesis model call',
@@ -108,7 +109,7 @@ def main():
             def retrieve(args):
                 # The server has one inference slot and answers 503 when busy (e.g. another process is searching).
                 # Wait and retry at the infrastructure level so the agent never sees a false tool failure.
-                with lock:
+                with lock,retrieval_lock():   # threads in this process, and other processes on this machine
                     for attempt in range(60):
                         try:return search(a.url,args,health['admission']['dataset_sha256'])
                         except urllib.error.HTTPError as exc:

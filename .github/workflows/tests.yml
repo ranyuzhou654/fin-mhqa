@@ -1,0 +1,19 @@
+name: tests
+on:
+  push:
+  pull_request:
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Install (same lock files as local development)
+        run: |
+          uv venv --python 3.11
+          uv pip install --python .venv/bin/python -r requirements-m1.lock.txt -r requirements-agent.lock.txt
+          uv pip install --python .venv/bin/python --no-deps -e .
+      - name: Unit, harness, replay and demo tests (no model calls, no data/ or index/)
+        run: .venv/bin/python -m pytest -q
+      - name: Replay shipped example trajectories through the current graph
+        run: PYTHONPATH=src .venv/bin/python scripts/demo.py --replay docs/examples/f2_column_swap_caught --no-color > /dev/null

@@ -125,6 +125,7 @@ def live(question, config_path, url, outdir, out):
     from finmhqa.agent.graph import AgentGraph
     from finmhqa.agent.openai_compat import OpenAICompatTeacher
     from finmhqa.agent.pilot_tools import request_json, search
+    from finmhqa.harness.provenance import retrieval_lock
     config = json.loads(Path(config_path).read_text())
     spec = config['teacher']
     teacher = OpenAICompatTeacher(spec['base_url'], spec['model'], repair=bool(config.get('format_repair')))
@@ -145,7 +146,10 @@ def live(question, config_path, url, outdir, out):
         out(f"配置：{config.get('name', config_path)}", 'dim')
         record({'event': 'question', 'id': 'demo', 'question': question, 'arm': config['arm']})
         model = lambda q, history, step, prompt, schema: teacher.decide(q, history, outdir / f'step_{step:02}', system=prompt, output_schema=schema)
-        agent = AgentGraph(model, lambda args: search(url, args, dataset), record, config['arm'], synthesis=config['synthesis'],
+        def locked_search(args):
+            with retrieval_lock():
+                return search(url, args, dataset)
+        agent = AgentGraph(model, locked_search, record, config['arm'], synthesis=config['synthesis'],
                            context_reader=context.read if context else None, reserve_verifier=config['reserve_verifier'], **budgets)
         try:
             agent.run(question)

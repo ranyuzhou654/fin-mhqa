@@ -5,7 +5,9 @@ set -u
 CFG=${CFG:?set CFG to a config stem}
 cd "$(dirname "$0")/.."
 source scripts/lib_run.zsh
-CONFIGS=$CFG ./scripts/run_fault_injection.sh || exit $?
+cost_gate $CFG 282
+canary_gate $CFG
+CANARY=0 CONFIGS=$CFG ./scripts/run_fault_injection.sh || exit $?
 for r in 1 2 3; do
   bench_run data/bench/runs/dev_${CFG}_r$r --benchmark dev --config configs/bench_${CFG}.json --workers 4
 done

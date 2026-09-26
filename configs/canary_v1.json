@@ -1,0 +1,9 @@
+{
+  "name": "canary_v1",
+  "split": "dev",
+  "items": ["b1-0485b0b725", "b1-04118b6c51", "b1-02dac4ddaa", "b1-40f787f2b8", "b1-0d5df828c4"],
+  "types": {"b1-0485b0b725": "T1", "b1-04118b6c51": "T2", "b1-02dac4ddaa": "T3", "b1-40f787f2b8": "T4", "b1-0d5df828c4": "T5"},
+  "selected_from": "items answered correctly in all 9 Dev runs of b2_flat_repair, b3_graph_repair and b3_graph_repair_verifier_v2 (45/45); first such item of each type T1-T5 in id order",
+  "rule": "pass if at least 4 of 5 are correct and there is no infrastructure error; a quota refusal exits 3",
+  "purpose": "detect provider or endpoint drift before a batch (the Zen vs Go endpoint changed fixed-RAG accuracy from 61.3% to 44.7% with the same model id)"
+}
