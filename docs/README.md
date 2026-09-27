@@ -30,6 +30,7 @@
 | [数据来源](system/DATA_SOURCES.md) | 10 家公司 2025 年半年报的来源和哈希 |
 | [语料](system/DOCLING_CORPUS_RESULTS.md) | Docling 解析得到 9,322 条证据块及其审核 |
 | [检索](system/M2_V2_RESULTS.md) | 混合检索验收（v2 标签） |
+| [检索排序指标](experiments/RETRIEVAL_METRICS_V1.md) | Hit / Recall / MRR / nDCG @K 分阶段、多跳全跳覆盖、Agent 证据覆盖 |
 | [Agent 设计 M3](system/AGENT_M3_DESIGN.md) · [M3.1](system/AGENT_M31_DESIGN.md) | 四角色状态、反馈契约、上下文工具与核验预算 |
 | [模型选型](system/TEACHER_V2_DEEPSEEK.md) | 用 DeepSeek 替代 Sol 的依据和门槛 |
 | [复现指南](system/REPRODUCE.md) | 从 PDF 到实验的全部命令 |

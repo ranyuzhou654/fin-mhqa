@@ -1,0 +1,1215 @@
+{
+  "runs": {
+    "data/bench/runs/dev_b1_single_retrieval_r1": {
+      "questions": 44,
+      "correct": {
+        "mean": 0.5682,
+        "ci95": [
+          0.4318,
+          0.7045
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.6697,
+        "ci95": [
+          0.5583,
+          0.7773
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.5,
+        "ci95": [
+          0.3636,
+          0.6364
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.6697,
+        "ci95": [
+          0.5583,
+          0.7773
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.5,
+        "ci95": [
+          0.3636,
+          0.6364
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 0.6894,
+        "ci95": [
+          0.5818,
+          0.7932
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 0.5,
+        "ci95": [
+          0.3636,
+          0.6364
+        ]
+      },
+      "searches_per_question": 1.86,
+      "accuracy_when_all_hops_retrieved": 1.0,
+      "accuracy_when_some_hop_missing": 0.1364,
+      "missing_hop_questions": [
+        "b1-15e3fdcb07",
+        "b1-2558f8836f",
+        "b1-3ecd21d91e",
+        "b1-db3e19ff7c",
+        "b1-982a7255cb",
+        "b1-99ec054c41",
+        "b1-e3026148c3",
+        "b1-8b9ad6753d",
+        "b1-dad9a3dc2a",
+        "b1-c247e54218",
+        "b1-40f787f2b8",
+        "b1-8471a4bf8b",
+        "b1-98edd5e16f",
+        "b1-1a5a2c993c",
+        "b1-0d5df828c4",
+        "b1-3533831e37",
+        "b1-993d07c922",
+        "b1-8498f69a2e",
+        "b1-c6de112849",
+        "b1-25c2b03fa3",
+        "b1-b20ecf8cb3",
+        "b1-539a23f595"
+      ],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 0.9375,
+        "T3": 0.5,
+        "T4": 0.5,
+        "T5": 0.5694
+      }
+    },
+    "data/bench/runs/dev_b1_single_retrieval_r2": {
+      "questions": 44,
+      "correct": {
+        "mean": 0.5455,
+        "ci95": [
+          0.4091,
+          0.6818
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.6697,
+        "ci95": [
+          0.5583,
+          0.7773
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.5,
+        "ci95": [
+          0.3636,
+          0.6364
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.6697,
+        "ci95": [
+          0.5583,
+          0.7773
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.5,
+        "ci95": [
+          0.3636,
+          0.6364
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 0.6894,
+        "ci95": [
+          0.5818,
+          0.7932
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 0.5,
+        "ci95": [
+          0.3636,
+          0.6364
+        ]
+      },
+      "searches_per_question": 1.86,
+      "accuracy_when_all_hops_retrieved": 0.9545,
+      "accuracy_when_some_hop_missing": 0.1364,
+      "missing_hop_questions": [
+        "b1-15e3fdcb07",
+        "b1-2558f8836f",
+        "b1-3ecd21d91e",
+        "b1-db3e19ff7c",
+        "b1-982a7255cb",
+        "b1-99ec054c41",
+        "b1-e3026148c3",
+        "b1-8b9ad6753d",
+        "b1-dad9a3dc2a",
+        "b1-c247e54218",
+        "b1-40f787f2b8",
+        "b1-8471a4bf8b",
+        "b1-98edd5e16f",
+        "b1-1a5a2c993c",
+        "b1-0d5df828c4",
+        "b1-3533831e37",
+        "b1-993d07c922",
+        "b1-8498f69a2e",
+        "b1-c6de112849",
+        "b1-25c2b03fa3",
+        "b1-b20ecf8cb3",
+        "b1-539a23f595"
+      ],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 0.9375,
+        "T3": 0.5,
+        "T4": 0.5,
+        "T5": 0.5694
+      }
+    },
+    "data/bench/runs/dev_b1_single_retrieval_r3": {
+      "questions": 44,
+      "correct": {
+        "mean": 0.5682,
+        "ci95": [
+          0.4318,
+          0.7045
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.6697,
+        "ci95": [
+          0.5583,
+          0.7773
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.5,
+        "ci95": [
+          0.3636,
+          0.6364
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.6697,
+        "ci95": [
+          0.5583,
+          0.7773
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.5,
+        "ci95": [
+          0.3636,
+          0.6364
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 0.6894,
+        "ci95": [
+          0.5818,
+          0.7932
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 0.5,
+        "ci95": [
+          0.3636,
+          0.6364
+        ]
+      },
+      "searches_per_question": 1.86,
+      "accuracy_when_all_hops_retrieved": 1.0,
+      "accuracy_when_some_hop_missing": 0.1364,
+      "missing_hop_questions": [
+        "b1-15e3fdcb07",
+        "b1-2558f8836f",
+        "b1-3ecd21d91e",
+        "b1-db3e19ff7c",
+        "b1-982a7255cb",
+        "b1-99ec054c41",
+        "b1-e3026148c3",
+        "b1-8b9ad6753d",
+        "b1-dad9a3dc2a",
+        "b1-c247e54218",
+        "b1-40f787f2b8",
+        "b1-8471a4bf8b",
+        "b1-98edd5e16f",
+        "b1-1a5a2c993c",
+        "b1-0d5df828c4",
+        "b1-3533831e37",
+        "b1-993d07c922",
+        "b1-8498f69a2e",
+        "b1-c6de112849",
+        "b1-25c2b03fa3",
+        "b1-b20ecf8cb3",
+        "b1-539a23f595"
+      ],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 0.9375,
+        "T3": 0.5,
+        "T4": 0.5,
+        "T5": 0.5694
+      }
+    },
+    "data/bench/runs/dev_b2_flat_repair_r1": {
+      "questions": 44,
+      "correct": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.947,
+        "ci95": [
+          0.8902,
+          0.9886
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.8864,
+        "ci95": [
+          0.7727,
+          0.9773
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.9943,
+        "ci95": [
+          0.983,
+          1.0
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.9773,
+        "ci95": [
+          0.9318,
+          1.0
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "searches_per_question": 2.48,
+      "accuracy_when_all_hops_retrieved": 1.0,
+      "accuracy_when_some_hop_missing": null,
+      "missing_hop_questions": [],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 1.0
+      }
+    },
+    "data/bench/runs/dev_b2_flat_repair_r2": {
+      "questions": 44,
+      "correct": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.9356,
+        "ci95": [
+          0.8655,
+          0.9886
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.8864,
+        "ci95": [
+          0.7955,
+          0.9773
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.9943,
+        "ci95": [
+          0.983,
+          1.0
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.9773,
+        "ci95": [
+          0.9318,
+          1.0
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 0.9943,
+        "ci95": [
+          0.983,
+          1.0
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 0.9773,
+        "ci95": [
+          0.9318,
+          1.0
+        ]
+      },
+      "searches_per_question": 2.5,
+      "accuracy_when_all_hops_retrieved": 1.0,
+      "accuracy_when_some_hop_missing": 1.0,
+      "missing_hop_questions": [
+        "b1-3533831e37"
+      ],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 0.9792
+      }
+    },
+    "data/bench/runs/dev_b2_flat_repair_r3": {
+      "questions": 44,
+      "correct": {
+        "mean": 0.9545,
+        "ci95": [
+          0.8864,
+          1.0
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.9129,
+        "ci95": [
+          0.8333,
+          0.9773
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.8636,
+        "ci95": [
+          0.75,
+          0.9545
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.9545,
+        "ci95": [
+          0.892,
+          1.0
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.9318,
+        "ci95": [
+          0.8409,
+          1.0
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 0.9602,
+        "ci95": [
+          0.9034,
+          1.0
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 0.9318,
+        "ci95": [
+          0.8409,
+          1.0
+        ]
+      },
+      "searches_per_question": 2.73,
+      "accuracy_when_all_hops_retrieved": 1.0,
+      "accuracy_when_some_hop_missing": 0.3333,
+      "missing_hop_questions": [
+        "b1-3533831e37",
+        "b1-25c2b03fa3",
+        "b1-b20ecf8cb3"
+      ],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 0.8542
+      }
+    },
+    "data/bench/runs/dev_b3_graph_repair_r1": {
+      "questions": 44,
+      "correct": {
+        "mean": 0.9318,
+        "ci95": [
+          0.8409,
+          1.0
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.9394,
+        "ci95": [
+          0.875,
+          0.9886
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.8864,
+        "ci95": [
+          0.7955,
+          0.9773
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.9886,
+        "ci95": [
+          0.9659,
+          1.0
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.9773,
+        "ci95": [
+          0.9318,
+          1.0
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 0.9886,
+        "ci95": [
+          0.9659,
+          1.0
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 0.9773,
+        "ci95": [
+          0.9318,
+          1.0
+        ]
+      },
+      "searches_per_question": 2.41,
+      "accuracy_when_all_hops_retrieved": 0.9535,
+      "accuracy_when_some_hop_missing": 0.0,
+      "missing_hop_questions": [
+        "b1-3533831e37"
+      ],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 0.9583
+      }
+    },
+    "data/bench/runs/dev_b3_graph_repair_r2": {
+      "questions": 44,
+      "correct": {
+        "mean": 0.9545,
+        "ci95": [
+          0.8864,
+          1.0
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.8769,
+        "ci95": [
+          0.7841,
+          0.9545
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.8182,
+        "ci95": [
+          0.7045,
+          0.9318
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.9413,
+        "ci95": [
+          0.8731,
+          0.9924
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.9091,
+        "ci95": [
+          0.8182,
+          0.9773
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 0.9489,
+        "ci95": [
+          0.8807,
+          1.0
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 0.9318,
+        "ci95": [
+          0.8409,
+          1.0
+        ]
+      },
+      "searches_per_question": 2.55,
+      "accuracy_when_all_hops_retrieved": 1.0,
+      "accuracy_when_some_hop_missing": 0.3333,
+      "missing_hop_questions": [
+        "b1-eabcd9e690",
+        "b1-3533831e37",
+        "b1-25c2b03fa3"
+      ],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 0.9375,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 0.8542
+      }
+    },
+    "data/bench/runs/dev_b3_graph_repair_r3": {
+      "questions": 44,
+      "correct": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.9545,
+        "ci95": [
+          0.8977,
+          0.9943
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.9091,
+        "ci95": [
+          0.8182,
+          0.9773
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.9943,
+        "ci95": [
+          0.983,
+          1.0
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.9773,
+        "ci95": [
+          0.9318,
+          1.0
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "searches_per_question": 2.48,
+      "accuracy_when_all_hops_retrieved": 1.0,
+      "accuracy_when_some_hop_missing": null,
+      "missing_hop_questions": [],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 1.0
+      }
+    },
+    "data/bench/runs/dev_b3_graph_repair_verifier_v2_r1": {
+      "questions": 44,
+      "correct": {
+        "mean": 0.9318,
+        "ci95": [
+          0.8409,
+          1.0
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.9508,
+        "ci95": [
+          0.9015,
+          0.9886
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.8864,
+        "ci95": [
+          0.7955,
+          0.9773
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.9792,
+        "ci95": [
+          0.9527,
+          1.0
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.9318,
+        "ci95": [
+          0.8409,
+          1.0
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 0.9848,
+        "ci95": [
+          0.9621,
+          1.0
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 0.9545,
+        "ci95": [
+          0.8864,
+          1.0
+        ]
+      },
+      "searches_per_question": 3.05,
+      "accuracy_when_all_hops_retrieved": 0.9524,
+      "accuracy_when_some_hop_missing": 0.5,
+      "missing_hop_questions": [
+        "b1-3ecd21d91e",
+        "b1-993d07c922"
+      ],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 0.9583,
+        "T4": 1.0,
+        "T5": 0.9722
+      }
+    },
+    "data/bench/runs/dev_b3_graph_repair_verifier_v2_r2": {
+      "questions": 44,
+      "correct": {
+        "mean": 0.9773,
+        "ci95": [
+          0.9318,
+          1.0
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.9583,
+        "ci95": [
+          0.9034,
+          0.9943
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.9091,
+        "ci95": [
+          0.8182,
+          0.9773
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.9943,
+        "ci95": [
+          0.983,
+          1.0
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.9773,
+        "ci95": [
+          0.9318,
+          1.0
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "searches_per_question": 2.7,
+      "accuracy_when_all_hops_retrieved": 0.9773,
+      "accuracy_when_some_hop_missing": null,
+      "missing_hop_questions": [],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 1.0
+      }
+    },
+    "data/bench/runs/dev_b3_graph_repair_verifier_v2_r3": {
+      "questions": 44,
+      "correct": {
+        "mean": 0.9545,
+        "ci95": [
+          0.8864,
+          1.0
+        ]
+      },
+      "hop_recall_search": {
+        "mean": 0.9508,
+        "ci95": [
+          0.8958,
+          0.9924
+        ]
+      },
+      "all_hops_search": {
+        "mean": 0.8864,
+        "ci95": [
+          0.7955,
+          0.9773
+        ]
+      },
+      "hop_recall_seen": {
+        "mean": 0.9867,
+        "ci95": [
+          0.9659,
+          1.0
+        ]
+      },
+      "all_hops_seen": {
+        "mean": 0.9545,
+        "ci95": [
+          0.8864,
+          1.0
+        ]
+      },
+      "hop_recall_seen_value": {
+        "mean": 0.9924,
+        "ci95": [
+          0.9773,
+          1.0
+        ]
+      },
+      "all_hops_seen_value": {
+        "mean": 0.9773,
+        "ci95": [
+          0.9318,
+          1.0
+        ]
+      },
+      "searches_per_question": 2.84,
+      "accuracy_when_all_hops_retrieved": 0.9767,
+      "accuracy_when_some_hop_missing": 0.0,
+      "missing_hop_questions": [
+        "b1-3ecd21d91e"
+      ],
+      "hop_recall_seen_value_by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 0.9583,
+        "T4": 1.0,
+        "T5": 1.0
+      }
+    }
+  },
+  "note": "Chunks returned to the agent: search top 5 plus attached parent tables, and chunks from read_evidence_context. Unanswerable questions (no facts) are excluded.",
+  "cassette_stages": {
+    "strict": {
+      "questions": 44,
+      "searches": "hybrid searches only",
+      "caveat": "cassettes hold one correct trajectory per question; biased upward",
+      "stages": {
+        "dense": {
+          "hop_recall@1": {
+            "mean": 0.2686,
+            "ci95": [
+              0.1788,
+              0.3629
+            ]
+          },
+          "hop_recall@5": {
+            "mean": 0.672,
+            "ci95": [
+              0.5523,
+              0.786
+            ]
+          },
+          "hop_recall@30": {
+            "mean": 0.9697,
+            "ci95": [
+              0.9167,
+              1.0
+            ]
+          },
+          "all_hops@1": {
+            "mean": 0.0682,
+            "ci95": [
+              0.0,
+              0.1591
+            ]
+          },
+          "all_hops@5": {
+            "mean": 0.5227,
+            "ci95": [
+              0.3864,
+              0.6591
+            ]
+          },
+          "all_hops@30": {
+            "mean": 0.9545,
+            "ci95": [
+              0.8864,
+              1.0
+            ]
+          }
+        },
+        "bm25": {
+          "hop_recall@1": {
+            "mean": 0.311,
+            "ci95": [
+              0.2095,
+              0.4182
+            ]
+          },
+          "hop_recall@5": {
+            "mean": 0.6898,
+            "ci95": [
+              0.5814,
+              0.7902
+            ]
+          },
+          "hop_recall@30": {
+            "mean": 0.9223,
+            "ci95": [
+              0.8523,
+              0.9773
+            ]
+          },
+          "all_hops@1": {
+            "mean": 0.1591,
+            "ci95": [
+              0.0682,
+              0.2727
+            ]
+          },
+          "all_hops@5": {
+            "mean": 0.5,
+            "ci95": [
+              0.3636,
+              0.6364
+            ]
+          },
+          "all_hops@30": {
+            "mean": 0.8636,
+            "ci95": [
+              0.75,
+              0.9545
+            ]
+          }
+        },
+        "rrf": {
+          "hop_recall@1": {
+            "mean": 0.4803,
+            "ci95": [
+              0.3614,
+              0.6019
+            ]
+          },
+          "hop_recall@5": {
+            "mean": 0.8723,
+            "ci95": [
+              0.7947,
+              0.9405
+            ]
+          },
+          "hop_recall@30": {
+            "mean": 0.964,
+            "ci95": [
+              0.911,
+              1.0
+            ]
+          },
+          "all_hops@1": {
+            "mean": 0.2955,
+            "ci95": [
+              0.1591,
+              0.4318
+            ]
+          },
+          "all_hops@5": {
+            "mean": 0.75,
+            "ci95": [
+              0.6136,
+              0.8636
+            ]
+          },
+          "all_hops@30": {
+            "mean": 0.9318,
+            "ci95": [
+              0.8409,
+              1.0
+            ]
+          }
+        },
+        "rrf+rerank": {
+          "hop_recall@1": {
+            "mean": 0.725,
+            "ci95": [
+              0.6231,
+              0.8235
+            ]
+          },
+          "hop_recall@5": {
+            "mean": 0.9205,
+            "ci95": [
+              0.8485,
+              0.9792
+            ]
+          },
+          "hop_recall@30": {
+            "mean": 0.964,
+            "ci95": [
+              0.911,
+              1.0
+            ]
+          },
+          "all_hops@1": {
+            "mean": 0.5455,
+            "ci95": [
+              0.4091,
+              0.6818
+            ]
+          },
+          "all_hops@5": {
+            "mean": 0.8636,
+            "ci95": [
+              0.75,
+              0.9545
+            ]
+          },
+          "all_hops@30": {
+            "mean": 0.9318,
+            "ci95": [
+              0.8409,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "value": {
+      "questions": 44,
+      "searches": "hybrid searches only",
+      "caveat": "cassettes hold one correct trajectory per question; biased upward",
+      "stages": {
+        "dense": {
+          "hop_recall@1": {
+            "mean": 0.3273,
+            "ci95": [
+              0.2269,
+              0.4345
+            ]
+          },
+          "hop_recall@5": {
+            "mean": 0.7295,
+            "ci95": [
+              0.617,
+              0.8352
+            ]
+          },
+          "hop_recall@30": {
+            "mean": 0.9697,
+            "ci95": [
+              0.9167,
+              1.0
+            ]
+          },
+          "all_hops@1": {
+            "mean": 0.1364,
+            "ci95": [
+              0.0455,
+              0.25
+            ]
+          },
+          "all_hops@5": {
+            "mean": 0.5909,
+            "ci95": [
+              0.4545,
+              0.7273
+            ]
+          },
+          "all_hops@30": {
+            "mean": 0.9545,
+            "ci95": [
+              0.8864,
+              1.0
+            ]
+          }
+        },
+        "bm25": {
+          "hop_recall@1": {
+            "mean": 0.4027,
+            "ci95": [
+              0.2951,
+              0.5152
+            ]
+          },
+          "hop_recall@5": {
+            "mean": 0.7405,
+            "ci95": [
+              0.6326,
+              0.839
+            ]
+          },
+          "hop_recall@30": {
+            "mean": 0.928,
+            "ci95": [
+              0.8636,
+              0.9811
+            ]
+          },
+          "all_hops@1": {
+            "mean": 0.2273,
+            "ci95": [
+              0.1136,
+              0.3636
+            ]
+          },
+          "all_hops@5": {
+            "mean": 0.5909,
+            "ci95": [
+              0.4545,
+              0.7273
+            ]
+          },
+          "all_hops@30": {
+            "mean": 0.8636,
+            "ci95": [
+              0.75,
+              0.9545
+            ]
+          }
+        },
+        "rrf": {
+          "hop_recall@1": {
+            "mean": 0.5182,
+            "ci95": [
+              0.3947,
+              0.6439
+            ]
+          },
+          "hop_recall@5": {
+            "mean": 0.8856,
+            "ci95": [
+              0.8129,
+              0.9492
+            ]
+          },
+          "hop_recall@30": {
+            "mean": 0.9697,
+            "ci95": [
+              0.9167,
+              1.0
+            ]
+          },
+          "all_hops@1": {
+            "mean": 0.3636,
+            "ci95": [
+              0.2273,
+              0.5
+            ]
+          },
+          "all_hops@5": {
+            "mean": 0.7727,
+            "ci95": [
+              0.6364,
+              0.8864
+            ]
+          },
+          "all_hops@30": {
+            "mean": 0.9545,
+            "ci95": [
+              0.8864,
+              1.0
+            ]
+          }
+        },
+        "rrf+rerank": {
+          "hop_recall@1": {
+            "mean": 0.7477,
+            "ci95": [
+              0.6496,
+              0.8402
+            ]
+          },
+          "hop_recall@5": {
+            "mean": 0.9261,
+            "ci95": [
+              0.8598,
+              0.9811
+            ]
+          },
+          "hop_recall@30": {
+            "mean": 0.9697,
+            "ci95": [
+              0.9167,
+              1.0
+            ]
+          },
+          "all_hops@1": {
+            "mean": 0.5682,
+            "ci95": [
+              0.4318,
+              0.7045
+            ]
+          },
+          "all_hops@5": {
+            "mean": 0.8636,
+            "ci95": [
+              0.75,
+              0.9545
+            ]
+          },
+          "all_hops@30": {
+            "mean": 0.9545,
+            "ci95": [
+              0.8864,
+              1.0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

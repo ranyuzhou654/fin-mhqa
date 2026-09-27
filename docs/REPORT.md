@@ -30,7 +30,7 @@ flowchart LR
 | 组成 | 说明 |
 | --- | --- |
 | 语料 | 10 家公司半年报，1,750 页；用 Docling 解析为 9,322 条可追溯证据块（正文、表格 Markdown、表格键值）。[语料](system/DOCLING_CORPUS_RESULTS.md) |
-| 检索 | 本地 HTTP 服务；30 题开发集的 hybrid Hit@5 为 29/30。[检索](system/M2_V2_RESULTS.md) |
+| 检索 | 本地 HTTP 服务；向量 + BM25 → RRF 融合 → 交叉编码器重排。30 题开发集 Hit@5 为 29/30，MRR@10 为 .81，nDCG@10 为 .71；Dev 68 条事实 Hit@5 为 .91。重排序使事实级 Hit@5 提高 7.4 pp [1.5, 14.7]。[检索](system/M2_V2_RESULTS.md)、[排序指标](experiments/RETRIEVAL_METRICS_V1.md) |
 | Agent | LangGraph 实现四个角色：规划、执行、核验、综合。另有预算控制与预留、结构化重规划、JSON schema 校验加一次格式修复，以及已核验答案的原样发布。[设计](system/AGENT_M31_DESIGN.md) |
 | 模型 | deepseek-v4.1-flash，经 OpenCode Go 的 OpenAI 兼容接口调用。[选型](system/TEACHER_V2_DEEPSEEK.md) |
 | 审计 | 每条轨迹都会检查：模型决策与工具调用逐一对应、计算可以重放、上下文读取可以从索引重放、故障变换可以逐字重放。 |
