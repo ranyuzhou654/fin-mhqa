@@ -23,7 +23,7 @@
 
 **需要额度，按顺序**
 1. ~~**P0**：补跑规划者 v2 的无故障 Dev 3 次~~。✅ 2026-09-28 完成：98.0%，规划结构报错为 0，两条事先登记的判定都满足，见 [PLANNER_V2_RESULTS](experiments/PLANNER_V2_RESULTS.md)。
-2. **P2.3**：`CFG=b3_graph_repair_v2_planner_v2_ctx ./scripts/run_b3_ablation.sh`。
+2. ~~**P2.3**~~。✅ 2026-09-29 已运行，**判定未通过**：无故障 Dev 的节省为 37.2%，低于 40%；F2 区间下界为 −13.6 pp。准确率未见下降，不采纳为默认配置。见 [CONTEXT_V1_RESULTS](experiments/CONTEXT_V1_RESULTS.md)。
 3. **P6**：登记最终配置，在 Test 上验证。
 4. **P4 / P5 / 3.11 F4**。
 

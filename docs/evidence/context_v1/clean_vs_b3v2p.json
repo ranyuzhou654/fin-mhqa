@@ -1,0 +1,359 @@
+{
+  "split": "dev",
+  "config_sha256": "4d25e43f5a7e4bfad670431066c4597cc9c00e215f35e29a860c745369aa68d1",
+  "runs": [
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_ctx_r1",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_ctx_r2",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_ctx_r3"
+  ],
+  "run_status": {
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_ctx_r1": "COMPLETE",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_ctx_r2": "COMPLETE",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_ctx_r3": "COMPLETE",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r1": "COMPLETE",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r2": "COMPLETE",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r3": "COMPLETE"
+  },
+  "per_run": [
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 0.98
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 0.9167
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 0.9744
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 1.0
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 0.96
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 43,
+          "INSUFFICIENT": 1
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0227
+      },
+      "errors": 0,
+      "errors_by_class": {},
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 7,
+      "citation_validity": {
+        "n": 43,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 103,
+        "value": 1.0
+      },
+      "mean_model_calls": 6.7,
+      "mean_tool_calls": 5.24,
+      "mean_seconds": 204.54,
+      "p95_seconds": 371.5099999170052,
+      "tokens": {
+        "input_tokens": 3054626,
+        "cached_input_tokens": 1387008,
+        "output_tokens": 699733,
+        "reasoning_output_tokens": 531682
+      }
+    },
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 1.0
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 1.0
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 1.0
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 1.0
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 1.0
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 44
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0
+      },
+      "errors": 0,
+      "errors_by_class": {},
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 10,
+      "citation_validity": {
+        "n": 44,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 108,
+        "value": 1.0
+      },
+      "mean_model_calls": 6.66,
+      "mean_tool_calls": 5.28,
+      "mean_seconds": 187.62,
+      "p95_seconds": 353.6375654999865,
+      "tokens": {
+        "input_tokens": 3083421,
+        "cached_input_tokens": 1457408,
+        "output_tokens": 674579,
+        "reasoning_output_tokens": 509969
+      }
+    },
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 1.0
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 1.0
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 1.0
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 1.0
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 1.0
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 44
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0
+      },
+      "errors": 0,
+      "errors_by_class": {},
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 8,
+      "citation_validity": {
+        "n": 44,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 108,
+        "value": 1.0
+      },
+      "mean_model_calls": 6.16,
+      "mean_tool_calls": 4.9,
+      "mean_seconds": 167.57,
+      "p95_seconds": 386.3108131660265,
+      "tokens": {
+        "input_tokens": 2658452,
+        "cached_input_tokens": 1272064,
+        "output_tokens": 566537,
+        "reasoning_output_tokens": 411725
+      }
+    }
+  ],
+  "across_runs": {
+    "runs": 3,
+    "accuracy_per_run": [
+      0.98,
+      1.0,
+      1.0
+    ],
+    "accuracy_mean": 0.9933,
+    "accuracy_sd": 0.0115,
+    "items_always_correct": 49,
+    "items_never_correct": 0,
+    "items": 50
+  },
+  "scope": "program-scored against frozen gold; errors and missing items count as wrong",
+  "baseline": {
+    "runs": [
+      "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r1",
+      "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r2",
+      "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r3"
+    ],
+    "config_sha256": "9030aff12a7146298f96f426041d37b7876fcf59a792438453c719ce02b4468c",
+    "across_runs": {
+      "runs": 3,
+      "accuracy_per_run": [
+        0.98,
+        0.96,
+        1.0
+      ],
+      "accuracy_mean": 0.98,
+      "accuracy_sd": 0.02,
+      "items_always_correct": 47,
+      "items_never_correct": 0,
+      "items": 50
+    },
+    "paired_difference_vs_baseline": {
+      "items": 50,
+      "difference": 0.0133,
+      "ci95": [
+        -0.0133,
+        0.04
+      ],
+      "b_better_items": 3,
+      "a_better_items": 1
+    }
+  }
+}

@@ -11,7 +11,7 @@
 | [故障注入设计](experiments/FAULT_INJECTION_V1_PLAN.md) · [结果](experiments/FAULT_INJECTION_V1_RESULTS.md) | 三类盲注入的证据错误，比较单模型与四角色 |
 | [核验角色 v2 设计](experiments/VERIFIER_V2_PLAN.md) · [结果](experiments/VERIFIER_V2_RESULTS.md) | 来源优先级、期间列核对、交叉核对、不重复拒绝 |
 | [规划者 v2 设计](experiments/PLANNER_V2_PLAN.md) · [阶段结果](experiments/PLANNER_V2_RESULTS.md) | 规划上限修复；无故障 Dev 待补 |
-| [上下文管理 v1](experiments/CONTEXT_V1_PLAN.md) | 离线测算各种压缩策略，选定无损压缩并登记评估方案；真实评估待额度恢复 |
+| [上下文管理 v1](experiments/CONTEXT_V1_PLAN.md) · [结果](experiments/CONTEXT_V1_RESULTS.md) | 无损压缩；每题输入 token −37~44%，准确率未降，但事先登记的判定未通过（2 项） |
 
 ## 评测集 benchmark_v1
 

@@ -1,0 +1,66 @@
+{
+  "clean": {
+    "base": {
+      "items": 150,
+      "input": 90452.11333333333,
+      "calls": 5.96,
+      "output": 12283.34
+    },
+    "ctx": {
+      "items": 150,
+      "input": 56798.08666666667,
+      "calls": 6.506666666666667,
+      "output": 12655.74
+    },
+    "input_reduction": 0.3721,
+    "input_per_call_reduction": 0.4248
+  },
+  "F1": {
+    "base": {
+      "items": 44,
+      "input": 111944.09090909091,
+      "calls": 6.931818181818182,
+      "output": 17955.93181818182
+    },
+    "ctx": {
+      "items": 44,
+      "input": 66547.54545454546,
+      "calls": 7.25,
+      "output": 17322.68181818182
+    },
+    "input_reduction": 0.4055,
+    "input_per_call_reduction": 0.4316
+  },
+  "F2": {
+    "base": {
+      "items": 44,
+      "input": 123177.97727272728,
+      "calls": 7.386363636363637,
+      "output": 28764.090909090908
+    },
+    "ctx": {
+      "items": 44,
+      "input": 69540.68181818182,
+      "calls": 7.590909090909091,
+      "output": 25758.409090909092
+    },
+    "input_reduction": 0.4354,
+    "input_per_call_reduction": 0.4507
+  },
+  "F3": {
+    "base": {
+      "items": 44,
+      "input": 117404.45454545454,
+      "calls": 6.840909090909091,
+      "output": 23867.022727272728
+    },
+    "ctx": {
+      "items": 44,
+      "input": 68394.43181818182,
+      "calls": 7.181818181818182,
+      "output": 20721.0
+    },
+    "input_reduction": 0.4174,
+    "input_per_call_reduction": 0.4451
+  }
+}

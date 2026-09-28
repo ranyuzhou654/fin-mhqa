@@ -1,0 +1,62 @@
+{
+  "F1_all": {
+    "items": 34,
+    "difference": 0.0294,
+    "ci95": [
+      -0.0588,
+      0.1176
+    ],
+    "b_better": 2,
+    "a_better": 1
+  },
+  "F1_excl": {
+    "items": 32,
+    "difference": 0.0312,
+    "ci95": [
+      -0.0625,
+      0.1562
+    ],
+    "b_better": 2,
+    "a_better": 1
+  },
+  "F2_all": {
+    "items": 44,
+    "difference": -0.0227,
+    "ci95": [
+      -0.1364,
+      0.0909
+    ],
+    "b_better": 3,
+    "a_better": 4
+  },
+  "F2_excl": {
+    "items": 42,
+    "difference": -0.0476,
+    "ci95": [
+      -0.1667,
+      0.0714
+    ],
+    "b_better": 2,
+    "a_better": 4
+  },
+  "F3_all": {
+    "items": 44,
+    "difference": 0.0455,
+    "ci95": [
+      0.0,
+      0.1136
+    ],
+    "b_better": 2,
+    "a_better": 0
+  },
+  "F3_excl": {
+    "items": 42,
+    "difference": 0.0238,
+    "ci95": [
+      0.0,
+      0.0714
+    ],
+    "b_better": 1,
+    "a_better": 0
+  }
+}
