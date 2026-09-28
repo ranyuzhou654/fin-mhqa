@@ -13,6 +13,8 @@ from finmhqa.bench.guard import FROZEN, GOLD
 from finmhqa.bench.scoring import score_item
 from finmhqa.harness.runs import EXIT_QUOTA, INFRA
 
+LEDGER = Path('data/bench/ledger_v1/facts.jsonl')
+
 
 def main():
     p = argparse.ArgumentParser()
@@ -31,13 +33,14 @@ def main():
     if code == EXIT_QUOTA:
         print('canary: quota refused'); raise SystemExit(EXIT_QUOTA)
     gold = {g['id']: g for g in map(json.loads, (GOLD / 'dev_gold.jsonl').read_text().splitlines())}
+    facts = {f['fact_id']: f for f in map(json.loads, LEDGER.read_text().splitlines())}
     arm = json.loads((out / 'run' / 'manifest.json').read_text())['arms'][0]
     rows = []
     for i in canary['items']:
         folder = out / 'run' / arm / i
         result = json.loads((folder / 'result.json').read_text()) if (folder / 'result.json').exists() else None
         events = [json.loads(l) for l in (folder / 'trajectory.jsonl').read_text().splitlines()] if folder.exists() else []
-        s = score_item(gold[i], result, events, {})
+        s = score_item(gold[i], result, events, facts)
         rows.append({'id': i, 'type': canary['types'][i], 'correct': s['correct'], 'error_class': s['error_class'],
                      'model_calls': s['model_calls'], 'tokens': sum(s['usage'].get(k, 0) for k in ('input_tokens', 'output_tokens'))})
     correct = sum(r['correct'] for r in rows)
