@@ -1,0 +1,927 @@
+{
+  "plans_sha256": "ea43b08201088e77595c60c8d5b0a61994f214bcc8827cd8ccc67f2c74f9149b",
+  "configs": {
+    "B2": {
+      "config": "configs/bench_b2_flat_repair.json",
+      "clean_reference": {
+        "runs": 3,
+        "accuracy_answerable": {
+          "n": 132,
+          "value": 0.9848
+        }
+      },
+      "F1": {
+        "runs_dirs": [
+          "data/bench/runs/fault_F1_b2_flat_repair_r1"
+        ],
+        "runs": 1,
+        "accuracy_all": {
+          "n": 44,
+          "value": 0.9545
+        },
+        "accuracy_effective": {
+          "n": 34,
+          "value": 0.9412
+        },
+        "misled_effective": {
+          "n": 34,
+          "value": 0.0294
+        },
+        "refusal_all": {
+          "n": 44,
+          "value": 0.0
+        },
+        "other_wrong_effective": {
+          "n": 34,
+          "value": 0.0294
+        },
+        "errors": 1,
+        "search_errors": 0,
+        "format_repairs": 2,
+        "mean_model_calls": 4.795,
+        "mean_tool_calls": 4.864,
+        "mean_seconds": 142.6,
+        "tokens_per_run": [
+          {
+            "input_tokens": 2724672,
+            "cached_input_tokens": 1693440,
+            "output_tokens": 311347,
+            "reasoning_output_tokens": 272076
+          }
+        ]
+      },
+      "F2": {
+        "runs_dirs": [
+          "data/bench/runs/fault_F2_b2_flat_repair_r1"
+        ],
+        "runs": 1,
+        "accuracy_all": {
+          "n": 44,
+          "value": 0.6136
+        },
+        "accuracy_effective": {
+          "n": 44,
+          "value": 0.6136
+        },
+        "misled_effective": {
+          "n": 44,
+          "value": 0.2955
+        },
+        "refusal_all": {
+          "n": 44,
+          "value": 0.0227
+        },
+        "other_wrong_effective": {
+          "n": 44,
+          "value": 0.0682
+        },
+        "errors": 3,
+        "search_errors": 0,
+        "format_repairs": 6,
+        "mean_model_calls": 4.636,
+        "mean_tool_calls": 4.659,
+        "mean_seconds": 209.28,
+        "tokens_per_run": [
+          {
+            "input_tokens": 2581659,
+            "cached_input_tokens": 1678976,
+            "output_tokens": 632653,
+            "reasoning_output_tokens": 590901
+          }
+        ]
+      },
+      "F3": {
+        "runs_dirs": [
+          "data/bench/runs/fault_F3_b2_flat_repair_r1"
+        ],
+        "runs": 1,
+        "accuracy_all": {
+          "n": 44,
+          "value": 0.7727
+        },
+        "accuracy_effective": {
+          "n": 44,
+          "value": 0.7727
+        },
+        "misled_effective": {
+          "n": 44,
+          "value": 0.1364
+        },
+        "refusal_all": {
+          "n": 44,
+          "value": 0.0682
+        },
+        "other_wrong_effective": {
+          "n": 44,
+          "value": 0.0227
+        },
+        "errors": 1,
+        "search_errors": 0,
+        "format_repairs": 4,
+        "mean_model_calls": 4.864,
+        "mean_tool_calls": 5.045,
+        "mean_seconds": 203.09,
+        "tokens_per_run": [
+          {
+            "input_tokens": 2899359,
+            "cached_input_tokens": 1924736,
+            "output_tokens": 623741,
+            "reasoning_output_tokens": 578404
+          }
+        ]
+      }
+    },
+    "B3v2": {
+      "config": "configs/bench_b3_graph_repair_verifier_v2.json",
+      "clean_reference": {
+        "runs": 3,
+        "accuracy_answerable": {
+          "n": 132,
+          "value": 0.9545
+        }
+      },
+      "F1": {
+        "runs_dirs": [
+          "data/bench/runs/fault_F1_b3_graph_repair_verifier_v2_r1"
+        ],
+        "runs": 1,
+        "accuracy_all": {
+          "n": 44,
+          "value": 0.9773
+        },
+        "accuracy_effective": {
+          "n": 34,
+          "value": 0.9706
+        },
+        "misled_effective": {
+          "n": 34,
+          "value": 0.0294
+        },
+        "refusal_all": {
+          "n": 44,
+          "value": 0.0
+        },
+        "other_wrong_effective": {
+          "n": 34,
+          "value": 0.0
+        },
+        "errors": 0,
+        "search_errors": 0,
+        "format_repairs": 3,
+        "mean_model_calls": 6.841,
+        "mean_tool_calls": 5.409,
+        "mean_seconds": 207.79,
+        "tokens_per_run": [
+          {
+            "input_tokens": 5052306,
+            "cached_input_tokens": 2233344,
+            "output_tokens": 769371,
+            "reasoning_output_tokens": 605566
+          }
+        ],
+        "verifier": {
+          "decisions": 56,
+          "outcomes": {
+            "accept_correct": 43,
+            "reject_correct": 12,
+            "accept_wrong": 1
+          },
+          "by_type": {
+            "T1": {
+              "reject_correct": 3,
+              "accept_correct": 7,
+              "accept_wrong": 1
+            },
+            "T2": {
+              "accept_correct": 8,
+              "reject_correct": 2
+            },
+            "T3": {
+              "accept_correct": 8,
+              "reject_correct": 1
+            },
+            "T4": {
+              "reject_correct": 2,
+              "accept_correct": 8
+            },
+            "T5": {
+              "reject_correct": 4,
+              "accept_correct": 12
+            }
+          },
+          "false_rejection_issue_codes": {
+            "NEEDS_CROSS_CHECK": 13,
+            "UNIT_MISSING": 2
+          },
+          "items_with_false_rejection": 12
+        }
+      },
+      "F2": {
+        "runs_dirs": [
+          "data/bench/runs/fault_F2_b3_graph_repair_verifier_v2_r1"
+        ],
+        "runs": 1,
+        "accuracy_all": {
+          "n": 44,
+          "value": 0.8182
+        },
+        "accuracy_effective": {
+          "n": 44,
+          "value": 0.8182
+        },
+        "misled_effective": {
+          "n": 44,
+          "value": 0.0909
+        },
+        "refusal_all": {
+          "n": 44,
+          "value": 0.0455
+        },
+        "other_wrong_effective": {
+          "n": 44,
+          "value": 0.0455
+        },
+        "errors": 2,
+        "search_errors": 0,
+        "format_repairs": 4,
+        "mean_model_calls": 7.455,
+        "mean_tool_calls": 5.5,
+        "mean_seconds": 267.02,
+        "tokens_per_run": [
+          {
+            "input_tokens": 5552235,
+            "cached_input_tokens": 2641920,
+            "output_tokens": 1140257,
+            "reasoning_output_tokens": 946269
+          }
+        ],
+        "verifier": {
+          "decisions": 63,
+          "outcomes": {
+            "reject_wrong": 14,
+            "accept_correct": 36,
+            "reject_correct": 9,
+            "accept_wrong": 4
+          },
+          "by_type": {
+            "T1": {
+              "reject_wrong": 3,
+              "accept_correct": 8
+            },
+            "T2": {
+              "reject_wrong": 4,
+              "accept_correct": 7,
+              "reject_correct": 1,
+              "accept_wrong": 1
+            },
+            "T3": {
+              "reject_correct": 3,
+              "accept_correct": 5,
+              "reject_wrong": 2,
+              "accept_wrong": 1
+            },
+            "T4": {
+              "reject_wrong": 1,
+              "accept_correct": 6,
+              "reject_correct": 2,
+              "accept_wrong": 1
+            },
+            "T5": {
+              "reject_wrong": 4,
+              "accept_correct": 10,
+              "reject_correct": 3,
+              "accept_wrong": 1
+            }
+          },
+          "false_rejection_issue_codes": {
+            "NEEDS_CROSS_CHECK": 8,
+            "CONFLICT": 4,
+            "UNIT_MISSING": 1,
+            "UNSUPPORTED_CLAIM": 1
+          },
+          "items_with_false_rejection": 9
+        }
+      },
+      "F3": {
+        "runs_dirs": [
+          "data/bench/runs/fault_F3_b3_graph_repair_verifier_v2_r1"
+        ],
+        "runs": 1,
+        "accuracy_all": {
+          "n": 44,
+          "value": 0.9091
+        },
+        "accuracy_effective": {
+          "n": 44,
+          "value": 0.9091
+        },
+        "misled_effective": {
+          "n": 44,
+          "value": 0.0455
+        },
+        "refusal_all": {
+          "n": 44,
+          "value": 0.0455
+        },
+        "other_wrong_effective": {
+          "n": 44,
+          "value": 0.0
+        },
+        "errors": 0,
+        "search_errors": 0,
+        "format_repairs": 6,
+        "mean_model_calls": 6.795,
+        "mean_tool_calls": 5.636,
+        "mean_seconds": 243.72,
+        "tokens_per_run": [
+          {
+            "input_tokens": 5326255,
+            "cached_input_tokens": 2409472,
+            "output_tokens": 1066739,
+            "reasoning_output_tokens": 891485
+          }
+        ],
+        "verifier": {
+          "decisions": 50,
+          "outcomes": {
+            "accept_correct": 40,
+            "reject_wrong": 5,
+            "accept_wrong": 2,
+            "reject_correct": 3
+          },
+          "by_type": {
+            "T1": {
+              "accept_correct": 8
+            },
+            "T2": {
+              "accept_correct": 8,
+              "reject_correct": 2
+            },
+            "T3": {
+              "accept_correct": 7,
+              "reject_wrong": 1,
+              "reject_correct": 1,
+              "accept_wrong": 1
+            },
+            "T4": {
+              "accept_correct": 8,
+              "reject_wrong": 2
+            },
+            "T5": {
+              "accept_correct": 9,
+              "reject_wrong": 2,
+              "accept_wrong": 1
+            }
+          },
+          "false_rejection_issue_codes": {
+            "NEEDS_CROSS_CHECK": 4
+          },
+          "items_with_false_rejection": 3
+        }
+      }
+    },
+    "B3v2p": {
+      "config": "configs/bench_b3_graph_repair_v2_planner_v2.json",
+      "clean_reference": {
+        "runs": 3,
+        "accuracy_answerable": {
+          "n": 132,
+          "value": 0.9773
+        }
+      },
+      "F1": {
+        "runs_dirs": [
+          "data/bench/runs/fault_F1_b3_graph_repair_v2_planner_v2_r1"
+        ],
+        "runs": 1,
+        "accuracy_all": {
+          "n": 44,
+          "value": 0.9545
+        },
+        "accuracy_effective": {
+          "n": 34,
+          "value": 0.9412
+        },
+        "misled_effective": {
+          "n": 34,
+          "value": 0.0294
+        },
+        "refusal_all": {
+          "n": 44,
+          "value": 0.0227
+        },
+        "other_wrong_effective": {
+          "n": 34,
+          "value": 0.0
+        },
+        "errors": 0,
+        "search_errors": 0,
+        "format_repairs": 3,
+        "mean_model_calls": 6.932,
+        "mean_tool_calls": 5.227,
+        "mean_seconds": 214.13,
+        "tokens_per_run": [
+          {
+            "input_tokens": 4974997,
+            "cached_input_tokens": 2365312,
+            "output_tokens": 796758,
+            "reasoning_output_tokens": 637047
+          }
+        ],
+        "verifier": {
+          "decisions": 60,
+          "outcomes": {
+            "accept_correct": 42,
+            "reject_wrong": 1,
+            "reject_correct": 16,
+            "accept_wrong": 1
+          },
+          "by_type": {
+            "T1": {
+              "reject_correct": 4,
+              "accept_correct": 7,
+              "accept_wrong": 1
+            },
+            "T2": {
+              "accept_correct": 8,
+              "reject_correct": 1
+            },
+            "T3": {
+              "reject_wrong": 1,
+              "accept_correct": 8,
+              "reject_correct": 2
+            },
+            "T4": {
+              "reject_correct": 4,
+              "accept_correct": 8
+            },
+            "T5": {
+              "accept_correct": 11,
+              "reject_correct": 5
+            }
+          },
+          "false_rejection_issue_codes": {
+            "NEEDS_CROSS_CHECK": 17,
+            "UNIT_MISSING": 2
+          },
+          "items_with_false_rejection": 15
+        }
+      },
+      "F2": {
+        "runs_dirs": [
+          "data/bench/runs/fault_F2_b3_graph_repair_v2_planner_v2_r1"
+        ],
+        "runs": 1,
+        "accuracy_all": {
+          "n": 44,
+          "value": 0.8182
+        },
+        "accuracy_effective": {
+          "n": 44,
+          "value": 0.8182
+        },
+        "misled_effective": {
+          "n": 44,
+          "value": 0.1136
+        },
+        "refusal_all": {
+          "n": 44,
+          "value": 0.0455
+        },
+        "other_wrong_effective": {
+          "n": 44,
+          "value": 0.0227
+        },
+        "errors": 1,
+        "search_errors": 0,
+        "format_repairs": 4,
+        "mean_model_calls": 7.386,
+        "mean_tool_calls": 5.432,
+        "mean_seconds": 282.39,
+        "tokens_per_run": [
+          {
+            "input_tokens": 5504634,
+            "cached_input_tokens": 2686203,
+            "output_tokens": 1297897,
+            "reasoning_output_tokens": 1106235
+          }
+        ],
+        "verifier": {
+          "decisions": 63,
+          "outcomes": {
+            "reject_wrong": 13,
+            "accept_correct": 36,
+            "reject_correct": 9,
+            "accept_wrong": 5
+          },
+          "by_type": {
+            "T1": {
+              "reject_wrong": 3,
+              "accept_correct": 8,
+              "reject_correct": 1
+            },
+            "T2": {
+              "reject_wrong": 2,
+              "accept_correct": 7,
+              "reject_correct": 2,
+              "accept_wrong": 1
+            },
+            "T3": {
+              "reject_correct": 4,
+              "accept_correct": 6,
+              "accept_wrong": 1,
+              "reject_wrong": 2
+            },
+            "T4": {
+              "reject_wrong": 2,
+              "accept_correct": 7,
+              "accept_wrong": 1
+            },
+            "T5": {
+              "reject_wrong": 4,
+              "accept_correct": 8,
+              "accept_wrong": 2,
+              "reject_correct": 2
+            }
+          },
+          "false_rejection_issue_codes": {
+            "CONFLICT": 5,
+            "PERIOD_MISMATCH": 2,
+            "UNIT_MISSING": 3,
+            "NEEDS_CROSS_CHECK": 1
+          },
+          "items_with_false_rejection": 9
+        }
+      },
+      "F3": {
+        "runs_dirs": [
+          "data/bench/runs/fault_F3_b3_graph_repair_v2_planner_v2_r1"
+        ],
+        "runs": 1,
+        "accuracy_all": {
+          "n": 44,
+          "value": 0.9545
+        },
+        "accuracy_effective": {
+          "n": 44,
+          "value": 0.9545
+        },
+        "misled_effective": {
+          "n": 44,
+          "value": 0.0
+        },
+        "refusal_all": {
+          "n": 44,
+          "value": 0.0227
+        },
+        "other_wrong_effective": {
+          "n": 44,
+          "value": 0.0227
+        },
+        "errors": 1,
+        "search_errors": 0,
+        "format_repairs": 7,
+        "mean_model_calls": 6.841,
+        "mean_tool_calls": 5.727,
+        "mean_seconds": 255.57,
+        "tokens_per_run": [
+          {
+            "input_tokens": 5290463,
+            "cached_input_tokens": 2437888,
+            "output_tokens": 1084623,
+            "reasoning_output_tokens": 918263
+          }
+        ],
+        "verifier": {
+          "decisions": 49,
+          "outcomes": {
+            "accept_correct": 42,
+            "reject_correct": 6,
+            "reject_wrong": 1
+          },
+          "by_type": {
+            "T1": {
+              "accept_correct": 8
+            },
+            "T2": {
+              "accept_correct": 7,
+              "reject_correct": 1
+            },
+            "T3": {
+              "accept_correct": 7,
+              "reject_correct": 1,
+              "reject_wrong": 1
+            },
+            "T4": {
+              "accept_correct": 8
+            },
+            "T5": {
+              "accept_correct": 12,
+              "reject_correct": 4
+            }
+          },
+          "false_rejection_issue_codes": {
+            "NEEDS_CROSS_CHECK": 8
+          },
+          "items_with_false_rejection": 6
+        }
+      }
+    }
+  },
+  "pairs": {
+    "B3v2p-B3v2": {
+      "F1": {
+        "accuracy_effective": {
+          "items": 34,
+          "difference": -0.0294,
+          "ci95": [
+            -0.1176,
+            0.0588
+          ],
+          "b_better_items": 1,
+          "a_better_items": 2
+        },
+        "misled_effective": {
+          "items": 34,
+          "difference": 0.0,
+          "ci95": [
+            -0.0882,
+            0.0882
+          ],
+          "b_better_items": 1,
+          "a_better_items": 1
+        },
+        "refusal_all": {
+          "items": 44,
+          "difference": 0.0227,
+          "ci95": [
+            0.0,
+            0.0682
+          ],
+          "b_better_items": 1,
+          "a_better_items": 0
+        }
+      },
+      "F2": {
+        "accuracy_effective": {
+          "items": 44,
+          "difference": 0.0,
+          "ci95": [
+            -0.0909,
+            0.0909
+          ],
+          "b_better_items": 2,
+          "a_better_items": 2
+        },
+        "misled_effective": {
+          "items": 44,
+          "difference": 0.0227,
+          "ci95": [
+            0.0,
+            0.0682
+          ],
+          "b_better_items": 1,
+          "a_better_items": 0
+        },
+        "refusal_all": {
+          "items": 44,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "b_better_items": 0,
+          "a_better_items": 0
+        }
+      },
+      "F3": {
+        "accuracy_effective": {
+          "items": 44,
+          "difference": 0.0455,
+          "ci95": [
+            -0.0455,
+            0.1364
+          ],
+          "b_better_items": 3,
+          "a_better_items": 1
+        },
+        "misled_effective": {
+          "items": 44,
+          "difference": -0.0455,
+          "ci95": [
+            -0.1136,
+            0.0
+          ],
+          "b_better_items": 0,
+          "a_better_items": 2
+        },
+        "refusal_all": {
+          "items": 44,
+          "difference": -0.0227,
+          "ci95": [
+            -0.0909,
+            0.0455
+          ],
+          "b_better_items": 1,
+          "a_better_items": 2
+        }
+      }
+    },
+    "B3v2p-B2": {
+      "F1": {
+        "accuracy_effective": {
+          "items": 34,
+          "difference": 0.0,
+          "ci95": [
+            -0.0882,
+            0.0882
+          ],
+          "b_better_items": 1,
+          "a_better_items": 1
+        },
+        "misled_effective": {
+          "items": 34,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "b_better_items": 0,
+          "a_better_items": 0
+        },
+        "refusal_all": {
+          "items": 44,
+          "difference": 0.0227,
+          "ci95": [
+            0.0,
+            0.0682
+          ],
+          "b_better_items": 1,
+          "a_better_items": 0
+        }
+      },
+      "F2": {
+        "accuracy_effective": {
+          "items": 44,
+          "difference": 0.2045,
+          "ci95": [
+            0.0455,
+            0.3636
+          ],
+          "b_better_items": 12,
+          "a_better_items": 3
+        },
+        "misled_effective": {
+          "items": 44,
+          "difference": -0.1818,
+          "ci95": [
+            -0.3409,
+            -0.0227
+          ],
+          "b_better_items": 3,
+          "a_better_items": 11
+        },
+        "refusal_all": {
+          "items": 44,
+          "difference": 0.0227,
+          "ci95": [
+            0.0,
+            0.0682
+          ],
+          "b_better_items": 1,
+          "a_better_items": 0
+        }
+      },
+      "F3": {
+        "accuracy_effective": {
+          "items": 44,
+          "difference": 0.1818,
+          "ci95": [
+            0.0682,
+            0.3182
+          ],
+          "b_better_items": 9,
+          "a_better_items": 1
+        },
+        "misled_effective": {
+          "items": 44,
+          "difference": -0.1364,
+          "ci95": [
+            -0.25,
+            -0.0455
+          ],
+          "b_better_items": 0,
+          "a_better_items": 6
+        },
+        "refusal_all": {
+          "items": 44,
+          "difference": -0.0455,
+          "ci95": [
+            -0.1364,
+            0.0455
+          ],
+          "b_better_items": 1,
+          "a_better_items": 3
+        }
+      }
+    }
+  },
+  "clean_vs_fault": {
+    "F1": {
+      "B2": {
+        "items": 34,
+        "difference": -0.049,
+        "ci95": [
+          -0.1471,
+          0.0196
+        ],
+        "b_better_items": 1,
+        "a_better_items": 2
+      },
+      "B3v2": {
+        "items": 34,
+        "difference": 0.0196,
+        "ci95": [
+          -0.0588,
+          0.0882
+        ],
+        "b_better_items": 4,
+        "a_better_items": 1
+      },
+      "B3v2p": {
+        "items": 34,
+        "difference": -0.0294,
+        "ci95": [
+          -0.1275,
+          0.049
+        ],
+        "b_better_items": 3,
+        "a_better_items": 2
+      }
+    },
+    "F2": {
+      "B2": {
+        "items": 44,
+        "difference": -0.3712,
+        "ci95": [
+          -0.5152,
+          -0.2348
+        ],
+        "b_better_items": 1,
+        "a_better_items": 17
+      },
+      "B3v2": {
+        "items": 44,
+        "difference": -0.1364,
+        "ci95": [
+          -0.25,
+          -0.0379
+        ],
+        "b_better_items": 3,
+        "a_better_items": 8
+      },
+      "B3v2p": {
+        "items": 44,
+        "difference": -0.1591,
+        "ci95": [
+          -0.2803,
+          -0.053
+        ],
+        "b_better_items": 2,
+        "a_better_items": 8
+      }
+    },
+    "F3": {
+      "B2": {
+        "items": 44,
+        "difference": -0.2121,
+        "ci95": [
+          -0.3409,
+          -0.0985
+        ],
+        "b_better_items": 1,
+        "a_better_items": 10
+      },
+      "B3v2": {
+        "items": 44,
+        "difference": -0.0455,
+        "ci95": [
+          -0.1288,
+          0.0227
+        ],
+        "b_better_items": 3,
+        "a_better_items": 4
+      },
+      "B3v2p": {
+        "items": 44,
+        "difference": -0.0227,
+        "ci95": [
+          -0.0833,
+          0.0227
+        ],
+        "b_better_items": 2,
+        "a_better_items": 2
+      }
+    }
+  }
+}

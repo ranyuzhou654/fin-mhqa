@@ -1,0 +1,363 @@
+{
+  "split": "dev",
+  "config_sha256": "9030aff12a7146298f96f426041d37b7876fcf59a792438453c719ce02b4468c",
+  "runs": [
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r1",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r2",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r3"
+  ],
+  "run_status": {
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r1": "COMPLETE",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r2": "COMPLETE",
+    "data/bench/runs/dev_b3_graph_repair_v2_planner_v2_r3": "COMPLETE",
+    "data/bench/runs/dev_b3_graph_repair_verifier_v2_r1": "LEGACY",
+    "data/bench/runs/dev_b3_graph_repair_verifier_v2_r2": "LEGACY",
+    "data/bench/runs/dev_b3_graph_repair_verifier_v2_r3": "LEGACY"
+  },
+  "per_run": [
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 0.98
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 0.875
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 1.0
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 0.9744
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 0.8571
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 0.96
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 43,
+          "INSUFFICIENT": 1
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 2,
+          "TOOL_BUDGET": 1
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0227
+      },
+      "errors": 0,
+      "errors_by_class": {},
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 5,
+      "citation_validity": {
+        "n": 43,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 105,
+        "value": 0.981
+      },
+      "mean_model_calls": 5.88,
+      "mean_tool_calls": 4.86,
+      "mean_seconds": 207.58,
+      "p95_seconds": 523.9029368329793,
+      "tokens": {
+        "input_tokens": 4689167,
+        "cached_input_tokens": 2137600,
+        "output_tokens": 616412,
+        "reasoning_output_tokens": 465738
+      }
+    },
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 0.96
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 0.875
+        },
+        "T3": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 0.9167
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 0.9487
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 0.8571
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 0.92
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 42,
+          "ERROR": 2
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0
+      },
+      "errors": 2,
+      "errors_by_class": {
+        "agent": 2
+      },
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 4,
+      "citation_validity": {
+        "n": 42,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 101,
+        "value": 1.0
+      },
+      "mean_model_calls": 6.02,
+      "mean_tool_calls": 4.86,
+      "mean_seconds": 180.27,
+      "p95_seconds": 357.14319037500536,
+      "tokens": {
+        "input_tokens": 4611463,
+        "cached_input_tokens": 2262141,
+        "output_tokens": 651508,
+        "reasoning_output_tokens": 504290
+      }
+    },
+    {
+      "accuracy": {
+        "n": 50,
+        "value": 1.0
+      },
+      "by_type": {
+        "T1": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T2": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T3": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T4": {
+          "n": 8,
+          "value": 1.0
+        },
+        "T5": {
+          "n": 12,
+          "value": 1.0
+        },
+        "T6": {
+          "n": 6,
+          "value": 1.0
+        }
+      },
+      "by_tag": {
+        "hard_location": {
+          "n": 39,
+          "value": 1.0
+        },
+        "parent_scope": {
+          "n": 2,
+          "value": 1.0
+        },
+        "prior_period": {
+          "n": 2,
+          "value": 1.0
+        },
+        "retrieval_miss": {
+          "n": 7,
+          "value": 1.0
+        },
+        "unanswerable": {
+          "n": 6,
+          "value": 1.0
+        },
+        "unit_conversion": {
+          "n": 25,
+          "value": 1.0
+        }
+      },
+      "abstention_recall": {
+        "n": 6,
+        "value": 1.0
+      },
+      "terminal_reasons": {
+        "answerable": {
+          "ANSWERED": 44
+        },
+        "unanswerable": {
+          "REPLAN_BUDGET": 3,
+          "INSUFFICIENT": 3
+        }
+      },
+      "false_abstention": {
+        "n": 44,
+        "value": 0.0
+      },
+      "errors": 0,
+      "errors_by_class": {},
+      "search_errors": 0,
+      "busy_retries": 0,
+      "format_repairs": 5,
+      "citation_validity": {
+        "n": 44,
+        "value": 1.0
+      },
+      "hop_citation_coverage": {
+        "n": 108,
+        "value": 1.0
+      },
+      "mean_model_calls": 5.98,
+      "mean_tool_calls": 4.9,
+      "mean_seconds": 175.17,
+      "p95_seconds": 432.531262125005,
+      "tokens": {
+        "input_tokens": 4549555,
+        "cached_input_tokens": 2191736,
+        "output_tokens": 604236,
+        "reasoning_output_tokens": 453603
+      }
+    }
+  ],
+  "across_runs": {
+    "runs": 3,
+    "accuracy_per_run": [
+      0.98,
+      0.96,
+      1.0
+    ],
+    "accuracy_mean": 0.98,
+    "accuracy_sd": 0.02,
+    "items_always_correct": 47,
+    "items_never_correct": 0,
+    "items": 50
+  },
+  "scope": "program-scored against frozen gold; errors and missing items count as wrong",
+  "baseline": {
+    "runs": [
+      "data/bench/runs/dev_b3_graph_repair_verifier_v2_r1",
+      "data/bench/runs/dev_b3_graph_repair_verifier_v2_r2",
+      "data/bench/runs/dev_b3_graph_repair_verifier_v2_r3"
+    ],
+    "config_sha256": "71e709f408f3685476d3ef02bbe5a757679693c49a49ad025d9d3733dd049282",
+    "across_runs": {
+      "runs": 3,
+      "accuracy_per_run": [
+        0.94,
+        0.98,
+        0.96
+      ],
+      "accuracy_mean": 0.96,
+      "accuracy_sd": 0.02,
+      "items_always_correct": 45,
+      "items_never_correct": 0,
+      "items": 50
+    },
+    "paired_difference_vs_baseline": {
+      "items": 50,
+      "difference": 0.02,
+      "ci95": [
+        -0.0133,
+        0.0533
+      ],
+      "b_better_items": 5,
+      "a_better_items": 2
+    }
+  }
+}

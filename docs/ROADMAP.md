@@ -22,7 +22,7 @@
 - **测试**：主环境 259 项通过、1 项跳过；检索环境 8 项通过。
 
 **需要额度，按顺序**
-1. **P0**：补跑规划者 v2 的无故障 Dev 3 次（`CFG=b3_graph_repair_v2_planner_v2 ./scripts/run_b3_ablation.sh`，已完成的故障运行会自动跳过）。上一次因为 Go 每周额度用完而作废。
+1. ~~**P0**：补跑规划者 v2 的无故障 Dev 3 次~~。✅ 2026-09-28 完成：98.0%，规划结构报错为 0，两条事先登记的判定都满足，见 [PLANNER_V2_RESULTS](experiments/PLANNER_V2_RESULTS.md)。
 2. **P2.3**：`CFG=b3_graph_repair_v2_planner_v2_ctx ./scripts/run_b3_ablation.sh`。
 3. **P6**：登记最终配置，在 Test 上验证。
 4. **P4 / P5 / 3.11 F4**。
@@ -37,7 +37,7 @@
 
 | # | 事项 | 验收 | 额度 |
 | --- | --- | --- | --- |
-| 0.1 | 补跑规划者 v2 的无故障 Dev 3 次 | 按 [PLANNER_V2_PLAN](experiments/PLANNER_V2_PLAN.md) 判定：规划结构报错为 0，且相对 B3v2 不退步 | 💰 约 1.5 小时 |
+| 0.1 ✅ | 补跑规划者 v2 的无故障 Dev 3 次（2026-09-28 完成） | 按 [PLANNER_V2_PLAN](experiments/PLANNER_V2_PLAN.md) 判定：规划结构报错为 0，且相对 B3v2 不退步 | 💰 约 1.5 小时 |
 
 ## P1 Harness 加固（先做，后面所有实验都依赖它）
 
