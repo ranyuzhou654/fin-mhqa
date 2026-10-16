@@ -1,0 +1,63 @@
+{
+  "full": {
+    "items": 129,
+    "cross_check_rate": 0.3333,
+    "accept_rate": 0.6434
+  },
+  "compact": {
+    "items": 129,
+    "cross_check_rate": 0.4574,
+    "accept_rate": 0.5194,
+    "cross_check_vs_full": {
+      "difference": 0.124,
+      "ci95": [
+        0.031,
+        0.2171
+      ],
+      "b_better": 28,
+      "a_better": 12
+    }
+  },
+  "no_drop": {
+    "items": 129,
+    "cross_check_rate": 0.4031,
+    "accept_rate": 0.5659,
+    "cross_check_vs_full": {
+      "difference": 0.0698,
+      "ci95": [
+        -0.0078,
+        0.1473
+      ],
+      "b_better": 18,
+      "a_better": 9
+    }
+  },
+  "no_repeat": {
+    "items": 129,
+    "cross_check_rate": 0.4496,
+    "accept_rate": 0.5426,
+    "cross_check_vs_full": {
+      "difference": 0.1163,
+      "ci95": [
+        0.031,
+        0.2016
+      ],
+      "b_better": 25,
+      "a_better": 10
+    }
+  },
+  "no_twin": {
+    "items": 129,
+    "cross_check_rate": 0.4031,
+    "accept_rate": 0.5891,
+    "cross_check_vs_full": {
+      "difference": 0.0698,
+      "ci95": [
+        -0.0233,
+        0.1628
+      ],
+      "b_better": 23,
+      "a_better": 14
+    }
+  }
+}

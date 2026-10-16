@@ -104,20 +104,35 @@ def build(a):
 
 
 def run(a):
+    from concurrent.futures import ThreadPoolExecutor
     from finmhqa.agent.openai_compat import OpenAICompatTeacher
+    from finmhqa.harness.runs import QuotaExhausted
     config = json.loads(Path('configs/bench_b3_graph_repair_v2_planner_v2.json').read_text())['teacher']
     teacher = OpenAICompatTeacher(config['base_url'], config['model'], repair=True)
     a.out.mkdir(parents=True, exist_ok=True)
+    tasks = []
     for key, question, payload, asked, _ in first_verifications():
         for name in a.variants:
             folder = a.out / name / key.replace('/', '__')
             if (folder / 'decision.json').exists():
                 continue
-            if folder.exists():
-                raise FileExistsError(f'{folder} is incomplete; inspect and remove it before resuming')
-            system, p = variant_input(question, payload, name)
-            teacher.decide(question, p, folder, system=system, output_schema=VERIFY_SCHEMA_V2)
-            print(name, key, flush=True)
+            if folder.exists():   # an interrupted call: keep it aside, ask again
+                folder.rename(folder.with_name(folder.name + '.interrupted'))
+            tasks.append((name, key, question, payload, folder))
+
+    def call(task):
+        name, key, question, payload, folder = task
+        system, p = variant_input(question, payload, name)
+        teacher.decide(question, p, folder, system=system, output_schema=VERIFY_SCHEMA_V2)
+        print(name, key, flush=True)
+    with ThreadPoolExecutor(a.workers) as pool:
+        for f in [pool.submit(call, t) for t in tasks]:
+            try:
+                f.result()
+            except QuotaExhausted:
+                print('quota exhausted; rerun to resume', flush=True)
+                pool.shutdown(cancel_futures=True)
+                return 3
 
 
 def score(a):
@@ -147,11 +162,12 @@ def main():
     r = sub.add_parser('run')
     r.add_argument('--out', type=Path, default=Path('data/experiments/verifier_context_replay_v1'))
     r.add_argument('--variants', nargs='+', default=list(VARIANTS), choices=list(VARIANTS))
+    r.add_argument('--workers', type=int, default=4)
     s = sub.add_parser('score')
     s.add_argument('--out', type=Path, default=Path('data/experiments/verifier_context_replay_v1'))
     s.add_argument('--report', type=Path, required=True)
     a = p.parse_args()
-    {'build': build, 'run': run, 'score': score}[a.cmd](a)
+    return {'build': build, 'run': run, 'score': score}[a.cmd](a)
 
 
 if __name__ == '__main__':
