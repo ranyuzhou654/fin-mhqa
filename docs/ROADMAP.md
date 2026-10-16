@@ -23,7 +23,7 @@
 
 **需要额度，按顺序**
 1. ~~**P0**：补跑规划者 v2 的无故障 Dev 3 次~~。✅ 2026-09-28 完成：98.0%，规划结构报错为 0，两条事先登记的判定都满足，见 [PLANNER_V2_RESULTS](experiments/PLANNER_V2_RESULTS.md)。
-2. ~~**P2.3**~~。✅ 2026-09-29 已运行，**判定未通过**：无故障 Dev 的节省为 37.2%，低于 40%；F2 区间下界为 −13.6 pp。准确率未见下降，不采纳为默认配置。见 [CONTEXT_V1_RESULTS](experiments/CONTEXT_V1_RESULTS.md)。
+2. ~~**P2.3**~~。✅ 2026-09-29 已运行，**判定未通过**：无故障 Dev 的节省为 37.2%，低于 40%；F2 区间下界为 −13.6 pp。准确率未见下降，不采纳为默认配置。见 [CONTEXT_V1_RESULTS](experiments/CONTEXT_V1_RESULTS.md)。2026-10-16 做了核验者重放诊断：多出来的调用来自核验者在压缩视图下更准确地执行了「单一来源需交叉核对」的规则。用户决定压缩方向到此为止，见 [CONTEXT_V2_PLAN](experiments/CONTEXT_V2_PLAN.md)。
 3. **P6**：登记最终配置，在 Test 上验证。
 4. **P4 / P5 / 3.11 F4**。
 
