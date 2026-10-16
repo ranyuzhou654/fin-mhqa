@@ -1,4 +1,17 @@
 {
   "note": "Configs allowed to run on the benchmark_v1 Test split. Register only final candidates chosen on Dev; add sha256 of the config file, date and reason.",
-  "registered": []
+  "registered": [
+    {
+      "config": "configs/bench_b2_flat_repair.json",
+      "sha256": "0e1da59ffdf39290a960e16666acebdd2ac978f6e8cb5a5c0ecb12b68e55e033",
+      "date": "2026-10-16",
+      "reason": "best single-agent config on Dev (98.7% clean); baseline for the Test comparison, see docs/experiments/TEST_V1_PLAN.md"
+    },
+    {
+      "config": "configs/bench_b3_graph_repair_v2_planner_v2.json",
+      "sha256": "9030aff12a7146298f96f426041d37b7876fcf59a792438453c719ce02b4468c",
+      "date": "2026-10-16",
+      "reason": "final four-role candidate (B3v2p): 98.0% clean Dev, ~+20pp over B2 under F2/F3 faults, 0 plan errors in 282 runs; see docs/experiments/TEST_V1_PLAN.md"
+    }
+  ]
 }
