@@ -164,7 +164,7 @@ def test_input_validation_and_user_limits(tmp_path):
         assert c.post(f'/sessions/{sid}/questions', json={'question': 'ab'}, headers=auth(key)).status_code == 422
         assert c.post(f'/sessions/{sid}/questions', json={'question': 'x' * 501}, headers=auth(key)).status_code == 422
         assert c.post(f'/sessions/{sid}/questions', json={'question': '\x00\x01\x02\x03\x04'}, headers=auth(key)).status_code == 422
-        codes = [c.post(f'/sessions/{sid}/questions', json={'question': f'问题 {i} 是什么？'}, headers=auth(key)) for i in range(3)]
+        codes = [ask(c, key, f'问题 {i} 是什么？')[1] for i in range(3)]   # rate limits are per user, across conversations
         assert [r.status_code for r in codes] == [202, 202, 429] and int(codes[2].headers['retry-after']) >= 1
         _, r = ask(c, small)
         read_sse(c, r.json()['run_id'], small)            # the first run uses 1,010 tokens, over the 500 quota
