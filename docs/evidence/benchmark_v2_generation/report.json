@@ -1,0 +1,111 @@
+{
+  "seed": 20261016,
+  "quotas_dev_test": {
+    "D1": [
+      8,
+      16
+    ],
+    "D2": [
+      5,
+      10
+    ],
+    "D3": [
+      4,
+      8
+    ],
+    "D4": [
+      4,
+      8
+    ],
+    "D5": [
+      5,
+      10
+    ]
+  },
+  "pool": {
+    "D1": 9520,
+    "D2": 1010,
+    "D3": 58,
+    "D4": 60,
+    "D5": 111
+  },
+  "turns_recomputed": 36643,
+  "dev": {
+    "dialogues": 26,
+    "turns": 78,
+    "by_type": {
+      "D1": 8,
+      "D2": 5,
+      "D3": 4,
+      "D4": 4,
+      "D5": 5
+    },
+    "by_template": {
+      "d1_bridge": 4,
+      "d1_bridge_growth": 4,
+      "d2_difference": 5,
+      "d3_correction": 4,
+      "d4_ratio": 4,
+      "d5_period": 5
+    },
+    "phenomena": {
+      "ellipsis_metric": 27,
+      "ellipsis_period": 21,
+      "comparison_reference": 8,
+      "pronoun": 12,
+      "ellipsis_company": 22,
+      "previous_answers": 14,
+      "correction": 4
+    },
+    "tags": {
+      "hard_location": 17,
+      "unit_conversion": 12
+    },
+    "facts": 54,
+    "facts_shared_with_v1_dev": 26,
+    "facts_shared_with_v1_test": 38
+  },
+  "test": {
+    "dialogues": 52,
+    "turns": 156,
+    "by_type": {
+      "D1": 16,
+      "D2": 10,
+      "D3": 8,
+      "D4": 8,
+      "D5": 10
+    },
+    "by_template": {
+      "d1_bridge": 8,
+      "d1_bridge_growth": 8,
+      "d2_difference": 10,
+      "d3_correction": 8,
+      "d4_ratio": 8,
+      "d5_period": 10
+    },
+    "phenomena": {
+      "ellipsis_metric": 54,
+      "ellipsis_period": 42,
+      "comparison_reference": 16,
+      "pronoun": 24,
+      "ellipsis_company": 44,
+      "previous_answers": 28,
+      "correction": 8
+    },
+    "tags": {
+      "hard_location": 40,
+      "unit_conversion": 23
+    },
+    "facts": 89,
+    "facts_shared_with_v1_dev": 36,
+    "facts_shared_with_v1_test": 58
+  },
+  "dev_test_shared_fact_groups": 0,
+  "dev_test_shared_facts": 37,
+  "sha256": {
+    "dev_gold.jsonl": "6a56154bbda6319d3c8c6f223d43a68c69c2a981e4b8af4343d5cb9a59c88f04",
+    "test_gold.jsonl": "7f48d05ef46d8e9e2ae18bcd11be6b872a7108dd79a34d5b30398c82890d7771",
+    "dev_dialogues.jsonl": "e8ffeb2c56936d041e4e1fc93cc693f6ed33c1256c2807b67a5fcac81439ab58",
+    "test_dialogues.jsonl": "0cfc05c0d68db4ecfe97247bb4554678d74de2e768e2891278f1950b02ef6d6c"
+  }
+}
