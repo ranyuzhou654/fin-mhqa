@@ -81,7 +81,7 @@ def main():
                                        ((r or {}).get('final') or {}).get('selected_company') == t['answer']['selected_company']),
                        'error': (r or {}).get('error'), 'searches': (r or {}).get('search_calls', 0),
                        'model_calls': (r or {}).get('decision_calls', 0), 'input_tokens': tokens(r),
-                       'carried': len((r or {}).get('carried', []))}
+                       'carried': len((r or {}).get('seeded', []))}
                 if s in ('S3', 'S4') and t['turn'] > 1:
                     text = rewrite_of(a.run, s, g['id'], t['turn']) or ''
                     need = required_slots(t, facts)

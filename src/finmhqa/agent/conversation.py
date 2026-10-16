@@ -73,13 +73,14 @@ class CarryAgentGraph(AgentGraph):
     The chunks enter state['evidence'] with all fields (context reads and the publication guard need them) and the
     history with the compact fields of compact_v1, as one observation the planner and verifier can see."""
 
-    def run(self, question, carried=None):
+    def run(self, question, carried=None, note=CARRY_NOTE, source='carried_evidence'):
+        """source names where the seeded chunks come from (earlier turns, or the document memory)."""
         state = initial(question)
         if carried:
             state['evidence'].update(deepcopy(carried))
             view = [{k: c[k] for k in CHUNK_KEEP if k in c} for c in carried.values()]
-            state['history'].append({'action': {'action': 'carried_evidence', 'reason': CARRY_NOTE},
-                                     'observations': [{'tool': 'carried_evidence', 'args': {'chunks': len(view)},
+            state['history'].append({'action': {'action': source, 'reason': note},
+                                     'observations': [{'tool': source, 'args': {'chunks': len(view)},
                                                        'response': {'results': view}}]})
-            self.record({'event': 'carried_evidence', 'chunk_ids': list(carried)})
+            self.record({'event': source, 'chunk_ids': list(carried)})
         return self.graph.invoke(state, {'recursion_limit': 64})
