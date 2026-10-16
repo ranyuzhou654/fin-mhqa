@@ -62,13 +62,13 @@ def prepare_turn(question, context, decide, memory=None, by_id=None, companies=(
             seeded.update(carried_evidence(previous))
             if seeded:
                 notes.append(CARRY_NOTE)
-                events.append({'event': 'carried_evidence', 'chunk_ids': list(seeded)})
+                events.append({'event': 'carried_evidence', 'chunk_ids': list(seeded), 'response': {'results': list(seeded.values())}})
     if memory is not None and by_id is not None:
         hints = [c for c in memory.hints(standalone, companies) if c not in seeded and c in by_id]
         if hints:
             seeded.update({c: by_id[c] for c in hints})
             notes.append(MEMORY_NOTE)
-            events.append({'event': 'memory_hints', 'chunk_ids': hints})
+            events.append({'event': 'memory_hints', 'chunk_ids': hints, 'response': {'results': [by_id[c] for c in hints]}})
     return standalone, seeded, '\n'.join(notes), events
 
 

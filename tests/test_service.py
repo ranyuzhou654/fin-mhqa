@@ -326,7 +326,8 @@ def test_memory_hints_are_seeded_from_the_index_only():
         def hints(self, question, companies):
             return ['md1', 'gone']
     q, seeded, note, events = prepare_turn('甲公司营业收入是多少？', {}, None, Memory(), {'md1': {'chunk_id': 'md1'}}, ['甲公司'])
-    assert list(seeded) == ['md1'] and '文档结构记忆' in note and events[-1] == {'event': 'memory_hints', 'chunk_ids': ['md1']}
+    assert list(seeded) == ['md1'] and '文档结构记忆' in note
+    assert events[-1] == {'event': 'memory_hints', 'chunk_ids': ['md1'], 'response': {'results': [{'chunk_id': 'md1'}]}}
 
 
 class ContextRecorder:

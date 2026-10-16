@@ -154,6 +154,35 @@ details.rtrace > summary b { color: var(--fg); font-weight: 600; }
 .src.both { background: var(--ok-bg); color: var(--ok); } .src.dense { background: var(--plan-bg); color: var(--plan); } .src.bm25 { background: var(--tool-bg); color: var(--tool); }
 .rmore { font-size: 11px; color: var(--muted); cursor: pointer; margin-top: 4px; background: none; border: none; padding: 0; }
 .rnote { font-size: 11px; color: var(--muted); padding: 0 10px 8px; }
+
+/* conversation thread */
+.thread { display: grid; gap: 10px; margin-bottom: 14px; }
+.thread:empty { display: none; }
+.turn { display: grid; gap: 6px; cursor: pointer; }
+.turn .user { justify-self: end; max-width: 85%; background: var(--brand); color: var(--brand-fg); padding: 8px 12px; border-radius: 12px 12px 2px 12px; }
+.turn .bot { justify-self: start; max-width: 92%; background: var(--panel); border: 1px solid var(--line); padding: 8px 12px; border-radius: 12px 12px 12px 2px; box-shadow: var(--shadow); }
+.turn.active .bot { border-color: var(--brand-2); outline: 1px solid var(--brand-2); }
+.turn .bot .val { font-weight: 700; color: var(--brand-2); }
+@media (prefers-color-scheme: dark) { .turn .bot .val { color: var(--plan); } }
+.turn .bot .val.bad { color: var(--bad); }
+.turn .bot .understood { font-size: 12px; color: var(--muted); margin-top: 3px; }
+.turn .bot .understood b { color: var(--fg-2); font-weight: 600; }
+.turn .n { font-size: 11px; color: var(--muted); margin-right: 6px; }
+.composer select { border: 1px solid var(--line); border-radius: 7px; padding: 6px 8px; background: var(--panel-2); }
+.composer .ctx { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); margin-left: auto; }
+.card.context { border-left-color: var(--accent); }
+.badge.ctx { background: var(--tool-bg); color: var(--tool); }
+.card .understood { margin-top: 6px; padding: 8px 10px; border-radius: 8px; background: var(--panel-2); }
+.card .understood .from { color: var(--muted); font-size: 12px; }
+.card .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.card .chips span { font-size: 12px; padding: 1px 7px; border: 1px solid var(--line); border-radius: 5px; background: var(--panel); color: var(--fg-2); }
+header .pref-btn { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.25); color: #fff; border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+.prefs { position: fixed; top: 60px; right: 18px; z-index: 10; width: 300px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; box-shadow: 0 8px 24px rgba(16,24,40,.18); }
+.prefs[hidden] { display: none; }
+.prefs h3 { margin: 0 0 4px; font-size: 14px; }
+.prefs .sub { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.prefs label { display: grid; gap: 4px; font-size: 12px; color: var(--fg-2); margin-bottom: 10px; }
+.prefs select, .prefs input { border: 1px solid var(--line); border-radius: 7px; padding: 6px 8px; background: var(--panel-2); }
 @media (max-width: 1100px) {
   .app { grid-template-columns: 220px minmax(0, 1fr); }
   .right { grid-column: 2; border-left: none; border-top: 1px solid var(--line); }
@@ -174,16 +203,26 @@ details.rtrace > summary b { color: var(--fg); font-weight: 600; }
   <header>
     <div class="logo">财</div>
     <div><h1>财报多跳问答 Agent</h1><div class="sub">规划 · 检索 · 核验 · 可追溯引用</div></div>
-    <div class="key"><span class="dot" id="conn"></span><input id="key" type="password" placeholder="API key（仅存于本标签页）" autocomplete="off"></div>
+    <div class="key"><button class="pref-btn" id="prefBtn" title="单位、小数位与关注的公司，只对你本人生效">偏好</button><span class="dot" id="conn"></span><input id="key" type="password" placeholder="API key（仅存于本标签页）" autocomplete="off"></div>
   </header>
+  <div class="prefs" id="prefs" hidden>
+    <h3>我的偏好</h3>
+    <div class="sub">只在问题没有写明单位和小数位时才使用；只对你本人生效。</div>
+    <label>金额单位<select id="p-unit"><option value="">不设置</option><option>亿元</option><option>万元</option><option>元</option></select></label>
+    <label>小数位<select id="p-dec"><option value="">不设置</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+    <label>关注的公司（逗号分隔，用于快捷提问）<input id="p-watch" placeholder="例如：比亚迪，宁德时代"></label>
+    <div class="actions"><button class="btn primary" id="p-save">保存</button><button class="btn" id="p-close">关闭</button><span class="notice" id="p-note"></span></div>
+  </div>
 
   <aside>
-    <button class="btn primary block" id="new">＋ 新问题</button>
-    <div class="title" style="margin-top:16px">历史提问</div>
+    <button class="btn primary block" id="new">＋ 新对话</button>
+    <div class="examples" id="watch" style="margin:10px 4px 0"></div>
+    <div class="title" style="margin-top:16px">对话</div>
     <ul class="history" id="history"><li class="empty">输入 API key 后显示</li></ul>
   </aside>
 
   <main>
+    <div class="thread" id="thread"></div>
     <div class="composer">
       <textarea id="question" placeholder="输入问题，例如：贵州茅台2025年上半年合并口径营业收入是多少？金额以亿元表示，四舍五入保留两位小数。"></textarea>
       <div class="examples" id="examples"></div>
@@ -191,6 +230,7 @@ details.rtrace > summary b { color: var(--fg); font-weight: 600; }
         <button class="btn primary" id="ask">提问</button>
         <button class="btn" id="cancel" disabled>取消</button>
         <span class="notice" id="notice"></span>
+        <span class="ctx" title="追问时，系统如何利用前文">上下文方式<select id="strategy"></select></span>
       </div>
     </div>
 
@@ -257,22 +297,85 @@ async function loadExamples() {
 }
 loadExamples();
 
-// ---------- history ----------
+// ---------- options: context strategies ----------
+let OPTIONS = { strategies: { S1: '每轮独立', S2: '附对话记录', S3: '先改写成完整问题', S4: '改写并延续已核验证据' }, default_strategy: 'S3' };
+async function loadOptions() {
+  try { OPTIONS = await (await fetch('/options')).json(); } catch (e) {}
+  $('strategy').innerHTML = Object.entries(OPTIONS.strategies).map(([k, v]) => `<option value="${k}">${esc(v)}</option>`).join('');
+  $('strategy').value = OPTIONS.default_strategy;
+}
+loadOptions();
+$('strategy').onchange = async () => { if (S.session) await api(`/sessions/${S.session}`, { method: 'PATCH', body: JSON.stringify({ strategy: $('strategy').value }) }); };
+
+// ---------- conversations (sidebar) ----------
+function runLabel(run) {
+  const f = run.final;
+  return { succeeded: f && f.status === 'answered' ? `${f.answer_value} ${f.answer_unit}` : '证据不足', failed: '运行失败', cancelled: '已取消', timed_out: '超时', queued: '排队中…', running: '运行中…' }[run.status];
+}
 async function loadHistory() {
   if (!key()) return;
-  const r = await api('/runs?limit=40');
+  const r = await api('/sessions?limit=40');
   if (!r.ok) { $('history').innerHTML = '<li class="empty">API key 无效</li>'; return; }
-  const runs = (await r.json()).runs;
-  $('history').innerHTML = runs.length ? '' : '<li class="empty">还没有提问</li>';
-  for (const run of runs) {
-    const li = document.createElement('li'); li.dataset.id = run.id; li.className = run.id === S.run ? 'active' : '';
-    const f = run.final, label = { succeeded: f && f.status === 'answered' ? `${f.answer_value} ${f.answer_unit}` : '拒答', failed: '失败', cancelled: '已取消', timed_out: '超时', queued: '排队中', running: '运行中' }[run.status];
-    const color = run.status === 'succeeded' ? 'var(--ok)' : ['queued', 'running'].includes(run.status) ? 'var(--plan)' : 'var(--bad)';
-    li.innerHTML = `<div class="q">${esc(run.question)}</div><div class="meta"><span class="dot" style="background:${color}"></span>${esc(label)} · ${new Date(run.created * 1000).toLocaleTimeString()}</div>`;
-    li.onclick = () => openRun(run.id, run.question);
+  const sessions = (await r.json()).sessions.filter((s) => s.turns);
+  $('history').innerHTML = sessions.length ? '' : '<li class="empty">还没有对话</li>';
+  for (const s of sessions) {
+    const li = document.createElement('li'); li.dataset.id = s.id; li.className = s.id === S.session ? 'active' : '';
+    li.innerHTML = `<div class="q">${esc(s.first_question || '（空对话）')}</div><div class="meta">${s.turns} 轮 · ${esc(OPTIONS.strategies[s.strategy] || s.strategy)} · ${new Date(s.last_active * 1000).toLocaleTimeString()}</div>`;
+    li.onclick = () => openSession(s.id);
     $('history').append(li);
   }
 }
+
+// ---------- conversation thread ----------
+async function openSession(sid, runToOpen) {
+  const r = await api(`/sessions/${sid}`); if (!r.ok) return;
+  const s = await r.json();
+  S.session = sid; try { sessionStorage.setItem('finmhqa_session', sid); } catch (e) {}
+  $('strategy').value = s.strategy; S.turns = s.runs; renderThread();
+  document.querySelectorAll('.history li').forEach((li) => li.classList.toggle('active', li.dataset.id === sid));
+  const target = runToOpen || (s.runs.length ? s.runs[s.runs.length - 1].id : null);
+  if (target && target !== S.run) { const t = s.runs.find((x) => x.id === target); openRun(target, t ? t.question : ''); }
+  $('question').value = ''; $('question').placeholder = '继续追问，例如：宁德时代同期呢？ / 两家里较高的那家，研发费用是多少？';
+}
+function renderThread() {
+  $('thread').innerHTML = '';
+  (S.turns || []).forEach((run, i) => {
+    const el = document.createElement('div'); el.className = 'turn' + (run.id === S.run ? ' active' : ''); el.dataset.id = run.id;
+    const bad = run.status !== 'succeeded' || !run.final || run.final.status !== 'answered';
+    const understood = run.standalone && run.standalone !== run.question
+      ? `<div class="understood"><b>理解为：</b>${esc(run.standalone.length > 160 ? run.standalone.slice(0, 160) + '…' : run.standalone)}</div>` : '';
+    el.innerHTML = `<div class="user"><span class="n" style="color:rgba(255,255,255,.7)">第 ${i + 1} 轮</span>${esc(run.question)}</div>
+      <div class="bot"><span class="val ${bad && !['queued', 'running'].includes(run.status) ? 'bad' : ''}">${esc(runLabel(run))}</span>${run.final && run.final.selected_company ? ` · 选定 ${esc(run.final.selected_company)}` : ''}${understood}</div>`;
+    el.onclick = () => openRun(run.id, run.question);
+    $('thread').append(el);
+  });
+}
+async function refreshThread() { if (S.session) { const r = await api(`/sessions/${S.session}`); if (r.ok) { S.turns = (await r.json()).runs; renderThread(); } } }
+
+// ---------- preferences (per user) ----------
+$('prefBtn').onclick = async () => {
+  $('prefs').hidden = !$('prefs').hidden; if ($('prefs').hidden || !key()) return;
+  const r = await api('/me/preferences'); if (!r.ok) { $('p-note').textContent = '请先输入 API key'; return; }
+  const p = await r.json(); $('p-unit').value = p.unit || ''; $('p-dec').value = p.decimals ?? ''; $('p-watch').value = (p.watchlist || []).join('，');
+  $('p-note').textContent = '';
+};
+$('p-close').onclick = () => { $('prefs').hidden = true; };
+$('p-save').onclick = async () => {
+  const body = { watchlist: $('p-watch').value.split(/[，,\s]+/).filter(Boolean) };
+  if ($('p-unit').value) body.unit = $('p-unit').value; if ($('p-dec').value) body.decimals = $('p-dec').value;
+  const r = await api('/me/preferences', { method: 'PUT', body: JSON.stringify(body) });
+  $('p-note').className = r.ok ? 'notice' : 'notice err'; $('p-note').textContent = r.ok ? '已保存' : '保存失败';
+  if (r.ok) renderWatch(await r.json());
+};
+function renderWatch(p) {
+  $('watch').innerHTML = '';
+  for (const c of (p.watchlist || [])) {
+    const chip = document.createElement('span'); chip.className = 'chip'; chip.innerHTML = `<b>关注</b>${esc(c)}`;
+    chip.onclick = () => { $('question').value = `${c}2025年上半年合并口径营业收入是多少？`; $('question').focus(); };
+    $('watch').append(chip);
+  }
+}
+async function loadPrefs() { if (!key()) return; const r = await api('/me/preferences'); if (r.ok) renderWatch(await r.json()); }
 
 // ---------- run state & rendering ----------
 function resetView(question) {
@@ -306,6 +409,22 @@ function onEvent(kind, d) {
   const st = S.stats;
   if (kind === 'status') { if (d.status === 'running') { st.start = st.start || performance.now(); S.stage = 'planner'; renderStages(); } return; }
   if (kind === 'node') { if (['planner', 'executor', 'verifier'].includes(d.name)) { S.stage = d.name; renderStages(); } return; }
+  if (kind === 'preferences_applied') {
+    card('context', `<div class="head"><span class="badge ctx">偏好</span><span class="step">按你的偏好补充了单位与小数位</span></div><p class="reason">${esc(d.added)}</p>`); return;
+  }
+  if (kind === 'rewrite') {
+    card('context', `<div class="head"><span class="badge ctx">理解追问</span><span class="step">结合前文改写成完整问题</span><span class="meta">${esc(OPTIONS.strategies[d.strategy] || '')}</span></div>
+      <div class="understood"><div class="from">原话：${esc(d.original)}</div>${esc(d.standalone)}</div>${d.reason ? `<p class="reason">${esc(d.reason)}</p>` : ''}`); return;
+  }
+  if (kind === 'context_strategy') {
+    card('context', `<div class="head"><span class="badge ctx">上下文</span><span class="step">附上前 ${d.turns} 轮的问答记录</span></div>`); return;
+  }
+  if (kind === 'carried_evidence' || kind === 'memory_hints') {
+    const chips = ((d.response || {}).results || []).map((c) => `<span>${esc(c.table_title || c.chunk_type)} · p.${esc(c.page_start)}</span>`).join('');
+    const what = kind === 'carried_evidence' ? ['延续证据', '带上前几轮已核验答案引用的证据，本轮可直接使用'] : ['文档记忆', '按以往核验过的答案预取可能相关的表格，仅作线索'];
+    card('context', `<div class="head"><span class="badge ctx">${what[0]}</span><span class="step">${what[1]}</span></div><div class="chips">${chips}</div>`); return;
+  }
+  if (kind === 'teacher_decision' && d.role === 'rewriter') { st.start = st.start || performance.now(); st.calls += 1; st.tok += (d.usage || {}).input_tokens || 0; return; }
   if (kind === 'teacher_decision') {
     st.start = st.start || performance.now(); st.calls += 1; st.tok += (d.usage || {}).input_tokens || 0;
     const a = d.action || {};
@@ -354,7 +473,7 @@ function onEvent(kind, d) {
     S.stage = 'end'; renderStages(); $('cancel').disabled = true;
     if (d.status === 'succeeded') showAnswer(d.final || S.final);
     else { $('answer').className = 'answer refused'; $('answer').innerHTML = `<div class="value">${{ failed: '运行失败', cancelled: '已取消', timed_out: '超时' }[d.status] || esc(d.status)}</div><div class="explain">${esc(d.error || '')}</div>`; }
-    loadHistory();
+    loadHistory(); refreshThread();
   }
 }
 
@@ -473,8 +592,8 @@ async function stream(run, last = 0) {
 
 function openRun(id, question) {
   if (S.ctrl) S.ctrl.abort();
-  S.run = id; S.chunks = null; $('question').value = question; resetView(question);
-  document.querySelectorAll('.history li').forEach((li) => li.classList.toggle('active', li.dataset.id === id));
+  S.run = id; S.chunks = null; resetView(question);
+  document.querySelectorAll('.turn').forEach((t) => t.classList.toggle('active', t.dataset.id === id));
   $('cancel').disabled = false; stream(id);
 }
 
@@ -482,9 +601,9 @@ $('ask').onclick = async () => {
   const q = $('question').value.trim();
   if (!key()) { $('notice').className = 'notice err'; $('notice').textContent = '请先在右上角输入 API key'; return; }
   if (!S.session) {
-    const r = await api('/sessions', { method: 'POST', body: '{}' });
-    if (!r.ok) { $('notice').className = 'notice err'; $('notice').textContent = r.status === 401 ? 'API key 无效' : '创建会话失败'; return; }
-    S.session = (await r.json()).id; try { sessionStorage.setItem('finmhqa_session', S.session); } catch (e) {}
+    const r = await api('/sessions', { method: 'POST', body: JSON.stringify({ strategy: $('strategy').value }) });
+    if (!r.ok) { $('notice').className = 'notice err'; $('notice').textContent = r.status === 401 ? 'API key 无效' : '创建对话失败'; return; }
+    S.session = (await r.json()).id; S.turns = []; try { sessionStorage.setItem('finmhqa_session', S.session); } catch (e) {}
   }
   let r = await api(`/sessions/${S.session}/questions`, { method: 'POST', body: JSON.stringify({ question: q }) });
   if (r.status === 404) { S.session = null; return $('ask').onclick(); }
@@ -495,16 +614,22 @@ $('ask').onclick = async () => {
     $('notice').textContent = (typeof body.detail === 'string' ? body.detail : '问题需 4–500 字') + (retry ? `（${retry} 秒后可重试）` : '');
     return;
   }
-  openRun(body.run_id, q); loadHistory();
+  $('question').value = '';
+  await openSession(S.session, body.run_id); loadHistory();
 };
 $('cancel').onclick = () => S.run && api(`/runs/${S.run}`, { method: 'DELETE' });
 $('new').onclick = () => {
-  if (S.ctrl) S.ctrl.abort(); S.run = null; clearInterval(S.timer);
-  $('question').value = ''; $('timeline').innerHTML = ''; $('progress').hidden = true; $('evidence').hidden = true;
+  if (S.ctrl) S.ctrl.abort(); S.run = null; S.session = null; S.turns = []; clearInterval(S.timer);
+  try { sessionStorage.removeItem('finmhqa_session'); } catch (e) {}
+  $('thread').innerHTML = ''; $('strategy').value = OPTIONS.default_strategy;
+  $('question').value = ''; $('question').placeholder = '输入问题，例如：贵州茅台2025年上半年合并口径营业收入是多少？金额以亿元表示，四舍五入保留两位小数。';
+  $('timeline').innerHTML = ''; $('progress').hidden = true; $('evidence').hidden = true;
   $('answer').className = 'empty'; $('answer').textContent = '提问后，答案与引用证据显示在这里。'; $('question').focus(); loadHistory();
 };
 $('question').addEventListener('keydown', (e) => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) $('ask').click(); });
-loadHistory();
+$('key').addEventListener('change', loadPrefs);
+loadHistory(); loadPrefs();
+if (S.session && key()) openSession(S.session);
 </script>
 </body>
 </html>

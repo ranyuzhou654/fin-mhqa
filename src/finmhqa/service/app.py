@@ -40,7 +40,7 @@ class QuestionIn(BaseModel):
 
 def summarize_event(kind, data):
     """SSE 'summary' detail: tool responses keep chunk labels, not full evidence text."""
-    if kind == 'tool_response' and isinstance(data.get('response'), dict) and 'results' in data['response']:
+    if kind in ('tool_response', 'carried_evidence', 'memory_hints') and isinstance(data.get('response'), dict) and 'results' in data['response']:
         r = data['response']
         labels = [{k: c.get(k) for k in ('chunk_id', 'chunk_type', 'page_start', 'table_title') if c.get(k) is not None}
                   for c in r['results']]
