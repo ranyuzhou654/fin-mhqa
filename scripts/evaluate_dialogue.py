@@ -13,7 +13,7 @@ import statistics
 from finmhqa.bench.generate import PERIOD, RATIOS
 from finmhqa.retrieval.metrics import mean_ci, paired_diff
 
-GOLD = Path('data/bench/generated_v2')
+GOLD = Path('data/bench/benchmark_v2_gold')   # frozen gold: exactly the dialogues that were run
 LEDGER = Path('data/bench/ledger_v1/facts.jsonl')
 COMPARISONS = [('S1', 'S3'), ('S3', 'S4'), ('S2', 'S3'), ('S1', 'S2')]
 
@@ -62,10 +62,12 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--run', type=Path, required=True)
     p.add_argument('--split', default='dev')
+    p.add_argument('--gold', type=Path, default=GOLD, help='gold folder (pre-freeze candidates: data/bench/generated_v2)')
     p.add_argument('--out', type=Path, required=True)
     a = p.parse_args()
-    gold = [json.loads(l) for l in (GOLD / f'{a.split}_gold.jsonl').read_text().splitlines()]
-    gold = [g for g in gold if not g['reserve']]
+    gold = [json.loads(l) for l in (a.gold / f'{a.split}_gold.jsonl').read_text().splitlines()]
+    if a.gold != GOLD:   # candidate files also hold the reserves, which were not run
+        gold = [g for g in gold if not g['reserve']]
     facts = {f['fact_id']: f for f in map(json.loads, LEDGER.read_text().splitlines())}
     strategies = json.loads((a.run / 'manifest.json').read_text())['strategies']
     rows = []

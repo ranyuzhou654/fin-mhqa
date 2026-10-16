@@ -18,7 +18,7 @@ from finmhqa.agent.turn_runner import CODE, Stop, TurnRunner
 from finmhqa.harness.provenance import git_state
 from finmhqa.harness.runs import EXIT_OK, EXIT_QUOTA, QuotaExhausted
 
-DIALOGUES = Path('data/bench/generated_v2')
+DIALOGUES = Path('data/bench/benchmark_v2')   # frozen questions only (scripts/dialogue_quality.py freeze)
 
 
 def manifest_for(a, runner, path):

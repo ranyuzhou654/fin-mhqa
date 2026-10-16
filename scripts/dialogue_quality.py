@@ -15,8 +15,9 @@ from pathlib import Path
 import time
 from finmhqa.bench.quality import JUDGE_SCHEMA
 
-SRC = Path('data/bench/generated_v2')
-OUT = Path('data/bench/s4_v2')
+# r2 candidates (scope restated on metric switches); round-1 judgements on r1 stay in data/bench/s4_v2
+SRC = Path('data/bench/generated_v2r2')
+OUT = Path('data/bench/s4_v2r2')
 FROZEN = Path('data/bench/benchmark_v2')
 GOLD = Path('data/bench/benchmark_v2_gold')
 # Second judge: benchmark_v1 used Sol through the Codex CLI, which is broken on this machine (missing native binary,

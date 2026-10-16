@@ -1,5 +1,8 @@
 """benchmark_v2 multi-turn dialogues from the verified fact ledger (docs/benchmark/BENCHMARK_V2_DESIGN.md).
 
+r2 (before freezing): a follow-up that switches to a new metric restates 合并口径; round-1 judges read an implicit scope
+as consolidated-or-parent (all 36 flags were about scope). Omitted company and period are unchanged.
+
 Each dialogue is a chain of 2-4 user turns. Later turns leave out what the conversation already fixed (company,
 metric, period, scope) or point back at earlier answers ("两家里较高的那家", "它", "两者相差"). Every turn carries:
 
@@ -77,7 +80,7 @@ def d1_bridge(ledger):
                     u2 = pick([f'{b}同期呢？{SHORT_AMOUNT}', f'那{b}呢？同一期间、同一口径。{SHORT_AMOUNT}'], key)
                     t2 = turn(u2, amount_q(b, fb['metric_label'], period), amount_answer(Ledger.yuan(fb)), [fb],
                               f"convert({fb['fact_id']})", ['ellipsis_metric', 'ellipsis_period'], refers_to=[1])
-                    u3 = pick([f'两家里{word}的那家，{PERIOD[CURRENT[kind]]}{ft["metric_label"]}是多少？{SHORT_AMOUNT}',
+                    u3 = pick([f'两家里{word}的那家，{PERIOD[CURRENT[kind]]}合并口径{ft["metric_label"]}是多少？{SHORT_AMOUNT}',
                                f'取这两家中{word}的一家，它{PERIOD[CURRENT[kind]]}的{ft["metric_label"]}是多少？合并口径。{SHORT_AMOUNT}'], key)
                     s3 = (f"根据半年报，比较{a}与{b}{PERIOD[period]}合并口径{fa['metric_label']}，选择{word}的一家公司，"
                           f"再查询该公司{PERIOD[CURRENT[kind]]}合并口径{ft['metric_label']}是多少？{AMOUNT}")
@@ -88,8 +91,8 @@ def d1_bridge(ledger):
                     prior = ledger.get(company, target, PRIOR[kind])
                     if prior and Ledger.yuan(prior) > 0 and higher:
                         growth = pct((Ledger.yuan(ft) - Ledger.yuan(prior)) / Ledger.yuan(prior))
-                        u4 = pick([f'它的增长率呢？{GROWTH_DEF[kind]}{SHORT_PERCENT}',
-                                   f'这个指标比上期增长了多少？{GROWTH_DEF[kind]}{SHORT_PERCENT}'], key + 'g')
+                        u4 = pick([f'它的增长率呢？仍按合并口径。{GROWTH_DEF[kind]}{SHORT_PERCENT}',
+                                   f'这个合并口径指标比上期增长了多少？{GROWTH_DEF[kind]}{SHORT_PERCENT}'], key + 'g')
                         s4 = (f"根据半年报，{company}合并口径{ft['metric_label']}的增长率是多少？{GROWTH_DEF[kind]}{PERCENT}")
                         turns.append(turn(u4, s4, percent_answer(growth), [ft, prior],
                                           f"growth({ft['fact_id']},{prior['fact_id']})", ['pronoun', 'ellipsis_company'],
@@ -155,7 +158,7 @@ def d4_ratio(ledger):
             key = f'{c}{rid}'
             t1 = turn(amount_q(c, fd['metric_label'], period), amount_q(c, fd['metric_label'], period),
                       amount_answer(Ledger.yuan(fd)), [fd], f"convert({fd['fact_id']})")
-            t2 = turn(pick([f'那{fn["metric_label"]}呢？{SHORT_AMOUNT}', f'同一家公司同期的{fn["metric_label"]}是多少？{SHORT_AMOUNT}'], key),
+            t2 = turn(pick([f'那合并口径{fn["metric_label"]}呢？{SHORT_AMOUNT}', f'同一家公司同期合并口径的{fn["metric_label"]}是多少？{SHORT_AMOUNT}'], key),
                       amount_q(c, fn['metric_label'], period), amount_answer(Ledger.yuan(fn)), [fn], f"convert({fn['fact_id']})",
                       ['ellipsis_company', 'ellipsis_period'], refers_to=[1])
             t3 = turn(f'用这两个数算一下{name}。（{definition}）{SHORT_PERCENT}',
