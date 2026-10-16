@@ -9,7 +9,7 @@ from finmhqa.service.agents import CassetteAgent
 from finmhqa.service.app import create_app
 from finmhqa.service.observability import Metrics
 from finmhqa.service.scheduler import Scheduler
-from finmhqa.service.store import Store
+from finmhqa.service.store import TERMINAL, Store
 
 EXAMPLE = Path('docs/examples/f2_column_swap_caught')
 
@@ -176,9 +176,9 @@ def test_queue_full_returns_503(tmp_path):
     app, store, _ = service(CassetteAgent([cassette(tmp_path, 'long', 'q', [2.0] * 5)]), workers=1, max_queue=1)
     _, key = store.create_user('alice', max_concurrent=1, max_queued=10)
     with TestClient(app) as c:
-        sid = c.post('/sessions', json={}, headers=auth(key)).json()['id']
         codes = []
-        for i in range(3):
+        for i in range(3):   # separate conversations: one conversation takes one turn at a time (409)
+            sid = c.post('/sessions', json={}, headers=auth(key)).json()['id']
             codes.append(c.post(f'/sessions/{sid}/questions', json={'question': f'问题 {i} 是什么？'}, headers=auth(key)).status_code)
             time.sleep(0.2)
         assert codes == [202, 202, 503]   # one executing, one queued, then the queue is full
@@ -282,3 +282,114 @@ def test_examples_come_from_recorded_questions_by_type(tmp_path):
         # one per type, the T1 pick is the one whose verifier caught something
         assert [(e['tag'], e['question']) for e in ex] == [('单跳', '问题1是什么？'), ('条件桥接', '问题2是什么？'), ('无法回答', '问题3是什么？')]
         assert ex[0]['note'] == '核验曾拒绝并纠正'
+
+
+# ---------- conversations, preferences, memory (multi-turn service) ----------
+from finmhqa.service.agents import apply_preferences, prepare_turn   # noqa: E402
+
+PREV = [{'utterance': '甲公司2025年上半年营业收入是多少？', 'final': {'status': 'answered', 'answer_value': '1.00', 'answer_unit': '亿元',
+                                                         'citations': ['c1']}, 'evidence': {'c1': {'chunk_id': 'c1', 'text': 't'}}}]
+
+
+def test_preferences_only_fill_in_what_the_question_left_open():
+    q, note = apply_preferences('甲公司营业收入是多少？', {'unit': '万元', 'decimals': '1'})
+    assert note and q.endswith(note) and '万元' in note and '1位小数' in note
+    assert apply_preferences('甲公司营业收入是多少？金额以亿元表示。', {'unit': '万元'}) == ('甲公司营业收入是多少？金额以亿元表示。', None)
+    assert apply_preferences('甲公司营业收入是多少？', {}) == ('甲公司营业收入是多少？', None)
+
+
+@pytest.mark.parametrize('strategy', ['S1', 'S2', 'S3', 'S4'])
+def test_prepare_turn_follows_the_session_strategy(strategy):
+    calls = []
+
+    def decide(payload):
+        calls.append(payload)
+        return {'standalone': '乙公司2025年上半年营业收入是多少？', 'reason': '补全指标与期间'}
+    q, seeded, note, events = prepare_turn('乙公司呢？', {'turns': PREV, 'strategy': strategy}, decide)
+    kinds = [e['event'] for e in events]
+    if strategy == 'S1':
+        assert q == '乙公司呢？' and not calls and not seeded
+    elif strategy == 'S2':
+        assert '第1轮 系统答案：1.00 亿元' in q and q.endswith('当前问题：乙公司呢？') and not calls
+    else:
+        assert q == '乙公司2025年上半年营业收入是多少？' and 'rewrite' in kinds and '1.00 亿元' in calls[0]['对话记录']
+        assert (list(seeded) == ['c1']) == (strategy == 'S4') and (('carried_evidence' in kinds) == (strategy == 'S4'))
+
+
+def test_first_turn_is_not_rewritten():
+    q, seeded, _, events = prepare_turn('甲公司营业收入是多少？', {'turns': [], 'strategy': 'S4'}, lambda p: 1 / 0)
+    assert q == '甲公司营业收入是多少？' and not seeded and not events
+
+
+def test_memory_hints_are_seeded_from_the_index_only():
+    class Memory:
+        def hints(self, question, companies):
+            return ['md1', 'gone']
+    q, seeded, note, events = prepare_turn('甲公司营业收入是多少？', {}, None, Memory(), {'md1': {'chunk_id': 'md1'}}, ['甲公司'])
+    assert list(seeded) == ['md1'] and '文档结构记忆' in note and events[-1] == {'event': 'memory_hints', 'chunk_ids': ['md1']}
+
+
+class ContextRecorder:
+    def __init__(self):
+        self.contexts = []
+
+    def run(self, question, emit, cancelled, run_id, context=None):
+        self.contexts.append(context)
+        emit({'event': 'rewrite', 'original': question, 'standalone': question + '（已补全）'})
+        return {'final': {'status': 'answered', 'answer_value': str(len(self.contexts)), 'answer_unit': '亿元', 'citations': ['c']},
+                'standalone': question + '（已补全）', 'evidence': {'c': {'chunk_id': 'c', 'text': '原文'}}}
+
+
+def wait_done(c, key, rid):
+    for _ in range(100):
+        if c.get(f'/runs/{rid}', headers=auth(key)).json()['status'] in TERMINAL:
+            return
+        time.sleep(0.05)
+
+
+def test_conversation_turns_reach_the_agent_with_strategy_and_preferences():
+    agent = ContextRecorder()
+    app, store, _ = service(agent)
+    _, key = store.create_user('alice')
+    with TestClient(app) as c:
+        assert c.put('/me/preferences', json={'unit': '万元', 'decimals': 1}, headers=auth(key)).json() == {'unit': '万元', 'decimals': '1'}
+        sid = c.post('/sessions', json={'strategy': 'S4'}, headers=auth(key)).json()['id']
+        r1 = c.post(f'/sessions/{sid}/questions', json={'question': '甲公司营业收入是多少？'}, headers=auth(key)).json()['run_id']
+        wait_done(c, key, r1)
+        assert c.patch(f'/sessions/{sid}', json={'strategy': 'S3'}, headers=auth(key)).json()['strategy'] == 'S3'
+        r2 = c.post(f'/sessions/{sid}/questions', json={'question': '乙公司呢？'}, headers=auth(key)).json()['run_id']
+        wait_done(c, key, r2)
+        first, second = agent.contexts
+        assert first['turns'] == [] and first['strategy'] == 'S4' and first['preferences']['unit'] == '万元'
+        assert second['strategy'] == 'S3' and second['turns'][0]['utterance'] == '甲公司营业收入是多少？'
+        assert second['turns'][0]['evidence'] == {'c': {'chunk_id': 'c', 'text': '原文'}}      # cited text carried internally
+        run = c.get(f'/runs/{r1}', headers=auth(key)).json()
+        assert run['standalone'] == '甲公司营业收入是多少？（已补全）' and 'evidence' not in run   # not exposed by the API
+        listing = c.get('/sessions', headers=auth(key)).json()['sessions']
+        assert listing[0]['id'] == sid and listing[0]['turns'] == 2 and listing[0]['first_question'] == '甲公司营业收入是多少？'
+
+
+def test_one_turn_at_a_time_and_validation():
+    app, store, _ = service(Recorder())
+    _, key = store.create_user('alice')
+    with TestClient(app) as c:
+        sid = c.post('/sessions', json={}, headers=auth(key)).json()['id']
+        assert c.post(f'/sessions/{sid}/questions', json={'question': '第一个问题是什么？'}, headers=auth(key)).status_code == 202
+        busy = c.post(f'/sessions/{sid}/questions', json={'question': '第二个问题是什么？'}, headers=auth(key))
+        assert busy.status_code == 409 and '上一轮' in busy.json()['detail']
+        assert c.post('/sessions', json={'strategy': 'S9'}, headers=auth(key)).status_code == 422
+        assert c.patch(f'/sessions/{sid}', json={'strategy': 'S9'}, headers=auth(key)).status_code == 422
+        assert c.put('/me/preferences', json={'unit': '美元'}, headers=auth(key)).status_code == 422
+        assert set(c.get('/options').json()['strategies']) == {'S1', 'S2', 'S3', 'S4'}
+
+
+def test_preferences_and_conversations_are_private():
+    app, store, _ = service(ContextRecorder())
+    _, ka = store.create_user('alice')
+    _, kb = store.create_user('bob')
+    with TestClient(app) as c:
+        c.put('/me/preferences', json={'watchlist': ['比亚迪']}, headers=auth(ka))
+        assert c.get('/me/preferences', headers=auth(kb)).json() == {}
+        sid = c.post('/sessions', json={}, headers=auth(ka)).json()['id']
+        assert c.get('/sessions', headers=auth(kb)).json()['sessions'] == []
+        assert c.patch(f'/sessions/{sid}', json={'strategy': 'S1'}, headers=auth(kb)).status_code == 404

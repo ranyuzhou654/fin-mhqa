@@ -1,11 +1,14 @@
 """Agent adapters for the service.
 
-GraphAgent runs the real LangGraph agent from a frozen config (needs the retrieval server and model quota).
+GraphAgent runs the real LangGraph agent from a frozen config (needs the retrieval server and model quota). In a
+conversation it turns the latest message into the question the agent answers (prepare_turn: preferences, then the
+session's context strategy), and can consult the shared document-structure memory when enabled.
 CassetteAgent replays recorded trajectories with their recorded timings (optionally sped up); it exercises the
 whole service path (queue, workers, events, SSE, cancellation) without model calls, for tests and load tests.
 """
 import json
 from pathlib import Path
+import re
 import threading
 import time
 
@@ -16,6 +19,57 @@ DEFAULT_EXAMPLES = [
     {'tag': '比率', 'question': '根据半年报，贵州茅台2025年上半年合并口径的归母净利率是多少？（归母净利率=归属于母公司股东的净利润÷营业收入）结果以百分比表示，四舍五入保留两位小数。'},
     {'tag': '无法回答', 'question': '根据半年报，山西汾酒2025年上半年合并口径营业收入是多少？金额以亿元表示，四舍五入保留两位小数。'},
 ]
+
+
+SPECIFIED = re.compile(r'亿元|万元|千元|元表示|以元|百分比|%|％|小数')
+MEMORY_NOTE = ('以下证据块由文档结构记忆预取：以往通过核验的答案曾在这些表格中找到本题所提公司的同名指标行。'
+               '它们只是线索，不保证期间、口径和单位符合本题，使用前必须自行核对；也可以照常检索。')
+
+
+def apply_preferences(question, prefs):
+    """The user's unit and rounding preferences, added only when the question states neither."""
+    if not prefs or SPECIFIED.search(question) or not (prefs.get('unit') or prefs.get('decimals')):
+        return question, None
+    unit, digits = prefs.get('unit', '亿元'), prefs.get('decimals', '2')
+    note = f'（如结果为金额，以{unit}表示；四舍五入保留{digits}位小数）'
+    return question + note, note
+
+
+def prepare_turn(question, context, decide, memory=None, by_id=None, companies=()):
+    """What the agent should answer for this message, and which already-observed chunks it starts with.
+
+    decide(payload) -> {'standalone', 'reason'} is the rewrite call (S3/S4). Returns (agent question, seeded chunks,
+    note for the seeded chunks, events to publish)."""
+    from finmhqa.agent.conversation import CARRY_NOTE, carried_evidence, rewrite_payload, with_transcript
+    context = context or {}
+    events, seeded, notes = [], {}, []
+    asked, pref_note = apply_preferences(question, context.get('preferences'))
+    if pref_note:
+        events.append({'event': 'preferences_applied', 'added': pref_note})
+    previous = [{'utterance': t['utterance'], 'final': t['final'], 'evidence': t.get('evidence') or {}}
+                for t in context.get('turns', [])]
+    strategy = context.get('strategy', 'S3')
+    standalone = asked
+    if previous and strategy == 'S2':
+        standalone = with_transcript(previous, asked)
+        events.append({'event': 'context_strategy', 'strategy': 'S2', 'turns': len(previous)})
+    elif previous and strategy in ('S3', 'S4'):
+        decision = decide(rewrite_payload(previous, asked))
+        standalone = decision['standalone']
+        events.append({'event': 'rewrite', 'original': question, 'standalone': standalone, 'reason': decision.get('reason', ''),
+                       'strategy': strategy})
+        if strategy == 'S4':
+            seeded.update(carried_evidence(previous))
+            if seeded:
+                notes.append(CARRY_NOTE)
+                events.append({'event': 'carried_evidence', 'chunk_ids': list(seeded)})
+    if memory is not None and by_id is not None:
+        hints = [c for c in memory.hints(standalone, companies) if c not in seeded and c in by_id]
+        if hints:
+            seeded.update({c: by_id[c] for c in hints})
+            notes.append(MEMORY_NOTE)
+            events.append({'event': 'memory_hints', 'chunk_ids': hints})
+    return standalone, seeded, '\n'.join(notes), events
 
 
 def interruptible_sleep(seconds, cancelled, step=0.05):
@@ -68,7 +122,8 @@ class CassetteAgent:
             self.next += 1
         return case
 
-    def run(self, question, emit, cancelled, run_id):
+    def run(self, question, emit, cancelled, run_id, context=None):
+        """Replays a recording; the conversation context is not used (recordings are single questions)."""
         final, searches = None, 0
         case = self.pick(question)
         traces = self.traces.get(id(case), [])
@@ -89,7 +144,8 @@ class CassetteAgent:
 
 
 class GraphAgent:
-    def __init__(self, config_path, url='http://127.0.0.1:8100', workdir=Path('data/service/runs')):
+    def __init__(self, config_path, url='http://127.0.0.1:8100', workdir=Path('data/service/runs'), doc_memory=None):
+        """doc_memory: path of the shared document-structure memory (off unless given; see MEMORY_V1_PLAN)."""
         from finmhqa.agent.evidence_context import EvidenceContext
         from finmhqa.agent.openai_compat import OpenAICompatTeacher
         from finmhqa.agent.pilot_tools import request_json
@@ -103,6 +159,11 @@ class GraphAgent:
         self.budgets = dict(self.config['budgets'], reserve_calculation=self.config.get('reserve_calculation', False),
                             calculator=self.config.get('calculator', 'v1'),
                             **{k: self.config[k] for k in ('verifier', 'planner', 'context_policy') if k in self.config})
+        self.memory = None
+        if doc_memory:
+            from finmhqa.memory.doc_memory import DocMemory
+            self.memory = DocMemory(str(doc_memory))
+        self.companies = sorted({c['company'] for c in self.context.by_id.values()}) if self.context else []
 
     def examples(self):
         return DEFAULT_EXAMPLES
@@ -121,10 +182,19 @@ class GraphAgent:
         emit({'event': 'retrieval_trace', 'args': args, 'trace': body.pop('trace')})
         return body
 
-    def run(self, question, emit, cancelled, run_id):
-        from finmhqa.agent.graph import AgentGraph
+    def run(self, question, emit, cancelled, run_id, context=None):
+        from finmhqa.agent.conversation import REWRITE_SCHEMA, REWRITER, CarryAgentGraph
         folder = self.workdir / run_id
         folder.mkdir(parents=True, exist_ok=False)
+
+        def rewrite(payload):
+            decision, usage = self.teacher.decide(question, payload, folder / 'rewrite', system=REWRITER, output_schema=REWRITE_SCHEMA)
+            emit({'event': 'teacher_decision', 'role': 'rewriter', 'usage': usage})
+            return decision
+        standalone, seeded, note, events = prepare_turn(question, context, rewrite, self.memory,
+                                                        self.context.by_id if self.context else None, self.companies)
+        for e in events:
+            emit(e)
 
         def model(q, history, step, prompt, schema):
             if cancelled():
@@ -133,7 +203,12 @@ class GraphAgent:
 
         def locked_search(args):
             return self.traced_search(args, emit)
-        state = AgentGraph(model, locked_search, emit, self.config['arm'], synthesis=self.config['synthesis'],
-                           context_reader=self.context.read if self.context else None,
-                           reserve_verifier=self.config['reserve_verifier'], **self.budgets).run(question)
-        return {'final': state.get('final')}
+        state = CarryAgentGraph(model, locked_search, emit, self.config['arm'], synthesis=self.config['synthesis'],
+                                context_reader=self.context.read if self.context else None,
+                                reserve_verifier=self.config['reserve_verifier'], **self.budgets
+                                ).run(standalone, seeded or None, note=note, source='seeded_evidence')
+        final = state.get('final')
+        if self.memory is not None and final and final.get('status') == 'answered':
+            emit({'event': 'memory_write', **self.memory.learn(final, run_id, self.context.by_id)})
+        cited = {c: state['evidence'][c] for c in (final or {}).get('citations', []) if c in state.get('evidence', {})}
+        return {'final': final, 'standalone': standalone if standalone != question else None, 'evidence': cited}

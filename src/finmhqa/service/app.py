@@ -13,7 +13,7 @@ from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse, Str
 from pydantic import BaseModel, Field
 from finmhqa.service.limits import LimitExceeded, Limits
 from finmhqa.service.scheduler import QueueFull
-from finmhqa.service.store import TERMINAL
+from finmhqa.service.store import PREFERENCES, STRATEGIES, TERMINAL
 
 STATIC = Path(__file__).parent / 'static'
 CONTROL = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]')
@@ -21,6 +21,17 @@ CONTROL = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]')
 
 class SessionIn(BaseModel):
     title: str | None = Field(default=None, max_length=100)
+    strategy: str = 'S3'
+
+
+class SessionPatch(BaseModel):
+    strategy: str
+
+
+class PreferencesIn(BaseModel):
+    unit: str | None = None
+    decimals: str | int | None = None
+    watchlist: list[str] | None = None
 
 
 class QuestionIn(BaseModel):
@@ -90,6 +101,23 @@ def create_app(store, scheduler, metrics, heartbeat=15.0, log=None):
         fn = getattr(scheduler.factory, 'examples', None)
         return {'examples': fn() if fn else []}
 
+    @app.get('/options')
+    def options():
+        """Choices the UI offers: context strategies for multi-turn sessions and preference values."""
+        return {'strategies': STRATEGIES, 'default_strategy': 'S3', 'preferences': PREFERENCES,
+                'doc_memory': bool(getattr(scheduler.factory, 'memory', None))}
+
+    @app.get('/me/preferences')
+    def get_preferences(user=Depends(user_of)):
+        return store.preferences(user['id'])
+
+    @app.put('/me/preferences')
+    def put_preferences(body: PreferencesIn, user=Depends(user_of)):
+        try:
+            return store.set_preferences(user['id'], body.model_dump(exclude_none=True))
+        except ValueError as e:
+            raise HTTPException(422, str(e))
+
     @app.get('/metrics', response_class=PlainTextResponse)
     def get_metrics(user=Depends(user_of)):
         if not user['is_admin']:
@@ -98,7 +126,22 @@ def create_app(store, scheduler, metrics, heartbeat=15.0, log=None):
 
     @app.post('/sessions', status_code=201)
     def create_session(body: SessionIn, user=Depends(user_of)):
-        return store.create_session(user['id'], body.title)
+        if body.strategy not in STRATEGIES:
+            raise HTTPException(422, f'strategy must be one of {list(STRATEGIES)}')
+        return store.create_session(user['id'], body.title, body.strategy)
+
+    @app.get('/sessions')
+    def list_sessions(limit: int = 30, user=Depends(user_of)):
+        """The caller's conversations, most recently active first."""
+        return {'sessions': store.user_sessions(user['id'], max(1, min(limit, 100)))}
+
+    @app.patch('/sessions/{sid}')
+    def patch_session(sid: str, body: SessionPatch, user=Depends(user_of)):
+        owned_session(sid, user)
+        if body.strategy not in STRATEGIES:
+            raise HTTPException(422, f'strategy must be one of {list(STRATEGIES)}')
+        store.set_strategy(sid, body.strategy)
+        return store.session(sid)
 
     @app.get('/sessions/{sid}')
     def get_session(sid: str, user=Depends(user_of)):
@@ -106,7 +149,10 @@ def create_app(store, scheduler, metrics, heartbeat=15.0, log=None):
 
     @app.post('/sessions/{sid}/questions', status_code=202)
     def ask(sid: str, body: QuestionIn, user=Depends(user_of)):
-        owned_session(sid, user)
+        session = owned_session(sid, user)
+        if store.session_busy(sid):
+            # the next turn needs the previous answer as context; one turn at a time per conversation
+            return JSONResponse({'detail': '上一轮还在进行，请等它结束或取消后再提问'}, status_code=409)
         question = CONTROL.sub('', body.question).strip()
         if len(question) < 4:
             raise HTTPException(422, 'question is empty after removing control characters')
@@ -119,8 +165,10 @@ def create_app(store, scheduler, metrics, heartbeat=15.0, log=None):
             metrics.inc('rejected_total', reason='queue_full')
             return JSONResponse({'detail': 'server busy'}, status_code=503, headers={'Retry-After': '10'})
         rid = store.create_run(sid, user['id'], question)
+        context = {'turns': store.session_turns(sid), 'strategy': session['strategy'],
+                   'preferences': store.preferences(user['id'])}
         try:
-            scheduler.submit(rid, user['id'], question)
+            scheduler.submit(rid, user['id'], question, context)
         except QueueFull:
             store.set_status(rid, 'failed', error='server queue full', error_class='transport')
             return JSONResponse({'detail': 'server busy'}, status_code=503, headers={'Retry-After': '10'})

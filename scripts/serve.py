@@ -1,7 +1,7 @@
 """Run the agent service.
 
-  Real agent (needs the retrieval server on 8100 and model quota):
-    PYTHONPATH=src .venv/bin/python scripts/serve.py --agent graph:configs/bench_b3_graph_repair_v2_planner_v2_ctx.json
+  Real agent (needs the retrieval server on 8100 and model quota); multi-turn sessions, preferences:
+    PYTHONPATH=src .venv/bin/python scripts/serve.py --agent graph:configs/bench_b3_graph_repair_v2_planner_v2.json
   Recorded trajectories instead of model calls (demo, tests, load tests; no quota):
     PYTHONPATH=src .venv/bin/python scripts/serve.py --agent "cassette:docs/examples/*" --speed 0.2
 Create users with scripts/service_admin.py; keys are printed once and stored hashed.
@@ -21,7 +21,7 @@ from finmhqa.service.store import Store
 def build(args):
     kind, _, spec = args.agent.partition(':')
     if kind == 'graph':
-        agent = GraphAgent(spec, url=args.retrieval_url)
+        agent = GraphAgent(spec, url=args.retrieval_url, doc_memory=args.doc_memory)
     elif kind == 'cassette':
         cases = sorted(p for p in glob.glob(spec) if (Path(p) / 'trajectory.jsonl').exists())
         agent = CassetteAgent(cases, speed=args.speed)
@@ -43,6 +43,8 @@ def main():
     p.add_argument('--run-timeout', type=float, default=900)
     p.add_argument('--heartbeat', type=float, default=15)
     p.add_argument('--retrieval-url', default='http://127.0.0.1:8100')
+    p.add_argument('--doc-memory', help='shared document-structure memory (SQLite path); off unless given, pending '
+                                        'docs/experiments/MEMORY_V1_PLAN.md')
     p.add_argument('--host', default='127.0.0.1')
     p.add_argument('--port', type=int, default=8200)
     a = p.parse_args()

@@ -1,4 +1,9 @@
-"""SQLite persistence for the service: users (hashed API keys), sessions, runs and per-run ordered events.
+"""SQLite persistence for the service: users (hashed API keys), sessions, runs, per-run ordered events and
+per-user preferences.
+
+A session is a conversation: its runs are the turns, in order. A finished turn keeps the question as typed, the
+standalone question the agent actually answered (after rewriting) and the chunks its answer cited, so the next
+turn can be given the conversation (docs/benchmark/BENCHMARK_V2_DESIGN.md).
 
 One connection guarded by a lock (WAL mode) is enough at this scale; the interface is small so a Postgres
 implementation can replace it. API keys are shown once at creation and stored only as SHA-256 hashes.
@@ -22,10 +27,17 @@ CREATE TABLE IF NOT EXISTS runs (id TEXT PRIMARY KEY, session_id TEXT NOT NULL, 
   input_tokens INTEGER NOT NULL DEFAULT 0, output_tokens INTEGER NOT NULL DEFAULT 0, events INTEGER NOT NULL DEFAULT 0);
 CREATE TABLE IF NOT EXISTS events (run_id TEXT NOT NULL, seq INTEGER NOT NULL, kind TEXT NOT NULL, data TEXT NOT NULL,
   ts REAL NOT NULL, PRIMARY KEY (run_id, seq));
+CREATE TABLE IF NOT EXISTS preferences (user_id TEXT NOT NULL, key TEXT NOT NULL, value TEXT NOT NULL, updated REAL NOT NULL,
+  PRIMARY KEY (user_id, key));
 CREATE INDEX IF NOT EXISTS runs_by_user ON runs (user_id, created);
 CREATE INDEX IF NOT EXISTS runs_by_session ON runs (session_id, created);
 '''
 TERMINAL = ('succeeded', 'failed', 'cancelled', 'timed_out')
+# columns added after the first release; created on open when an older database lacks them
+MIGRATIONS = {'sessions': [('strategy', "TEXT NOT NULL DEFAULT 'S3'")],
+              'runs': [('standalone', 'TEXT'), ('evidence', 'TEXT')]}
+STRATEGIES = {'S1': '每轮独立', 'S2': '附对话记录', 'S3': '先改写成完整问题', 'S4': '改写并延续已核验证据'}
+PREFERENCES = {'unit': ('亿元', '万元', '元'), 'decimals': ('0', '1', '2', '3', '4')}   # plus 'watchlist': company names
 
 
 def key_hash(key):
@@ -42,6 +54,11 @@ class Store:
         with self.lock:
             self.db.execute('PRAGMA journal_mode=WAL')
             self.db.executescript(SCHEMA)
+            for table, cols in MIGRATIONS.items():
+                have = {r[1] for r in self.db.execute(f'PRAGMA table_info({table})')}
+                for name, decl in cols:
+                    if name not in have:
+                        self.db.execute(f'ALTER TABLE {table} ADD COLUMN {name} {decl}')
 
     def _one(self, sql, *args):
         with self.lock:
@@ -71,10 +88,57 @@ class Store:
         return self._one('SELECT * FROM users WHERE id=?', uid)
 
     # ---------- sessions ----------
-    def create_session(self, user_id, title=None):
+    def create_session(self, user_id, title=None, strategy='S3'):
+        if strategy not in STRATEGIES:
+            raise ValueError('unknown strategy')
         sid = 's_' + uuid.uuid4().hex[:16]
-        self._exec('INSERT INTO sessions VALUES (?,?,?,?)', sid, user_id, title, time.time())
+        self._exec('INSERT INTO sessions (id, user_id, title, created, strategy) VALUES (?,?,?,?,?)',
+                   sid, user_id, title, time.time(), strategy)
         return self.session(sid)
+
+    def set_strategy(self, sid, strategy):
+        if strategy not in STRATEGIES:
+            raise ValueError('unknown strategy')
+        self._exec('UPDATE sessions SET strategy=? WHERE id=?', strategy, sid)
+
+    def user_sessions(self, user_id, limit=30):
+        """Conversations, newest activity first, with their first question and turn count (sidebar)."""
+        sessions = self._all('SELECT id, title, strategy, created FROM sessions WHERE user_id=?', user_id)
+        for s in sessions:
+            runs = self._all('SELECT question, created FROM runs WHERE session_id=? ORDER BY created', s['id'])
+            s.update(turns=len(runs), first_question=runs[0]['question'] if runs else None,
+                     last_active=runs[-1]['created'] if runs else s['created'])
+        return sorted(sessions, key=lambda s: -s['last_active'])[:limit]
+
+    def session_turns(self, sid):
+        """Finished turns of a conversation, oldest first: the next turn's context."""
+        rows = self._all('SELECT question, standalone, status, final, evidence FROM runs WHERE session_id=? AND status IN '
+                         f"({','.join('?' * len(TERMINAL))}) ORDER BY created", sid, *TERMINAL)
+        return [{'utterance': r['question'], 'standalone': r['standalone'], 'status': r['status'],
+                 'final': json.loads(r['final']) if r['final'] else None,
+                 'evidence': json.loads(r['evidence']) if r['evidence'] else {}} for r in rows]
+
+    def session_busy(self, sid):
+        return self._one("SELECT id FROM runs WHERE session_id=? AND status IN ('queued','running') LIMIT 1", sid)
+
+    # ---------- preferences (per user, never shared) ----------
+    def preferences(self, user_id):
+        return {r['key']: json.loads(r['value']) for r in self._all('SELECT key, value FROM preferences WHERE user_id=?', user_id)}
+
+    def set_preferences(self, user_id, prefs):
+        for k, v in prefs.items():
+            if k == 'watchlist':
+                if not isinstance(v, list) or len(v) > 20 or not all(isinstance(c, str) and 0 < len(c) <= 20 for c in v):
+                    raise ValueError('watchlist must be up to 20 company names')
+            elif k not in PREFERENCES:
+                raise ValueError(f'unknown preference {k}')
+            elif str(v) not in PREFERENCES[k]:
+                raise ValueError(f'{k} must be one of {PREFERENCES[k]}')
+        for k, v in prefs.items():
+            self._exec('INSERT INTO preferences VALUES (?,?,?,?) ON CONFLICT(user_id,key) DO UPDATE SET '
+                       'value=excluded.value, updated=excluded.updated', user_id, k,
+                       json.dumps(v if k == 'watchlist' else str(v), ensure_ascii=False), time.time())
+        return self.preferences(user_id)
 
     def session(self, sid):
         return self._one('SELECT * FROM sessions WHERE id=?', sid)
@@ -100,14 +164,17 @@ class Store:
 
     @staticmethod
     def _public_run(r):
-        return {**r, 'final': json.loads(r['final']) if r.get('final') else None}
+        out = {**r, 'final': json.loads(r['final']) if r.get('final') else None}
+        out.pop('evidence', None)   # cited chunk text is internal context for the next turn; the trajectory has it
+        return out
 
     def set_status(self, rid, status, **fields):
         now = time.time()
         extra = {'started': now} if status == 'running' else {'finished': now} if status in TERMINAL else {}
         extra.update(fields)
-        if 'final' in extra:
-            extra['final'] = json.dumps(extra['final'], ensure_ascii=False) if extra['final'] is not None else None
+        for k in ('final', 'evidence'):
+            if k in extra:
+                extra[k] = json.dumps(extra[k], ensure_ascii=False) if extra[k] is not None else None
         cols = ', '.join(f'{k}=?' for k in ['status', *extra])
         # a terminal status is final: a late worker cannot overwrite a cancellation or a timeout
         cur = self._exec(f"UPDATE runs SET {cols} WHERE id=? AND status NOT IN ({','.join('?' * len(TERMINAL))})",

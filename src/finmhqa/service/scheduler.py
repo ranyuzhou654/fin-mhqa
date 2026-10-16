@@ -8,6 +8,7 @@
 """
 import asyncio
 from collections import deque
+import inspect
 import threading
 import time
 from finmhqa.harness.runs import classify_error
@@ -47,8 +48,9 @@ class Broadcaster:
 
 
 class RunContext:
-    def __init__(self, rid, user_id, question):
+    def __init__(self, rid, user_id, question, context=None):
         self.rid, self.user_id, self.question = rid, user_id, question
+        self.context = context   # earlier turns, strategy and preferences (None for a bare question)
         self.cancel = threading.Event()
         self.reason = None
         self.started = None
@@ -98,11 +100,11 @@ class Scheduler:
         with self.cond:
             return len(self.running)
 
-    def submit(self, rid, user_id, question):
+    def submit(self, rid, user_id, question, context=None):
         with self.cond:
             if sum(len(q) for q in self.queues.values()) >= self.max_queue:
                 raise QueueFull('server queue is full')
-            ctx = RunContext(rid, user_id, question)
+            ctx = RunContext(rid, user_id, question, context)
             self.seq += 1
             ctx.seq = self.seq
             self.queues.setdefault(user_id, deque()).append(ctx)
@@ -202,9 +204,13 @@ class Scheduler:
                         self.metrics.inc('model_calls_total', role=event.get('role', 'model'))
                         self.metrics.observe('model_call_seconds', event.get('seconds') or 0, role=event.get('role', 'model'))
                 self._publish(ctx, event.get('event', 'event'), event)
-            result = self.factory.run(ctx.question, emit, ctx.cancel.is_set, ctx.rid)
+            # agents that take the conversation get it; older agents (and test fakes) keep the 4-argument call
+            takes_context = 'context' in inspect.signature(self.factory.run).parameters
+            result = (self.factory.run(ctx.question, emit, ctx.cancel.is_set, ctx.rid, context=ctx.context) if takes_context
+                      else self.factory.run(ctx.question, emit, ctx.cancel.is_set, ctx.rid))
             final = result.get('final')
-            if self.store.set_status(ctx.rid, 'succeeded', final=final):
+            if self.store.set_status(ctx.rid, 'succeeded', final=final, standalone=result.get('standalone'),
+                                     evidence=result.get('evidence') or None):
                 self._publish(ctx, 'end', {'status': 'succeeded', 'final': final}, force=True)
                 status = 'succeeded'
             else:
