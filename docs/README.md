@@ -10,8 +10,12 @@
 | [格式修复](experiments/FORMAT_REPAIR_V1.md) | JSON schema 校验加一次修复；另附核验角色在干净证据上的决策分析 |
 | [故障注入设计](experiments/FAULT_INJECTION_V1_PLAN.md) · [结果](experiments/FAULT_INJECTION_V1_RESULTS.md) | 三类盲注入的证据错误，比较单模型与四角色 |
 | [核验角色 v2 设计](experiments/VERIFIER_V2_PLAN.md) · [结果](experiments/VERIFIER_V2_RESULTS.md) | 来源优先级、期间列核对、交叉核对、不重复拒绝 |
-| [规划者 v2 设计](experiments/PLANNER_V2_PLAN.md) · [阶段结果](experiments/PLANNER_V2_RESULTS.md) | 规划上限修复；无故障 Dev 待补 |
+| [规划者 v2 设计](experiments/PLANNER_V2_PLAN.md) · [结果](experiments/PLANNER_V2_RESULTS.md) | 规划上限修复；282 次运行中规划报错为 0，无故障 Dev 98.0% |
 | [上下文管理 v1](experiments/CONTEXT_V1_PLAN.md) · [结果](experiments/CONTEXT_V1_RESULTS.md) | 无损压缩；每题输入 token −37~44%，准确率未降，但事先登记的判定未通过（2 项） |
+| [上下文压缩诊断](experiments/CONTEXT_V2_PLAN.md) | 只重放核验者：多出来的调用来自核验者更准确地执行了单一来源规则；到此为止 |
+| [Test 验证计划](experiments/TEST_V1_PLAN.md) | 登记的两个配置、判定标准；每个配置 3 次，三次跑完前不打分 |
+| [多轮对话参考结果](experiments/DIALOGUE_V1_RESULTS.md) | 四种上下文策略；证据延续使检索减半、准确率不降（修订前候选集，正式结果待补） |
+| [长期记忆设计](experiments/MEMORY_V1_PLAN.md) | 文档结构记忆：只记位置、只从已核验答案写入；评估进行中 |
 
 ## 评测集 benchmark_v1
 
@@ -22,6 +26,12 @@
 | [题目生成](benchmark/BENCHMARK_V1_GENERATION.md) | 6 类模板，答案由程序用 Decimal 计算 |
 | [质量检查](benchmark/BENCHMARK_V1_QUALITY.md) · [Judge 对比](benchmark/JUDGE_COMPARISON_V1.md) | 改写题目、两个模型评判歧义、可达性检查、人工抽查 |
 | [冻结与使用](benchmark/BENCHMARK_V1_FROZEN.md) | 冻结清单、Test 保护、评分规则 |
+
+## 评测集 benchmark_v2（多轮对话）
+
+| 文档 | 内容 |
+| --- | --- |
+| [设计与事先登记](benchmark/BENCHMARK_V2_DESIGN.md) | 5 类对话链、四种上下文策略、歧义检查（含 r2 修订记录）与评估标准 |
 
 ## 系统组成
 
