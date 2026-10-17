@@ -9,20 +9,85 @@
   },
   "claims": [
     {
+      "id": "claim-fin-background-001",
+      "source_fact": "项目背景（均来自本项目的测量或观察）：固定 RAG（每家公司检索一次、模型调用一次）在 Dev 上只有 61.3%，条件桥接题 13%、三跳题 22%；通用规则解析（PyMuPDF/pdfplumber）在财报复杂表格上出现多行表头拆碎、整张利润表漏检；四角色 Agent 在干净证据上相对单模型 +0.7pp [−5.3, +6.7] 不显著，且调用多 23%、输出 token 约 2 倍；闭卷基线能答对 18.7%，说明模型可能见过公开财报。",
+      "candidate_wording": "财报问答需要跨公司、跨报表、多步计算，且口径、期间、单位稍有偏差就会答错。实测中固定 RAG 在条件桥接题上只有 13%；通用 PDF 解析会拆碎复杂表头；而常见的「多角色 Agent」在缺少可靠评测时既无法证明有效，也说不清何时有效。",
+      "sources": [
+        {
+          "type": "document",
+          "location": "docs/experiments/BENCHMARK_V1_S6_BASELINES.md",
+          "public": false,
+          "note": "固定 RAG 与多角色的 Dev 结果"
+        },
+        {
+          "type": "document",
+          "location": "docs/archive/M1_PARSER_DECISION.md",
+          "public": false,
+          "note": "规则解析的表格问题"
+        }
+      ],
+      "responsibility_level": "项目负责人",
+      "verification_status": "已确认",
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历",
+        "面试自我介绍"
+      ],
+      "interview_details": {
+        "decisions": [
+          "先建评测集再改 Agent：没有可信评测，无法判断技术是否有用"
+        ],
+        "difficulties": [
+          "闭卷 18.7% 表明存在记忆污染，必须同时看各跳引用覆盖"
+        ],
+        "verification": [
+          "逐级对照各 3 次，配对 bootstrap"
+        ],
+        "result": "背景中的不足都有本项目的数据支撑"
+      },
+      "boundary": "只陈述本项目测得或观察到的不足，不引用未经核实的行业统计。",
+      "risk_notes": [
+        "不要写成「现有 RAG 普遍只有 60%」这类泛化结论"
+      ],
+      "last_verified": "2026-10-17"
+    },
+    {
       "id": "claim-fin-data-001",
       "source_fact": "用 Docling（版面模型 + TableFormer）离线解析 10 家 A 股公司 2025 年半年报共 1,750 页，0 失败，得到 9,322 条可追溯证据块（正文 3,719、表格 Markdown 2,823、表格键值 2,780）；换解析器前先做 5 页难例对照；16 个源页事实锚点全部通过。",
       "candidate_wording": "基于 Docling 版面与表格结构模型解析 10 家上市公司半年报 1,750 页，设计正文 / 表格 Markdown / 表格键值三类切片与可追溯元数据，构建 9,322 条证据块；以难例小样对照驱动解析器替换，16 个源页事实锚点全部通过。",
       "sources": [
-        {"type": "document", "location": "docs/system/DOCLING_CORPUS_RESULTS.md", "public": false, "note": "仓库文档；部分提交尚未推送"},
-        {"type": "document", "location": "docs/archive/DOCLING_PILOT_RESULTS.md", "public": false, "note": "5 页难例小样"}
+        {
+          "type": "document",
+          "location": "docs/system/DOCLING_CORPUS_RESULTS.md",
+          "public": false,
+          "note": "仓库文档；部分提交尚未推送"
+        },
+        {
+          "type": "document",
+          "location": "docs/archive/DOCLING_PILOT_RESULTS.md",
+          "public": false,
+          "note": "5 页难例小样"
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历", "面试自我介绍"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历",
+        "面试自我介绍"
+      ],
       "interview_details": {
-        "decisions": ["规则解析遇到多行表头拆碎、整表漏检后，先用 5 页难例做受控对比再全量替换", "表格同时产出 Markdown 与键值两种块：前者给模型读，后者利于 BM25 命中行列组合", "每块加「公司 | 报告 | 章节路径」前缀，脱离上下文也能定位"],
-        "difficulties": ["续表无标题、表内重复表头会把金额吞进表头", "32 张单元格跨度重叠的表不能当作成功结构表"],
-        "verification": ["16 个源页事实锚点逐行比对", "全量结构审计零错误"],
+        "decisions": [
+          "规则解析遇到多行表头拆碎、整表漏检后，先用 5 页难例做受控对比再全量替换",
+          "表格同时产出 Markdown 与键值两种块：前者给模型读，后者利于 BM25 命中行列组合",
+          "每块加「公司 | 报告 | 章节路径」前缀，脱离上下文也能定位"
+        ],
+        "difficulties": [
+          "续表无标题、表内重复表头会把金额吞进表头",
+          "32 张单元格跨度重叠的表不能当作成功结构表"
+        ],
+        "verification": [
+          "16 个源页事实锚点逐行比对",
+          "全量结构审计零错误"
+        ],
         "result": "9,322 条证据块，作为检索与评测的统一底座"
       },
       "boundary": "个人项目。解析模型为开源 Docling；本人负责方案选择、适配层、切片规则与质量核验。",
@@ -34,21 +99,51 @@
       "source_fact": "本地混合检索：bge-m3 向量 + BM25（jieba + 财务词典）各召回 30，RRF(k=60) 融合，bge-reranker-v2-m3 交叉编码重排取前 5。30 题检索开发集 Hit@5 96.7%（29/30）、MRR@10 0.81；Dev 68 条事实 Hit@5 0.91。分阶段消融：融合相对只用 BM25 Hit@5 +33.3pp [13.3, 53.3]；重排使事实级 Hit@5 +7.4pp [1.5, 14.7]、多跳全跳覆盖@5 从 0.705 升到 0.841；发现 RRF 截断时等价副本分票的问题。",
       "candidate_wording": "搭建「向量 + BM25 双路召回 → RRF 融合 → 交叉编码器重排」混合检索，开发集 Hit@5 达 96.7%、MRR@10 0.81；通过一次召回、六种方案的分阶段消融量化各组件贡献（融合较单路 BM25 Hit@5 +33pp，重排使多跳题全跳覆盖从 70% 提升到 84%），并定位等价副本在 RRF 截断时「分票」丢失的问题。",
       "sources": [
-        {"type": "document", "location": "docs/experiments/RETRIEVAL_METRICS_V1.md", "public": false, "note": "含配对 bootstrap 区间"},
-        {"type": "document", "location": "docs/system/M2_V2_RESULTS.md", "public": false, "note": "Hit@5 29/30 验收"},
-        {"type": "data", "location": "docs/evidence/retrieval_metrics_v1/", "public": false, "note": "原始报告 JSON"}
+        {
+          "type": "document",
+          "location": "docs/experiments/RETRIEVAL_METRICS_V1.md",
+          "public": false,
+          "note": "含配对 bootstrap 区间"
+        },
+        {
+          "type": "document",
+          "location": "docs/system/M2_V2_RESULTS.md",
+          "public": false,
+          "note": "Hit@5 29/30 验收"
+        },
+        {
+          "type": "data",
+          "location": "docs/evidence/retrieval_metrics_v1/",
+          "public": false,
+          "note": "原始报告 JSON"
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历", "面试自我介绍"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历",
+        "面试自我介绍"
+      ],
       "interview_details": {
-        "decisions": ["RRF 只用名次，避免两路分数量纲不一致", "重排只对 30 个候选做，平衡精度与 CPU 推理成本", "检索返回各路完整候选，一次查询拆出 6 种方案，避免重复调用"],
-        "difficulties": ["同一数值有多个等价块，Recall 偏低；以 Hit@K 为主指标并单独报告 Recall", "检索标签 v1 只认一个块导致验收 23/30，改为源页等价标签后 29/30，且如实说明排序未变、变化来自标签"],
-        "verification": ["90 次检索前 5 名与正式评测记录逐项一致", "配对 bootstrap 95% 区间"],
+        "decisions": [
+          "RRF 只用名次，避免两路分数量纲不一致",
+          "重排只对 30 个候选做，平衡精度与 CPU 推理成本",
+          "检索返回各路完整候选，一次查询拆出 6 种方案，避免重复调用"
+        ],
+        "difficulties": [
+          "同一数值有多个等价块，Recall 偏低；以 Hit@K 为主指标并单独报告 Recall",
+          "检索标签 v1 只认一个块导致验收 23/30，改为源页等价标签后 29/30，且如实说明排序未变、变化来自标签"
+        ],
+        "verification": [
+          "90 次检索前 5 名与正式评测记录逐项一致",
+          "配对 bootstrap 95% 区间"
+        ],
         "result": "线上方案在 6 种方案中最好；发现 2 个检索问题并记录"
       },
       "boundary": "个人项目。向量与重排模型为开源 BAAI 模型，本人负责检索流水线、评测与分析。端到端（强制单路时 Agent 准确率）尚未测量。",
-      "risk_notes": ["面试时须说明 29/30 的提升来自标签修正而非算法改进"],
+      "risk_notes": [
+        "面试时须说明 29/30 的提升来自标签修正而非算法改进"
+      ],
       "last_verified": "2026-10-17"
     },
     {
@@ -56,16 +151,38 @@
       "source_fact": "用 LangGraph 实现规划者 / 执行者 / 核验者 / 综合四角色 Agent：工具为混合检索、受控上下文读取（续表、相邻页、单位说明）和 Decimal 计算器；有模型 / 工具 / 检索 / 重规划四类预算，并为最后一次核验和计算预留调用；发布门禁要求答案数值来自计算器、引用为已观测证据；JSON Schema 校验加一次带错误反馈的格式修复，使单模型 Agent 从 92.7% 提升到 98.7%（+6.0pp [2.7, 10.0]），报错从 9 次降到 0。",
       "candidate_wording": "基于 LangGraph 设计规划—执行—核验—综合四角色 Agent，配套受控上下文读取与 Decimal 计算器工具、分层预算与核验预留、「数值必须来自计算器、引用必须已观测」的发布门禁；引入 JSON Schema 校验 + 带错误反馈的格式修复，单模型 Agent 准确率 92.7%→98.7%（+6.0pp，95% CI [2.7, 10.0]），格式报错清零。",
       "sources": [
-        {"type": "document", "location": "docs/system/AGENT_M31_DESIGN.md", "public": false, "note": "上下文工具与核验预留"},
-        {"type": "document", "location": "docs/experiments/FORMAT_REPAIR_V1.md", "public": false, "note": "格式修复结果"}
+        {
+          "type": "document",
+          "location": "docs/system/AGENT_M31_DESIGN.md",
+          "public": false,
+          "note": "上下文工具与核验预留"
+        },
+        {
+          "type": "document",
+          "location": "docs/experiments/FORMAT_REPAIR_V1.md",
+          "public": false,
+          "note": "格式修复结果"
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历", "面试自我介绍"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历",
+        "面试自我介绍"
+      ],
       "interview_details": {
-        "decisions": ["核验通过后原样发布，不再让模型润色，避免改动数字", "计算交给 Decimal 计算器，答案可重放、可审计", "预算快用完时只允许提交或计算，最后一次调用留给核验"],
-        "difficulties": ["约一半失分来自 JSON 不符合 schema", "最后一步仍在检索导致找到证据却无法提交"],
-        "verification": ["每条轨迹审计：决策与工具调用一一对应、计算可重放、上下文读取可从索引重放"],
+        "decisions": [
+          "核验通过后原样发布，不再让模型润色，避免改动数字",
+          "计算交给 Decimal 计算器，答案可重放、可审计",
+          "预算快用完时只允许提交或计算，最后一次调用留给核验"
+        ],
+        "difficulties": [
+          "约一半失分来自 JSON 不符合 schema",
+          "最后一步仍在检索导致找到证据却无法提交"
+        ],
+        "verification": [
+          "每条轨迹审计：决策与工具调用一一对应、计算可重放、上下文读取可从索引重放"
+        ],
         "result": "格式修复 +6.0pp 显著；四角色在干净证据上与单模型打平"
       },
       "boundary": "个人项目；底座模型为 deepseek-v4.1-flash（API 调用），未做训练。",
@@ -77,17 +194,45 @@
       "source_fact": "评测集 benchmark_v1：从 340 条候选事实中，经原文、单位来源、会计恒等式、跨表一致四类核验准入 298 条；按 6 类模板（单跳陷阱、两公司运算、条件桥接、比率与增长、三跳及以上、无法回答）由程序用 Decimal 生成答案；Dev 50 / Test 100，按事实组合划分防泄漏；两个模型做歧义检查，用户抽查 20 道 Test 题；Test 需 --final + 登记配置才能运行，每次尝试只追加记录。",
       "candidate_wording": "构建无人工标注答案的多跳财报评测集：以会计恒等式与跨表一致性核验 298 条事实，按 6 类题型程序化生成 150 道题与精确答案（Dev 50 / Test 100），配套防泄漏划分、双模型歧义审查与 Test 访问保护（登记配置 + 只追加日志），保证架构对比不受调参污染。",
       "sources": [
-        {"type": "document", "location": "docs/benchmark/BENCHMARK_DESIGN.md", "public": false, "note": "设计"},
-        {"type": "document", "location": "docs/benchmark/FACT_LEDGER_V1.md", "public": false, "note": "340→298"},
-        {"type": "document", "location": "docs/benchmark/BENCHMARK_V1_QUALITY.md", "public": false, "note": "歧义检查与抽查"}
+        {
+          "type": "document",
+          "location": "docs/benchmark/BENCHMARK_DESIGN.md",
+          "public": false,
+          "note": "设计"
+        },
+        {
+          "type": "document",
+          "location": "docs/benchmark/FACT_LEDGER_V1.md",
+          "public": false,
+          "note": "340→298"
+        },
+        {
+          "type": "document",
+          "location": "docs/benchmark/BENCHMARK_V1_QUALITY.md",
+          "public": false,
+          "note": "歧义检查与抽查"
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历", "面试自我介绍"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历",
+        "面试自我介绍"
+      ],
       "interview_details": {
-        "decisions": ["答案由程序计算而非模型或人工撰写", "第一轮歧义检查发现「净利润」可指归母净利润，冻结前修订模板", "检索不到的题按设计保留，只作难度标签"],
-        "difficulties": ["1,367 个表格块单位未标注，需追溯表头或报告级声明", "同模板兄弟题相似度高，严格去重导致 Dev 缺少比率模板"],
-        "verification": ["13,540 道候选题用 Agent 计算器独立复算全部一致", "命令行实测 4 种违规用法均在调用模型前被拒绝"],
+        "decisions": [
+          "答案由程序计算而非模型或人工撰写",
+          "第一轮歧义检查发现「净利润」可指归母净利润，冻结前修订模板",
+          "检索不到的题按设计保留，只作难度标签"
+        ],
+        "difficulties": [
+          "1,367 个表格块单位未标注，需追溯表头或报告级声明",
+          "同模板兄弟题相似度高，严格去重导致 Dev 缺少比率模板"
+        ],
+        "verification": [
+          "13,540 道候选题用 Agent 计算器独立复算全部一致",
+          "命令行实测 4 种违规用法均在调用模型前被拒绝"
+        ],
         "result": "冻结的 Dev 50 / Test 100"
       },
       "boundary": "个人项目；20 道 Test 抽查由用户本人完成；歧义 Judge 为外部模型。",
@@ -99,15 +244,30 @@
       "source_fact": "Dev 逐级对照（各 3 次，配对 bootstrap）：闭卷 18.7% → 固定 RAG 61.3%（+42.7pp [28.0, 56.7]）→ 单模型 Agent 92.7%（+31.3pp [18.7, 44.7]，桥接题 13%→92%、三跳题 22%→83%）→ 四角色 93.3%（+0.7pp [−5.3, +6.7]，不显著，且模型调用多 23%、输出 token 约 2 倍）。",
       "candidate_wording": "设计闭卷 → 固定 RAG → 单模型 Agent → 四角色 Agent 的逐级消融（各 3 次、配对 bootstrap 95% CI）：检索贡献 +42.7pp，Agent 循环再 +31.3pp（桥接题 13%→92%），并如实给出「干净证据下多角色无显著收益且成本更高」的结论。",
       "sources": [
-        {"type": "document", "location": "docs/experiments/BENCHMARK_V1_S6_BASELINES.md", "public": false, "note": "逐级对照"}
+        {
+          "type": "document",
+          "location": "docs/experiments/BENCHMARK_V1_S6_BASELINES.md",
+          "public": false,
+          "note": "逐级对照"
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历", "面试自我介绍"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历",
+        "面试自我介绍"
+      ],
       "interview_details": {
-        "decisions": ["每次只改变一个因素；B2 与 B3 用完全相同的工具、预算与门禁"],
-        "difficulties": ["闭卷能答对 18.7% 说明存在记忆污染，因此同时报告各跳引用覆盖率（>99%）"],
-        "verification": ["报错计入分母", "失败与作废运行完整归档"],
+        "decisions": [
+          "每次只改变一个因素；B2 与 B3 用完全相同的工具、预算与门禁"
+        ],
+        "difficulties": [
+          "闭卷能答对 18.7% 说明存在记忆污染，因此同时报告各跳引用覆盖率（>99%）"
+        ],
+        "verification": [
+          "报错计入分母",
+          "失败与作废运行完整归档"
+        ],
         "result": "确立检索与 Agent 循环为主要收益来源"
       },
       "boundary": "仅 Dev 结论；单一模型提供方。",
@@ -119,21 +279,51 @@
       "source_fact": "盲故障注入（Dev 44 道可回答题 × 单位标错 / 本期上期列错位 / 冲突摘要表）：列错位使准确率下降 26–37pp；原版核验角色纠正 6 题、误伤 7 题，无净收益。按轨迹诊断后加入来源优先级、期间列核对、单一来源交叉核对、不重复拒绝四条规则（核验 v2）：纠正 15、误伤 2；最终四角色配置在列错位下比单模型高 +20.5pp [4.5, 36.4]，冲突摘要表下高 +18.2pp [6.8, 31.8]。核验 v2 是看过这批 Dev 故障后设计的，存在偏差，Test 故障验证尚未进行。",
       "candidate_wording": "设计不带任何提示的盲故障注入（单位标错、列错位、冲突摘要表），发现原版核验角色无净收益；按轨迹诊断提出来源优先级、期间列核对等四条核验规则，使四角色 Agent 在列错位故障下比单模型准确率高 20.5pp（95% CI [4.5, 36.4]），纠正数 6→15、误伤 7→2（Dev 结果，Test 确认中）。",
       "sources": [
-        {"type": "document", "location": "docs/experiments/FAULT_INJECTION_V1_RESULTS.md", "public": false, "note": "第 1 轮"},
-        {"type": "document", "location": "docs/experiments/VERIFIER_V2_RESULTS.md", "public": false, "note": "核验 v2"},
-        {"type": "document", "location": "docs/experiments/PLANNER_V2_RESULTS.md", "public": false, "note": "最终配置 B3v2p"}
+        {
+          "type": "document",
+          "location": "docs/experiments/FAULT_INJECTION_V1_RESULTS.md",
+          "public": false,
+          "note": "第 1 轮"
+        },
+        {
+          "type": "document",
+          "location": "docs/experiments/VERIFIER_V2_RESULTS.md",
+          "public": false,
+          "note": "核验 v2"
+        },
+        {
+          "type": "document",
+          "location": "docs/experiments/PLANNER_V2_RESULTS.md",
+          "public": false,
+          "note": "最终配置 B3v2p"
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历", "面试自我介绍"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历",
+        "面试自我介绍"
+      ],
       "interview_details": {
-        "decisions": ["只统计篡改后答案确实会变的「有效计划」", "所有变换逐字记录，审计时从原始返回重放", "设计与判定标准在运行前登记"],
-        "difficulties": ["干净证据下核验者看到的 266 个候选全部正确，无法评估其价值", "F3 下核验者无来源优先级规则，反复拒绝直到预算耗尽"],
-        "verification": ["事先登记的三条成功标准全部满足", "变换逐字重放审计"],
+        "decisions": [
+          "只统计篡改后答案确实会变的「有效计划」",
+          "所有变换逐字记录，审计时从原始返回重放",
+          "设计与判定标准在运行前登记"
+        ],
+        "difficulties": [
+          "干净证据下核验者看到的 266 个候选全部正确，无法评估其价值",
+          "F3 下核验者无来源优先级规则，反复拒绝直到预算耗尽"
+        ],
+        "verification": [
+          "事先登记的三条成功标准全部满足",
+          "变换逐字重放审计"
+        ],
         "result": "多角色首次测到显著收益（Dev）"
       },
       "boundary": "仅 Dev 结论，且规则是在同一批 Dev 故障上设计的，必须写「Dev」或「Test 确认中」。",
-      "risk_notes": ["不得写成已在 Test 上验证"],
+      "risk_notes": [
+        "不得写成已在 Test 上验证"
+      ],
       "last_verified": "2026-10-17"
     },
     {
@@ -141,15 +331,28 @@
       "source_fact": "核验 v2 引入规划超限报错（4/282）。规划者 v2：schema 限制计划最多 6 项并可由格式修复纠正，不合法计划转为结构化反馈；282 次运行中规划结构报错为 0，无故障 Dev 98.0%，相对核验 v2 +2.0pp [−1.3, +5.3]，满足非劣标准。",
       "candidate_wording": "定位核验规则引入的规划超限崩溃（4/282），将约束前移到输出 schema 并把非法计划转为可恢复反馈，282 次运行规划报错清零，准确率非劣（98.0%）。",
       "sources": [
-        {"type": "document", "location": "docs/experiments/PLANNER_V2_RESULTS.md", "public": false, "note": ""}
+        {
+          "type": "document",
+          "location": "docs/experiments/PLANNER_V2_RESULTS.md",
+          "public": false,
+          "note": ""
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历"
+      ],
       "interview_details": {
-        "decisions": ["把运行时报错改为 schema 约束 + 反馈，而不是放宽上限"],
-        "difficulties": ["剩余 2 次报错来自模型把整个决策嵌进 action 字段，早于规划者 v2 存在"],
-        "verification": ["事先登记的报错与非劣两条判定"],
+        "decisions": [
+          "把运行时报错改为 schema 约束 + 反馈，而不是放宽上限"
+        ],
+        "difficulties": [
+          "剩余 2 次报错来自模型把整个决策嵌进 action 字段，早于规划者 v2 存在"
+        ],
+        "verification": [
+          "事先登记的报错与非劣两条判定"
+        ],
         "result": "规划报错 4 → 0"
       },
       "boundary": "个人项目。",
@@ -161,20 +364,44 @@
       "source_fact": "上下文压缩 compact_v1（字段精简、重复块引用、键值副本折叠）：每题输入 token −37~44%、准确率 99.3% 未降，但未达事先登记的 40% 节省门槛与 F2 区间标准，未采纳。随后固定输入、只替换核验者看到的历史重放 129 条首次核验，定位多出的调用来自两步压缩使核验者更准确地执行「单一来源需交叉核对」规则（+12.4pp [3.1, 21.7]），逐条检查 34 个要求中 24 个确属单一来源，从而暴露核验 v2 在不压缩视图下把副本当成独立来源的弱点。",
       "candidate_wording": "实现无损上下文压缩（每题输入 token −37~44%、准确率不降），在未达事先登记门槛时坚持不采纳；进一步用「固定输入、只换历史视图」的核验重放实验定位额外调用的来源，发现问题出在核验者的来源计数而非压缩本身。",
       "sources": [
-        {"type": "document", "location": "docs/experiments/CONTEXT_V1_RESULTS.md", "public": false, "note": ""},
-        {"type": "document", "location": "docs/experiments/CONTEXT_V2_PLAN.md", "public": false, "note": "核验重放诊断"}
+        {
+          "type": "document",
+          "location": "docs/experiments/CONTEXT_V1_RESULTS.md",
+          "public": false,
+          "note": ""
+        },
+        {
+          "type": "document",
+          "location": "docs/experiments/CONTEXT_V2_PLAN.md",
+          "public": false,
+          "note": "核验重放诊断"
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历", "面试自我介绍"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历",
+        "面试自我介绍"
+      ],
       "interview_details": {
-        "decisions": ["压缩保持前缀稳定，不破坏缓存", "不因结果接近而事后放宽标准", "用单变量重放而非整轮对比做归因"],
-        "difficulties": ["整轮对比中轨迹会发散，无法区分原因"],
-        "verification": ["5 个视图版本 × 130 条，配对 bootstrap", "逐条比对质疑数值出现在几张表"],
+        "decisions": [
+          "压缩保持前缀稳定，不破坏缓存",
+          "不因结果接近而事后放宽标准",
+          "用单变量重放而非整轮对比做归因"
+        ],
+        "difficulties": [
+          "整轮对比中轨迹会发散，无法区分原因"
+        ],
+        "verification": [
+          "5 个视图版本 × 130 条，配对 bootstrap",
+          "逐条比对质疑数值出现在几张表"
+        ],
         "result": "未采纳压缩；记录核验者弱点"
       },
       "boundary": "个人项目。",
-      "risk_notes": ["不得写成「压缩节省 40%+ 并上线」"],
+      "risk_notes": [
+        "不得写成「压缩节省 40%+ 并上线」"
+      ],
       "last_verified": "2026-10-17"
     },
     {
@@ -182,20 +409,40 @@
       "source_fact": "多轮对话评测集 benchmark_v2（5 类对话链、Dev 26 / Test 52、每轮答案程序计算）与四种上下文策略。修订前候选集上的参考结果：改写 + 延续已核验证据在后续轮准确率 100%、检索次数 −49.5%、输入 token −24%；正式结果需在冻结的 r2 Dev 上重跑，因额度暂停。",
       "candidate_wording": "【待补：冻结后的正式结果】设计多轮对话评测集与四种上下文策略（独立 / 附记录 / 改写 / 改写 + 证据延续），初步结果显示延续已核验证据可使检索减半且准确率不降。",
       "sources": [
-        {"type": "document", "location": "docs/experiments/DIALOGUE_V1_RESULTS.md", "public": false, "note": "参考结果"},
-        {"type": "document", "location": "docs/benchmark/BENCHMARK_V2_DESIGN.md", "public": false, "note": "设计与 r2 修订"}
+        {
+          "type": "document",
+          "location": "docs/experiments/DIALOGUE_V1_RESULTS.md",
+          "public": false,
+          "note": "参考结果"
+        },
+        {
+          "type": "document",
+          "location": "docs/benchmark/BENCHMARK_V2_DESIGN.md",
+          "public": false,
+          "note": "设计与 r2 修订"
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "待确认",
       "allowed_uses": [],
       "interview_details": {
-        "decisions": ["每轮写好独立问题，指代是否理解正确可由程序判定", "前几轮答案用系统自身输出，以测量错误传播"],
-        "difficulties": ["第一轮歧义检查发现换指标未重复口径的模板缺陷，冻结前修订"],
-        "verification": ["按对话做 bootstrap", "事先登记三项判定"],
+        "decisions": [
+          "每轮写好独立问题，指代是否理解正确可由程序判定",
+          "前几轮答案用系统自身输出，以测量错误传播"
+        ],
+        "difficulties": [
+          "第一轮歧义检查发现换指标未重复口径的模板缺陷，冻结前修订"
+        ],
+        "verification": [
+          "按对话做 bootstrap",
+          "事先登记三项判定"
+        ],
         "result": null
       },
       "boundary": "正式结果出来前只能写「初步结果」，不进最终简历数字。",
-      "risk_notes": ["当前数字来自修订前候选集"],
+      "risk_notes": [
+        "当前数字来自修订前候选集"
+      ],
       "last_verified": "2026-10-17"
     },
     {
@@ -203,16 +450,36 @@
       "source_fact": "FastAPI 多用户服务：API key 哈希存储、跨用户访问返回 404、按用户公平轮转调度、SSE 事件先落库再推送并支持 Last-Event-ID 断线续传、取消与超时、限流与每日 token 配额、重启后标记未完成运行；压测 0 事件丢失，公平调度使轻度用户排队中位数从 47.5s 降到 10.6s；会话内多轮对话与个人偏好；前端含步骤时间线、证据高亮与召回细节。",
       "candidate_wording": "将 Agent 封装为多用户服务（FastAPI + SSE）：事件持久化后推送、支持断线续传，按用户公平调度与限流配额，压测中事件零丢失、轻度用户排队中位数 47.5s→10.6s；前端实时展示规划、检索召回细节、核验与证据高亮。",
       "sources": [
-        {"type": "document", "location": "docs/system/SERVICE.md", "public": false, "note": "含压测报告链接"},
-        {"type": "data", "location": "docs/evidence/service/loadtest_2026-09-26.json", "public": false, "note": ""}
+        {
+          "type": "document",
+          "location": "docs/system/SERVICE.md",
+          "public": false,
+          "note": "含压测报告链接"
+        },
+        {
+          "type": "data",
+          "location": "docs/evidence/service/loadtest_2026-09-26.json",
+          "public": false,
+          "note": ""
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历"
+      ],
       "interview_details": {
-        "decisions": ["浏览器 EventSource 不能带鉴权头，改用 fetch 自行解析 SSE，避免把 key 放进 URL", "同一会话一次只进行一轮，保证上下文完整"],
-        "difficulties": ["取消只能在下一个事件处生效，已发出的模型调用无法中断"],
-        "verification": ["23 项服务测试", "用录制轨迹按 1/20 速度压测"],
+        "decisions": [
+          "浏览器 EventSource 不能带鉴权头，改用 fetch 自行解析 SSE，避免把 key 放进 URL",
+          "同一会话一次只进行一轮，保证上下文完整"
+        ],
+        "difficulties": [
+          "取消只能在下一个事件处生效，已发出的模型调用无法中断"
+        ],
+        "verification": [
+          "23 项服务测试",
+          "用录制轨迹按 1/20 速度压测"
+        ],
         "result": "单机可演示的多用户服务"
       },
       "boundary": "压测衡量服务层本身，不含模型与检索吞吐；单机 SQLite。",
@@ -224,15 +491,28 @@
       "source_fact": "实验 harness：错误分类（额度 / 传输 / Agent），额度用完立即停止并逐题续跑；模型输入逐字节录制与回放，1,278 道历史题回放一致；每批运行前 5 题金丝雀检测模型 / 接口漂移；运行登记表与成本预估；GitHub Actions CI；全部实验先登记设计与判定标准再运行。",
       "candidate_wording": "搭建可复现的实验 harness：逐字节录制—回放回归（1,278 道历史题一致）、额度中断自动续跑、金丝雀漂移检测与事先登记的实验流程，保证每个结论都可追溯、可复现。",
       "sources": [
-        {"type": "document", "location": "docs/system/HARNESS.md", "public": false, "note": ""}
+        {
+          "type": "document",
+          "location": "docs/system/HARNESS.md",
+          "public": false,
+          "note": ""
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["大模型应用 / Agent 算法简历"],
+      "allowed_uses": [
+        "大模型应用 / Agent 算法简历"
+      ],
       "interview_details": {
-        "decisions": ["报错和中断运行计入分母并完整归档，不挑结果"],
-        "difficulties": ["同名模型在两个接口地址上固定 RAG 准确率相差约 17pp，促成金丝雀"],
-        "verification": ["282 项测试"],
+        "decisions": [
+          "报错和中断运行计入分母并完整归档，不挑结果"
+        ],
+        "difficulties": [
+          "同名模型在两个接口地址上固定 RAG 准确率相差约 17pp，促成金丝雀"
+        ],
+        "verification": [
+          "282 项测试"
+        ],
         "result": "实验可复现、可审计"
       },
       "boundary": "CI 配置已写好，仓库尚未推送最新提交。",
@@ -244,14 +524,28 @@
       "source_fact": "Test 验证：两个登记配置各跑完 1 次（共需 3 次），按约定未打分。",
       "candidate_wording": "【待补：Test 三次运行完成并打分后的结果】",
       "sources": [
-        {"type": "document", "location": "docs/experiments/TEST_V1_PLAN.md", "public": false, "note": ""}
+        {
+          "type": "document",
+          "location": "docs/experiments/TEST_V1_PLAN.md",
+          "public": false,
+          "note": ""
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "不采用",
       "allowed_uses": [],
-      "interview_details": {"decisions": ["三次跑完前不打分"], "difficulties": [], "verification": [], "result": null},
+      "interview_details": {
+        "decisions": [
+          "三次跑完前不打分"
+        ],
+        "difficulties": [],
+        "verification": [],
+        "result": null
+      },
       "boundary": "没有任何 Test 准确率可以引用。",
-      "risk_notes": ["简历不得出现 Test 数字"],
+      "risk_notes": [
+        "简历不得出现 Test 数字"
+      ],
       "last_verified": "2026-10-17"
     },
     {
@@ -259,12 +553,26 @@
       "source_fact": "长期记忆：文档结构记忆（只记表格位置、只从已核验答案写入、行名取自索引原文），离线预检线索覆盖 75% 所需证据；正式评估（对照 / 正序 / 逆序 / 污染）因额度暂停。",
       "candidate_wording": "【待补：记忆评估结果】",
       "sources": [
-        {"type": "document", "location": "docs/experiments/MEMORY_V1_PLAN.md", "public": false, "note": ""}
+        {
+          "type": "document",
+          "location": "docs/experiments/MEMORY_V1_PLAN.md",
+          "public": false,
+          "note": ""
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "不采用",
       "allowed_uses": [],
-      "interview_details": {"decisions": ["只记位置不记数值，防止错误数值传播"], "difficulties": [], "verification": ["离线预检为上限，不作结论"], "result": null},
+      "interview_details": {
+        "decisions": [
+          "只记位置不记数值，防止错误数值传播"
+        ],
+        "difficulties": [],
+        "verification": [
+          "离线预检为上限，不作结论"
+        ],
+        "result": null
+      },
       "boundary": "评估完成前只在面试中作为设计讨论，不写进简历。",
       "risk_notes": [],
       "last_verified": "2026-10-17"
@@ -274,19 +582,30 @@
       "source_fact": "开发过程中大量使用 AI 编程助手（Claude Code）辅助实现代码与文档；方案选择、实验设计、判定标准、结果取舍由本人决定。用户决定简历中不写，面试被问时如实说明。",
       "candidate_wording": "（不进入简历）",
       "sources": [
-        {"type": "statement", "location": "用户本人确认（2026-10-17）", "public": false, "note": ""}
+        {
+          "type": "statement",
+          "location": "用户本人确认（2026-10-17）",
+          "public": false,
+          "note": ""
+        }
       ],
       "responsibility_level": "项目负责人",
       "verification_status": "已确认",
-      "allowed_uses": ["面试问答"],
+      "allowed_uses": [
+        "面试问答"
+      ],
       "interview_details": {
-        "decisions": ["关键取舍：采用事先登记、坚持不采纳未达标方案、选择到此为止"],
+        "decisions": [
+          "关键取舍：采用事先登记、坚持不采纳未达标方案、选择到此为止"
+        ],
         "difficulties": [],
         "verification": [],
         "result": "面试中被问到时如实说明分工"
       },
       "boundary": "不得声称所有代码均为手写。",
-      "risk_notes": ["面试回答要与实际分工一致"],
+      "risk_notes": [
+        "面试回答要与实际分工一致"
+      ],
       "last_verified": "2026-10-17"
     }
   ]
