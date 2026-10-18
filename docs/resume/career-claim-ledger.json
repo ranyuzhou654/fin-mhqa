@@ -5,13 +5,13 @@
     "target_roles": [
       "大模型应用 / Agent 算法工程师"
     ],
-    "updated_at": "2026-10-17"
+    "updated_at": "2026-10-18"
   },
   "claims": [
     {
       "id": "claim-fin-background-001",
       "source_fact": "项目背景（均来自本项目的测量或观察）：固定 RAG（每家公司检索一次、模型调用一次）在 Dev 上只有 61.3%，条件桥接题 13%、三跳题 22%；通用规则解析（PyMuPDF/pdfplumber）在财报复杂表格上出现多行表头拆碎、整张利润表漏检；四角色 Agent 在干净证据上相对单模型 +0.7pp [−5.3, +6.7] 不显著，且调用多 23%、输出 token 约 2 倍；闭卷基线能答对 18.7%，说明模型可能见过公开财报。",
-      "candidate_wording": "分析财报常要跨公司、跨报表多步计算，口径或单位一错就答错。传统 RAG 只检索一次，无法根据中间结果决定下一步，实测「先比较、再查询」类问题只有 13% 的准确率；多角色 Agent 是否有效也缺少可靠的评测来回答。",
+      "candidate_wording": "财报问答需要跨公司、跨报表的多跳推理与精确计算，口径、期间或单位一错即答错。单次检索的 Naive RAG 无法根据中间结果规划下一步检索，实测条件桥接类问题准确率仅 13%；多角色 Agent 的收益也缺少可靠的 Benchmark 来验证。",
       "sources": [
         {
           "type": "document",
@@ -53,7 +53,7 @@
     {
       "id": "claim-fin-data-001",
       "source_fact": "用 Docling（版面模型 + TableFormer）离线解析 10 家 A 股公司 2025 年半年报共 1,750 页，0 失败，得到 9,322 条可追溯证据块（正文 3,719、表格 Markdown 2,823、表格键值 2,780）；换解析器前先做 5 页难例对照；16 个源页事实锚点全部通过。",
-      "candidate_wording": "用开源文档解析模型处理 10 家上市公司半年报（1,750 页），按正文和表格切分为 9,322 个文本块。",
+      "candidate_wording": "基于 Docling（Layout + TableFormer）解析 10 家上市公司半年报共 1,750 页，按正文 / 表格 Markdown / 表格 Key-Value 三类 Chunking，得到 9,322 个可溯源 chunk。",
       "sources": [
         {
           "type": "document",
@@ -97,7 +97,7 @@
     {
       "id": "claim-fin-retrieval-001",
       "source_fact": "本地混合检索：bge-m3 向量 + BM25（jieba + 财务词典）各召回 30，RRF(k=60) 融合，bge-reranker-v2-m3 交叉编码重排取前 5。30 题检索开发集 Hit@5 96.7%（29/30）、MRR@10 0.81；Dev 68 条事实 Hit@5 0.91。分阶段消融：融合相对只用 BM25 Hit@5 +33.3pp [13.3, 53.3]；重排使事实级 Hit@5 +7.4pp [1.5, 14.7]、多跳全跳覆盖@5 从 0.705 升到 0.841；发现 RRF 截断时等价副本分票的问题。",
-      "candidate_wording": "检索采用「向量 + 关键词」双路召回、排名融合和重排模型，开发集前 5 条结果的命中率为 96.7%。",
+      "candidate_wording": "Dense（bge-m3）+ BM25 双路召回，经 RRF 融合后用 Cross-Encoder Rerank，Hit@5 达 96.7%，MRR@10 达 0.81；分阶段 Ablation 显示，Rerank 使多跳题全跳覆盖率从 70% 提升至 84%。",
       "sources": [
         {
           "type": "document",
@@ -149,7 +149,7 @@
     {
       "id": "claim-fin-agent-001",
       "source_fact": "用 LangGraph 实现规划者 / 执行者 / 核验者 / 综合四角色 Agent：工具为混合检索、受控上下文读取（续表、相邻页、单位说明）和 Decimal 计算器；有模型 / 工具 / 检索 / 重规划四类预算，并为最后一次核验和计算预留调用；发布门禁要求答案数值来自计算器、引用为已观测证据；JSON Schema 校验加一次带错误反馈的格式修复，使单模型 Agent 从 92.7% 提升到 98.7%（+6.0pp [2.7, 10.0]），报错从 9 次降到 0。",
-      "candidate_wording": "基于 LangGraph 实现规划、执行、核验三类角色，配备检索、读取上下文和精确计算三种工具；答案中的数字必须来自计算工具，引用必须是真实检索到的原文；加入输出格式校验与自动纠错后，单模型版本的准确率从 92.7% 提升到 98.7%。",
+      "candidate_wording": "基于 LangGraph 实现 Planner / Executor / Verifier 多角色 Agent，Tool Calling 覆盖检索、上下文读取与 Decimal 计算器，设置分层调用预算并为 Verifier 预留调用；答案数值必须来自计算器，引用必须是已检索到的原文；引入 JSON Schema 校验 + Self-Repair 后，单 Agent 准确率由 92.7% 提升至 98.7%（+6.0pp）。",
       "sources": [
         {
           "type": "document",
@@ -192,7 +192,7 @@
     {
       "id": "claim-fin-benchmark-001",
       "source_fact": "评测集 benchmark_v1：从 340 条候选事实中，经原文、单位来源、会计恒等式、跨表一致四类核验准入 298 条；按 6 类模板（单跳陷阱、两公司运算、条件桥接、比率与增长、三跳及以上、无法回答）由程序用 Decimal 生成答案；Dev 50 / Test 100，按事实组合划分防泄漏；两个模型做歧义检查，用户抽查 20 道 Test 题；Test 需 --final + 登记配置才能运行，每次尝试只追加记录。",
-      "candidate_wording": "为避免人工标注误差，先用会计勾稽关系核验出 298 条财务事实，再按 6 类题型自动生成 150 道多跳题及精确答案；开发集与测试集严格隔离，只有事先登记的方案才能在测试集上运行。",
+      "candidate_wording": "用会计勾稽关系与跨表一致性核验 298 条财务事实，按 6 类题型程序化生成 150 道多跳题及精确答案（Dev 50 / Test 100），答案不依赖人工标注；按事实组合划分以防数据泄漏，用双 LLM-as-Judge 做歧义审查，Test 只允许事先登记的配置运行。",
       "sources": [
         {
           "type": "document",
@@ -242,7 +242,7 @@
     {
       "id": "claim-fin-ablation-001",
       "source_fact": "Dev 逐级对照（各 3 次，配对 bootstrap）：闭卷 18.7% → 固定 RAG 61.3%（+42.7pp [28.0, 56.7]）→ 单模型 Agent 92.7%（+31.3pp [18.7, 44.7]，桥接题 13%→92%、三跳题 22%→83%）→ 四角色 93.3%（+0.7pp [−5.3, +6.7]，不显著，且模型调用多 23%、输出 token 约 2 倍）。",
-      "candidate_wording": "逐级对比显示，检索带来 43 个百分点的提升，多步 Agent 再带来 31 个百分点，而多角色在证据正确时没有额外收益。",
+      "candidate_wording": "逐级 Ablation 显示，Retrieval 带来 +42.7pp，Agent Loop 再带来 +31.3pp，多角色在干净证据下无显著收益。",
       "sources": [
         {
           "type": "document",
@@ -277,7 +277,7 @@
     {
       "id": "claim-fin-fault-001",
       "source_fact": "盲故障注入（Dev 44 道可回答题 × 单位标错 / 本期上期列错位 / 冲突摘要表）：列错位使准确率下降 26–37pp；原版核验角色纠正 6 题、误伤 7 题，无净收益。按轨迹诊断后加入来源优先级、期间列核对、单一来源交叉核对、不重复拒绝四条规则（核验 v2）：纠正 15、误伤 2；最终四角色配置在列错位下比单模型高 +20.5pp [4.5, 36.4]，冲突摘要表下高 +18.2pp [6.8, 31.8]。核验 v2 是看过这批 Dev 故障后设计的，存在偏差，Test 故障验证尚未进行。",
-      "candidate_wording": "人为制造错误证据（如本期与上期数据互换），发现原版核验无效；分析运行记录后补充 4 条核验规则，在这类错误下比单模型准确率高 20 个百分点（开发集）。",
+      "candidate_wording": "设计盲 Fault Injection（单位错标、本期 / 上期列错位、冲突摘要表），发现原版 Verifier 无净收益；基于 Trajectory 分析加入 4 条规则后，列错位场景下准确率较单 Agent 高 20.5pp（Dev，95% CI [4.5, 36.4]）。",
       "sources": [
         {
           "type": "document",
@@ -448,7 +448,7 @@
     {
       "id": "claim-fin-service-001",
       "source_fact": "FastAPI 多用户服务：API key 哈希存储、跨用户访问返回 404、按用户公平轮转调度、SSE 事件先落库再推送并支持 Last-Event-ID 断线续传、取消与超时、限流与每日 token 配额、重启后标记未完成运行；压测 0 事件丢失，公平调度使轻度用户排队中位数从 47.5s 降到 10.6s；会话内多轮对话与个人偏好；前端含步骤时间线、证据高亮与召回细节。",
-      "candidate_wording": "把 Agent 封装为支持多用户的流式服务，可实时展示每一步推理和引用证据，支持断线续传、按用户公平排队和限流；压测中消息零丢失，轻度用户的排队时间从 47.5 秒降到 10.6 秒。",
+      "candidate_wording": "基于 FastAPI + SSE 实现多用户 Agent 服务，事件先持久化再推送，支持 Last-Event-ID 断线续传、按用户 Fair Scheduling、Rate Limit 与 Token 配额；压测中事件零丢失，轻负载用户的 P50 排队时延由 47.5s 降至 10.6s。",
       "sources": [
         {
           "type": "document",
@@ -489,7 +489,7 @@
     {
       "id": "claim-fin-harness-001",
       "source_fact": "实验 harness：错误分类（额度 / 传输 / Agent），额度用完立即停止并逐题续跑；模型输入逐字节录制与回放，1,278 道历史题回放一致；每批运行前 5 题金丝雀检测模型 / 接口漂移；运行登记表与成本预估；GitHub Actions CI；全部实验先登记设计与判定标准再运行。",
-      "candidate_wording": "搭建可复现的实验 harness：逐字节录制—回放回归（1,278 道历史题一致）、额度中断自动续跑、金丝雀漂移检测与事先登记的实验流程，保证每个结论都可追溯、可复现。",
+      "candidate_wording": "配套 Record-Replay 回归测试（1,278 条历史轨迹回放一致）与事先登记的实验流程。",
       "sources": [
         {
           "type": "document",
